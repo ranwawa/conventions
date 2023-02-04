@@ -1,0 +1,15 @@
+{
+  "ap": true,
+  "my": true,
+  "tt": true,
+  "uni": true,
+  "swan": true,
+  "plus": true,
+  "wx": true,
+  "dd": true,
+  "ks": true,
+  "getCurrentPages": true,
+  "vconsole": true,
+  "Atomics": "readonly",
+  "SharedArrayBuffer": "readonly"
+}
