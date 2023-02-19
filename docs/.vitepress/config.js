@@ -6,7 +6,7 @@ export default {
   themeConfig: {
     nav: [
       { text: "接入", link: "/guide/script/quick-start" },
-      { text: "规则", link: "/rules/script/javascript/array-callback-return" },
+      { text: "规则", link: "/rules/script/index" },
     ],
     sidebar: [
       {
