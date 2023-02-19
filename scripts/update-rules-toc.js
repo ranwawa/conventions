@@ -64,22 +64,22 @@ const updateFile = (language) => {
         encoding: "utf-8",
       });
 
-      content = content
-        .replace(/^# *(.*)/, `# ${fileWithoutExtension}\r\n\r\n$1`)
-        .replace("## Why?", "### 为什么?")
-        .replace("> ", "")
-        .replace("## bad", "### 错误示例")
-        .replace("## good", "### 正确示例")
-        .replace("## 参考:", "### 参考");
+      // content = content
+      //   .replace(/^# *(.*)/, `# ${fileWithoutExtension}\r\n\r\n$1`)
+      //   .replace("## Why?", "### 为什么?")
+      //   .replace("> ", "")
+      //   .replace("## bad", "### 错误示例")
+      //   .replace("## good", "### 正确示例")
+      //   .replace("## 参考:", "### 参考");
 
-      const result = /\/([a-zA-Z-]+)(\.md)?\)/.exec(content);
-      if (result) {
-        const [, name] = result;
-        content = content.replace(/^# *(.*)/, `# ${name}`);
-        fs.writeFileSync(filePath, content);
+      // const result = /\/([a-zA-Z-]+)(\.md)?\)/.exec(content);
+      // if (result) {
+      //   const [, name] = result;
+      //   content = content.replace(/^# *(.*)/, `# ${name}`);
+      //   fs.writeFileSync(filePath, content);
 
-        fs.renameSync(filePath, path.join(parentDir, category, `${name}.md`));
-      }
+      //   fs.renameSync(filePath, path.join(parentDir, category, `${name}.md`));
+      // }
 
       const result2 = /#.*\s*([^\r\n]+)/.exec(content);
       const [, name] = result2;
