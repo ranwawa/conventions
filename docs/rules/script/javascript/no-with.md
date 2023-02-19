@@ -1,10 +1,12 @@
-# 禁用警告注释
+# no-with
 
-## Why?
+禁用警告注释
 
-> 开发者经常给代码添加注释，标明哪些没有完成或需要审查。
+### 为什么?
 
-## bad
+开发者经常给代码添加注释，标明哪些没有完成或需要审查。
+
+### 错误示例
 
 ```js
 function callback(err, results) {
@@ -16,7 +18,7 @@ function callback(err, results) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function callback(err, results) {
@@ -29,6 +31,6 @@ function callback(err, results) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-with](https://eslint.org/docs/rules/no-with)

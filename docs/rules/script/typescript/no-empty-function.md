@@ -1,21 +1,25 @@
-# 禁止使用数组构造函数
+# no-empty-function
 
-## Why?
+禁止使用空函数
 
-> 数组构造函数在一个参数时是创建指定长度的数组,而在多个参数时则是创建指定元素的数组,容易使人产生混淆,请统一使用字面量语法创建数组
+### 为什么?
 
-## bad
+空函数不会产生任何作用,没存在的意思.如果有特殊用途,请在函数体内加个注释以说明用途
+
+### 错误示例
 
 ```ts
-const arr = new Array(1, 2, 3);
+function loop() {}
 ```
 
-## good
+### 正确示例
 
 ```ts
-const arr = [1, 2, 3];
+function loop() {
+  // 用于指定默认函数
+}
 ```
 
 ## 参考
 
-- [no-array-constructor](https://typescript-eslint.io/rules/no-array-constructor)
+- [@typescript-eslint/no-empty-function](https://typescript-eslint.io/rules/no-empty-function)

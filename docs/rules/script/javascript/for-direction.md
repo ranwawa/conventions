@@ -1,10 +1,12 @@
-# 要求或者禁止 Yoda 条件
+# for-direction
 
-## Why?
+要求或者禁止 Yoda 条件
 
-> 在条件判断中字面量在先而变量在第二的位置。
+### 为什么?
 
-## bad
+在条件判断中字面量在先而变量在第二的位置。
+
+### 错误示例
 
 ```js
 if ("red" === color) {
@@ -12,7 +14,7 @@ if ("red" === color) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 if (value === "red") {
@@ -20,6 +22,6 @@ if (value === "red") {
 }
 ```
 
-## 参考:
+### 参考
 
 - [for-direction](https://eslint.org/docs/rules/for-direction)

@@ -1,28 +1,25 @@
-# 必须把同个函数的重载签名放一起
+# ban-ts-comment
 
-## Why?
+禁用单行注释关闭 ts 检测功能
 
-> 函数重载是针对一个函数的多种调用形式,集中管理有利于代码维护.
+### 为什么?
 
-## bad
+@ts-ignore,@ts-nocheck,@ts-expect-error 和 any 一样,会破坏类型推导.请使用正确的类型定义,时间来不及可以临时用 unknown 替代
 
-```ts
-export function foo(s: string): void;
-export function foo(n: number): void;
-export function bar(): void;
-export function foo(sn: string | number): void;
-```
-
-## good
+### 错误示例
 
 ```ts
-export function foo(s: string): void;
-export function foo(n: number): void;
-export function foo(sn: string | number): void;
-
-export function bar(): void;
+// @ts-expect-error
+// @ts-ignore
+// @ts-nocheck
 ```
 
-## 参考:
+### 正确示例
 
-- [@typescript-eslint/adjacent-overload-signatures](https://typescript-eslint.io/rules/adjacent-overload-signatures)
+```ts
+// @ts-check
+```
+
+### 参考
+
+- [@typescript-eslint/ban-ts-comment](https://typescript-eslint.io/rules/ban-ts-comment)

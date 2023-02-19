@@ -1,10 +1,12 @@
-# 必须使用 var 包裹自定义变量
+# custom-property-no-missing-var-function
 
-## Why?
+必须使用 var 包裹自定义变量
 
-> scss,less 等预处理器用多了容易忘记输入 var 函数,这是个明显的语法错误.请补上.
+### 为什么?
 
-## bad
+scss,less 等预处理器用多了容易忘记输入 var 函数,这是个明显的语法错误.请补上.
+
+### 错误示例
 
 ```css
 :root {
@@ -15,7 +17,7 @@ a {
 }
 ```
 
-## good
+### 正确示例
 
 ```css
 :root {

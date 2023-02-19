@@ -1,10 +1,12 @@
-# 防止使用 UNSAFE\_方法
+# jsx-fragments
+
+防止使用 UNSAFE\_方法
 
 why?
 
-> 某些遗留的生命周期方法在异步 React 应用程序中使用是不安全的，并且在严格模式下会导致警告。这些也恰好是在 React 社区中引起最大混乱的生命周期
+某些遗留的生命周期方法在异步 React 应用程序中使用是不安全的，并且在严格模式下会导致警告。这些也恰好是在 React 社区中引起最大混乱的生命周期
 
-## bad
+### 错误示例
 
 ```jsx
 class Foo extends React.Component {
@@ -14,7 +16,7 @@ class Foo extends React.Component {
 }
 ```
 
-## good
+### 正确示例
 
 ```jsx
 class Foo extends Bar {
@@ -24,6 +26,6 @@ class Foo extends Bar {
 }
 ```
 
-## 参考:
+### 参考
 
 - [jsx-fragments](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/jsx-fragments)

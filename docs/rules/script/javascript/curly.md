@@ -1,10 +1,12 @@
-# 函数返回语句始终或从不指定值
+# curly
 
-## Why?
+函数返回语句始终或从不指定值
 
-> JavaScript 允许在一个函数中不同的代码路径返回不同类的值
+### 为什么?
 
-## bad
+JavaScript 允许在一个函数中不同的代码路径返回不同类的值
+
+### 错误示例
 
 ```js
 function doSomething(condition) {
@@ -16,7 +18,7 @@ function doSomething(condition) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function doSomething(condition) {
@@ -28,6 +30,6 @@ function doSomething(condition) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [curly](https://eslint.org/docs/rules/curly)

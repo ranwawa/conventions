@@ -1,24 +1,26 @@
-# 必须在最后一条 import 语句后换行
+# prefer-default-export
 
-## Why?
+prefer-default-export
 
-> 模块引入和业务代码分开,从视觉层面区分开他们的用途.
+必须使用 default 导出惟一的模块
 
-## bad
+### 为什么?
 
-```js
-import lodash from "lodash";
-console.log(lodash);
-```
+文件只导出一个模块,使用 default 导出.调用方不用关心导出的模块名,更容易上手.
 
-## good
+### 错误示例
 
 ```js
-import lodash from "lodash";
-
-console.log(lodash);
+export const name = "zmn";
 ```
 
-## 参考:
+### 正确示例
 
-- [import/newline-after-import](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md)
+```js
+const name = "zmn";
+export default name;
+```
+
+### 参考
+
+- [import/prefer-default-export](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)

@@ -1,21 +1,23 @@
-# 建议在正则表达式中使用命名捕获组
+# prefer-object-has-own
 
-## Why?
+建议在正则表达式中使用命名捕获组
 
-> 命名捕获组可以用于正则表达式中，这可以提高正则表达式的可读性。
+### 为什么?
 
-## bad
+命名捕获组可以用于正则表达式中，这可以提高正则表达式的可读性。
+
+### 错误示例
 
 ```js
 const foo = /(ba[rz])/;
 ```
 
-## good
+### 正确示例
 
 ```js
 const foo = /(?<id>ba[rz])/;
 ```
 
-## 参考:
+### 参考
 
 - [prefer-object-has-own](https://eslint.org/docs/rules/prefer-object-has-own)

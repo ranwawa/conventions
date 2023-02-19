@@ -1,21 +1,23 @@
-# 防止 jsx 中的重复属性
+# jsx-no-literals
 
-## Why?
+防止 jsx 中的重复属性
 
-> 创建具有重复 props 的 JSX 元素可能会导致应用程序出现意外行为
+### 为什么?
 
-## bad
+创建具有重复 props 的 JSX 元素可能会导致应用程序出现意外行为
+
+### 错误示例
 
 ```jsx
 <Hello name="John" name="John" />
 ```
 
-## good
+### 正确示例
 
 ```jsx
 <Hello firstname="John" lastname="Doe" />
 ```
 
-## 参考:
+### 参考
 
 - [jsx-no-literals](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/jsx-no-literals)

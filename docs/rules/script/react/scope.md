@@ -1,10 +1,12 @@
-# 强制定义具有显式或隐式角色的元素仅包含 aria-\*受其支持的属性 role
+# scope
+
+强制定义具有显式或隐式角色的元素仅包含 aria-\*受其支持的属性 role
 
 why?
 
-> 许多 ARIA 属性（状态和属性）只能用于具有特定角色的元素。一些元素具有隐含的角色，例如< a href="#" />，将解析为 role="link"。
+许多 ARIA 属性（状态和属性）只能用于具有特定角色的元素。一些元素具有隐含的角色，例如< a href="#" />，将解析为 role="link"。
 
-## bad
+### 错误示例
 
 ```jsx
 <!-- Bad: the radio role does not support the aria-required property -->
@@ -15,7 +17,7 @@ why?
 </ul>
 ```
 
-## good
+### 正确示例
 
 ```jsx
 <!-- Good: the radiogroup role does support the aria-required property -->
@@ -26,6 +28,6 @@ why?
 </ul>
 ```
 
-## 参考:
+### 参考
 
 - [scope](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/scope)

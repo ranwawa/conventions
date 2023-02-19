@@ -1,21 +1,25 @@
-# 禁止导出可更改的模块
+# no-commonjs
 
-## Why?
+no-commonjs
 
-> ES6 模块是单例的,模块被修改后会影响其他所有地方的使用,为避免意外对模块造成破坏,禁止导出可编辑的模块(即 let, var)
+禁止使用 CMD,AMD 模块语法
 
-## bad
+# Why?
 
-```js
-export let name = "zmn";
-```
+EMS 是官方标准大势所趋,即使在 node 端 ESM 可以兼容 CMD,反之则不行,所以统一使用 EMS 模块语法即可
 
-## good
+# bad
 
 ```js
-export const name = "zmn";
+const lodash = require("lodash");
 ```
 
-## 参考:
+# good
 
-- [import/no-mutable-exports](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
+```js
+import lodash from "lodash";
+```
+
+# 参考
+
+- [import/no-commonjs](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-commonjs.md)

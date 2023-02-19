@@ -1,17 +1,19 @@
-# 禁止出现未知道的@规则
+# at-rule-no-unknown
 
-## Why?
+禁止出现未知道的@规则
 
-> 防止打错字导致样式失效,已知的标记如: `@media` `@charset`.请检查输入是否错误
+### 为什么?
 
-## bad
+防止打错字导致样式失效,已知的标记如: `@media` `@charset`.请检查输入是否错误
+
+### 错误示例
 
 ```css
 @unknown {
 }
 ```
 
-## good
+### 正确示例
 
 ```css
 @meida (max-width: 960px) {

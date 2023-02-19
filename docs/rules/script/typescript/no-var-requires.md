@@ -1,26 +1,23 @@
-# 禁止存在未使用的变量
+# no-var-requires
 
-## Why?
+禁止使用 node 的 require 语法
 
-> 随着代码的增长,如果存在过多未使用的变量会影响代码的可读性和可维护性,请删掉未使用的变量
+### 为什么?
 
-## bad
+ts 不支持 node 的 require 语法,会导致引入的模块类型使用,请使用 ts 的 import 语法或者 esm 替代
+
+### 错误示例
 
 ```ts
-type Prop = string;
-type State = number;
-
-let prop: Prop;
+const foo = require("foo");
 ```
 
-## good
+### 正确示例
 
 ```ts
-type Prop = string;
-
-let prop: Prop;
+import foo = require("foo");
 ```
 
 ## 参考
 
-- [@typescript-eslint/no-unused-vars](https://typescript-eslint.io/rules/no-unused-vars)
+- [@typescript-eslint/no-var-requires](https://typescript-eslint.io/rules/no-var-requires)

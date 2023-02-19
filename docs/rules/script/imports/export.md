@@ -1,31 +1,25 @@
-# 必须导入可解析的模块
+# export
 
-## Why?
+禁止导出重复的模块
 
-> 引用的文件必须已创建或安装,否则运行时会报错
+### 为什么?
 
-package.json
+重复导出相同的模块,后续导出的模块值会被忽略,容易产生混淆,会导致维护难度加大.
 
-```json
-{
-  "dependencies": {
-    "md5": "*"
-  }
-}
-```
-
-## bad
+### 错误示例
 
 ```js
-import moment from "moment";
+export default class a {};
+export default class b {}
 ```
 
-## good
+### 正确示例
 
 ```js
-import md5 from "md5";
+export default class a {}
+export const b = class {};
 ```
 
-## 参考:
+### 参考
 
-- [no-var-requires](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md)
+- [import/export](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/export.md)

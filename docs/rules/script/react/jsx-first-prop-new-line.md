@@ -1,8 +1,10 @@
-# 防止多行 JSX 周围缺少括号
+# jsx-first-prop-new-line
+
+防止多行 JSX 周围缺少括号
 
 why?
 
-> 将多行 JSX 包裹在括号中可以提高可读性和/或便利性
+将多行 JSX 包裹在括号中可以提高可读性和/或便利性
 
 parens 使用 or 时，以下模式被视为警告 parens-new-line：
 
@@ -98,6 +100,6 @@ var hello = (
 );
 ```
 
-## 参考:
+### 参考
 
 - [jsx-first-prop-new-line](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/jsx-first-prop-new-line)

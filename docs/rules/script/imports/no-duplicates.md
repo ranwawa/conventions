@@ -1,23 +1,26 @@
-# 必须将 import 语句放在最前面
+# no-duplicates
 
-## Why?
+no-duplicates
 
-> import 语句运行时提升,即便放在代码后面,也会最开始执行.使其行为和视觉顺序保持一致,有利于减少混乱.
+必须在一条语句中完成所有全名模块导入
 
-## bad
+### 为什么?
 
-```js
-const name = "zmn";
-import lodash from "lodash";
-```
+在页面引用变多时会出现这种情况,额外增加了代码行数,也使相同的逻辑分散到了不同的地方
 
-## good
+### 错误示例
 
 ```js
-import lodash from "lodash";
-const name = "ran";
+import { chunk } from "lodash";
+import { contact } from "lodash";
 ```
 
-## 参考:
+### 正确示例
 
-- [import/first](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
+```js
+import { chunk, contact } from "lodash";
+```
+
+### 参考
+
+- [import/no-duplicates](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md)

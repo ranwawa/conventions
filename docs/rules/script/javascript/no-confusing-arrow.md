@@ -1,10 +1,12 @@
-# 禁止修改类声明的变量
+# no-confusing-arrow
 
-## Why?
+禁止修改类声明的变量
 
-> ClassDeclaration 创建一个变量，可以修改这个变量。
+### 为什么?
 
-## bad
+ClassDeclaration 创建一个变量，可以修改这个变量。
+
+### 错误示例
 
 ```js
 class A {}
@@ -18,7 +20,7 @@ let A = class A {
 };
 ```
 
-## good
+### 正确示例
 
 ```js
 let A = class A {};
@@ -31,6 +33,6 @@ class A {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-confusing-arrow](https://eslint.org/docs/rules/no-confusing-arrow)

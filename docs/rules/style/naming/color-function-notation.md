@@ -1,10 +1,12 @@
-# 必须使用空格作为颜色函数的分隔符
+# color-function-notation
 
-## Why?
+必须使用空格作为颜色函数的分隔符
 
-> `CSS Colors Level 4`允许空格作为颜色函数的分隔符,为了和 padding,margin 等语法保持一致,统一使用空格作为分隔符
+### 为什么?
 
-## bad
+`CSS Colors Level 4`允许空格作为颜色函数的分隔符,为了和 padding,margin 等语法保持一致,统一使用空格作为分隔符
+
+### 错误示例
 
 ```scss
 a {
@@ -12,7 +14,7 @@ a {
 }
 ```
 
-## good
+### 正确示例
 
 ```scss
 a {

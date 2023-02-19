@@ -1,10 +1,12 @@
-# 要求使用 const 声明那些声明后不再被修改的变量
+# prefer-destructuring
 
-## Why?
+要求使用 const 声明那些声明后不再被修改的变量
 
-> const 声明告诉读者，“这个变量从不会被重新赋值”，从而减少认知负荷，提高可维护性。
+### 为什么?
 
-## bad
+const 声明告诉读者，“这个变量从不会被重新赋值”，从而减少认知负荷，提高可维护性。
+
+### 错误示例
 
 ```js
 let a = 3;
@@ -16,7 +18,7 @@ a = a + 1;
 let { a, b } = obj;
 ```
 
-## good
+### 正确示例
 
 ```js
 // using const.
@@ -33,6 +35,6 @@ let { a, b } = obj;
 a = a + 1;
 ```
 
-## 参考:
+### 参考
 
 - [prefer-destructuring](https://eslint.org/docs/rules/prefer-destructuring)

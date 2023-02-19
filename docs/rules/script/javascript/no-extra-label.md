@@ -1,10 +1,12 @@
-# 禁止对.bind()的不必要调用
+# no-extra-label
 
-## Why?
+禁止对.bind()的不必要调用
 
-> 避免不必要地使用 bind()。
+### 为什么?
 
-## bad
+避免不必要地使用 bind()。
+
+### 错误示例
 
 ```js
 var x = function () {
@@ -32,7 +34,7 @@ var x = function () {
 }.bind(baz);
 ```
 
-## good
+### 正确示例
 
 ```js
 var x = function () {
@@ -44,6 +46,6 @@ var x = function (a) {
 }.bind(foo, bar);
 ```
 
-## 参考:
+### 参考
 
 - [no-extra-label](https://eslint.org/docs/rules/no-extra-label)

@@ -1,10 +1,12 @@
-# 强制数组方法的回调函数中有 return 语句
+# global-require
 
-## Why?
+强制数组方法的回调函数中有 return 语句
 
-> 在 JavaScript 中，回调模式是大多数 I/O 和事件驱动编程的核心。
+### 为什么?
 
-## bad
+在 JavaScript 中，回调模式是大多数 I/O 和事件驱动编程的核心。
+
+### 错误示例
 
 ```js
 function foo(err, callback) {
@@ -15,7 +17,7 @@ function foo(err, callback) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function foo(err, callback) {
@@ -26,6 +28,6 @@ function foo(err, callback) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [global-require](https://eslint.org/docs/rules/global-require)

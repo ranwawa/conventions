@@ -1,17 +1,19 @@
-# 禁止引入重复的外部样式
+# no-duplicate-at-import-rules
 
-## Why?
+禁止引入重复的外部样式
 
-> 重复的就是多余的.请删掉.
+### 为什么?
 
-## bad
+重复的就是多余的.请删掉.
+
+### 错误示例
 
 ```css
 @import "a.css";
 @import "a.css";
 ```
 
-## good
+### 正确示例
 
 ```css
 @import "a.css";

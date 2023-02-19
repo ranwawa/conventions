@@ -1,10 +1,12 @@
-# for in 循环要用 if 语句过滤
+# max-classes-per-file
 
-## Why?
+for in 循环要用 if 语句过滤
 
-> 可能导致 for 循环中出现意想不到的情况。
+### 为什么?
 
-## bad
+可能导致 for 循环中出现意想不到的情况。
+
+### 错误示例
 
 ```js
 for (key in foo) {
@@ -12,7 +14,7 @@ for (key in foo) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 for (key in foo) {
@@ -22,6 +24,6 @@ for (key in foo) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [max-classes-per-file](https://eslint.org/docs/rules/max-classes-per-file)

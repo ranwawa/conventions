@@ -1,10 +1,12 @@
-# 禁止在变量定义之前使用它们
+# array-callback-return
 
-## Why?
+禁止在变量定义之前使用它们
 
-> 在 ES6 标准之前的 JavaScript 中，某个作用域中变量和函数的声明会被提前到作用域顶部。
+### 为什么?
 
-## bad
+在 ES6 标准之前的 JavaScript 中，某个作用域中变量和函数的声明会被提前到作用域顶部。
+
+### 错误示例
 
 ```js
 alert(a);
@@ -24,7 +26,7 @@ var b = 1;
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 var a;
@@ -45,6 +47,6 @@ function g() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [array-callback-return](https://eslint.org/docs/rules/array-callback-return)

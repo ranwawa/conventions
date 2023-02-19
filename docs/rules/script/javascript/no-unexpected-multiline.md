@@ -1,10 +1,12 @@
-# 禁止在常规字符串中使用模板文字占位符语法
+# no-unexpected-multiline
 
-## Why?
+禁止在常规字符串中使用模板文字占位符语法
 
-> 当想要使用模板字面量时，很容易使用错误的引号。
+### 为什么?
 
-## bad
+当想要使用模板字面量时，很容易使用错误的引号。
+
+### 错误示例
 
 ```js
 "Hello ${name}!";
@@ -12,7 +14,7 @@
 "Time: ${12 * 60 * 60 * 1000}";
 ```
 
-## good
+### 正确示例
 
 ```js
 `Hello ${name}!`;
@@ -21,6 +23,6 @@
 templateFunction`Hello ${name}`;
 ```
 
-## 参考:
+### 参考
 
 - [no-unexpected-multiline](https://eslint.org/docs/rules/no-unexpected-multiline)

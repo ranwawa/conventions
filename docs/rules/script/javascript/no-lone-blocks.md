@@ -1,10 +1,12 @@
-# 禁止标记语句
+# no-lone-blocks
 
-## Why?
+禁止标记语句
 
-> 在 JavaScript 中，abel 语句与 break 和 continue 一起使用，以控制多个循环的流。
+### 为什么?
 
-## bad
+在 JavaScript 中，abel 语句与 break 和 continue 一起使用，以控制多个循环的流。
+
+### 错误示例
 
 ```js
 label: while (true) {
@@ -12,7 +14,7 @@ label: while (true) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 var f = {
@@ -20,6 +22,6 @@ var f = {
 }; // Not using the `__iterator__` property.
 ```
 
-## 参考:
+### 参考
 
 - [no-lone-blocks](https://eslint.org/docs/rules/no-lone-blocks)

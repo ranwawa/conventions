@@ -1,16 +1,18 @@
-# 不允许空函数
+# no-empty-pattern
 
-## Why?
+不允许空函数
 
-> 空函数会降低可读性，箭头函数、普通函数、类方法除外。
+### 为什么?
 
-## bad
+空函数会降低可读性，箭头函数、普通函数、类方法除外。
+
+### 错误示例
 
 ```js
 function* foo() {}
 ```
 
-## good
+### 正确示例
 
 ```js
 function* foo() {
@@ -18,6 +20,6 @@ function* foo() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-empty-pattern](https://eslint.org/docs/rules/no-empty-pattern)

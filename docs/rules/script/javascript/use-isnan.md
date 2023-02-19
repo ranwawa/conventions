@@ -1,10 +1,12 @@
-# 禁止因使用 await 或 yield 而导致竞态条件的赋值
+# use-isnan
 
-## Why?
+禁止因使用 await 或 yield 而导致竞态条件的赋值
 
-> 在编写异步代码时，可能会产生微妙的竞态条件 bug。
+### 为什么?
 
-## bad
+在编写异步代码时，可能会产生微妙的竞态条件 bug。
+
+### 错误示例
 
 ```js
 let result;
@@ -14,7 +16,7 @@ async function foo() {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 let result;
@@ -24,6 +26,6 @@ async function foobar() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [use-isnan](https://eslint.org/docs/rules/use-isnan)

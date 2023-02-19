@@ -1,10 +1,12 @@
-# 禁止出现重复的桢
+# keyframe-block-no-duplicate-selectors
 
-## Why?
+禁止出现重复的桢
 
-> 后面桢会覆盖前面桢的值,请删除重复的桢
+### 为什么?
 
-## bad
+后面桢会覆盖前面桢的值,请删除重复的桢
+
+### 错误示例
 
 ```css
 @keyframes foo {
@@ -17,7 +19,7 @@
 }
 ```
 
-## good
+### 正确示例
 
 ```css
 @keyframes foo {

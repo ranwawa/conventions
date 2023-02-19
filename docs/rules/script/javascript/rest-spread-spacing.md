@@ -1,10 +1,12 @@
-# 禁用函数内没有 yield 的 generator 函数
+# rest-spread-spacing
 
-## Why?
+禁用函数内没有 yield 的 generator 函数
 
-> 禁用函数内没有 yield 的 generator 函数
+### 为什么?
 
-## bad
+禁用函数内没有 yield 的 generator 函数
+
+### 错误示例
 
 ```js
 function* foo() {
@@ -12,7 +14,7 @@ function* foo() {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function* foo() {
@@ -28,6 +30,6 @@ function foo() {
 function* foo() {}
 ```
 
-## 参考:
+### 参考
 
 - [rest-spread-spacing](https://eslint.org/docs/rules/rest-spread-spacing)

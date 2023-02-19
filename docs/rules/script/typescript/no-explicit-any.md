@@ -1,31 +1,23 @@
-# 禁止使用空类型
+# no-explicit-any
 
-## Why?
+禁止使用 any
 
-> 空类型相当于其父类,没存在的必要,直接使用父类即可
+### 为什么?
 
-## bad
+ts 的主要目的就是类型检测,any 则会破坏类型检测.请使用具体类型或者 unknown 替代
+
+### 错误示例
 
 ```ts
-interface Foo {
-  name: string;
-}
-
-interface Bar extends Foo {}
-
-type Baz = Bar;
+const foo: any = __dirname;
 ```
 
-## good
+### 正确示例
 
 ```ts
-interface Foo {
-  name: string;
-}
-
-type Baz = Foo;
+const foo: string = __dirname;
 ```
 
 ## 参考
 
-- [@typescript-eslint/no-empty-interface](https://typescript-eslint.io/rules/no-empty-interface)
+- [@typescript-eslint/no-explicit-any](https://typescript-eslint.io/rules/no-explicit-any)

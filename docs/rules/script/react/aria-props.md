@@ -1,10 +1,12 @@
-# aria-activedescendant 元素必须有大于 0 的 tabIndex
+# aria-props
+
+aria-activedescendant 元素必须有大于 0 的 tabIndex
 
 why?
 
-> 因为一个元素 aria-activedescendant 是 通过 tab 键聚焦的，所以它必须要有一个固有大于 0 的 tabIndex
+因为一个元素 aria-activedescendant 是 通过 tab 键聚焦的，所以它必须要有一个固有大于 0 的 tabIndex
 
-## bad
+### 错误示例
 
 ```jsx
 <div aria-activedescendant={someID} />
@@ -13,7 +15,7 @@ why?
 <input aria-activedescendant={someID} tabIndex={-1} />
 ```
 
-## good
+### 正确示例
 
 ```jsx
 <CustomComponent />
@@ -22,6 +24,6 @@ why?
 <CustomComponent aria-activedescendant={someID} tabIndex={-1} />
 ```
 
-## 参考:
+### 参考
 
 - [aria-props](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/aria-props)

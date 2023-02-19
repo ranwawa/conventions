@@ -1,10 +1,12 @@
-# 禁止重复的案例标签
+# no-empty
 
-## Why?
+禁止重复的案例标签
 
-> 如果 switch 语句在 case 子句中有重复的测试表达式，很可能是程序员复制了 case 子句，但忘记更改测试表达式。
+### 为什么?
 
-## bad
+如果 switch 语句在 case 子句中有重复的测试表达式，很可能是程序员复制了 case 子句，但忘记更改测试表达式。
+
+### 错误示例
 
 ```js
 let a = 1;
@@ -21,7 +23,7 @@ switch (a) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 let a = 1;
@@ -38,6 +40,6 @@ switch (a) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-empty](https://eslint.org/docs/rules/no-empty)

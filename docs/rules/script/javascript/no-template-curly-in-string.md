@@ -1,23 +1,25 @@
-# 禁止稀疏数组
+# no-template-curly-in-string
 
-## Why?
+禁止稀疏数组
 
-> 稀疏数组包含空槽，最常见的原因是数组字面量中使用了多个逗号。
+### 为什么?
 
-## bad
+稀疏数组包含空槽，最常见的原因是数组字面量中使用了多个逗号。
+
+### 错误示例
 
 ```js
 var items = [,];
 var colors = ["red", , "blue"];
 ```
 
-## good
+### 正确示例
 
 ```js
 var items = [];
 var items = new Array(23);
 ```
 
-## 参考:
+### 参考
 
 - [no-template-curly-in-string](https://eslint.org/docs/rules/no-template-curly-in-string)

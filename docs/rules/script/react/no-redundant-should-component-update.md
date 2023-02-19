@@ -1,10 +1,12 @@
-# 强制所有 defaultProps 有一个对应的非必需 PropType
+# no-redundant-should-component-update
+
+强制所有 defaultProps 有一个对应的非必需 PropType
 
 why?
 
-> 该规则旨在确保每个 defaultProp 都有非必需的 PropType 声明。
+该规则旨在确保每个 defaultProp 都有非必需的 PropType 声明。
 
-## bad
+### 错误示例
 
 ```jsx
 function MyStatelessComponent({ foo, bar }) {
@@ -49,7 +51,7 @@ var Greeting = React.createClass({
 });
 ```
 
-## good
+### 正确示例
 
 ```jsx
 function MyStatelessComponent({ foo, bar }) {
@@ -87,6 +89,6 @@ MyStatelessComponent.defaultProps = {
 };
 ```
 
-## 参考:
+### 参考
 
 - [no-redundant-should-component-update](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/no-redundant-should-component-update)

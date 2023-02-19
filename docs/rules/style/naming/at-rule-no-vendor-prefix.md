@@ -1,10 +1,12 @@
-# 禁止在@规则前加浏览器前缀
+# at-rule-no-vendor-prefix
 
-## Why?
+禁止在@规则前加浏览器前缀
 
-> Autoprefixer 插件会自动插入浏览器前缀,不需要自己处理,请删除掉前缀
+### 为什么?
 
-## bad
+Autoprefixer 插件会自动插入浏览器前缀,不需要自己处理,请删除掉前缀
+
+### 错误示例
 
 ```scss
 @-webkit-keyframes {
@@ -14,7 +16,7 @@
 }
 ```
 
-## good
+### 正确示例
 
 ```scss
 @keyframes {

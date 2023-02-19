@@ -1,17 +1,19 @@
-# 必须使用小写烤串风格命名动画名
+# keyframes-name-pattern
 
-## Why?
+必须使用小写烤串风格命名动画名
 
-> css 大小写不敏感,统一风格
+### 为什么?
 
-## bad
+css 大小写不敏感,统一风格
+
+### 错误示例
 
 ```scss
 @keyframes FOO-bar {
 }
 ```
 
-## good
+### 正确示例
 
 ```scss
 @keyframes foo-bar {

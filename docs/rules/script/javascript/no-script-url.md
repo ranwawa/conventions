@@ -1,10 +1,12 @@
-# 禁用不必要的 return await
+# no-script-url
 
-## Why?
+禁用不必要的 return await
 
-> async function 的返回值总是封装在 Promise.resolve，return await 实际上并没有做任何事情，只是在 Promise resolve 或 reject 之前增加了额外的时间。
+### 为什么?
 
-## bad
+async function 的返回值总是封装在 Promise.resolve，return await 实际上并没有做任何事情，只是在 Promise resolve 或 reject 之前增加了额外的时间。
+
+### 错误示例
 
 ```js
 async function foo() {
@@ -12,7 +14,7 @@ async function foo() {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 async function foo() {
@@ -22,6 +24,6 @@ async function foo() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-script-url](https://eslint.org/docs/rules/no-script-url)

@@ -1,8 +1,10 @@
-# 强制 props 是只读的
+# jsx-no-script-url
+
+强制 props 是只读的
 
 why?
 
-> 强制任何 JSX 属性都没有传播，有利于可维护性
+强制任何 JSX 属性都没有传播，有利于可维护性
 > bad
 
 ```jsx
@@ -22,7 +24,7 @@ function Hello(props: { -name: string }) {
 const Hello = (props: {| name: string |}) => <div>Hello {props.name}</div>;
 ```
 
-## good
+### 正确示例
 
 ```jsx
 type Props = {
@@ -41,6 +43,6 @@ function Hello(props: { +name: string }) {
 const Hello = (props: {| +name: string |}) => <div>Hello {props.name}</div>;
 ```
 
-## 参考:
+### 参考
 
 - [jsx-no-script-url](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/jsx-no-script-url)

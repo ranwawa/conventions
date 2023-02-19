@@ -1,10 +1,12 @@
-# 禁用不必要的构造函数
+# no-useless-rename
 
-## Why?
+禁用不必要的构造函数
 
-> 没有必要提供一个空的构造函数或只是简单的调用父类这样的构造函数。
+### 为什么?
 
-## bad
+没有必要提供一个空的构造函数或只是简单的调用父类这样的构造函数。
+
+### 错误示例
 
 ```js
 class A {
@@ -18,7 +20,7 @@ class A extends B {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 class A {}
@@ -43,6 +45,6 @@ class A extends B {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-useless-rename](https://eslint.org/docs/rules/no-useless-rename)

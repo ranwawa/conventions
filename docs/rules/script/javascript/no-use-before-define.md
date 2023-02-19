@@ -1,10 +1,12 @@
-# 禁止出现未使用过的变量
+# no-use-before-define
 
-## Why?
+禁止出现未使用过的变量
 
-> 已声明的变量在代码里未被使用过，就像是由于不完整的重构而导致的遗漏错误。这样的变量增加了代码量，并且混淆读者。
+### 为什么?
 
-## bad
+已声明的变量在代码里未被使用过，就像是由于不完整的重构而导致的遗漏错误。这样的变量增加了代码量，并且混淆读者。
+
+### 错误示例
 
 ```js
 // It checks variables you have defined as global
@@ -22,7 +24,7 @@ z = z + 1;
 })();
 ```
 
-## good
+### 正确示例
 
 ```js
 var x = 10;
@@ -46,6 +48,6 @@ myFunc = setTimeout(function () {
 }, 50);
 ```
 
-## 参考:
+### 参考
 
 - [no-use-before-define](https://eslint.org/docs/rules/no-use-before-define)

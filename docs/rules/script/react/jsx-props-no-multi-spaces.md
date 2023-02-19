@@ -1,10 +1,12 @@
-# 验证 JSX 最大深度
+# jsx-props-no-multi-spaces
+
+验证 JSX 最大深度
 
 why?
 
-> 此选项验证 JSX 的特定深度
+此选项验证 JSX 的特定深度
 
-## bad
+### 错误示例
 
 ```jsx
 // [2, { "max": 1 }]
@@ -30,7 +32,7 @@ const foobar = <Foo><Bar /></Foo>;
 </App>
 ```
 
-## good
+### 正确示例
 
 ```jsx
 // [2, { "max": 1 }]
@@ -55,6 +57,6 @@ const foobar = <Foo><Bar /></Foo>;
 </App>
 ```
 
-## 参考:
+### 参考
 
 - [jsx-props-no-multi-spaces](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/jsx-props-no-multi-spaces)

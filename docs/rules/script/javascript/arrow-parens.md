@@ -1,17 +1,19 @@
-# 要求箭头函数体使用大括号
+# arrow-parens
 
-## Why?
+要求箭头函数体使用大括号
 
-> 可以强制或禁止箭头函数体使用大括号。
+### 为什么?
 
-## bad
+可以强制或禁止箭头函数体使用大括号。
+
+### 错误示例
 
 ```js
 let foo = () => ({});
 let foo = () => ({ bar: 0 });
 ```
 
-## good
+### 正确示例
 
 ```js
 let foo = () => {};
@@ -20,6 +22,6 @@ let foo = () => {
 };
 ```
 
-## 参考:
+### 参考
 
 - [arrow-parens](https://eslint.org/docs/rules/arrow-parens)

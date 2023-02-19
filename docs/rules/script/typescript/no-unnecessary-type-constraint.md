@@ -1,22 +1,23 @@
-# 禁止使用 module/namespace 关键字
+# no-unnecessary-type-constraint
 
-## Why?
+禁止不必要的类型约束
 
-> 这两个关键字已经过期了,请使用 declare module 声明外部模块
+### 为什么?
 
-## bad
+泛型会默认为 unknown 类型,如果将泛型约束为 unknown/any 则是多此一举,可删掉
+
+### 错误示例
 
 ```ts
-module foo {}
-namespace foo {}
+interface Foo<T extends unknown> {}
 ```
 
-## good
+### 正确示例
 
 ```ts
-declare module "foo" {}
+interface Foo<T> {}
 ```
 
 ## 参考
 
-- [@typescript-eslint/no-namespace](https://typescript-eslint.io/rules/no-namespace)
+- [@typescript-eslint/no-unnecessary-type-constraint](https://typescript-eslint.io/rules/no-unnecessary-type-constraint)

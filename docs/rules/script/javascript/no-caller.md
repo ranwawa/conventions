@@ -1,21 +1,23 @@
-# 禁止直接使用 alert
+# no-caller
 
-## Why?
+禁止直接使用 alert
 
-> alert 被广泛认为是突兀的 UI 元素。
+### 为什么?
 
-## bad
+alert 被广泛认为是突兀的 UI 元素。
+
+### 错误示例
 
 ```js
 alert("here!");
 ```
 
-## good
+### 正确示例
 
 ```js
 customAlert("Something happened!");
 ```
 
-## 参考:
+### 参考
 
 - [no-caller](https://eslint.org/docs/rules/no-caller)

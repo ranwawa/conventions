@@ -1,17 +1,19 @@
-# 禁止使用非法的伪类选择器
+# selector-pseudo-class-no-unknown
 
-## Why?
+禁止使用非法的伪类选择器
 
-> 语法错误,请修改成正确的
+### 为什么?
 
-## bad
+语法错误,请修改成正确的
+
+### 错误示例
 
 ```css
 a:hove {
 }
 ```
 
-## good
+### 正确示例
 
 ```css
 a:hover {

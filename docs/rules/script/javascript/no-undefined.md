@@ -1,17 +1,19 @@
-# 禁止将变量初始化为 undefined
+# no-undefined
 
-## Why?
+禁止将变量初始化为 undefined
 
-> 在 JavaScript 中，声明一个变量但未初始化，变量会自动获得 undefined 作为初始值。
+### 为什么?
 
-## bad
+在 JavaScript 中，声明一个变量但未初始化，变量会自动获得 undefined 作为初始值。
+
+### 错误示例
 
 ```js
 var foo = undefined;
 let bar = undefined;
 ```
 
-## good
+### 正确示例
 
 ```js
 var foo;
@@ -19,6 +21,6 @@ let bar;
 const baz = undefined;
 ```
 
-## 参考:
+### 参考
 
 - [no-undefined](https://eslint.org/docs/rules/no-undefined)

@@ -1,29 +1,35 @@
-# 禁止使用废弃的 API
+# no-extraneous-import
 
-## Why?
+no-extraneous-import
 
-> 废弃的 API 在后续版本会被移出,使用废弃 API 可能产生潜在 BUG,请用新的 API 替代
+禁止引入 package.json 中不存在的包
 
-## bad
+### 为什么?
 
-```js
-const fs = require("fs");
+引入 package 中不存在的包,很可能导致项目在其他电脑上无法运行,请先使用包管理工具将依赖添加到 package.json 文件中
 
-fs.exists("./foo.js", function () {
-  console.log("...");
-});
+package.json
+
+```json
+{
+  "dependencies": {
+    "md5": "*"
+  }
+}
 ```
 
-## good
+### 错误示例
 
 ```js
-const fs = require("fs");
+const md5 = require("md5");
+```
 
-fs.stat("./foo.js", function () {
-  console.log("...");
-});
+### 正确示例
+
+```js
+const dayjs = require("dayjs");
 ```
 
 ## 参考
 
-- [node/no-deprecated-api](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-deprecated-api.md)
+- [node/no-extraneous-import](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-extraneous-import.md)

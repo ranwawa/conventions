@@ -1,10 +1,12 @@
-# 禁止不规则空格
+# no-loss-of-precision
 
-## Why?
+禁止不规则空格
 
-> 无效或不规则的空格会导致 ECMAScript 5 解析器出现问题，并使代码难以调试，类似于混合制表符和空格。
+### 为什么?
 
-## bad
+无效或不规则的空格会导致 ECMAScript 5 解析器出现问题，并使代码难以调试，类似于混合制表符和空格。
+
+### 错误示例
 
 ```js
 function thing() /*<NBSP>*/ {
@@ -12,7 +14,7 @@ function thing() /*<NBSP>*/ {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function thing() {
@@ -20,6 +22,6 @@ function thing() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-loss-of-precision](https://eslint.org/docs/rules/no-loss-of-precision)

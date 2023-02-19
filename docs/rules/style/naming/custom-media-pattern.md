@@ -1,16 +1,18 @@
-# 必须使用烤串风格命令自定义媒体名
+# custom-media-pattern
 
-## Why?
+必须使用烤串风格命令自定义媒体名
 
-> 统一风格,css 是大小写不敏感的语法,禁止出现大宝字母
+### 为什么?
 
-## bad
+统一风格,css 是大小写不敏感的语法,禁止出现大宝字母
+
+### 错误示例
 
 ```scss
 @custom-media Bar (min-width: 30em);
 ```
 
-## good
+### 正确示例
 
 ```scss
 @custom-media bar (min-width: 30em);

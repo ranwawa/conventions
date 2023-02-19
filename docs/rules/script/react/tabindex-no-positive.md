@@ -1,10 +1,12 @@
-# 强制 tabIndex 值不大于零
+# tabindex-no-positive
+
+强制 tabIndex 值不大于零
 
 why?
 
-> 避免使用正 tabIndex 属性值以使页面流与键盘 Tab 键顺序同步
+避免使用正 tabIndex 属性值以使页面流与键盘 Tab 键顺序同步
 
-## bad
+### 错误示例
 
 ```jsx
 <span tabIndex="0">foo</span>
@@ -12,13 +14,13 @@ why?
 <span tabIndex={0}>baz</span>
 ```
 
-## good
+### 正确示例
 
 ```jsx
 <th scope="col" />
 <th scope={scope} />
 ```
 
-## 参考:
+### 参考
 
 - [tabindex-no-positive](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/tabindex-no-positive)

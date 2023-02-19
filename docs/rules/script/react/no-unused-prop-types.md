@@ -1,10 +1,12 @@
-# 防止子项和 props.dangerouslySetInnerHTML 之间出现问题
+# no-unused-prop-types
+
+防止子项和 props.dangerouslySetInnerHTML 之间出现问题
 
 why?
 
-> 此规则有助于防止同时使用 children 和 dangerouslySetInnerHTML 属性引起的问题
+此规则有助于防止同时使用 children 和 dangerouslySetInnerHTML 属性引起的问题
 
-## bad
+### 错误示例
 
 ```jsx
 <div dangerouslySetInnerHTML={{ __html: "HTML" }}>
@@ -20,7 +22,7 @@ React.createElement("div", { dangerouslySetInnerHTML: { __html: "HTML" } }, "Chi
 React.createElement("Hello", { dangerouslySetInnerHTML: { __html: "HTML" } }, "Children");
 ```
 
-## good
+### 正确示例
 
 ```jsx
 <div dangerouslySetInnerHTML={{ __html: "HTML" }} />
@@ -45,6 +47,6 @@ React.createElement("Hello", {}, "Children");
 
 ```
 
-## 参考:
+### 参考
 
 - [no-unused-prop-types](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/no-unused-prop-types)

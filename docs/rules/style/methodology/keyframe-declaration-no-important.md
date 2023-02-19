@@ -1,10 +1,12 @@
-# 禁止在桢中使用 important 标记
+# keyframe-declaration-no-important
 
-## Why?
+禁止在桢中使用 important 标记
 
-> 桢中的 important 标记会被部分浏览器忽略,因此会产生浏览器兼容性问题,请删除
+### 为什么?
 
-## bad
+桢中的 important 标记会被部分浏览器忽略,因此会产生浏览器兼容性问题,请删除
+
+### 错误示例
 
 ```css
 @keyframes foo {
@@ -14,7 +16,7 @@
 }
 ```
 
-## good
+### 正确示例
 
 ```css
 @keyframes foo {

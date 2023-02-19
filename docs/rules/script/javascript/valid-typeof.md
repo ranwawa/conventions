@@ -1,10 +1,12 @@
-# 有效的 jsdoc
+# valid-typeof
 
-## Why?
+有效的 jsdoc
 
-> 强制执行有效的 JSDoc 注释。
+### 为什么?
 
-## bad
+强制执行有效的 JSDoc 注释。
+
+### 错误示例
 
 ```js
 /**
@@ -17,7 +19,7 @@ function add(num1, num2) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 /**
@@ -31,6 +33,6 @@ function add(num1, num2) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [valid-typeof](https://eslint.org/docs/rules/valid-typeof)

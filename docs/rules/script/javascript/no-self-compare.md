@@ -1,10 +1,12 @@
-# 禁止自身赋值
+# no-self-compare
 
-## Why?
+禁止自身赋值
 
-> 自身赋值不起任何作用，可能是由于不完整的重构造成的错误。
+### 为什么?
 
-## bad
+自身赋值不起任何作用，可能是由于不完整的重构造成的错误。
+
+### 错误示例
 
 ```js
 foo = foo;
@@ -13,7 +15,7 @@ foo = foo;
 ({ a, b } = { a, x });
 ```
 
-## good
+### 正确示例
 
 ```js
 obj.a = obj.a;
@@ -22,6 +24,6 @@ obj["a"] = obj["a"];
 obj[a] = obj[a];
 ```
 
-## 参考:
+### 参考
 
 - [no-self-compare](https://eslint.org/docs/rules/no-self-compare)

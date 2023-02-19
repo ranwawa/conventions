@@ -1,8 +1,10 @@
-# 强制锚点包含内容
+# anchor-is-valid
+
+强制锚点包含内容
 
 why?
 
-> bad
+bad
 
 ```jsx
 <img src="foo" />
@@ -14,7 +16,7 @@ why?
 <img src="foo" role="none" /> // Avoid ARIA if it can be achieved without
 ```
 
-## good
+### 正确示例
 
 ```jsx
 <img src="foo" alt="Foo eating a sandwich." />
@@ -24,6 +26,6 @@ why?
 <img src="foo" alt="" />
 ```
 
-## 参考:
+### 参考
 
 - [anchor-is-valid](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/anchor-is-valid)

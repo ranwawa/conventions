@@ -1,22 +1,33 @@
-# 防止相邻的内联元素不被空格分隔
+# function-component-definition
+
+必须使用箭头函数声明函数式组件
 
 why?
 
-> 当以无样式方式查看时，未由空格分隔的相邻内联元素会相互碰撞，这通常是不可取的
-> bad
+统一风格.避免函数声明,函数表达式,箭头函数混用导致的混乱
+
+### 错误示例
 
 ```jsx
-<div><a></a><a></a></div>
-<div><a></a><span></span></div>
+// 函数表达式
+const Component = function (props) {
+  return <div />;
+};
+
+// 函数声明
+const Component = function name(props) {
+  return <div />;
+};
 ```
 
-## good
+### 正确示例
 
 ```jsx
-<div><div></div><div></div></div>
-<div><a></a> <a></a></div>
+const Component = (props) => {
+  return <div />;
+};
 ```
 
-## 参考:
+### 参考
 
-- [function-component-definition](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/function-component-definition)
+- [react/function-component-definition](https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md)

@@ -1,21 +1,23 @@
-# 禁止给可推导的变量添加类型
+# no-loss-of-precision
 
-## Why?
+禁止使用超出范围的数值
 
-> ts 可明确推导的变量加上类型,增加了代码噪音,请删除掉
+### 为什么?
 
-## bad
+js 使用双精度浮点数做为数值,超出这个范围的会自动被丢弃,请使用范围内的值
+
+### 错误示例
 
 ```ts
-const name: string = "zmn";
+type MaxNumber = 51230000000000011;
 ```
 
-## good
+### 正确示例
 
 ```ts
-const name = "zmn";
+type MaxNumber = 5123000000000001;
 ```
 
 ## 参考
 
-- [@typescript-eslint/no-inferrable-types](https://typescript-eslint.io/rules/no-inferrable-types)
+- [@typescript-eslint/no-loss-of-precision](https://typescript-eslint.io/rules/no-loss-of-precision)

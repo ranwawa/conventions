@@ -1,10 +1,12 @@
-# 扩展 React.PureComponent 时防止使用 shouldComponentUpdate
+# no-unused-state
+
+扩展 React.PureComponent 时防止使用 shouldComponentUpdate
 
 why?
 
-> 如果在定义扩展 React.PureComponent 的组件里面写了 shouldComponentUpdate，虽然 shouldComponentUpdate 会生效，但扩展 PureComponent 变得毫无意义
+如果在定义扩展 React.PureComponent 的组件里面写了 shouldComponentUpdate，虽然 shouldComponentUpdate 会生效，但扩展 PureComponent 变得毫无意义
 
-## bad
+### 错误示例
 
 ```jsx
 class Foo extends React.PureComponent {
@@ -17,7 +19,7 @@ class Foo extends React.PureComponent {
   }
 ```
 
-## good
+### 正确示例
 
 ```jsx
 class Foo extends React.Component {
@@ -31,6 +33,6 @@ class Foo extends React.Component {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-unused-state](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/no-unused-state)

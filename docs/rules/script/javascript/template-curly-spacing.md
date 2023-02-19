@@ -1,16 +1,18 @@
-# 要求 symbol 描述
+# template-curly-spacing
 
-## Why?
+要求 symbol 描述
 
-> 使用 描述 更容易促进调试。
+### 为什么?
 
-## bad
+使用 描述 更容易促进调试。
+
+### 错误示例
 
 ```js
 var foo = Symbol();
 ```
 
-## good
+### 正确示例
 
 ```js
 var foo = Symbol("some description");
@@ -18,6 +20,6 @@ var someString = "some description";
 var bar = Symbol(someString);
 ```
 
-## 参考:
+### 参考
 
 - [template-curly-spacing](https://eslint.org/docs/rules/template-curly-spacing)

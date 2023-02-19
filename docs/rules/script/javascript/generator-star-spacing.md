@@ -1,10 +1,12 @@
-# 要求在构造函数中有 super() 的调用
+# generator-star-spacing
 
-## Why?
+要求在构造函数中有 super() 的调用
 
-> 派生类中的构造函数必须调用 super()。非派生类的构造函数不能调用 super()JavaScript 引擎将引发一个运行时错误。
+### 为什么?
 
-## bad
+派生类中的构造函数必须调用 super()。非派生类的构造函数不能调用 super()JavaScript 引擎将引发一个运行时错误。
+
+### 错误示例
 
 ```js
 class A {
@@ -18,7 +20,7 @@ class A extends B {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 class A {
@@ -32,6 +34,6 @@ class A extends B {
 }
 ```
 
-## 参考:
+### 参考
 
 - [generator-star-spacing](https://eslint.org/docs/rules/generator-star-spacing)

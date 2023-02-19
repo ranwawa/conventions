@@ -1,10 +1,12 @@
-# 禁止在 catch 子句中重新分配异常
+# no-extra-boolean-cast
 
-## Why?
+禁止在 catch 子句中重新分配异常
 
-> 由于没有参数对象提供对该数据的可选访问，对形参赋值绝对是破坏性的。
+### 为什么?
 
-## bad
+由于没有参数对象提供对该数据的可选访问，对形参赋值绝对是破坏性的。
+
+### 错误示例
 
 ```js
 try {
@@ -14,7 +16,7 @@ try {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 try {
@@ -24,6 +26,6 @@ try {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-extra-boolean-cast](https://eslint.org/docs/rules/no-extra-boolean-cast)

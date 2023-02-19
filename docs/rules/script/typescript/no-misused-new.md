@@ -1,21 +1,34 @@
-# 禁止使用超出范围的数值
+# no-misused-new
 
-## Why?
+禁止在类上使用 new 约束
 
-> js 使用双精度浮点数做为数值,超出这个范围的会自动被丢弃,请使用范围内的值
+### 为什么?
 
-## bad
+类可以作为类型使用,声明构造器约束时会自动根据 constructor 推断,而 interface 则必须显示指定 new,请不要搞混了
+
+### 错误示例
 
 ```ts
-type MaxNumber = 51230000000000011;
+class C {
+  new(): C;
+}
+
+interface I {
+  constructor(): void;
+}
 ```
 
-## good
+### 正确示例
 
 ```ts
-type MaxNumber = 5123000000000001;
+class C {
+  constructor() {}
+}
+interface I {
+  new (): C;
+}
 ```
 
 ## 参考
 
-- [@typescript-eslint/no-loss-of-precision](https://typescript-eslint.io/rules/no-loss-of-precision)
+- [@typescript-eslint/no-misused-new](https://typescript-eslint.io/rules/no-misused-new)

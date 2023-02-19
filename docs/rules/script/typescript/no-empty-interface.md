@@ -1,23 +1,33 @@
-# 禁止使用空函数
+# no-empty-interface
 
-## Why?
+禁止使用空类型
 
-> 空函数不会产生任何作用,没存在的意思.如果有特殊用途,请在函数体内加个注释以说明用途
+### 为什么?
 
-## bad
+空类型相当于其父类,没存在的必要,直接使用父类即可
+
+### 错误示例
 
 ```ts
-function loop() {}
+interface Foo {
+  name: string;
+}
+
+interface Bar extends Foo {}
+
+type Baz = Bar;
 ```
 
-## good
+### 正确示例
 
 ```ts
-function loop() {
-  // 用于指定默认函数
+interface Foo {
+  name: string;
 }
+
+type Baz = Foo;
 ```
 
 ## 参考
 
-- [@typescript-eslint/no-empty-function](https://typescript-eslint.io/rules/no-empty-function)
+- [@typescript-eslint/no-empty-interface](https://typescript-eslint.io/rules/no-empty-interface)

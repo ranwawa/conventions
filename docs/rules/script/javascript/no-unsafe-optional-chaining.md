@@ -1,10 +1,12 @@
-# 不允许否定关系运算符的左操作数
+# no-unsafe-optional-chaining
 
-## Why?
+不允许否定关系运算符的左操作数
 
-> 禁止对关系操作符的左操作数求反。
+### 为什么?
 
-## bad
+禁止对关系操作符的左操作数求反。
+
+### 错误示例
 
 ```js
 if (!key in object) {
@@ -13,7 +15,7 @@ if (!key in object) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 if (!(key in object)) {
@@ -21,6 +23,6 @@ if (!(key in object)) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-unsafe-optional-chaining](https://eslint.org/docs/rules/no-unsafe-optional-chaining)

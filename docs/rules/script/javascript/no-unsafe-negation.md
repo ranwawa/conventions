@@ -1,10 +1,12 @@
-# 禁止在“ finally”块中使用控制流语句
+# no-unsafe-negation
 
-## Why?
+禁止在“ finally”块中使用控制流语句
 
-> 当在 finally 中使用 return、throw、break 或 continue 时，try 和 catch 内部的控制流语句将被覆盖，这被认为是意外行为。
+### 为什么?
 
-## bad
+当在 finally 中使用 return、throw、break 或 continue 时，try 和 catch 内部的控制流语句将被覆盖，这被认为是意外行为。
+
+### 错误示例
 
 ```js
 let foo = function () {
@@ -18,7 +20,7 @@ let foo = function () {
 };
 ```
 
-## good
+### 正确示例
 
 ```js
 let foo = function () {
@@ -32,6 +34,6 @@ let foo = function () {
 };
 ```
 
-## 参考:
+### 参考
 
 - [no-unsafe-negation](https://eslint.org/docs/rules/no-unsafe-negation)

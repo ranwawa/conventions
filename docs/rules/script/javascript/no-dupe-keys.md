@@ -1,10 +1,12 @@
-# 在 if-else-if 链中禁止重复条件
+# no-dupe-keys
 
-## Why?
+在 if-else-if 链中禁止重复条件
 
-> If-else-if 链通常用于根据特定条件只需要执行几个可能分支中的一个分支(或最多一个分支)的情况。
+### 为什么?
 
-## bad
+If-else-if 链通常用于根据特定条件只需要执行几个可能分支中的一个分支(或最多一个分支)的情况。
+
+### 错误示例
 
 ```js
 if (isSomething(x)) {
@@ -14,7 +16,7 @@ if (isSomething(x)) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 if (isSomething(x)) {
@@ -24,6 +26,6 @@ if (isSomething(x)) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-dupe-keys](https://eslint.org/docs/rules/no-dupe-keys)

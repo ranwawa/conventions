@@ -1,10 +1,12 @@
-# 禁用一成不变的循环条件
+# no-unused-expressions
 
-## Why?
+禁用一成不变的循环条件
 
-> 循环条件中的变量在循环中是要经常改变的。如果不是这样，那么可能是个错误。
+### 为什么?
 
-## bad
+循环条件中的变量在循环中是要经常改变的。如果不是这样，那么可能是个错误。
+
+### 错误示例
 
 ```js
 while (node) {
@@ -21,7 +23,7 @@ while (node !== root) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 while (node) {
@@ -40,6 +42,6 @@ while (node !== root) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-unused-expressions](https://eslint.org/docs/rules/no-unused-expressions)

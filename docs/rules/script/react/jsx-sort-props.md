@@ -1,10 +1,12 @@
-# 强制 propTypes 声明按字母排序
+# jsx-sort-props
 
-## Why?
+强制 propTypes 声明按字母排序
 
-> 以便以后更容易找到必要的声明
+### 为什么?
 
-## bad
+以便以后更容易找到必要的声明
+
+### 错误示例
 
 ```jsx
 var Component = createReactClass({
@@ -17,7 +19,7 @@ var Component = createReactClass({
 });
 ```
 
-## good
+### 正确示例
 
 ```jsx
 var Component = createReactClass({
@@ -30,6 +32,6 @@ var Component = createReactClass({
 });
 ```
 
-## 参考:
+### 参考
 
 - [jsx-sort-props](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/jsx-sort-props)

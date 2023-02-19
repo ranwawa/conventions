@@ -1,17 +1,19 @@
-# 禁止在选择器前使用浏览器前缀
+# selector-no-vendor-prefix
 
-## Why?
+禁止在选择器前使用浏览器前缀
 
-> 插件会自动处理,请删除
+### 为什么?
 
-## bad
+插件会自动处理,请删除
+
+### 错误示例
 
 ```scss
 input::-moz-placeholder {
 }
 ```
 
-## good
+### 正确示例
 
 ```scss
 input::placeholder {

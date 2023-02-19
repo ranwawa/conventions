@@ -1,10 +1,12 @@
-# 要求使用剩余参数而不是 arguments
+# prefer-spread
 
-## Why?
+要求使用剩余参数而不是 arguments
 
-> ES2015 里有剩余参数。我们可以利用这个特性代替变参函数的 arguments 变量。 arguments 没有 Array.prototype 方法，所以有点不方便。
+### 为什么?
 
-## bad
+ES2015 里有剩余参数。我们可以利用这个特性代替变参函数的 arguments 变量。 arguments 没有 Array.prototype 方法，所以有点不方便。
+
+### 错误示例
 
 ```js
 function foo() {
@@ -20,7 +22,7 @@ function foo(action) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function foo(...args) {
@@ -39,6 +41,6 @@ function foo() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [prefer-spread](https://eslint.org/docs/rules/prefer-spread)

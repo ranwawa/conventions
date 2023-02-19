@@ -1,10 +1,12 @@
-# 相同属性的访问器函数进行分组定义
+# guard-for-in
 
-## Why?
+相同属性的访问器函数进行分组定义
 
-> 更直观，逻辑更清晰不容易出错。
+### 为什么?
 
-## bad
+更直观，逻辑更清晰不容易出错。
+
+### 错误示例
 
 ```js
 var foo = {
@@ -18,7 +20,7 @@ var foo = {
 };
 ```
 
-## good
+### 正确示例
 
 ```js
 var foo = {
@@ -32,6 +34,6 @@ var foo = {
 };
 ```
 
-## 参考:
+### 参考
 
 - [guard-for-in](https://eslint.org/docs/rules/guard-for-in)

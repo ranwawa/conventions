@@ -1,21 +1,48 @@
-# 引入的文件必须包含后缀名
+# order
 
-## Why?
+order
 
-> 虽然大部分编译器会自动补全,但始终会消耗额外的性能.明确后缀名也可避免同名但不同后缀文件时引发的异常
+必须按固定顺序引入模块
 
-## bad
+### 为什么?
 
-```js
-import outer from "./outer";
-```
+统一的顺序有利于快速区分模块和代码 review.不同分组之间添加一个换行符也有利于后期 review.
 
-## good
+### 错误示例
 
 ```js
 import outer from "./outer.js";
+import lodash from "lodash";
 ```
 
-## 参考:
+### 正确示例
 
-- [import/extensions](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md)
+```js
+// node内置模块
+import fs from 'fs';
+
+// node_modules模块
+import lodash from 'lodash';
+
+// 别名模块
+import outer from '@/outer.js';
+
+// 父级目录中的模块
+import parent from '../parent.js';
+
+// 兄弟目录中的模块
+import sibling from './sibling/index.js';
+
+// 同目录中的index模块
+import index from './index.js';
+
+// ts类型
+import type { T } from 'lodash';
+
+// 对象语法(仅ts支持)
+import log = console.log;
+```
+
+### 参考
+
+- [import/order](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md)

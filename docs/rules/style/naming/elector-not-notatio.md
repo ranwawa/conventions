@@ -1,17 +1,19 @@
-# 禁止使用链式的:not 选择器
+# elector-not-notatio
 
-## Why?
+禁止使用链式的:not 选择器
 
-> `Selectors Level 4`已经允许在:not 选择器中使用复杂表达式,请使用新的方式排除部分选择器
+### 为什么?
 
-## bad
+`Selectors Level 4`已经允许在:not 选择器中使用复杂表达式,请使用新的方式排除部分选择器
+
+### 错误示例
 
 ```scss
 :not(a):not(div) {
 }
 ```
 
-## good
+### 正确示例
 
 ```scss
 :not(a, div) {

@@ -1,10 +1,12 @@
-# 禁止在 case 或 default 子句中声明词法
+# no-constructor-return
 
-## Why?
+禁止在 case 或 default 子句中声明词法
 
-> 词法声明在整个 switch 语句块中是可见的，但是它只有在运行到它定义的 case 语句时，才会进行初始化操作。
+### 为什么?
 
-## bad
+词法声明在整个 switch 语句块中是可见的，但是它只有在运行到它定义的 case 语句时，才会进行初始化操作。
+
+### 错误示例
 
 ```js
 switch (foo) {
@@ -22,7 +24,7 @@ switch (foo) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 switch (foo) {
@@ -49,6 +51,6 @@ switch (foo) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-constructor-return](https://eslint.org/docs/rules/no-constructor-return)

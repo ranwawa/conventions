@@ -1,10 +1,12 @@
-# 要求或禁止对象字面量中方法和属性使用简写语法
+# prefer-arrow-callback
 
-## Why?
+要求或禁止对象字面量中方法和属性使用简写语法
 
-> ECMAScript 6 提供了简写的形式去定义对象中的方法和属性。这个语法可以更清洁地定义复杂对象字面量。
+### 为什么?
 
-## bad
+ECMAScript 6 提供了简写的形式去定义对象中的方法和属性。这个语法可以更清洁地定义复杂对象字面量。
+
+### 错误示例
 
 ```js
 var foo = {
@@ -12,7 +14,7 @@ var foo = {
 };
 ```
 
-## good
+### 正确示例
 
 ```js
 var foo = {
@@ -21,6 +23,6 @@ var foo = {
 };
 ```
 
-## 参考:
+### 参考
 
 - [prefer-arrow-callback](https://eslint.org/docs/rules/prefer-arrow-callback)

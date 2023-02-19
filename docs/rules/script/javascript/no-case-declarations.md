@@ -1,10 +1,12 @@
-# 禁用 caller 或 callee(no-caller)
+# no-case-declarations
 
-## Why?
+禁用 caller 或 callee(no-caller)
 
-> 禁止使用 arguments.caller 和 arguments.callee 来阻止使用不推荐的和次优化的代码。
+### 为什么?
 
-## bad
+禁止使用 arguments.caller 和 arguments.callee 来阻止使用不推荐的和次优化的代码。
+
+### 错误示例
 
 ```js
 function foo(n) {
@@ -15,7 +17,7 @@ function foo(n) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function foo(n) {
@@ -26,6 +28,6 @@ function foo(n) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-case-declarations](https://eslint.org/docs/rules/no-case-declarations)

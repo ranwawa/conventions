@@ -1,10 +1,12 @@
-# 禁止在构造函数中，在调用 super() 之前使用 this 或 super
+# no-useless-computed-key
 
-## Why?
+禁止在构造函数中，在调用 super() 之前使用 this 或 super
 
-> 在派生类的构造函数中，如果在调用 super() 之前使用 this 或 super，它将会引发一个引用错误。
+### 为什么?
 
-## bad
+在派生类的构造函数中，如果在调用 super() 之前使用 this 或 super，它将会引发一个引用错误。
+
+### 错误示例
 
 ```js
 class A extends B {
@@ -22,7 +24,7 @@ class A extends B {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 class A {
@@ -39,6 +41,6 @@ class A extends B {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-useless-computed-key](https://eslint.org/docs/rules/no-useless-computed-key)

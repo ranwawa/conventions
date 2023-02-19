@@ -1,10 +1,12 @@
-# 禁止使用不带 await 表达式的 async 函数
+# require-unicode-regexp
 
-## Why?
+禁止使用不带 await 表达式的 async 函数
 
-> 使用异步函数的主要原因通常是使用 await 操作符。
+### 为什么?
 
-## bad
+使用异步函数的主要原因通常是使用 await 操作符。
+
+### 错误示例
 
 ```js
 bar(async () => {
@@ -12,7 +14,7 @@ bar(async () => {
 });
 ```
 
-## good
+### 正确示例
 
 ```js
 bar(async () => {
@@ -20,6 +22,6 @@ bar(async () => {
 });
 ```
 
-## 参考:
+### 参考
 
 - [require-unicode-regexp](https://eslint.org/docs/rules/require-unicode-regexp)

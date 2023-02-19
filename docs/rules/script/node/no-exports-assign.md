@@ -1,31 +1,23 @@
-# 禁止引入 package.json 中不存在的包
+# no-exports-assign
 
-## Why?
+禁止直接给 exports 变量赋值
 
-> 引入 package 中不存在的包,很可能导致项目在其他电脑上无法运行,请先使用包管理工具将依赖添加到 package.json 文件中
+### 为什么?
 
-package.json
+直接给 exports 赋值导致其指针发生变化,通常会导致不可预期的错误,请使用 module.exports 替代
 
-```json
-{
-  "dependencies": {
-    "md5": "*"
-  }
-}
-```
-
-## bad
+### 错误示例
 
 ```js
-const md5 = require("md5");
+exports = {};
 ```
 
-## good
+### 正确示例
 
 ```js
-const dayjs = require("dayjs");
+module.exports = {};
 ```
 
 ## 参考
 
-- [node/no-extraneous-import](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-extraneous-import.md)
+- [node/no-exports-assign](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-exports-assign.md)

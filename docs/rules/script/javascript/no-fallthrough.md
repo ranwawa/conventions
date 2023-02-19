@@ -1,10 +1,12 @@
-# 禁止不必要的标签
+# no-fallthrough
 
-## Why?
+禁止不必要的标签
 
-> 循环不包含嵌套循环或开关，则没有必要对循环进行标记。
+### 为什么?
 
-## bad
+循环不包含嵌套循环或开关，则没有必要对循环进行标记。
+
+### 错误示例
 
 ```js
 A: while (a) {
@@ -21,7 +23,7 @@ C: switch (a) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 while (a) {
@@ -56,6 +58,6 @@ C: switch (a) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-fallthrough](https://eslint.org/docs/rules/no-fallthrough)

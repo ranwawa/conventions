@@ -1,10 +1,12 @@
-# 要求 require() 出现在顶层模块作用域中
+# handle-callback-err
 
-## Why?
+要求 require() 出现在顶层模块作用域中
 
-> 虽然 require() 可以在代码的任何地方被调用，一些风格指南规定，它只能在模块顶层被调用，这样更容易识别依赖关系。
+### 为什么?
 
-## bad
+虽然 require() 可以在代码的任何地方被调用，一些风格指南规定，它只能在模块顶层被调用，这样更容易识别依赖关系。
+
+### 错误示例
 
 ```js
 // calling require() inside of a function is not allowed
@@ -26,7 +28,7 @@ switch (x) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 // all these variations of require() are ok
@@ -42,6 +44,6 @@ function readFile(filename, callback) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [handle-callback-err](https://eslint.org/docs/rules/handle-callback-err)

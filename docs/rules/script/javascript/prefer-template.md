@@ -1,10 +1,12 @@
-# 要求使用扩展运算符而非.apply()
+# prefer-template
 
-## Why?
+要求使用扩展运算符而非.apply()
 
-> 在 ES2015 之前，必须使用 Function.prototype.apply() 调用可变参数函数。
+### 为什么?
 
-## bad
+在 ES2015 之前，必须使用 Function.prototype.apply() 调用可变参数函数。
+
+### 错误示例
 
 ```js
 foo.apply(undefined, args);
@@ -12,7 +14,7 @@ foo.apply(null, args);
 obj.foo.apply(obj, args);
 ```
 
-## good
+### 正确示例
 
 ```js
 // Using spread syntax
@@ -31,6 +33,6 @@ foo.apply(null, [1, 2, 3]);
 obj.foo.apply(obj, [1, 2, 3]);
 ```
 
-## 参考:
+### 参考
 
 - [prefer-template](https://eslint.org/docs/rules/prefer-template)

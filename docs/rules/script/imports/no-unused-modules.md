@@ -1,21 +1,26 @@
-# 禁止多余的相对路径符号
+# no-unused-modules
 
-## Why?
+no-unused-modules
 
-> 增加理解和维护难度,始终保持最简洁的路径.
+禁止存在未使用的模块文件
 
-## bad
+### 为什么?
 
-```js
-import outer from "./../outer.js";
-```
+删除未使用的模块文件,有利于减少项目复杂度.随着项目增长,如果存在大量未实际使用的代码,会增加维护成本.
 
-## good
+### 错误示例
 
 ```js
-import outer from "../outer.js";
+const name = "zmn";
 ```
 
-## 参考:
+### 正确示例
 
-- [import/no-useless-path-segments](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-useless-path-segments.md)
+```js
+const name = "zmn";
+export default name;
+```
+
+### 参考
+
+- [import/no-unused-modules](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unused-modules.md)

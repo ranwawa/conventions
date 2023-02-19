@@ -1,10 +1,12 @@
-# 防止 React 组件定义中缺少 displayName
+# forbid-prop-types
 
-## Why?
+防止 React 组件定义中缺少 displayName
 
-> displayName 允许你命名你的组件。React 在调试消息时使用此名称。
+### 为什么?
 
-## bad
+displayName 允许你命名你的组件。React 在调试消息时使用此名称。
+
+### 错误示例
 
 ```jsx
 var Hello = createReactClass({
@@ -22,7 +24,7 @@ export default ({ a }) => {
 };
 ```
 
-## good
+### 正确示例
 
 ```jsx
 var Hello = createReactClass({
@@ -37,6 +39,6 @@ const Hello = React.memo(function Hello({ a }) {
 });
 ```
 
-## 参考:
+### 参考
 
 - [forbid-prop-types](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/forbid-prop-types)

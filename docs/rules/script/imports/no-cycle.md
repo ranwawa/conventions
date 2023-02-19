@@ -1,30 +1,34 @@
-# 禁止引用同一文件自身的模块
+# no-cycle
 
-## Why?
+禁止文件间互相引用模块
 
-> 同个文件的模块,直接使用即可,不需要通过 import 语法引入,容易产生混淆.
+### 为什么?
 
-## bad
+不同的文件互相引用彼此模块,容易导致死循环.可通过拆分模块或全局变量的方式处理.
+
+outer.js
+
+```js
+import age from "./index.js";
+
+export default name = "zmn";
+```
+
+### 错误示例
 
 ```js
 // index.js
-import newName from "./index.js";
+import name from "../outer.js";
 
-const name = "zmn";
-export default name;
-
-console.log(newName);
+export default age = 18;
 ```
 
-## good
+### 正确示例
 
 ```js
-const name = "zmn";
-export default name;
-
-console.log(newName);
+export default age = 18;
 ```
 
-## 参考:
+### 参考
 
-- [import//no-self-import](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules//no-self-import.md)
+- [import/no-cycle](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-cycle.md)

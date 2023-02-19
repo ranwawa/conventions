@@ -1,10 +1,12 @@
-# 禁止在 function 定义中出现重复的参数
+# no-dupe-else-if
 
-## Why?
+禁止在 function 定义中出现重复的参数
 
-> 如果在一个函数定义中出现多个同名的参数，后面出现的会覆盖前面出现的参数。
+### 为什么?
 
-## bad
+如果在一个函数定义中出现多个同名的参数，后面出现的会覆盖前面出现的参数。
+
+### 错误示例
 
 ```js
 function foo(a, b, a) {
@@ -12,7 +14,7 @@ function foo(a, b, a) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function foo(a, b, c) {
@@ -20,6 +22,6 @@ function foo(a, b, c) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-dupe-else-if](https://eslint.org/docs/rules/no-dupe-else-if)

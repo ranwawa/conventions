@@ -1,26 +1,23 @@
-# 禁止将 this 赋值给其他变量
+# no-inferrable-types
 
-## Why?
+禁止给可推导的变量添加类型
 
-> es6 里面这样做一般都是作用域没控制好,请使用箭头函数替换
+### 为什么?
 
-## bad
+ts 可明确推导的变量加上类型,增加了代码噪音,请删除掉
+
+### 错误示例
 
 ```ts
-const that = this;
-function func() {
-  that.doSomething();
-}
+const name: string = "zmn";
 ```
 
-## good
+### 正确示例
 
 ```ts
-const func = () => {
-  this.doSomething();
-};
+const name = "zmn";
 ```
 
 ## 参考
 
-- [@typescript-eslint/no-this-alias](https://typescript-eslint.io/rules/no-this-alias)
+- [@typescript-eslint/no-inferrable-types](https://typescript-eslint.io/rules/no-inferrable-types)

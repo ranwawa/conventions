@@ -1,10 +1,12 @@
-# 禁用 Buffer() 构造函数
+# no-mixed-requires
 
-## Why?
+禁用 Buffer() 构造函数
 
-> 在 Node.js 中，Buffer 构造函数的行为取决于其参数的类型。
+### 为什么?
 
-## bad
+在 Node.js 中，Buffer 构造函数的行为取决于其参数的类型。
+
+### 错误示例
 
 ```js
 new Buffer(5);
@@ -17,7 +19,7 @@ new Buffer(res.body.amount);
 new Buffer(res.body.values);
 ```
 
-## good
+### 正确示例
 
 ```js
 Buffer.alloc(5);
@@ -28,6 +30,6 @@ Buffer.alloc(res.body.amount);
 Buffer.from(res.body.values);
 ```
 
-## 参考:
+### 参考
 
 - [no-mixed-requires](https://eslint.org/docs/rules/no-mixed-requires)

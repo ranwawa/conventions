@@ -1,1 +1,132 @@
-c
+# 样式代码
+
+## grammar(语法)
+
+- [annotation-no-unknown](./grammar/annotation-no-unknown.md)
+  - 禁止出现未知的权重标记
+- [at-rule-no-unknown](./grammar/at-rule-no-unknown.md)
+  - 禁止出现未知道的@规则
+- [color-no-invalid-hex](./grammar/color-no-invalid-hex.md)
+  - 禁止非法的 16 进制颜色
+- [custom-property-no-missing-var-function](./grammar/custom-property-no-missing-var-function.md)
+  - 必须使用 var 包裹自定义变量
+- [function-linear-gradient-no-nonstandard-direction](./grammar/function-linear-gradient-no-nonstandard-direction.md)
+  - 禁止出现非法的渐变方向值
+- [function-no-unknown](./grammar/function-no-unknown.md)
+  - 禁止使用非法的函数
+- [media-feature-name-no-unknown](./grammar/media-feature-name-no-unknown.md)
+  - 禁止非法的媒体类型属性
+- [named-grid-areas-no-invalid](./grammar/named-grid-areas-no-invalid.md)
+  - 必须使用正确的命名栅格区域
+- [no-invalid-double-slash-comments](./grammar/no-invalid-double-slash-comments.md)
+  - 禁止使用单行注释
+- [no-irregular-whitespace](./grammar/no-irregular-whitespace.md)
+  - 禁止出现非法空格
+- [property-no-unknown](./grammar/property-no-unknown.md)
+  - 禁止非法的属性名
+- [selector-pseudo-class-no-unknown](./grammar/selector-pseudo-class-no-unknown.md)
+  - 禁止使用非法的伪类选择器
+- [selector-pseudo-element-no-unknown](./grammar/selector-pseudo-element-no-unknown.md)
+  - 禁止非法的伪节点选择器
+- [selector-type-no-unknown](./grammar/selector-type-no-unknown.md)
+  - 禁止使用非法的标签选择器
+- [string-no-newline](./grammar/string-no-newline.md)
+  - 必须使用转义字符换行
+## methodology(最佳实践)
+
+- [declaration-block-no-duplicate-custom-properties](./methodology/declaration-block-no-duplicate-custom-properties.md)
+  - 禁止声明重复的自定义变量
+- [declaration-block-no-duplicate-properties](./methodology/declaration-block-no-duplicate-properties.md)
+  - 禁止声明使用重复的属性
+- [declaration-block-no-shorthand-property-overrides](./methodology/declaration-block-no-shorthand-property-overrides.md)
+  - 禁止简写属性覆盖完整属性
+- [font-family-no-duplicate-names](./methodology/font-family-no-duplicate-names.md)
+  - 禁止出现重复的字体
+- [font-family-no-missing-generic-family-keyword](./methodology/font-family-no-missing-generic-family-keyword.md)
+  - 必须包含通用字体
+- [keyframe-block-no-duplicate-selectors](./methodology/keyframe-block-no-duplicate-selectors.md)
+  - 禁止出现重复的桢
+- [keyframe-declaration-no-important](./methodology/keyframe-declaration-no-important.md)
+  - 禁止在桢中使用 important 标记
+- [no-descending-specificity](./methodology/no-descending-specificity.md)
+  - 禁止低权重选择器出现在高权重选择器后面
+- [no-duplicate-at-import-rules](./methodology/no-duplicate-at-import-rules.md)
+  - 禁止引入重复的外部样式
+- [no-duplicate-selectors](./methodology/no-duplicate-selectors.md)
+  - 禁止使用重复的选择器
+## naming(命名风格)
+
+- [alpha-value-notation](./naming/alpha-value-notation.md)
+  - 必须使用数字表示百分比
+- [at-rule-name-case](./naming/at-rule-name-case.md)
+  - @规则必须使用小写字母
+- [at-rule-no-vendor-prefix](./naming/at-rule-no-vendor-prefix.md)
+  - 禁止在@规则前加浏览器前缀
+- [color-function-notation](./naming/color-function-notation.md)
+  - 必须使用空格作为颜色函数的分隔符
+- [color-hex-length](./naming/color-hex-length.md)
+  - 必须使用简写形式表达 16 进制颜色
+- [custom-media-pattern](./naming/custom-media-pattern.md)
+  - 必须使用烤串风格命令自定义媒体名
+- [custom-property-pattern](./naming/custom-property-pattern.md)
+  - 必须使用烤串风格命名自定义属性
+- [declaration-block-no-redundant-longhand-properties](./naming/declaration-block-no-redundant-longhand-properties.md)
+  - 必须使用简写
+- [elector-not-notatio](./naming/elector-not-notatio.md)
+  - 禁止使用链式的:not 选择器
+- [function-name-case](./naming/function-name-case.md)
+  - 必须使用小写形式的函数
+- [hue-degree-notation](./naming/hue-degree-notation.md)
+  - 必须使用`deg`表示颜色度数
+- [import-notation](./naming/import-notation.md)
+  - 必须使用字符串形式引入外部资源
+- [keyframe-selector-notation](./naming/keyframe-selector-notation.md)
+  - 必须使用百分比表示动画帧选择器
+- [keyframes-name-pattern](./naming/keyframes-name-pattern.md)
+  - 必须使用小写烤串风格命名动画名
+- [length-zero-no-unit](./naming/length-zero-no-unit.md)
+  - 禁止给 0 值带上单位
+- [media-feature-name-no-vendor-prefix](./naming/media-feature-name-no-vendor-prefix.md)
+  - 禁止在媒体特性前添加浏览器前缀
+- [number-max-precision](./naming/number-max-precision.md)
+  - 禁止小数值超过 2 位数
+- [property-no-vendor-prefix](./naming/property-no-vendor-prefix.md)
+  - 禁止在属性名前加浏览器前缀
+- [selector-id-pattern](./naming/selector-id-pattern.md)
+  - 必须使用小写烤串命名 ID 选择器
+- [selector-no-vendor-prefix](./naming/selector-no-vendor-prefix.md)
+  - 禁止在选择器前使用浏览器前缀
+- [selector-pseudo-element-colon-notation](./naming/selector-pseudo-element-colon-notation.md)
+  - 必须使用两个`:`标识伪类和伪节点
+- [selector-type-case](./naming/selector-type-case.md)
+  - 必须使用小写瓢节点选择器
+- [shorthand-property-no-redundant-values](./naming/shorthand-property-no-redundant-values.md)
+  - 禁止使用多余的简写属性
+- [unit-case](./naming/unit-case.md)
+  - 必须使用小写标注单位
+- [value-keyword-case](./naming/value-keyword-case.md)
+  - 禁止使用大写标注属性值
+## style(格式化)
+
+- [at-rule-empty-line-before](./style/at-rule-empty-line-before.md)
+  - 必须在@规则前换行
+- [block-no-empty](./style/block-no-empty.md)
+  - 禁止使用空的样式块
+- [comment-empty-line-before](./style/comment-empty-line-before.md)
+  - 必须在注释前面换行
+- [comment-no-empty](./style/comment-no-empty.md)
+  - 禁止出现空的注释
+- [comment-whitespace-inside](./style/comment-whitespace-inside.md)
+  - 必须在注释符号里面添加一个空格
+- [custom-property-empty-line-before](./style/custom-property-empty-line-before.md)
+  - 必须在自定义属性前换行
+- [font-family-name-quotes](./style/font-family-name-quotes.md)
+  - 必须在字体两边加上引号
+- [function-calc-no-unspaced-operator](./style/function-calc-no-unspaced-operator.md)
+  - 必须在操作符两侧添加空格
+- [function-url-quotes](./style/function-url-quotes.md)
+  - 必须使用引号将 url 函数参数包起来
+- [no-empty-source](./style/no-empty-source.md)
+  - 禁止出现空的样式文件
+- [no-extra-semicolons](./style/no-extra-semicolons.md)
+  - 禁止出现多余的分号

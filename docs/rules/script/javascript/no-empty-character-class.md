@@ -1,17 +1,19 @@
-# 禁止空块语句
+# no-empty-character-class
 
-## Why?
+禁止空块语句
 
-> 空块语句在阅读代码时会造成混淆。
+### 为什么?
 
-## bad
+空块语句在阅读代码时会造成混淆。
+
+### 错误示例
 
 ```js
 if (foo) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 if (foo) {
@@ -19,6 +21,6 @@ if (foo) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-empty-character-class](https://eslint.org/docs/rules/no-empty-character-class)

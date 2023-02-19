@@ -1,21 +1,25 @@
-# 禁止使用原始值字面量作为类型
+# triple-slash-reference
 
-## Why?
+triple-slash-reference
 
-> 使用原始值字面量作为类型影响可阅读性,请使用常量断言替代
+禁止使用斜线语法引入类型
 
-## bad
+### 为什么?
+
+混用斜线语法和 import 语法增加了使用难度,请统一使用 import 语法导致外部类型
+
+### 错误示例
 
 ```ts
-let bar: 2 = 2;
+/// <reference path="foo" />
 ```
 
-## good
+### 正确示例
 
 ```ts
-let bar = 2 as const;
+import type { SomeType } from "foo";
 ```
 
 ## 参考
 
-- [@typescript-eslint/prefer-as-const](https://typescript-eslint.io/rules/prefer-as-const)
+- [@typescript-eslint/triple-slash-reference](https://typescript-eslint.io/rules/triple-slash-reference)

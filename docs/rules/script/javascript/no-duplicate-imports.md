@@ -1,10 +1,12 @@
-# 禁止类成员中出现重复的名称
+# no-duplicate-imports
 
-## Why?
+禁止类成员中出现重复的名称
 
-> 如果类成员中有同名的声明，最后一个声明将会默默地覆盖其它声明。 它可能导致意外的行为。
+### 为什么?
 
-## bad
+如果类成员中有同名的声明，最后一个声明将会默默地覆盖其它声明。 它可能导致意外的行为。
+
+### 错误示例
 
 ```js
 class Foo {
@@ -23,7 +25,7 @@ class Foo {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 class Foo {
@@ -42,6 +44,6 @@ class Foo {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-duplicate-imports](https://eslint.org/docs/rules/no-duplicate-imports)

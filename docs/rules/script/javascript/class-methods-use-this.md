@@ -1,10 +1,12 @@
-# 限制圈复杂度
+# class-methods-use-this
 
-## Why?
+限制圈复杂度
 
-> 通过在项目中设置一个圈复杂度阈值来控制代码的复杂度,它将会在圈复杂度超过配置的阈值时发出警告 (默认是 20)
+### 为什么?
 
-## bad
+通过在项目中设置一个圈复杂度阈值来控制代码的复杂度,它将会在圈复杂度超过配置的阈值时发出警告 (默认是 20)
+
+### 错误示例
 
 ```js
 // 最大阈值为 2 代码示例
@@ -20,7 +22,7 @@ function a(x) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function a(x) {
@@ -32,6 +34,6 @@ function a(x) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [class-methods-use-this](https://eslint.org/docs/rules/class-methods-use-this)

@@ -1,8 +1,12 @@
-# 禁用使用已存在的具名模块导入默认模块
+# no-named-as-default-member
 
-## Why?
+no-named-as-default-member
 
-> 绝大部分情况是忘记输入花括号导致.如果确实是导入默认模块,这种样命名很容易使其他同事产生误解,应该要换个名字
+禁止在默认模块上访问已存在的具名模块
+
+### 为什么?
+
+在默认模块上访问具名模块,通常是因为对模块系统原理不熟悉导致.应当在导入时直接导入具名模块
 
 outer.js
 
@@ -11,19 +15,19 @@ export default "zmn";
 export const name = "ranwawa";
 ```
 
-## bad
+### 错误示例
 
 ```js
-import name from "./outer.js";
+import index from "./outer.js";
+const { name } = index;
 ```
 
-## good
+### 正确示例
 
 ```js
-// good
-import myName from "./outer.js";
+import { name } from "./outer.js";
 ```
 
-## 参考:
+### 参考
 
-- [import/no-named-as-default](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md)
+- [import/no-named-as-default-member](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default-member.md)

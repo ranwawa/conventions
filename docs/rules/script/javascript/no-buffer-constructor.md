@@ -1,10 +1,12 @@
-# 要求回调函数中有容错处理
+# no-buffer-constructor
 
-## Why?
+要求回调函数中有容错处理
 
-> 如果忘记处理这些错误会导致你的应用程序出现一些非常奇怪的行为。
+### 为什么?
 
-## bad
+如果忘记处理这些错误会导致你的应用程序出现一些非常奇怪的行为。
+
+### 错误示例
 
 ```js
 function loadData(err, data) {
@@ -12,7 +14,7 @@ function loadData(err, data) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function loadData(error, data) {
@@ -23,6 +25,6 @@ function loadData(error, data) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-buffer-constructor](https://eslint.org/docs/rules/no-buffer-constructor)

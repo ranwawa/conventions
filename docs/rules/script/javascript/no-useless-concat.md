@@ -1,10 +1,12 @@
-# 禁止不必要的 catch 子句
+# no-useless-concat
 
-## Why?
+禁止不必要的 catch 子句
 
-> 冗余子句可能会导致混乱和代码膨胀。
+### 为什么?
 
-## bad
+冗余子句可能会导致混乱和代码膨胀。
+
+### 错误示例
 
 ```js
 try {
@@ -14,7 +16,7 @@ try {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 try {
@@ -25,6 +27,6 @@ try {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-useless-concat](https://eslint.org/docs/rules/no-useless-concat)

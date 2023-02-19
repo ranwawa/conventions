@@ -1,22 +1,27 @@
-# 禁止存在未使用的模块文件
+# no-import-module-exports
 
-## Why?
+禁止混用 import 和 module.exports
 
-> 删除未使用的模块文件,有利于减少项目复杂度.随着项目增长,如果存在大量未实际使用的代码,会增加维护成本.
+### 为什么?
 
-## bad
+混用容易产生混淆,统一使用 ESM;
 
-```js
-const name = "zmn";
-```
-
-## good
+### 错误示例
 
 ```js
-const name = "zmn";
-export default name;
+import lodash from "lodash";
+
+module.exports = {};
 ```
 
-## 参考:
+### 正确示例
 
-- [import/no-unused-modules](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unused-modules.md)
+```js
+import lodash from "lodash";
+
+export default {};
+```
+
+### 参考
+
+- [import/no-import-module-exports](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-import-module-exports.md)

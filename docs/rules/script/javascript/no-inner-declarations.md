@@ -1,10 +1,12 @@
-# 禁止分配给导入的绑定
+# no-inner-declarations
 
-## Why?
+禁止分配给导入的绑定
 
-> ES Modules 对导入绑定的更新会导致运行时错误。
+### 为什么?
 
-## bad
+ES Modules 对导入绑定的更新会导致运行时错误。
+
+### 错误示例
 
 ```js
 import mod, { named } from "./mod.mjs";
@@ -14,7 +16,7 @@ mod = 1; // ERROR: 'mod' is readonly.
 named = 2; // ERROR: 'named' is readonly.
 ```
 
-## good
+### 正确示例
 
 ```js
 import mod, { named } from "./mod.mjs";
@@ -24,6 +26,6 @@ mod.prop = 1;
 named.prop = 2;
 ```
 
-## 参考:
+### 参考
 
 - [no-inner-declarations](https://eslint.org/docs/rules/no-inner-declarations)

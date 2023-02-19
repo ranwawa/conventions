@@ -1,10 +1,12 @@
-# 禁止循环中存在函数
+# no-magic-numbers
 
-## Why?
+禁止循环中存在函数
 
-> 由于函数在循环中创建闭包的方式不同，在循环中编写函数往往会导致错误。
+### 为什么?
 
-## bad
+由于函数在循环中创建闭包的方式不同，在循环中编写函数往往会导致错误。
+
+### 错误示例
 
 ```js
 for (var i = 10; i; i--) {
@@ -14,7 +16,7 @@ for (var i = 10; i; i--) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 var a = function () {};
@@ -24,6 +26,6 @@ for (var i = 10; i; i--) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-magic-numbers](https://eslint.org/docs/rules/no-magic-numbers)

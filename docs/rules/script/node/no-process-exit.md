@@ -1,21 +1,27 @@
-# 禁止直接给 exports 变量赋值
+# no-process-exit
 
-## Why?
+禁止使用 process.exit()函数
 
-> 直接给 exports 赋值导致其指针发生变化,通常会导致不可预期的错误,请使用 module.exports 替代
+### 为什么?
 
-## bad
+process.exit()会导致整个 node 进程立即退出,请用异常替代可增强程序的稳定性
+
+### 错误示例
 
 ```js
-exports = {};
+if (process.exitCode === 1) {
+  process.exit(1);
+}
 ```
 
-## good
+### 正确示例
 
 ```js
-module.exports = {};
+if (process.exitCode === 1) {
+  throw new Error("有异常,请处理");
+}
 ```
 
 ## 参考
 
-- [node/no-exports-assign](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-exports-assign.md)
+- [node/no-process-exit](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-process-exit.md)

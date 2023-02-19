@@ -1,10 +1,12 @@
-# 强制 typeof 表达式与有效字符串进行比较
+# arrow-body-style
 
-## Why?
+强制 typeof 表达式与有效字符串进行比较
 
-> 强制 typeof 表达式与有效的字符串文字进行比较。
+### 为什么?
 
-## bad
+强制 typeof 表达式与有效的字符串文字进行比较。
+
+### 错误示例
 
 ```js
 typeof foo === "strnig";
@@ -13,7 +15,7 @@ typeof bar != "nunber";
 typeof bar !== "fucntion";
 ```
 
-## good
+### 正确示例
 
 ```js
 typeof foo === "string";
@@ -22,6 +24,6 @@ typeof foo === baz;
 typeof bar === typeof qux;
 ```
 
-## 参考:
+### 参考
 
 - [arrow-body-style](https://eslint.org/docs/rules/arrow-body-style)

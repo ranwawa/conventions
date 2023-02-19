@@ -1,33 +1,40 @@
-# 强制状态初始化样式
+# static-property-placement
+
+static-property-placement
+
+必须将 props 属性类型检查及默认值放在类函数外
 
 why?
 
-> 为统一代码样式规范，此规则在 jsx 大括号表达式的大括号内强制执行一致的换行符
-> bad
+defaultProps 和 propTypes 主要是运行时的参数类型检测,和实际业务代码没有太大关系.为统一代码写法规范,请将其移到类外面
+
+### 错误示例
 
 ```jsx
-class Foo extends React.Component {
-  state = { bar: 0 };
-  render() {
-    return <div>Foo</div>;
-  }
+class MyComponent extends React.Component {
+  static defaultProps = {
+    /*...*/
+  };
+  static propTypes = {
+    /*...*/
+  };
 }
 ```
 
-## good
+### 正确示例
 
 ```jsx
-class Foo extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { bar: 0 };
-  }
-  render() {
-    return <div>Foo</div>;
-  }
+class MyComponent extends React.Component {
+  /*...*/
 }
+MyComponent.defaultProps = {
+  /*...*/
+};
+MyComponent.propTypes = {
+  /*...*/
+};
 ```
 
-## 参考:
+## 参考
 
-- [static-property-placement](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/static-property-placement)
+- [static-property-placement](https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md)

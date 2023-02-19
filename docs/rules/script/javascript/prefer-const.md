@@ -1,10 +1,12 @@
-# 要求回调函数使用箭头函数
+# prefer-const
 
-## Why?
+要求回调函数使用箭头函数
 
-> 简洁，易推理; 无论何时何地调用它，都是作用域绑定的。
+### 为什么?
 
-## bad
+简洁，易推理; 无论何时何地调用它，都是作用域绑定的。
+
+### 错误示例
 
 ```js
 foo(function (a) {
@@ -19,7 +21,7 @@ foo(
 // prefer: foo(() => this.a)
 ```
 
-## good
+### 正确示例
 
 ```js
 // arrow function callback
@@ -42,6 +44,6 @@ foo(function bar(n) {
 }); // OK
 ```
 
-## 参考:
+### 参考
 
 - [prefer-const](https://eslint.org/docs/rules/prefer-const)

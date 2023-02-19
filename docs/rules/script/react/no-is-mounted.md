@@ -1,10 +1,12 @@
-# 防止 this.state 的直接改变
+# no-is-mounted
+
+防止 this.state 的直接改变
 
 why?
 
-> this.state 不能直接改变值，要用 this.setState()
+this.state 不能直接改变值，要用 this.setState()
 
-## bad
+### 错误示例
 
 ```jsx
 var Hello = createReactClass({
@@ -28,7 +30,7 @@ class Hello extends React.Component {
 }
 ```
 
-## good
+### 正确示例
 
 ```jsx
 var Hello = createReactClass({
@@ -53,6 +55,6 @@ class Hello extends React.Component {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-is-mounted](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/no-is-mounted)

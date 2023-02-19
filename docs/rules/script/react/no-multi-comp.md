@@ -1,10 +1,12 @@
-# 防止使用 isMounted
+# no-multi-comp
+
+防止使用 isMounted
 
 why?
 
-> isMounted 是一种反模式，在使用 ES6 类时不可用，并且正在被正式弃用
+isMounted 是一种反模式，在使用 ES6 类时不可用，并且正在被正式弃用
 
-## bad
+### 错误示例
 
 ```jsx
 var Hello = createReactClass({
@@ -21,7 +23,7 @@ var Hello = createReactClass({
 });
 ```
 
-## good
+### 正确示例
 
 ```jsx
 var Hello = createReactClass({
@@ -31,6 +33,6 @@ var Hello = createReactClass({
 });
 ```
 
-## 参考:
+### 参考
 
 - [no-multi-comp](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/no-multi-comp)

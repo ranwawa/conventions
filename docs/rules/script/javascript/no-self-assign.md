@@ -1,10 +1,12 @@
-# 禁用 Script URL
+# no-self-assign
 
-## Why?
+禁用 Script URL
 
-> 链接中的代码必须由浏览器解析和赋值，其处理方式与 eval 一样。
+### 为什么?
 
-## bad
+链接中的代码必须由浏览器解析和赋值，其处理方式与 eval 一样。
+
+### 错误示例
 
 ```js
 async function foo() {
@@ -12,7 +14,7 @@ async function foo() {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 async function foo() {
@@ -22,6 +24,6 @@ async function foo() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-self-assign](https://eslint.org/docs/rules/no-self-assign)

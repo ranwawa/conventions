@@ -1,8 +1,10 @@
-# 禁止不必要的 fragments
+# no-adjacent-inline-elements
+
+禁止不必要的 fragments
 
 why?
 
-> 避免代码冗余
+避免代码冗余
 > bad
 
 ```jsx
@@ -28,7 +30,7 @@ why?
 {showFullName ? <>{fullName}</> : <>{firstName}</>}
 ```
 
-## good
+### 正确示例
 
 ```jsx
 {foo}
@@ -58,6 +60,6 @@ const cat = <>meow</>
 {showFullName ? fullName : firstName}
 ```
 
-## 参考:
+### 参考
 
 - [no-adjacent-inline-elements](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/no-adjacent-inline-elements)

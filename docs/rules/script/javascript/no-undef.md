@@ -1,10 +1,12 @@
-# 禁止将标识符定义为受限的名字
+# no-undef
 
-## Why?
+禁止将标识符定义为受限的名字
 
-> 将它们定义为其他含义可能会产生意想不到的结果，并使阅读代码的其他人感到困惑。
+### 为什么?
 
-## bad
+将它们定义为其他含义可能会产生意想不到的结果，并使阅读代码的其他人感到困惑。
+
+### 错误示例
 
 ```js
 function NaN() {}
@@ -14,7 +16,7 @@ try {
 } catch (eval) {}
 ```
 
-## good
+### 正确示例
 
 ```js
 var Object;
@@ -23,6 +25,6 @@ function f(a, b) {}
 var undefined;
 ```
 
-## 参考:
+### 参考
 
 - [no-undef](https://eslint.org/docs/rules/no-undef)

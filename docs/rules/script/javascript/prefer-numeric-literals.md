@@ -1,10 +1,12 @@
-# 优先使用数组和对象解构
+# prefer-numeric-literals
 
-## Why?
+优先使用数组和对象解构
 
-> 可能会出现访问键值为整数的对象属性将属于 array 析构的类别和通过计算索引访问数组元素属于 object 析构的类别两种情况。
+### 为什么?
 
-## bad
+可能会出现访问键值为整数的对象属性将属于 array 析构的类别和通过计算索引访问数组元素属于 object 析构的类别两种情况。
+
+### 错误示例
 
 ```js
 // With `array` enabled
@@ -17,7 +19,7 @@ var foo = object["foo"];
 var foo = object.bar;
 ```
 
-## good
+### 正确示例
 
 ```js
 // With `array` enabled
@@ -34,6 +36,6 @@ let foo;
 var { bar: foo } = object;
 ```
 
-## 参考:
+### 参考
 
 - [prefer-numeric-literals](https://eslint.org/docs/rules/prefer-numeric-literals)

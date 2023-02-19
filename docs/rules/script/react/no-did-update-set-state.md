@@ -1,10 +1,12 @@
-# 防止在 componentDidMoun 中使用 setState
+# no-did-update-set-state
+
+防止在 componentDidMoun 中使用 setState
 
 why?
 
-> 在组件挂载后更新状态将触发第二次 render()调用，并可能导致属性/布局抖动
+在组件挂载后更新状态将触发第二次 render()调用，并可能导致属性/布局抖动
 
-## bad
+### 错误示例
 
 ```jsx
 var Hello = createReactClass({
@@ -19,7 +21,7 @@ var Hello = createReactClass({
 });
 ```
 
-## good
+### 正确示例
 
 ```jsx
 var Hello = createReactClass({
@@ -36,6 +38,6 @@ var Hello = createReactClass({
 });
 ```
 
-## 参考:
+### 参考
 
 - [no-did-update-set-state](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/no-did-update-set-state)

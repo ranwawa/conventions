@@ -1,10 +1,12 @@
-# 强制 switch 语句中的默认子句位于最后
+# default-param-last
 
-## Why?
+强制 switch 语句中的默认子句位于最后
 
-> 如果一个 switch 语句应该有一个 default 子句，那最好将它定义为最后一个子句。
+### 为什么?
 
-## bad
+如果一个 switch 语句应该有一个 default 子句，那最好将它定义为最后一个子句。
+
+### 错误示例
 
 ```js
 switch (foo) {
@@ -17,7 +19,7 @@ switch (foo) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 switch (foo) {
@@ -30,6 +32,6 @@ switch (foo) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [default-param-last](https://eslint.org/docs/rules/default-param-last)

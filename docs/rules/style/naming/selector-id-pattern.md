@@ -1,17 +1,19 @@
-# 必须使用小写烤串命名 ID 选择器
+# selector-id-pattern
 
-## Why?
+必须使用小写烤串命名 ID 选择器
 
-> CSS 是大小写不敏感语言,统一风格
+### 为什么?
 
-## bad
+CSS 是大小写不敏感语言,统一风格
+
+### 错误示例
 
 ```scss
 #Foo-bar {
 }
 ```
 
-## good
+### 正确示例
 
 ```scss
 #foo-bar {

@@ -1,17 +1,19 @@
-# 使用模板字面量而非字符串连接
+# require-yield
 
-## Why?
+使用模板字面量而非字符串连接
 
-> 在 ES2015 (ES6) 中，我们可以使用模板而非字符串连接。
+### 为什么?
 
-## bad
+在 ES2015 (ES6) 中，我们可以使用模板而非字符串连接。
+
+### 错误示例
 
 ```js
 var str = "Hello, " + name + "!";
 var str = "Time: " + 12 * 60 * 60 * 1000;
 ```
 
-## good
+### 正确示例
 
 ```js
 var str = "Hello World!";
@@ -22,6 +24,6 @@ var str = `Time: ${12 * 60 * 60 * 1000}`;
 var str = "Hello, " + "World!";
 ```
 
-## 参考:
+### 参考
 
 - [require-yield](https://eslint.org/docs/rules/require-yield)

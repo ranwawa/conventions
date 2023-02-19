@@ -1,19 +1,12 @@
-# 禁止不必要的分号
+# no-func-assign
 
-## Why?
+禁止不必要的分号
 
-> 输入错误和对需要分号位置的误解会导致不必要的分号,额外的分号可能会造成混淆。
+### 为什么?
 
-## bad
+输入错误和对需要分号位置的误解会导致不必要的分号,额外的分号可能会造成混淆。
 
-```js
-var x = 5;
-function foo() {
-  // code
-}
-```
-
-## good
+### 错误示例
 
 ```js
 var x = 5;
@@ -22,6 +15,15 @@ function foo() {
 }
 ```
 
-## 参考:
+### 正确示例
+
+```js
+var x = 5;
+function foo() {
+  // code
+}
+```
+
+### 参考
 
 - [no-func-assign](https://eslint.org/docs/rules/no-func-assign)

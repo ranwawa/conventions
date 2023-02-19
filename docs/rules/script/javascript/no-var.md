@@ -1,10 +1,12 @@
-# 禁止在 import 和 export 和解构赋值时将引用重命名为相同的名字
+# no-var
 
-## Why?
+禁止在 import 和 export 和解构赋值时将引用重命名为相同的名字
 
-> ES2015 允许在 import ，export 和结构赋值时对引用进行重命名, 这和没有重命名是等价的，因此这种操作完全冗余。
+### 为什么?
 
-## bad
+ES2015 允许在 import ，export 和结构赋值时对引用进行重命名, 这和没有重命名是等价的，因此这种操作完全冗余。
+
+### 错误示例
 
 ```js
 import { foo as foo } from "bar";
@@ -16,7 +18,7 @@ function foo({ bar: bar }) {}
 ({ foo: foo }) => {};
 ```
 
-## good
+### 正确示例
 
 ```js
 import * as foo from "foo";
@@ -38,6 +40,6 @@ function foo({ bar: baz }) {}
 ({ foo: bar }) => {};
 ```
 
-## 参考:
+### 参考
 
 - [no-var](https://eslint.org/docs/rules/no-var)

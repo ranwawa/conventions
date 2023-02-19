@@ -1,10 +1,12 @@
-# 禁止重复模块导入
+# no-new-symbol
 
-## Why?
+禁止重复模块导入
 
-> 为每个模块使用单一的 import 语句会使代码更加清新。
+### 为什么?
 
-## bad
+为每个模块使用单一的 import 语句会使代码更加清新。
+
+### 错误示例
 
 ```js
 import { merge } from "module";
@@ -12,13 +14,13 @@ import something from "another-module";
 import { find } from "module";
 ```
 
-## good
+### 正确示例
 
 ```js
 import { merge, find } from "module";
 import something from "another-module";
 ```
 
-## 参考:
+### 参考
 
 - [no-new-symbol](https://eslint.org/docs/rules/no-new-symbol)

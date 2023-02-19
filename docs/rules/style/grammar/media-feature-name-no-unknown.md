@@ -1,17 +1,19 @@
-# 禁止非法的媒体类型属性
+# media-feature-name-no-unknown
 
-## Why?
+禁止非法的媒体类型属性
 
-> 当然是语法错误,请参照文档修改
+### 为什么?
 
-## bad
+当然是语法错误,请参照文档修改
+
+### 错误示例
 
 ```css
 @media screen and (unknown > 10px) {
 }
 ```
 
-## good
+### 正确示例
 
 ```css
 @media screen and (min-width > 10px) {

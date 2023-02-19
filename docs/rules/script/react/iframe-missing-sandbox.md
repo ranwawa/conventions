@@ -1,8 +1,10 @@
-# 确保 useState hook 值和 setter 变量的解构和对称命名
+# iframe-missing-sandbox
+
+确保 useState hook 值和 setter 变量的解构和对称命名
 
 why?
 
-> 此规则检查从调用中解构的 value 和 setter 变量是否 React.useState()对称命名
+此规则检查从调用中解构的 value 和 setter 变量是否 React.useState()对称命名
 > bad
 
 ```jsx
@@ -14,7 +16,7 @@ export default function useColor() {
 }
 ```
 
-## good
+### 正确示例
 
 ```jsx
 import React from "react";
@@ -26,6 +28,6 @@ export default function useColor() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [iframe-missing-sandbox](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/iframe-missing-sandbox)

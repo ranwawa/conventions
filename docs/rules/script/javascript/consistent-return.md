@@ -1,10 +1,12 @@
-# 类函数必须使用 this,或者使用静态函数
+# consistent-return
 
-## Why?
+类函数必须使用 this,或者使用静态函数
 
-> 静态函数不用实例化可以直接调用,去掉了实例化步骤可以减少代码量和提升运行时性能
+### 为什么?
 
-## bad
+静态函数不用实例化可以直接调用,去掉了实例化步骤可以减少代码量和提升运行时性能
+
+### 错误示例
 
 ```js
 class Bad {
@@ -16,7 +18,7 @@ const bad = new Bad();
 ## bad.sayHi();
 ```
 
-## good
+### 正确示例
 
 ```js
 class Good {
@@ -27,6 +29,6 @@ class Good {
 Good.sayHi();
 ```
 
-## 参考:
+### 参考
 
 - [consistent-return](https://eslint.org/docs/rules/consistent-return)

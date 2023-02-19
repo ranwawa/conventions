@@ -1,32 +1,24 @@
-# 禁止在类上使用 new 约束
+# no-namespace
 
-## Why?
+禁止使用 module/namespace 关键字
 
-> 类可以作为类型使用,声明构造器约束时会自动根据 constructor 推断,而 interface 则必须显示指定 new,请不要搞混了
+### 为什么?
 
-## bad
+这两个关键字已经过期了,请使用 declare module 声明外部模块
+
+### 错误示例
 
 ```ts
-class C {
-  new(): C;
-}
-
-interface I {
-  constructor(): void;
-}
+module foo {}
+namespace foo {}
 ```
 
-## good
+### 正确示例
 
 ```ts
-class C {
-  constructor() {}
-}
-interface I {
-  new (): C;
-}
+declare module "foo" {}
 ```
 
 ## 参考
 
-- [@typescript-eslint/no-misused-new](https://typescript-eslint.io/rules/no-misused-new)
+- [@typescript-eslint/no-namespace](https://typescript-eslint.io/rules/no-namespace)

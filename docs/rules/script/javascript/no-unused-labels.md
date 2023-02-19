@@ -1,10 +1,12 @@
-# 禁止未使用过的表达式
+# no-unused-labels
 
-## Why?
+禁止未使用过的表达式
 
-> 对程序状态没有影响的未使用表达式往往是个逻辑错误。
+### 为什么?
 
-## bad
+对程序状态没有影响的未使用表达式往往是个逻辑错误。
+
+### 错误示例
 
 ```js
 0;
@@ -19,7 +21,7 @@ a, b();
 injectGlobal`body{ color: red; }`;
 ```
 
-## good
+### 正确示例
 
 ```js
 {
@@ -36,6 +38,6 @@ delete a.b;
 void a;
 ```
 
-## 参考:
+### 参考
 
 - [no-unused-labels](https://eslint.org/docs/rules/no-unused-labels)

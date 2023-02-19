@@ -1,28 +1,34 @@
-# 优先导入具名模块
+# no-self-import
 
-## Why?
+no-self-import
 
-> 具名模块具有直接字面意思,使代码更容易维护.
+禁止引用同一文件自身的模块
 
-outer.js
+### 为什么?
+
+同个文件的模块,直接使用即可,不需要通过 import 语法引入,容易产生混淆.
+
+### 错误示例
 
 ```js
-export const name = "zmn";
+// index.js
+import newName from "./index.js";
+
+const name = "zmn";
 export default name;
+
+console.log(newName);
 ```
 
-## bad
+### 正确示例
 
 ```js
-import myName from "../outer.js";
+const name = "zmn";
+export default name;
+
+console.log(newName);
 ```
 
-## good
+### 参考
 
-```js
-import { name } from "../outer.js";
-```
-
-## 参考:
-
-- [import/no-anonymous-default-export](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md)
+- [import//no-self-import](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules//no-self-import.md)

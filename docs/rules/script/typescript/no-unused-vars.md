@@ -1,21 +1,28 @@
-# 禁止不必要的类型约束
+# no-unused-vars
 
-## Why?
+禁止存在未使用的变量
 
-> 泛型会默认为 unknown 类型,如果将泛型约束为 unknown/any 则是多此一举,可删掉
+### 为什么?
 
-## bad
+随着代码的增长,如果存在过多未使用的变量会影响代码的可读性和可维护性,请删掉未使用的变量
+
+### 错误示例
 
 ```ts
-interface Foo<T extends unknown> {}
+type Prop = string;
+type State = number;
+
+let prop: Prop;
 ```
 
-## good
+### 正确示例
 
 ```ts
-interface Foo<T> {}
+type Prop = string;
+
+let prop: Prop;
 ```
 
 ## 参考
 
-- [@typescript-eslint/no-unnecessary-type-constraint](https://typescript-eslint.io/rules/no-unnecessary-type-constraint)
+- [@typescript-eslint/no-unused-vars](https://typescript-eslint.io/rules/no-unused-vars)

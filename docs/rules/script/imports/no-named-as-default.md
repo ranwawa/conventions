@@ -1,23 +1,29 @@
-# 禁止导出重复的模块
+# no-named-as-default
 
-## Why?
+必须导入已存在的命名模块
 
-> 重复导出相同的模块,后续导出的模块值会被忽略,容易产生混淆,会导致维护难度加大.
+### 为什么?
 
-## bad
+导入的模块必须已经被导出,否则在运行时会抛出异常
 
-```js
-export default class a {};
-export default class b {}
-```
-
-## good
+outer.js
 
 ```js
-export default class a {}
-export const b = class {};
+export const name = "zmn";
 ```
 
-## 参考:
+### 错误示例
 
-- [import/export](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/export.md)
+```js
+import { name1 } from "./outer.js";
+```
+
+### 正确示例
+
+```js
+import { name } from "./outer.js";
+```
+
+### 参考
+
+- [import/named](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md)

@@ -1,8 +1,10 @@
-# 类的实例方法中必须使用 this
+# display-name
 
-## Why?
+类的实例方法中必须使用 this
 
-> 类的实例方法中必须使用 this,如果没有使用到 this,可考虑将方法抽离成公共函数或者写成类的静态方法.以下方法除外
+### 为什么?
+
+类的实例方法中必须使用 this,如果没有使用到 this,可考虑将方法抽离成公共函数或者写成类的静态方法.以下方法除外
 
 ```shell
           'render',
@@ -23,7 +25,7 @@
           'getSnapshotBeforeUpdate',
 ```
 
-## bad
+### 错误示例
 
 ```jsx
 class Comp extends React.Component {
@@ -33,7 +35,7 @@ class Comp extends React.Component {
 }
 ```
 
-## good
+### 正确示例
 
 ```jsx
 class Comp extends React.Component {
@@ -43,6 +45,6 @@ class Comp extends React.Component {
 }
 ```
 
-## 参考:
+### 参考
 
 - [display-name](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/display-name)

@@ -1,10 +1,12 @@
-# 要求或禁止 var 声明中的初始化
+# no-delete-var
 
-## Why?
+要求或禁止 var 声明中的初始化
 
-> 在 JavaScript 中，变量可在声明时初始化，或者在赋值语句中初始化.
+### 为什么?
 
-## bad
+在 JavaScript 中，变量可在声明时初始化，或者在赋值语句中初始化.
+
+### 错误示例
 
 ```js
 function foo() {
@@ -15,7 +17,7 @@ function foo() {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function foo() {
@@ -25,6 +27,6 @@ function foo() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-delete-var](https://eslint.org/docs/rules/no-delete-var)

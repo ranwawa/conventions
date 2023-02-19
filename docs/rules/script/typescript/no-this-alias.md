@@ -1,27 +1,30 @@
-# 禁止多余的非空断言
+# no-this-alias
 
-## Why?
+no-this-alias
 
-> 非空断言在运行时可能会报错,如果确定类型不为空,请使用条件判断推导或直接修改类型
+禁止将 this 赋值给其他变量
 
-## bad
+### 为什么?
+
+es6 里面这样做一般都是作用域没控制好,请使用箭头函数替换
+
+### 错误示例
 
 ```ts
-let a: string | null;
-
-a!.split("");
+const that = this;
+function func() {
+  that.doSomething();
+}
 ```
 
-## good
+### 正确示例
 
 ```ts
-let a: string | null;
-
-if (a) {
-  a.split("");
-}
+const func = () ={
+  this.doSomething();
+};
 ```
 
 ## 参考
 
-- [@typescript-eslint/no-non-null-assertion](https://typescript-eslint.io/rules/no-non-null-assertion)
+- [@typescript-eslint/no-this-alias](https://typescript-eslint.io/rules/no-this-alias)

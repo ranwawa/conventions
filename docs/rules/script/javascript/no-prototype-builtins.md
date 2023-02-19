@@ -1,10 +1,12 @@
-# 禁止从 Promise 执行器函数返回值
+# no-prototype-builtins
 
-## Why?
+禁止从 Promise 执行器函数返回值
 
-> 从执行器函数返回一个值是一个可能的错误，因为返回的值不能被使用，而且它不会以任何方式影响承诺。
+### 为什么?
 
-## bad
+从执行器函数返回一个值是一个可能的错误，因为返回的值不能被使用，而且它不会以任何方式影响承诺。
+
+### 错误示例
 
 ```js
 new Promise((resolve, reject) => {
@@ -21,7 +23,7 @@ new Promise((resolve, reject) => {
 });
 ```
 
-## good
+### 正确示例
 
 ```js
 new Promise((resolve, reject) => {
@@ -39,6 +41,6 @@ new Promise((resolve, reject) => {
 });
 ```
 
-## 参考:
+### 参考
 
 - [no-prototype-builtins](https://eslint.org/docs/rules/no-prototype-builtins)

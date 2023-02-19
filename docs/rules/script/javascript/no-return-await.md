@@ -1,10 +1,12 @@
-# 禁止在返回语句中赋值
+# no-return-await
 
-## Why?
+禁止在返回语句中赋值
 
-> 在 JavaScript 中一个有趣有时有令人感到困惑的是几乎可以在任何位置进行赋值操作。
+### 为什么?
 
-## bad
+在 JavaScript 中一个有趣有时有令人感到困惑的是几乎可以在任何位置进行赋值操作。
+
+### 错误示例
 
 ```js
 function doSomething() {
@@ -20,7 +22,7 @@ function doSomething() {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function doSomething() {
@@ -32,6 +34,6 @@ function doSomething() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-return-await](https://eslint.org/docs/rules/no-return-await)

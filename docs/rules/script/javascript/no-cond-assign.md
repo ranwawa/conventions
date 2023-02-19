@@ -1,10 +1,12 @@
-# 禁止与 -0 进行比较
+# no-cond-assign
 
-## Why?
+禁止与 -0 进行比较
 
-> 这样比较毫无意义。
+### 为什么?
 
-## bad
+这样比较毫无意义。
+
+### 错误示例
 
 ```js
 if (x === -0) {
@@ -12,7 +14,7 @@ if (x === -0) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 if (x === 0) {
@@ -20,6 +22,6 @@ if (x === 0) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-cond-assign](https://eslint.org/docs/rules/no-cond-assign)

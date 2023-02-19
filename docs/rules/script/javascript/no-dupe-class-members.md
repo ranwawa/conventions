@@ -1,10 +1,12 @@
-# 禁止修改 const 声明的变量
+# no-dupe-class-members
 
-## Why?
+禁止修改 const 声明的变量
 
-> 我们不能修改使用 const 关键字声明的变量。 它会引发一个运行时错误。
+### 为什么?
 
-## bad
+我们不能修改使用 const 关键字声明的变量。 它会引发一个运行时错误。
+
+### 错误示例
 
 ```js
 const a = 0;
@@ -13,7 +15,7 @@ a += 1;
 ++a;
 ```
 
-## good
+### 正确示例
 
 ```js
 const a = 0;
@@ -29,6 +31,6 @@ for (const a of [1, 2, 3]) {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-dupe-class-members](https://eslint.org/docs/rules/no-dupe-class-members)

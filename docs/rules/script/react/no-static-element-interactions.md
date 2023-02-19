@@ -1,24 +1,28 @@
-# 确保 html 元素上没有指定的冗余角色
+# no-static-element-interactions
 
-why?
+禁止在静态标签上绑定用户事件
 
-> 一些 HTML 元素具有由浏览器实现的本机语义。这包括默认/隐式 ARIA 角色。设置与其默认/隐式角色匹配的 ARIA 角色是多余的，因为它已经由浏览器设置。
+### 为什么?
 
-## bad
+静态标签没有语义,对残障人士和屏蔽阅读器非常不友好.请在交互式标签上绑定事件,或者手动给静态标签添加可访问属性,这样屏幕阅读器就能够识别出来.
 
-```jsx
-<button role="button" />
-<img role="img" src="foo.jpg" />
-```
-
-## good
+### 错误示例
 
 ```jsx
-<div />
-<button role="presentation" />
-<MyComponent role="main" />
+<div onClick={() => {}} />
 ```
 
-## 参考:
+### 正确示例
 
-- [no-static-element-interactions](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/no-static-element-interactions)
+```jsx
+// 交互式标签
+<button onClick={() => {}} className="foo" />
+<input type="text" onClick={() => {}} />
+
+// 可访问性属性
+<div className="foo" onClick={() => {}} role="button" />
+```
+
+### 参考
+
+- [no-static-element-interactions](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/docs/rules/no-static-element-interactions.md)

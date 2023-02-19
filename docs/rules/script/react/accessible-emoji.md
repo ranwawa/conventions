@@ -1,21 +1,23 @@
-# Enforce Rules of Hooks
+# accessible-emoji
 
-## Why?
+Enforce Rules of Hooks
 
-> xx
+### 为什么?
 
-## bad
+xx
 
-```scss
-
-```
-
-## good
+### 错误示例
 
 ```scss
 
 ```
 
-## 参考:
+### 正确示例
+
+```scss
+
+```
+
+### 参考
 
 - [accessible-emoji](https://github.com/jsx-eslint/eslint-plugin-react/blob/c42b624d0fb9ad647583a775ab9751091eec066f/docs/rules/accessible-emoji)

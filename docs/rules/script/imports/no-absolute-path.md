@@ -1,22 +1,23 @@
-# 必须使用 default 导出惟一的模块
+# no-absolute-path
 
-## Why?
+禁止使用绝对路径导入模块
 
-> 文件只导出一个模块,使用 default 导出.调用方不用关心导出的模块名,更容易上手.
+### 为什么?
 
-## bad
+绝对路径在发布到 npm 仓库后或者其他同事开发时无法使用,统一使用相对路径
 
-```js
-export const name = "zmn";
-```
-
-## good
+### 错误示例
 
 ```js
-const name = "zmn";
-export default name;
+import outer from "/outer.js";
 ```
 
-## 参考:
+### 正确示例
 
-- [import/prefer-default-export](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
+```js
+import outer from "../outer.js";
+```
+
+### 参考
+
+- [import/no-absolute-path](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-absolute-path.md)

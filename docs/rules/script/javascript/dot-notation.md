@@ -1,21 +1,23 @@
-# 强制默认参数放在最后
+# dot-notation
 
-## Why?
+强制默认参数放在最后
 
-> 将默认形参置于最后允许函数调用省略可选的尾部参数。
+### 为什么?
 
-## bad
+将默认形参置于最后允许函数调用省略可选的尾部参数。
+
+### 错误示例
 
 ```js
 function f(a = 0, b) {}
 ```
 
-## good
+### 正确示例
 
 ```js
 function f(a, b = 0) {}
 ```
 
-## 参考:
+### 参考
 
 - [dot-notation](https://eslint.org/docs/rules/dot-notation)

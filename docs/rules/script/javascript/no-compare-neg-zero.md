@@ -1,10 +1,12 @@
-# 禁止在循环中 出现 await
+# no-compare-neg-zero
 
-## Why?
+禁止在循环中 出现 await
 
-> 会使程序并没有充分利用 async/await 并行的好处。
+### 为什么?
 
-## bad
+会使程序并没有充分利用 async/await 并行的好处。
+
+### 错误示例
 
 ```js
 async function foo(things) {
@@ -17,7 +19,7 @@ async function foo(things) {
 }
 ```
 
-## good
+### 正确示例
 
 ````js
 async function foo(things) {
@@ -35,6 +37,6 @@ async function foo(things) {
 }
 ````
 
-## 参考:
+### 参考
 
 - [no-compare-neg-zero](https://eslint.org/docs/rules/no-compare-neg-zero)

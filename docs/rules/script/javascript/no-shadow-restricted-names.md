@@ -1,10 +1,12 @@
-# 禁止变量声明与外层作用域的变量同名
+# no-shadow-restricted-names
 
-## Why?
+禁止变量声明与外层作用域的变量同名
 
-> 覆盖是指在同一作用域里局部变量和全局变量同名。
+### 为什么?
 
-## bad
+覆盖是指在同一作用域里局部变量和全局变量同名。
+
+### 错误示例
 
 ```js
 if (true) {
@@ -14,7 +16,7 @@ if (true) {
 function b() {}
 ```
 
-## good
+### 正确示例
 
 ```js
 if (true) {
@@ -23,6 +25,6 @@ if (true) {
 let a = 5;
 ```
 
-## 参考:
+### 参考
 
 - [no-shadow-restricted-names](https://eslint.org/docs/rules/no-shadow-restricted-names)

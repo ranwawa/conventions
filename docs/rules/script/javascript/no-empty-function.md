@@ -1,10 +1,12 @@
-# 禁止 if 语句中 return 语句后的 else 块
+# no-empty-function
 
-## Why?
+禁止 if 语句中 return 语句后的 else 块
 
-> 更好的理解阅读 JavaScript 代码。
+### 为什么?
 
-## bad
+更好的理解阅读 JavaScript 代码。
+
+### 错误示例
 
 ```js
 function foo() {
@@ -16,7 +18,7 @@ function foo() {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 function foo() {
@@ -30,6 +32,6 @@ function foo() {
 }
 ```
 
-## 参考:
+### 参考
 
 - [no-empty-function](https://eslint.org/docs/rules/no-empty-function)

@@ -1,10 +1,12 @@
-# 禁止将 undefined 作为标识符
+# no-unused-vars
 
-## Why?
+禁止将 undefined 作为标识符
 
-> undefined 变量在 JavaScript 中是独一无二的，因为它实际上是一个全局对象属性。
+### 为什么?
 
-## bad
+undefined 变量在 JavaScript 中是独一无二的，因为它实际上是一个全局对象属性。
+
+### 错误示例
 
 ```js
 var foo = undefined;
@@ -17,7 +19,7 @@ function foo(undefined) {
 }
 ```
 
-## good
+### 正确示例
 
 ```js
 var foo = void 0;
@@ -28,6 +30,6 @@ if (typeof foo === "undefined") {
 global.undefined = "foo";
 ```
 
-## 参考:
+### 参考
 
 - [no-unused-vars](https://eslint.org/docs/rules/no-unused-vars)

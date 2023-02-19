@@ -1,17 +1,19 @@
-# 禁止非法的伪节点选择器
+# selector-pseudo-element-no-unknown
 
-## Why?
+禁止非法的伪节点选择器
 
-> 语法错误,请修改成正确的
+### 为什么?
 
-## bad
+语法错误,请修改成正确的
+
+### 错误示例
 
 ```css
 a::middle {
 }
 ```
 
-## good
+### 正确示例
 
 ```css
 a::before {
