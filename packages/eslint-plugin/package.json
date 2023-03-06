@@ -1,6 +1,6 @@
 {
   "name": "@ranwawa/eslint-plugin",
-  "version": "0.0.13",
+  "version": "0.0.1",
   "description": "eslint配置文件",
   "keywords": [
     "eslint-plugin"
