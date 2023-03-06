@@ -2,76 +2,84 @@
 
 ## 1. 快速开始
 
-### 1.1 切换内网镜像
+### 安装依赖
 
-> **重要:** 需要先将镜像源设置为公司内部镜像.[如何设置](https://alidocs.dingtalk.com/i/nodes/3Pl7jXNw6dBWxlDzenBzWvKAGqOzY0D9?nav=mySpace&navQuery=spaceId%3D9JOGO78J8Qr7jG4Q&iframeQuery=utm_source%3Dportal%26utm_medium%3Dportal_myspace_create)
-
-```shell
-npm install nrm -g
-nrm add zmn https://maven.xiujiadian.com/repository/npm_public/
-nrm use zmn
-```
-
-### 1.2 安装依赖
-
-npm 7+
+#### pnpm
 
 ```shell
-npm install --save-dev eslint @ranwawa/eslint-plugin
+pnpm i
 ```
 
-npm
+#### npm 7+
 
 ```shell
-npm install --save-dev eslint @ranwawa/eslint-plugin
-
-npm install --save-dev @typescript-eslint/eslint-plugin eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-node eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-vue prettier
+npm install --save-dev @ranwawa/eslint-plugin
 ```
 
-yarn
+#### npm
 
 ```shell
-yarn add --dev eslint @ranwawa/eslint-plugin
-
-yarn add --dev  @typescript-eslint/eslint-plugin eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-node eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-vue prettier
+npm install --save-dev @ranwawa/eslint-plugin \
+                       @typescript-eslint/eslint-plugin \
+                       eslint-plugin-import \
+                       eslint-plugin-jsx-a11y \
+                       eslint-plugin-node \
+                       eslint-plugin-prettier \
+                       eslint-plugin-react \
+                       eslint-plugin-react-hooks \
+                       eslint-plugin-vue
 ```
 
-### 1.3 创建配置文件
+#### yarn
 
-vue2
+```shell
+yarn add --save-dev @ranwawa/eslint-plugin \
+                       @typescript-eslint/eslint-plugin \
+                       eslint-plugin-import \
+                       eslint-plugin-jsx-a11y \
+                       eslint-plugin-node \
+                       eslint-plugin-prettier \
+                       eslint-plugin-react \
+                       eslint-plugin-react-hooks \
+                       eslint-plugin-vue
+```
+
+### 创建配置文件
+
+#### vue2
 
 ```shell
 echo '{ "extends": ["plugin:@ranwawa/eslint-plugin/vue2"] }' > .eslintrc
 ```
 
-vue3 + ts
+#### vue3 + ts
 
 ```shell
 echo '{ "extends": ["plugin:@ranwawa/eslint-plugin/vue3"] }' > .eslintrc
 ```
 
-react + ts
+#### react + ts
 
 ```shell
 echo '{ "extends": ["plugin:@ranwawa/eslint-plugin/react"] }' > .eslintrc
 ```
 
-uni-app
+#### uni-app
 
 ```shell
 echo '{ "extends": ["plugin:@ranwawa/eslint-plugin/react"], "plugins": ["@ranwawa/eslint-plugin"], "env": { "@ranwawa/uni-app": true } }' > .eslintrc
 ```
 
-### 1.4 添加 lint 命令
+### 添加 lint 命令
 
-自动添加`npm7+`
+#### npm7+
 
 ```shell
 npm set-script lint:script "eslint ./ --ext .js,.ts,.vue,.jsx,.tsx"
 npm set-script lint-fix:script "eslint ./ --ext .js,.ts,.vue,.jsx,.tsx --fix"
 ```
 
-手动添加到 package.json 文件
+#### 手动添加到 package.json 文件
 
 ```json
 {
@@ -82,7 +90,7 @@ npm set-script lint-fix:script "eslint ./ --ext .js,.ts,.vue,.jsx,.tsx --fix"
 }
 ```
 
-### 1.5 运行 lint 命令
+### 运行 lint 命令
 
 ```shell
 npm run lint:script
@@ -90,19 +98,11 @@ npm run lint:script
 
 ## 2. 业务介绍
 
-### 2.1 业务简介
+### 业务简介
 
 eslint 规范.集中管理所有项目的 eslint 规范.包括介不限于`vue2`,`vue3`,`react`
 
-### 2.2 协作人员
-
-| 维护模块       | 维护人 |
-| -------------- | ------ |
-| react 规范维护 | 龚芳蕾 |
-| js 规范维护    | 刘昌浩 |
-| 其他规范维护   | 冉启荣 |
-
-### 2.3 相关文档
+### 相关文档
 
 | 文档类型        | 链接                                                                                                                                                                                                      |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -110,14 +110,14 @@ eslint 规范.集中管理所有项目的 eslint 规范.包括介不限于`vue2`
 
 ## 3. 技术介绍
 
-### 3.1 框架简介
+### 框架简介
 
 |              | 工具  |
 | ------------ | ----- |
 | 包管理工具   | pnpm  |
 | 版本管理工具 | lerna |
 
-### 3.2 目录结构
+### 目录结构
 
 ```shell
 ├── README.md # 项目介绍
@@ -144,7 +144,7 @@ eslint 规范.集中管理所有项目的 eslint 规范.包括介不限于`vue2`
     └── vue3
 ```
 
-#### 3.2.1 项目入口文件
+#### 项目入口文件
 
 index.js 实际上是一个 eslint 插件,通过 configs 字段可以暴露出多个 eslint 配置文件,以供其他项目引入.
 
@@ -173,7 +173,3 @@ npm install --save-dev vue-eslint-parser
   }
 }
 ```
-
-### 安装失败是什么问题
-
-此包属于 zmn 私有包,放在内网里面,请参照 1.1 切换内网镜像后再安装
