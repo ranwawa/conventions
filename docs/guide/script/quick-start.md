@@ -5,6 +5,7 @@
 > **重要:** 需要先将镜像源设置为公司内部镜像.[如何设置](https://alidocs.dingtalk.com/i/nodes/3Pl7jXNw6dBWxlDzenBzWvKAGqOzY0D9?nav=mySpace&navQuery=spaceId%3D9JOGO78J8Qr7jG4Q&iframeQuery=utm_source%3Dportal%26utm_medium%3Dportal_myspace_create)
 
 ```shell
+
 npm install nrm -g
 nrm add zmn https://maven.xiujiadian.com/repository/npm_public/
 nrm use zmn

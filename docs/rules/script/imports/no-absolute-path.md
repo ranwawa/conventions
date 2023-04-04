@@ -4,18 +4,19 @@
 
 ### 为什么?
 
-绝对路径在发布到 npm 仓库后或者其他同事开发时无法使用,统一使用相对路径
+绝对路径在多人协作时,因为不同开发人员电脑的目录结构不一致,导致无法解析模块的问题
+请统一使用相对路径
 
 ### 错误示例
 
 ```js
-import outer from "/outer.js";
+import outer from '/outer.js';
 ```
 
 ### 正确示例
 
 ```js
-import outer from "../outer.js";
+import outer from '../outer.js';
 ```
 
 ### 参考

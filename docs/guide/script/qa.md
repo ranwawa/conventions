@@ -1,6 +1,7 @@
 # 常见问题
 
 ## vue3 setup 模式下 template 中使用的变量报 no-unused-vars 错误
+:
 
 这是老版本 vue-eslint-parser 不兼容 setup 语法导致.先删除本地的 vue-eslint-parser 然后重新安装即可
 

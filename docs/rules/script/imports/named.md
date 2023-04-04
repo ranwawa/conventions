@@ -1,7 +1,34 @@
 # named
 
-禁止导出生重复的模块
+禁止导入不存在的模块
+
+### 为什么?
+
+导入不存在的模块,会抛出异常,产生 BUG.
+请删除不存在的模块导入.
+
+### 错误示例
+
+> moduleA.js
+
+```js
+export const foo = 'ranwawa';
+```
+
+> moduleB.js
+
+```js
+import { notFoo } from './moduleA.js';
+```
+
+### 正确示例
+
+> moduleC.js
+
+```js
+import { Foo } from './moduleA.js';
+```
 
 ### 参考
 
-- [named](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/named)
+- [import/named](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/named.md)
