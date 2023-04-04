@@ -11,11 +11,11 @@ module.exports = {
     vue3,
     react,
     'node-module': nodeModule,
-    'node-script': nodeScript,
+    'node-script': nodeScript
   },
   environments: {
     'uni-app': {
-      globals: uniApp,
-    },
-  },
+      globals: uniApp
+    }
+  }
 };

@@ -2,10 +2,9 @@
   "name": "@ranwawa/conventions",
   "version": "0.0.1",
   "description": "前端规范",
-  "private": false,
+  "private": true,
   "workspace": true,
   "workspaces": [
-    "./packages/*",
     "./packages/docs",
     "./packages/eslint-plugin"
   ],
@@ -28,6 +27,9 @@
   "author": "ranwawa <274544338@qq.com> (https://github.com/ranwawa)",
   "license": "ISC",
   "devDependencies": {
+    "@ranwawa/eslint-plugin": "*",
+    "eslint": "^8.20.0",
+    "eslint-plugin-markdown": "^3.0.0",
     "vitepress": "1.0.0-alpha.45",
     "vue": "^3.2.47"
   }

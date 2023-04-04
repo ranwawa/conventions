@@ -1,0 +1,18 @@
+{
+  "extends": ["plugin:@ranwawa/eslint-plugin/node-module"],
+  "plugins": ["eslint-plugin-markdown"],
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["**/*.md"],
+      "processor": "markdown/markdown"
+    }
+  ]
+}
