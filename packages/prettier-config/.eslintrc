@@ -1,0 +1,11 @@
+{
+  "extends": ["plugin:@ranwawa/eslint-plugin/node-script"],
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {}
+}

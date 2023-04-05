@@ -5,12 +5,14 @@ importers:
   .:
     specifiers:
       '@ranwawa/eslint-plugin': '*'
+      '@ranwawa/prettier-config': '*'
       eslint: ^8.20.0
       eslint-plugin-markdown: ^3.0.0
       vitepress: 1.0.0-alpha.45
       vue: ^3.2.47
     devDependencies:
       '@ranwawa/eslint-plugin': link:packages/eslint-plugin
+      '@ranwawa/prettier-config': link:packages/prettier-config
       eslint: 8.33.0
       eslint-plugin-markdown: 3.0.0_eslint@8.33.0
       vitepress: 1.0.0-alpha.45_2r467mdhb7mblpaox4bg7fatdi
@@ -32,7 +34,7 @@ importers:
       eslint-plugin-react: ^7.30.1
       eslint-plugin-react-hooks: ^4.6.0
       eslint-plugin-vue: ^9.3.0
-      prettier: ^2.7.1
+      prettier: '*'
     dependencies:
       confusing-browser-globals: 1.0.11
       eslint-config-prettier: 8.6.0_eslint@8.33.0
@@ -49,6 +51,12 @@ importers:
       eslint-plugin-react: 7.32.2_eslint@8.33.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.33.0
       eslint-plugin-vue: 9.9.0_eslint@8.33.0
+      prettier: 2.8.3
+
+  packages/prettier-config:
+    specifiers:
+      prettier: '*'
+    dependencies:
       prettier: 2.8.3
 
 packages:
@@ -2278,7 +2286,6 @@ packages:
     resolution: {integrity: sha512-tJ/oJ4amDihPoufT5sM0Z1SKEuKay8LfVAMlbbhnnkvt6BUserZylqo2PN+p9KeljLr0OHa2rXHU1T8reeoTrw==}
     engines: {node: '>=10.13.0'}
     hasBin: true
-    dev: true
 
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
