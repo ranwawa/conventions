@@ -28,7 +28,7 @@
   "license": "ISC",
   "devDependencies": {
     "@ranwawa/eslint-plugin": "*",
-    "@ranwawa/prettier-config": "*",
+    "@ranwawa/configurations": "*",
     "eslint": "^8.20.0",
     "eslint-plugin-markdown": "^3.0.0",
     "vitepress": "1.0.0-alpha.45",
