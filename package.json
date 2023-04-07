@@ -15,7 +15,8 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -28,12 +29,14 @@
   "author": "ranwawa <274544338@qq.com> (https://github.com/ranwawa)",
   "license": "ISC",
   "devDependencies": {
-    "@ranwawa/eslint-plugin": "workspace:*",
-    "@ranwawa/configurations": "workspace:*",
-    "eslint-plugin-markdown": "^3.0.0",
     "@commitlint/cli": "*",
+    "@ranwawa/configurations": "workspace:*",
+    "@ranwawa/eslint-plugin": "workspace:*",
     "conventional-changelog-conventionalcommits": "*",
+    "eslint-plugin-markdown": "^3.0.0",
     "git-cz": "*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
     "vitepress": "1.0.0-alpha.45",
     "vue": "^3.2.47"
   }
