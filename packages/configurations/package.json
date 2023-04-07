@@ -1,0 +1,22 @@
+{
+  "name": "@ranwawa/configurations",
+  "version": "0.0.1",
+  "description": "前端工程化配置文件",
+  "keywords": [
+    "prettier",
+    "prettier config",
+    "commitlint",
+    "commitlint config",
+    "git-cz",
+    "git-cz config"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "conventional-changelog-conventionalcommits": "*"
+  },
+  "peerDependencies": {
+    "@commitlint/cli": "*",
+    "git-cz": "*",
+    "prettier": "*"
+  }
+}

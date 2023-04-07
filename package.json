@@ -5,8 +5,8 @@
   "private": true,
   "workspace": true,
   "workspaces": [
-    "./packages/docs",
-    "./packages/eslint-plugin"
+    "./packages/eslint-plugin",
+    "./packages/configurations"
   ],
   "keywords": [],
   "main": "index.js",
@@ -14,7 +14,8 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -27,10 +28,12 @@
   "author": "ranwawa <274544338@qq.com> (https://github.com/ranwawa)",
   "license": "ISC",
   "devDependencies": {
-    "@ranwawa/eslint-plugin": "*",
-    "@ranwawa/configurations": "*",
-    "eslint": "^8.20.0",
+    "@ranwawa/eslint-plugin": "workspace:*",
+    "@ranwawa/configurations": "workspace:*",
     "eslint-plugin-markdown": "^3.0.0",
+    "@commitlint/cli": "*",
+    "conventional-changelog-conventionalcommits": "*",
+    "git-cz": "*",
     "vitepress": "1.0.0-alpha.45",
     "vue": "^3.2.47"
   }

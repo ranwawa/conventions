@@ -1,4 +1,4 @@
-# @ranwawa/prettier-config
+# 自动格式化
 
 像上面这样通过 npm run 命令手动格式化代码,非常麻烦
 

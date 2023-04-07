@@ -1,12 +1,14 @@
-# @ranwawa/prettier-config
+# 快速开始
 
-统一格式化工具及配置,可以避免多人协作时的代码冲突,配合 IDE 自动格式化以及前端自动化,可以有效提升开发效率
+统一格式化工具及配置,可避免多人协作时因格式化问题引起的代码冲突,配合 IDE 自动格式化以及前端自动化,有效地提升开发效率
 
 采用业界流行的代码格式化工具 [prettier](https://prettier.io/docs/en/index.html) ,支持所有前端语言,并且和 eslint/stylelint 等前端生态兼容
 
+<!-- TODO 这里需要一张截图对比 -->
+
 ## 安装依赖
 
-npm
+npm`7+`
 
 ```shell
 npm install --save-dev @ranwawa/prettier-config
@@ -20,9 +22,10 @@ echo '"@ranwawa/prettier-config"' > .prettierrc
 
 ## 验证 prettier 配置是否生效
 
+格式化 prettier 配置文件
+
 ```shell
 npx prettier --write .prettierrc
-
 ```
 
 输出以下信息,表示配置生效
