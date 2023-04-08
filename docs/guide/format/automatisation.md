@@ -1,8 +1,8 @@
 # 自动格式化
 
-像上面这样通过 npm run 命令手动格式化代码,非常麻烦
+通过`npm run lint:style`命令手动格式化代码,比较繁琐,一次性格式化所有代码也会引起心智负担,也不利于代码审查
 
-可以通过 [husky](https://github.com/typicode/husky) 配合 [lint-staged](https://github.com/okonet/lint-staged) 在每次提交之前,对当前更改的文件进行格式化,减少重复的人工操作,也能避免一次性格式化所有代码引起的心智负担
+可通过 [husky](https://github.com/typicode/husky) 配合 [lint-staged](https://github.com/okonet/lint-staged) 在每次提交信息(commit)之前,对当前更改的文件进行格式化,减少重复的人工操作,避免一次性格式化所有代码引起的心智负担
 
 ## 安装依赖
 
@@ -14,11 +14,13 @@ npm install --save-dev husky lint-staged
 
 ## 在 npm 生命周期中自动激活 husky
 
+npm`7+`
+
 ```shell
 npm set-script prepare "husky install"
 ```
 
-直接添加到`package.json`文件中
+手动添加到`package.json`文件中
 
 ```json
   "scripts": {

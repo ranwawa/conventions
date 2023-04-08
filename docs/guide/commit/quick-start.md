@@ -1,6 +1,6 @@
 # 快速开始
 
-统一格 commit 工具及配置,可避因风格迥异的提交信息起起的阅读困难,语义化的提交信息能有效提高代码可阅读性,配合 cli 工具以及前端自动化,快速生成`更新日志`文件,可有效提升开发效率
+统一格 commit 工具及配置,可避因风格迥异的提交信息引起的阅读困难,语义化的提交信息能有效提高代码可阅读性,配合 cli 工具以及前端自动化,快速生成`更新日志`文件,可有效提升开发效率
 
 采用业界流行的语义化提交信息风格 [Angular Commit Guidelines](https://www.conventionalcommits.org/zh-hans/v1.0.0/#%e7%ba%a6%e5%ae%9a%e5%bc%8f%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83) ,使用[git-cz](https://github.com/streamich/git-cz)进行模板化提交,通过[commitlint](https://commitlint.js.org/#/guides-local-setup)自动检验提交信息是否符合规范
 
@@ -37,26 +37,41 @@ npx commitlint --from HEAD~1 --to HEAD --verbose
 
 ## 初始化 git-cz 配置文件
 
-feat(home): 巴拉巴拉巴拉
+每次提交信息时,按照标准格式手动输入 commit 信息( `feat(home): 巴拉巴拉巴拉`)比较繁琐
+通过 git-cz 以模板的形式进行提交,可有效提高开发效率
 
-每次提交信息时,按照标准格式手动输入比较繁琐,通过 git-cz 以模板的形式进行提交,可有效提高开发效率
-
-```bash
+```shell
 echo "module.exports = require('@ranwawa/configurations/git-cz-config');" > changelog.config.js
 ```
 
 ## 添加 git-cz 命令
 
-```bash
+npm`7+`
+
+```shell
 npm set-script commit "git-cz"
+```
+
+手动添加到`package.json`文件中
+
+```json
+  "scripts": {
+    "commit": "git-cz"
+  }
 ```
 
 ## 验证 git-cz 是否配置成功
 
-```bash
+运行提交命令
+
+```shell
 git add changelog.config.js
 npm run commit
+```
 
+输出以下信息,表示配置生效
+
+```shell
 ? Select the type of change that you're committing: (Use arrow keys or type to search)
 ❯ 🎸  feat:       新功能
   🐛  fix:        bug修复

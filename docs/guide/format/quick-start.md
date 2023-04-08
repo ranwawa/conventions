@@ -1,6 +1,6 @@
 # 快速开始
 
-统一格式化工具及配置,可避免多人协作时因格式化问题引起的代码冲突,配合 IDE 自动格式化以及前端自动化,有效地提升开发效率
+统一格式化工具及配置,可避免多人协作时因格式化问题引起的代码冲突,配合 IDE 自动格式化以及前端自动化,可有效地提升开发效率
 
 采用业界流行的代码格式化工具 [prettier](https://prettier.io/docs/en/index.html) ,支持所有前端语言,并且和 eslint/stylelint 等前端生态兼容
 
@@ -16,8 +16,8 @@ npm install --save-dev @ranwawa/prettier-config
 
 ## 初始化 prettier 配置文件
 
-```bash
-echo '"@ranwawa/prettier-config"' > .prettierrc
+```shell
+echo '"@ranwawa/configurations/prettier-config"' > .prettierrc
 ```
 
 ## 验证 prettier 配置是否生效
@@ -36,13 +36,10 @@ npx prettier --write .prettierrc
 
 ## 添加 lint 命令
 
-> **重要:** 命令中最后那个`.`表示检查所有文件,可根据项目需要自定义文件目录
-
 npm 7+
 
 ```shell
 npm set-script lint:style "prettier --check --ignore-unknown ."
-npm set-script lint-fix:style "prettier --check --ignore-unknown --write ."
 ```
 
 直接添加到`package.json`文件中
@@ -50,11 +47,12 @@ npm set-script lint-fix:style "prettier --check --ignore-unknown --write ."
 ```json
 {
   "scripts": {
-    "lint:style": "prettier --check --ignore-unknown .",
-    "lint-style:style": "prettier --check --ignore-unknown --write ."
+    "lint:style": "prettier --check --ignore-unknown --write ."
   }
 }
 ```
+
+> 命令中最后的`.`表示检查所有文件,可根据项目需要自定义文件目录
 
 ## 运行 lint 命令
 
