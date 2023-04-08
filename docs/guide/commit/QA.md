@@ -6,9 +6,7 @@
 
 ```shell
 Error [ERR_REQUIRE_ESM]: require() of ES Module .../commitlint.config.js from .../node_modules/.pnpm/cosmiconfig@8.1.3/node_modules/cosmiconfig/dist/loaders.js not supported.
-
 commitlint.config.js is treated as an ES module file as it is a .js file whose nearest parent package.json contains "type": "module" which declares all .js files in that package scope as ES modules.
-
 Instead rename commitlint.config.js to end in .cjs, change the requiring code to use dynamic import() which is available in all CommonJS modules, or change "type": "module" to "type": "commonjs" in .../package.json to treat all .js files as CommonJS (using .mjs for all ES modules instead).
 ```
 
@@ -22,9 +20,7 @@ Instead rename commitlint.config.js to end in .cjs, change the requiring code to
 
 ```shell
 ✖  fatal     Error [ERR_REQUIRE_ESM]: require() of ES Module .../changelog.config.js from .../node_modules/.pnpm/git-cz@4.9.0/node_modules/git-cz/dist/cli.js not supported
-
 changelog.config.js is treated as an ES module file as it is a .js file whose nearest parent package.json contains "type": "module" which declares all .js files in that package scope as ES modules.
-
 Instead rename changelog.config.js to end in .cjs, change the requiring code to use dynamic import() which is available in all CommonJS modules, or change "type": "module" to "type": "commonjs" in .../package.json to treat all .js files as CommonJS (using .mjs for all ES modules instead)
 ```
 

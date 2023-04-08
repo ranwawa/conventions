@@ -1,6 +1,6 @@
 # 快速开始
 
-统一格 commit 工具及配置,可避因风格迥异的提交信息引起的阅读困难,语义化的提交信息能有效提高代码可阅读性,配合 cli 工具以及前端自动化,快速生成`更新日志`文件,可有效提升开发效率
+统一 commit 工具及配置,可避因风格迥异的提交信息引起的阅读困难,语义化的提交信息能有效提高代码可阅读性,配合 cli 工具以及前端自动化,快速生成`更新日志`文件,可有效提升开发效率
 
 采用业界流行的语义化提交信息风格 [Angular Commit Guidelines](https://www.conventionalcommits.org/zh-hans/v1.0.0/#%e7%ba%a6%e5%ae%9a%e5%bc%8f%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83) ,使用[git-cz](https://github.com/streamich/git-cz)进行模板化提交,通过[commitlint](https://commitlint.js.org/#/guides-local-setup)自动检验提交信息是否符合规范
 

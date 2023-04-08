@@ -1,14 +1,16 @@
 # 快速开始
 
-## 1 安装依赖
+统一编码,可避免低级语法错误引起的 bug,[eslint](https://eslint.org/)能快速发现并修复问题,可极大提升代码健壮性,多人协作时可有效提升开发效率
 
-### npm
+## 安装依赖
+
+npm`7+`
 
 ```shell
 npm install --save-dev @ranwawa/eslint-plugin
 ```
 
-## 2 创建配置文件
+## 初始化 eslint 配置文件
 
 vue2
 
@@ -34,13 +36,28 @@ uni-app
 echo '{ "extends": ["plugin:@ranwawa/eslint-plugin/react"], "plugins": ["@ranwawa/eslint-plugin"], "env": { "@ranwawa/uni-app": true } }' > .eslintrc
 ```
 
-## 3 添加 lint 命令
+## 验证 eslint 配置是否生效
+
+创建一个临时的 js 文件,并运行 eslint 命令
+
+```shell
+echo "const a = 1;" > test-for-eslint.js
+eslint test-for-eslint.js
+rm test-for-eslint.js
+```
+
+输出以下信息,表示配置生效
+
+```shell
+1:7  error  'a' is assigned a value but never used  no-unused-vars
+```
+
+## 添加 lint 命令
 
 自动添加`npm7+`
 
 ```shell
-npm set-script lint:script "eslint ./ --ext .js,.ts,.vue,.jsx,.tsx"
-npm set-script lint-fix:script "eslint ./ --ext .js,.ts,.vue,.jsx,.tsx --fix"
+npm set-script lint:script "eslint ./ --ext .js,.ts,.vue,.jsx,.tsx --fix"
 ```
 
 手动添加到 package.json 文件
@@ -48,13 +65,12 @@ npm set-script lint-fix:script "eslint ./ --ext .js,.ts,.vue,.jsx,.tsx --fix"
 ```json
 {
   "scripts": {
-    "lint:script": "eslint ./ --ext .js,.ts,.vue,.jsx,.tsx",
-    "lint-fix:script": "eslint ./ --ext .js,.ts,.vue,.jsx,.tsx --fix"
+    "lint:script": "eslint ./ --ext .js,.ts,.vue,.jsx,.tsx --fix"
   }
 }
 ```
 
-## 4 运行 lint 命令
+## 运行 lint 命令
 
 ```shell
 npm run lint:script

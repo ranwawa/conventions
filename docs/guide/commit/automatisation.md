@@ -1,5 +1,9 @@
 # 自动验证 commit 信息
 
+通过`npx commitlint --from HEAD~1 --to HEAD --verbose`命令手动验证提交信息,比较繁琐
+
+可通过 [husky](https://github.com/typicode/husky) 在每次提交信息(commit)之前,对当前提前信息进行验证,从而避免提交错误的提交信息
+
 ## 安装依赖
 
 npm

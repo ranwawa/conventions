@@ -43,7 +43,7 @@ echo '{"*.{js,jsx,ts,tsx,vue,json,css,scss,sass,html,md,yaml,yml}": "prettier --
 ## 在 commit 前自动执行 prettier 命令
 
 ```shell
-npx husky add .husky/pre-commit "npx lint-staged"
+npx husky add .husky/pre-commit "npx lint-staged --allow-empty"
 ```
 
 ## 验证 husky 配置是否生效
