@@ -39,5 +39,8 @@
     "lint-staged": "^13.2.1",
     "vitepress": "1.0.0-alpha.45",
     "vue": "^3.2.47"
+  },
+  "dependencies": {
+    "jest": "^29.5.0"
   }
 }
