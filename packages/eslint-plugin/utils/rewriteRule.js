@@ -5,7 +5,13 @@
  */
 const lodash = require('lodash');
 
-const rewriteBuiltInRule = (meta, ruleName) => {
+/**
+ *
+ * @param {import('eslint').Rule.RuleMetaData} meta 重写的meta信息
+ * @param {string} ruleName eslint内置规则名
+ * @returns
+ */
+const rewriteBuiltInRule = (meta = {}, ruleName = '') => {
   if (!ruleName) {
     console.warn('请传入规则名');
     return;
@@ -22,7 +28,7 @@ const rewriteBuiltInRule = (meta, ruleName) => {
   }
 
   const { docs } = meta;
-  if (!docs.url) {
+  if (!docs?.url) {
     console.warn('文档url必传');
     return;
   }
