@@ -14,9 +14,11 @@ export default {
           text: '逻辑代码',
           items: [
             { text: '快速开始', link: '/guide/script/quick-start' },
-            { text: '技术介绍', link: '/guide/script/technical' },
-            { text: '贡献代码', link: '/guide/script/' },
-            { text: '常见问题', link: '/guide/script/qa' }
+            { text: '编辑器集成', link: '/guide/script/editor-integration' },
+            { text: '本地自动化', link: '/guide/script/automation' },
+            { text: '常见问题', link: '/guide/script/qa' },
+            { text: '项目介绍', link: '/guide/script/project' },
+            { text: '贡献代码', link: '/guide/script/contribute' }
           ]
         },
         {
