@@ -42,7 +42,7 @@ echo '{ "extends": ["plugin:@ranwawa/eslint-plugin/react"], "plugins": ["@ranwaw
 
 ```shell
 echo "const a = 1;" > test-for-eslint.js
-eslint test-for-eslint.js
+npx eslint test-for-eslint.js
 rm test-for-eslint.js
 ```
 
