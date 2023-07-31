@@ -38,7 +38,7 @@
 index.js
 
 ```js
-import lodash from "lodash";
+import lodash from 'lodash';
 ```
 
 ### 错误示例

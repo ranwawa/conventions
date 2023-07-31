@@ -1,29 +1,26 @@
 module.exports = {
   env: {
-    es6: true,
+    es6: true
   },
   parserOptions: {
     ecmaVersion: 6,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['import'],
 
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.mjs', '.js', '.json', '.ts', '.tsx'],
+        extensions: ['.mjs', '.js', '.json', '.ts', '.tsx']
       },
       alias: {
-        map: [['@', './src']],
+        map: [['@', './src']]
       },
-      typescript: {},
+      typescript: {}
     },
     'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.vue'],
     'import/core-modules': [],
-    'import/ignore': [
-      'node_modules',
-      '\\.(coffee|scss|css|less|hbs|svg|json)$',
-    ],
+    'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$']
   },
 
   rules: {
@@ -64,31 +61,31 @@ module.exports = {
       'warn',
       {
         devDependencies: [
-          'test/**', /* tape, common npm pattern */
-          'tests/**', /* also common npm pattern */
-          'spec/**', /* mocha, rspec-like pattern */
-          '**/__tests__/**', /* jest pattern */
-          '**/__mocks__/**', /* jest pattern */
-          'test.{js,jsx}', /* repos with a single test file */
-          'test-*.{js,jsx}', /* repos with multiple top-level test files */
-          '**/*{.,_}{test,spec}.{js,jsx}', /* tests where the extension or filename suffix denotes that it is a test */
-          '**/jest.config.js', /* jest config */
-          '**/jest.setup.js', /* jest setup */
-          '**/vue.config.js', /* vue-cli config */
-          '**/webpack.config.js', /* webpack config */
-          '**/webpack.config.*.js', /* webpack config */
-          '**/rollup.config.js', /* rollup config */
-          '**/rollup.config.*.js', /* rollup config */
-          '**/gulpfile.js', /* gulp config */
-          '**/gulpfile.*.js', /* gulp config */
-          '**/Gruntfile{,.js}', /* grunt config */
-          '**/protractor.conf.js', /* protractor config */
-          '**/protractor.conf.*.js', /* protractor config */
-          '**/karma.conf.js', /* karma config */
-          '**/.eslintrc.js', /* eslint config */
+          'test/**' /* tape, common npm pattern */,
+          'tests/**' /* also common npm pattern */,
+          'spec/**' /* mocha, rspec-like pattern */,
+          '**/__tests__/**' /* jest pattern */,
+          '**/__mocks__/**' /* jest pattern */,
+          'test.{js,jsx}' /* repos with a single test file */,
+          'test-*.{js,jsx}' /* repos with multiple top-level test files */,
+          '**/*{.,_}{test,spec}.{js,jsx}' /* tests where the extension or filename suffix denotes that it is a test */,
+          '**/jest.config.js' /* jest config */,
+          '**/jest.setup.js' /* jest setup */,
+          '**/vue.config.js' /* vue-cli config */,
+          '**/webpack.config.js' /* webpack config */,
+          '**/webpack.config.*.js' /* webpack config */,
+          '**/rollup.config.js' /* rollup config */,
+          '**/rollup.config.*.js' /* rollup config */,
+          '**/gulpfile.js' /* gulp config */,
+          '**/gulpfile.*.js' /* gulp config */,
+          '**/Gruntfile{,.js}' /* grunt config */,
+          '**/protractor.conf.js' /* protractor config */,
+          '**/protractor.conf.*.js' /* protractor config */,
+          '**/karma.conf.js' /* karma config */,
+          '**/.eslintrc.js' /* eslint config */
         ],
-        optionalDependencies: false,
-      },
+        optionalDependencies: false
+      }
     ],
 
     // 禁止导出可更改的模块
@@ -141,15 +138,15 @@ module.exports = {
           'sibling',
           'index',
           'type',
-          'object',
+          'object'
         ],
         'newlines-between': 'always',
         warnOnUnassignedImports: true,
         alphabetize: {
           order: 'asc',
-          caseInsensitive: true,
-        },
-      },
+          caseInsensitive: true
+        }
+      }
     ],
 
     // 必须在最后一条 import 语句后换行
@@ -181,8 +178,8 @@ module.exports = {
     'import/no-internal-modules': [
       'off',
       {
-        allow: [],
-      },
+        allow: []
+      }
     ],
 
     // Warn if a module could be mistakenly parsed as a script by a consumer
@@ -215,8 +212,8 @@ module.exports = {
         allowAnonymousClass: false,
         allowAnonymousFunction: false,
         allowLiteral: false,
-        allowObject: false,
-      },
+        allowObject: false
+      }
     ],
 
     // This rule enforces that all exports are declared at the bottom of the file.
@@ -256,8 +253,8 @@ module.exports = {
       'off',
       {
         importFunctions: [],
-        webpackChunknameFormat: '[0-9a-zA-Z-_/.]+',
-      },
+        webpackChunknameFormat: '[0-9a-zA-Z-_/.]+'
+      }
     ],
 
     // Use this rule to prevent imports to folders in relative parent paths.
@@ -272,8 +269,8 @@ module.exports = {
       {
         missingExports: true,
         unusedExports: true,
-        ignoreExports: ['.eslintrc.{js,cjs,mjs}'],
-      },
+        ignoreExports: ['.eslintrc.{js,cjs,mjs}']
+      }
     ],
 
     // 禁止混用import和module.exports
@@ -281,12 +278,12 @@ module.exports = {
     'import/no-import-module-exports': [
       'error',
       {
-        exceptions: [],
-      },
+        exceptions: []
+      }
     ],
 
     // 禁止使用相对路径引入monorepo包
     // https://github.com/benmosher/eslint-plugin-import/blob/1012eb951767279ce3b540a4ec4f29236104bb5b/docs/rules/no-relative-packages.md
-    'import/no-relative-packages': ['error'],
-  },
+    'import/no-relative-packages': ['error']
+  }
 };

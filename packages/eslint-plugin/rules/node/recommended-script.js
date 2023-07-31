@@ -1,5 +1,8 @@
-'use strict';
-
+/*
+ * @Description:
+ * @Date: 2023-07-31 21:52:44
+ * @Author: ranqirong 274544338@qq.com
+ */
 const { commonGlobals, rules } = require('./_commons');
 
 module.exports = {
@@ -9,16 +12,15 @@ module.exports = {
     __filename: 'readonly',
     exports: 'writable',
     module: 'readonly',
-    require: 'readonly',
+    require: 'readonly'
   },
   parserOptions: {
     ecmaFeatures: { globalReturn: true },
     ecmaVersion: 2020,
-    sourceType: 'script',
+    sourceType: 'script'
   },
   plugins: ['node'],
   rules: {
-    ...rules,
-    'node/no-unsupported-features/es-syntax': ['error', { ignores: [] }],
-  },
+    ...rules
+  }
 };

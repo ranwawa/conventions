@@ -1,3 +1,8 @@
+/*
+ * @Description:
+ * @Date: 2023-06-09 22:00:39
+ * @Author: ranqirong 274544338@qq.com
+ */
 const nodeModule = require('./configs/node-module');
 const nodeScript = require('./configs/node-script');
 const react = require('./configs/react');
@@ -11,6 +16,7 @@ module.exports = {
     name: package.name,
     version: package.version
   },
+  rules: {},
   configs: {
     vue2,
     vue3,

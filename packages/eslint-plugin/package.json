@@ -6,6 +6,9 @@
     "eslint-plugin"
   ],
   "main": "index.js",
+  "engines": {
+    "node": ">=16.8.1"
+  },
   "scripts": {
     "test": "jest --watch"
   },
@@ -39,6 +42,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^3.4.0",
+    "find-up": "4",
     "lodash": "^4.17.21"
   }
 }
