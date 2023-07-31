@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as a}from"./app.71c7e370.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"rules/format/range-start.md","lastUpdated":1680654961000}'),r={name:"rules/format/range-start.md"};function s(o,n,c,p,d,_){return a(),e("div")}const i=t(r,[["render",s]]);export{f as __pageData,i as default};

@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./app.71c7e370.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"rules/format/use-tabs.md","lastUpdated":1680654961000}'),s={name:"rules/format/use-tabs.md"};function r(o,c,n,p,d,_){return a(),t("div")}const i=e(s,[["render",r]]);export{f as __pageData,i as default};
