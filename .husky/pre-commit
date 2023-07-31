@@ -1,4 +1,9 @@
+###
+ # @Description: 
+ # @Date: 2023-04-08 08:46:53
+ # @Author: ranqirong 274544338@qq.com
+### 
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged --allow-empty
+# npx lint-staged --allow-empty

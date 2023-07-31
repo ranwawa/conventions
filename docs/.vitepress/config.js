@@ -1,3 +1,8 @@
+/*
+ * @Description:
+ * @Date: 2023-05-14 20:17:12
+ * @Author: ranqirong 274544338@qq.com
+ */
 export default {
   title: '前端规范',
   description: '前端规范',
@@ -14,8 +19,8 @@ export default {
           text: '逻辑代码',
           items: [
             { text: '快速开始', link: '/guide/script/quick-start' },
-            { text: '编辑器集成', link: '/guide/script/editor-integration' },
-            { text: '本地自动化', link: '/guide/script/automation' },
+            { text: 'GIT集成', link: '/guide/script/git-integration' },
+            { text: 'IDE集成', link: '/guide/script/ide-integration' },
             { text: '常见问题', link: '/guide/script/qa' },
             { text: '项目介绍', link: '/guide/script/project' },
             { text: '贡献代码', link: '/guide/script/contribute' }
