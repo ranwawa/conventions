@@ -1,42 +1,65 @@
-name: Deploy
+name: 文档发布
 
 on:
   push:
     branches:
       - master
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: 检出分支
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2
+      - name: 初始化GitHub Pages
+        uses: actions/configure-pages@v3
+
+      - name: 安装pnpm
+        uses: pnpm/action-setup@v2
         with:
           version: latest
 
-      - uses: actions/setup-node@v3
+      - name: 安装node
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: pnpm
 
-      - run: pnpm install --no-frozen-lockfile
+      - name: 安装依赖
+        run: pnpm install --no-frozen-lockfile
 
-      - name: Build
+      - name: 构建文档
         run: pnpm docs:build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 上传制品
+        uses: actions/upload-pages-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/.vitepress/dist
+          path: docs/.vitepress/dist
 
-      - name: Install Railway
+      - name: 安装railway
         run: pnpm i -g @railway/cli
 
-      - name: Deploy
+      - name: 部署railway
         run: railway up -s 275d2d40-3904-48be-9161-fb9027b1bdca
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_GOLDEN_FIRE }}
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: 部署制品
+        id: deployment
+        uses: actions/deploy-pages@v2
