@@ -10,13 +10,13 @@ export default {
   base: '/conventions/',
   themeConfig: {
     nav: [
-      { text: '接入', link: '/guide/script/quick-start' },
-      { text: '规则', link: '/rules/script/index' }
+      { text: '工具接入', link: '/guide/script/quick-start' },
+      { text: '规范细则', link: '/rules/script/index' }
     ],
     sidebar: {
       '/guide/': [
         {
-          text: '逻辑代码',
+          text: 'eslint接入',
           items: [
             { text: '快速开始', link: '/guide/script/quick-start' },
             { text: 'GIT集成', link: '/guide/script/git-integration' },
@@ -27,14 +27,14 @@ export default {
           ]
         },
         {
-          text: '样式代码',
+          text: 'stylelint接入',
           items: [
             { text: '快速开始', link: '/guide/style/quick-start' },
             { text: 'Getting Started', link: '/getting-started' }
           ]
         },
         {
-          text: '自述文件',
+          text: 'readmelint接入',
           items: [
             { text: '快速开始', link: '/guide/style/quick-start' },
             { text: 'Getting Started', link: '/getting-started' }
@@ -43,11 +43,11 @@ export default {
       ],
       '/rules/': [
         {
-          text: '逻辑代码',
+          text: '逻辑代码规则',
           items: [
             {
               text: 'imports(模块化)',
-              link: '/rules/script/imports'
+              link: '/rules/script/imports/'
             },
             {
               text: 'javascript',

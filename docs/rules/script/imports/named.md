@@ -1,11 +1,12 @@
-# named
+# @ranwawa/named
 
 禁止导入不存在的模块
 
 ### 为什么?
 
-导入不存在的模块,会抛出异常,产生 BUG.
-请删除不存在的模块导入.
+导入不存在的模块,会导致运行时异常.
+
+请删除不存在的模块导入语句.
 
 ### 错误示例
 
@@ -13,12 +14,13 @@
 
 ```js
 export const foo = 'ranwawa';
+export const bar = 'zhangsan';
 ```
 
 > moduleB.js
 
 ```js
-import { notFoo } from './moduleA.js';
+import { noFoo } from './moduleA.js'; // -> SyntaxError: The requested module './moduleA.js' does not provide an export named 'noFoo'
 ```
 
 ### 正确示例
@@ -26,7 +28,7 @@ import { notFoo } from './moduleA.js';
 > moduleC.js
 
 ```js
-import { Foo } from './moduleA.js';
+import { foo } from './moduleA.js';
 ```
 
 ### 参考
