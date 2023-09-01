@@ -52,7 +52,7 @@ module.exports = {
     global: 'readonly',
     process: 'readonly',
     root: 'readonly',
-    setImmediate: 'readonly',
+    setImmediate: 'readonly'
   },
   rules: {
     // 禁止使用废弃的API
@@ -92,12 +92,12 @@ module.exports = {
     // 禁止使用不支持的 ES/node 语法
     // https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-unsupported-features/es-builtins.md
     'node/no-unsupported-features/es-builtins': 'error',
-    'node/no-unsupported-features/es-syntax': 'error',
+    'node/no-unsupported-features/es-syntax': ['error'],
     'node/no-unsupported-features/node-builtins': 'error',
     'node/process-exit-as-throw': 'error',
 
     // package.json.bin中的文件才能放置shebang
     // https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/shebang.md
-    'node/shebang': 'error',
-  },
+    'node/shebang': 'error'
+  }
 };

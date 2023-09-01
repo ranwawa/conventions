@@ -24,12 +24,8 @@ module.exports = {
   },
 
   rules: {
-    // 必须导入可解析的模块
-    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
+    'import/consistent-type-specifier-style': ['warn', 'prefer-top-level'],
     'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
-
-    // 必须导入已存在的命名模块
-    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md
     'import/named': ['error'],
 
     // ensure default import coupled with default export

@@ -12,11 +12,11 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "conventional-changelog-conventionalcommits": "*"
+    "conventional-changelog-conventionalcommits": "latest"
   },
   "peerDependencies": {
-    "@commitlint/cli": "*",
-    "git-cz": "*",
-    "prettier": "*"
+    "@commitlint/cli": "latest",
+    "git-cz": "latest",
+    "prettier": "latest"
   }
 }
