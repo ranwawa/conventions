@@ -27,6 +27,18 @@ module.exports = {
     'import/consistent-type-specifier-style': ['warn', 'prefer-top-level'],
     'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
     'import/named': ['error'],
+    'import/no-absolute-path': ['error'],
+    'import/no-anonymous-default-export': [
+      'warn',
+      {
+        allowArray: false,
+        allowArrowFunction: false,
+        allowAnonymousClass: false,
+        allowAnonymousFunction: false,
+        allowLiteral: false,
+        allowObject: false
+      }
+    ],
 
     // ensure default import coupled with default export
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/default.md#when-not-to-use-it
@@ -164,7 +176,6 @@ module.exports = {
 
     // 禁止使用绝对路径导入模块
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-absolute-path.md
-    'import/no-absolute-path': ['error'],
 
     // Forbid require() calls with expressions
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-dynamic-require.md
@@ -201,17 +212,6 @@ module.exports = {
 
     // 优先导入具名模块
     // https://github.com/benmosher/eslint-plugin-import/blob/d9b712ac7fd1fddc391f7b234827925c160d956f/docs/rules/no-anonymous-default-export.md
-    'import/no-anonymous-default-export': [
-      'off',
-      {
-        allowArray: false,
-        allowArrowFunction: false,
-        allowAnonymousClass: false,
-        allowAnonymousFunction: false,
-        allowLiteral: false,
-        allowObject: false
-      }
-    ],
 
     // This rule enforces that all exports are declared at the bottom of the file.
     // https://github.com/benmosher/eslint-plugin-import/blob/98acd6afd04dcb6920b81330114e146dc8532ea4/docs/rules/exports-last.md
