@@ -27,11 +27,8 @@ export default bar; // -> Uncaught SyntaxError: Identifier '.default' has alread
 ### 正确示例
 
 ```js
-export const a = 'ranwawa';
-```
-
-```js
-const foo = 'ranwawa';
+export const foo = 'ranwawa';
+export const bar = 'zhangsan';
 
 export default foo;
 ```

@@ -1,7 +1,5 @@
 # no-commonjs
 
-no-commonjs
-
 禁止使用 CMD,AMD 模块语法
 
 ### Why?
@@ -13,13 +11,13 @@ EMS 是官方标准大势所趋,即使在 node 端 ESM 也可以兼容 CMD,反�
 ### bad
 
 ```js
-const lodash = require('lodash');
+require('lodash');
 ```
 
 #### good
 
 ```js
-import lodash from 'lodash';
+import 'lodash';
 ```
 
 ### 参考

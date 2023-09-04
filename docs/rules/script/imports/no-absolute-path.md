@@ -11,13 +11,13 @@
 ### 错误示例
 
 ```js
-import outer from '/outer.js';
+import '/index.md';
 ```
 
 ### 正确示例
 
 ```js
-import outer from '../outer.js';
+import './index.md';
 ```
 
 ### 参考

@@ -39,6 +39,7 @@ module.exports = {
         allowObject: false
       }
     ],
+    'import/no-commonjs': ['warn', { allowPrimitiveModules: true }],
 
     // ensure default import coupled with default export
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/default.md#when-not-to-use-it
@@ -106,7 +107,6 @@ module.exports = {
     // 禁止使用 CMD,AMD 模块语法
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-commonjs.md
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-amd.md
-    'import/no-commonjs': ['off'],
     'import/no-amd': ['error'],
 
     // No Node.js builtin modules
