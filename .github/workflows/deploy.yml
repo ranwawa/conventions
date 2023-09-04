@@ -44,13 +44,13 @@ jobs:
         with:
           path: docs/.vitepress/dist
 
-      - name: 安装railway
-        run: pnpm i -g @railway/cli
+      # - name: 安装railway
+      #   run: pnpm i -g @railway/cli
 
-      - name: 部署railway
-        run: railway up -s 275d2d40-3904-48be-9161-fb9027b1bdca
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_GOLDEN_FIRE }}
+      # - name: 部署railway
+      #   run: railway up -s 275d2d40-3904-48be-9161-fb9027b1bdca
+      #   env:
+      #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_GOLDEN_FIRE }}
 
   deploy:
     environment:
