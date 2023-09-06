@@ -1,14 +1,14 @@
-将eslint规则翻译成中文.
+请使用初级前端开发师易于理解的语言,将eslint规则翻译成比较地道本土化的中文.
 
 要求:
 
 1. 概括规则名(必须以禁止,必须,推荐,不推荐开头.20字以内)
-2. 概述为什么会有这条规则(50字以内)
+2. 概述为什么会有这条规则(66字以内)
 3. 概述建议怎么修改(30字以内)
 4. 正确和错误的示例分别只保留一个
 5. 示例中的字符串值统一使用'ranwawa','zhangshan'
-6. 引入外部模块示例,只使用react和lodash
-7. 引入内部模块示例,只使用./moduleA.js ./moduleB.js以此类推
+6. 外部模块示例,只使用react和lodash
+7. 内部模块示例,只使用./moduleA.js ./moduleB.js以此类推
 8. 返回的格式必须满足以下格式(返回结果不需要转换成html,请保留markdown原文,以便我复制markdown原文)
 
 ## 下面---之间的内容是示例格式
@@ -139,6 +139,10 @@ import { noFoo } from './moduleA.js'; // -> SyntaxError: The requested module '.
 ```js
 import { foo } from './moduleA.js';
 ```
+
+### 参考
+
+- [import/export](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md)
 
 ---
 

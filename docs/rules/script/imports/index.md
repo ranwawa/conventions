@@ -2,9 +2,13 @@
 
 [必须使用顶级类型导入语法导入ts类型](./consistent-type-specifier-style.md)
 
-[禁止导出重名的模块](./export)
+[禁止导出重名的模块](./export.md)
 
-[禁止导入不存在的模块](./named)
+[必须去掉导入文件的扩展名](./extensions.md)
+
+[必须将所有导入语句放在文件顶部](./first.md)
+
+[禁止导入不存在的模块](./named.md)
 
 [禁止使用绝对路径导入模块](./no-absolute-path.md)
 
