@@ -4,7 +4,7 @@
  * @Author: ranqirong 274544338@qq.com
  */
 export default {
-  title: '前端规范',
+  title: 'awawa前端规范',
   description: '前端规范',
   cleanUrls: true,
   base: '/conventions/',
@@ -51,23 +51,23 @@ export default {
             },
             {
               text: 'javascript',
-              link: '/rules/script/javascript'
+              link: '/rules/script/javascript/'
             },
             {
               text: 'node',
-              link: '/rules/script/node'
+              link: '/rules/script/node/'
             },
             {
               text: 'react',
-              link: '/rules/script/react'
+              link: '/rules/script/react/'
             },
             {
               text: 'typescript',
-              link: '/rules/script/typescript'
+              link: '/rules/script/typescript/'
             },
             {
               text: 'vue',
-              link: '/rules/script/vue'
+              link: '/rules/script/vue/'
             }
           ]
         }
