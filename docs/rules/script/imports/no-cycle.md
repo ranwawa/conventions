@@ -1,32 +1,47 @@
-# no-cycle
+# import/no-cycle
 
-禁止文件间互相引用模块
+禁止模块间的循环依赖
 
 ### 为什么?
 
-不同的文件互相引用彼此模块,容易导致死循环.可通过拆分模块或全局变量的方式处理.
+模块间的循环依赖会导致代码的复杂度增加，可能引发不可预知的问题。
 
-outer.js
+### 建议
 
-```js
-import age from "./index.js";
-
-export default name = "zmn";
-```
+避免模块间的循环依赖，尽可能将模块设计成低耦合的。
 
 ### 错误示例
 
-```js
-// index.js
-import name from "../outer.js";
+> moduleB.js
 
-export default age = 18;
+```js
+import './moduleA.js';
+
+export function bar() {
+  /* ... */
+}
+```
+
+> moduleA.js
+
+```js
+import { bar } from './moduleB.js'; // 报错：检测到依赖循环。
 ```
 
 ### 正确示例
 
+> moduleB.js
+
 ```js
-export default age = 18;
+export function bar() {
+  /* ... */
+}
+```
+
+> moduleC.js
+
+```js
+import { bar } from './moduleB.js';
 ```
 
 ### 参考
