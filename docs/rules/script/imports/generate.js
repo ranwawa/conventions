@@ -56,9 +56,69 @@ const writeFile = (filePath, content) => {
   fs.writeFileSync(filePath, content);
 };
 
-const main = () => {
+const getEnabledRules = async (rulePath) => {
+  try {
+    const {
+      default: { rules }
+    } = await import(rulePath);
+
+    const newRules = {};
+    const enabledSign = { error: true, warn: true, 1: true, 2: true };
+
+    Object.entries(rules).forEach(([key, value]) => {
+      let isEnabled = false;
+      const type = typeof value;
+
+      switch (type) {
+        case 'string':
+        case 'number':
+          isEnabled = enabledSign[value];
+          break;
+        default:
+          isEnabled = enabledSign[value[0]];
+          break;
+      }
+
+      if (isEnabled) {
+        newRules[key] = true;
+      }
+    });
+
+    return newRules;
+  } catch (error) {
+    console.log('不存在的路径', rulePath);
+  }
+  return {};
+};
+
+const getUnTranslateRules = (files, effectRules) => {
+  const unKnownFiles = [];
+
+  files.forEach((file) => {
+    if (!effectRules[file]) {
+      unKnownFiles.push(file);
+    }
+
+    delete effectRules[file];
+  });
+
+  console.log('未知的翻译文件: ', unKnownFiles);
+  console.log('未翻译的规则: ', effectRules);
+  return unKnownFiles;
+};
+
+const main = async () => {
   const dirPath = getCurFileDirPath();
   const files = getAllMDFiles(dirPath);
+
+  const rules = await getEnabledRules(
+    path.resolve('./', 'packages/eslint-plugin/rules/imports/index.js')
+  );
+
+  getUnTranslateRules(
+    files.map((file) => `import/${file.replace(/\.md$/, '')}`),
+    rules
+  );
 
   const titleList = files
     .map((file) => {

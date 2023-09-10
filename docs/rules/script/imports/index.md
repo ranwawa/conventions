@@ -8,7 +8,7 @@
 
 [必须将所有导入语句放在文件顶部](./first.md)
 
-[[禁止导出重名的模块](./export.md)](./index.md)
+[[必须使用顶级类型导入语法导入ts类型](./consistent-type-specifier-style.md)](./index.md)
 
 [禁止导入不存在的模块](./named.md)
 
@@ -24,7 +24,9 @@
 
 [禁止模块间的循环依赖](./no-cycle.md)
 
-[no-duplicates](./no-duplicates.md)
+[必须在一条语句中完成所有命名模块的导入](./no-duplicates.md)
+
+[禁止使用动态require](./no-dynamic-require.md)
 
 [中能从 dependencies 导入依赖包](./no-extraneous-dependencies.md)
 
