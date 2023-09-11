@@ -107,8 +107,8 @@ const getUnTranslateRules = (files, effectRules) => {
   return unKnownFiles;
 };
 
-const main = async () => {
-  const dirPath = getCurFileDirPath();
+const main = async (dirPath) => {
+  // const dirPath = getCurFileDirPath();
   const files = getAllMDFiles(dirPath);
 
   const rules = await getEnabledRules(
@@ -132,4 +132,6 @@ const main = async () => {
   writeFile(path.resolve(dirPath, 'index.md'), indexContent);
 };
 
-main();
+const imports = path.resolve('./', 'docs/rules/script/imports');
+
+main(imports);

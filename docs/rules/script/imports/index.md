@@ -32,6 +32,8 @@
 
 [禁止混用 import 和 module.exports](./no-import-module-exports.md)
 
+[禁止导出可变的模块](./no-mutable-exports.md)
+
 [no-named-as-default-member](./no-named-as-default-member.md)
 
 [必须导入已存在的命名模块](./no-named-as-default.md)
