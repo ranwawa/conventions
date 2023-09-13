@@ -1,7 +1,5 @@
 # no-unused-modules
 
-no-unused-modules
-
 禁止存在未使用的模块文件
 
 ### 为什么?
@@ -11,13 +9,13 @@ no-unused-modules
 ### 错误示例
 
 ```js
-const name = "zmn";
+const name = 'zmn';
 ```
 
 ### 正确示例
 
 ```js
-const name = "zmn";
+const name = 'zmn';
 export default name;
 ```
 

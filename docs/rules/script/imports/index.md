@@ -8,8 +8,6 @@
 
 [必须将所有导入语句放在文件顶部](./first.md)
 
-[[必须使用顶级类型导入语法导入ts类型](./consistent-type-specifier-style.md)](./index.md)
-
 [禁止导入不存在的模块](./named.md)
 
 [必须在导入语句后有一个空行](./newline-after-import.md)
@@ -34,20 +32,20 @@
 
 [禁止导出可变的模块](./no-mutable-exports.md)
 
-[no-named-as-default-member](./no-named-as-default-member.md)
+[禁止在默认模块上访问已存在的具名模块](./no-named-as-default-member.md)
 
 [必须导入已存在的命名模块](./no-named-as-default.md)
 
-[no-self-import](./no-self-import.md)
+[禁止重命名默认导出模块](./no-named-default.md)
+
+[禁止引用同一文件自身的模块](./no-self-import.md)
 
 [必须导入可解析的模块](./no-unresolved.md)
 
-[no-unused-modules](./no-unused-modules.md)
+[禁止存在未使用的模块文件](./no-unused-modules.md)
 
-[no-webpack-loader-syntax](./no-webpack-loader-syntax.md)
+[禁止使用 webpack loader 语法](./no-webpack-loader-syntax.md)
 
-[order](./order.md)
+[必须按固定顺序引入模块](./order.md)
 
-[prefer-default-export](./prefer-default-export.md)
-
-[参考:](./中能从dependencies导入依赖包.md)
+[必须使用 default 导出惟一的模块](./prefer-default-export.md)

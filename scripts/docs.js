@@ -22,7 +22,9 @@ const getCurFileDirPath = (fileUrl = import.meta.url) => {
 
 const getAllMDFiles = (directory) => {
   const files = fs.readdirSync(directory);
-  const mdFiles = files.filter((file) => file.endsWith('.md'));
+  const mdFiles = files.filter(
+    (file) => file.endsWith('.md') && file !== 'index.md'
+  );
   return mdFiles;
 };
 

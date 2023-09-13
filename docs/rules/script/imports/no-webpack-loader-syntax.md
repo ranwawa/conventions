@@ -1,7 +1,5 @@
 # no-webpack-loader-syntax
 
-no-webpack-loader-syntax
-
 禁止使用 webpack loader 语法
 
 ### 为什么?
@@ -11,13 +9,13 @@ no-webpack-loader-syntax
 ### 错误示例
 
 ```js
-import outer from "xx-loader!../outer.js";
+import outer from 'xx-loader!../outer.js';
 ```
 
 ### 正确示例
 
 ```js
-import outer from "../outer.js";
+import outer from '../outer.js';
 ```
 
 ### 参考

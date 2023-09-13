@@ -1,7 +1,5 @@
 # no-named-as-default-member
 
-no-named-as-default-member
-
 禁止在默认模块上访问已存在的具名模块
 
 ### 为什么?
@@ -11,21 +9,21 @@ no-named-as-default-member
 outer.js
 
 ```js
-export default "zmn";
-export const name = "ranwawa";
+export default 'zmn';
+export const name = 'ranwawa';
 ```
 
 ### 错误示例
 
 ```js
-import index from "./outer.js";
+import index from './outer.js';
 const { name } = index;
 ```
 
 ### 正确示例
 
 ```js
-import { name } from "./outer.js";
+import { name } from './outer.js';
 ```
 
 ### 参考

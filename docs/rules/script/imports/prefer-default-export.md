@@ -1,7 +1,5 @@
 # prefer-default-export
 
-prefer-default-export
-
 必须使用 default 导出惟一的模块
 
 ### 为什么?
@@ -11,13 +9,13 @@ prefer-default-export
 ### 错误示例
 
 ```js
-export const name = "zmn";
+export const name = 'zmn';
 ```
 
 ### 正确示例
 
 ```js
-const name = "zmn";
+const name = 'zmn';
 export default name;
 ```
 

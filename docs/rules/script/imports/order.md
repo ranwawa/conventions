@@ -1,7 +1,5 @@
 # order
 
-order
-
 必须按固定顺序引入模块
 
 ### 为什么?
@@ -11,8 +9,8 @@ order
 ### 错误示例
 
 ```js
-import outer from "./outer.js";
-import lodash from "lodash";
+import outer from './outer.js';
+import lodash from 'lodash';
 ```
 
 ### 正确示例

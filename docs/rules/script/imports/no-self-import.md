@@ -1,7 +1,5 @@
 # no-self-import
 
-no-self-import
-
 禁止引用同一文件自身的模块
 
 ### 为什么?
@@ -12,9 +10,9 @@ no-self-import
 
 ```js
 // index.js
-import newName from "./index.js";
+import newName from './index.js';
 
-const name = "zmn";
+const name = 'zmn';
 export default name;
 
 console.log(newName);
@@ -23,7 +21,7 @@ console.log(newName);
 ### 正确示例
 
 ```js
-const name = "zmn";
+const name = 'zmn';
 export default name;
 
 console.log(newName);
