@@ -1,6 +1,6 @@
 # no-extraneous-dependencies
 
-中能从 dependencies 导入依赖包
+必须从dependencies 导入外部依赖包
 
 ### 为什么?
 
@@ -34,6 +34,10 @@
   '**/.eslintrc.js',
 ];
 ```
+
+### 建议
+
+请将依赖包安装到dependencies中.如果确实和生产代码无关的代码,则可以修改eslint配置,来忽略检查该文件.
 
 index.js
 
