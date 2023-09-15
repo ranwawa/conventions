@@ -6,6 +6,10 @@
 
 文件只导出一个模块,使用 default 导出.调用方不用关心导出的模块名,更容易上手.
 
+### 建议
+
+一个文件只有一个模板时,改成default导出
+
 ### 错误示例
 
 ```js
@@ -16,6 +20,7 @@ export const name = 'zmn';
 
 ```js
 const name = 'zmn';
+
 export default name;
 ```
 
