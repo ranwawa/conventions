@@ -26,7 +26,7 @@
 
 [禁止使用动态require](./no-dynamic-require.md)
 
-[中能从 dependencies 导入依赖包](./no-extraneous-dependencies.md)
+[必须从dependencies 导入外部依赖包](./no-extraneous-dependencies.md)
 
 [禁止混用 import 和 module.exports](./no-import-module-exports.md)
 
@@ -38,11 +38,15 @@
 
 [禁止重命名默认导出模块](./no-named-default.md)
 
+[禁止通过相对路径导入同级包](./no-relative-packages.md)
+
 [禁止引用同一文件自身的模块](./no-self-import.md)
 
 [必须导入可解析的模块](./no-unresolved.md)
 
 [禁止存在未使用的模块文件](./no-unused-modules.md)
+
+[禁止使用不必要的路径段](./no-useless-path-segments.md)
 
 [禁止使用 webpack loader 语法](./no-webpack-loader-syntax.md)
 

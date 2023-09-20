@@ -6,11 +6,16 @@
 
 同个文件的模块,直接使用即可,不需要通过 import 语法引入,容易产生混淆.
 
+### 建议
+
+当前文件的模块直接使用即可
+
 ### 错误示例
 
+> moduleA.js
+
 ```js
-// index.js
-import newName from './index.js';
+import newName from './moduleA.js';
 
 const name = 'zmn';
 export default name;
@@ -24,7 +29,7 @@ console.log(newName);
 const name = 'zmn';
 export default name;
 
-console.log(newName);
+console.log(name);
 ```
 
 ### 参考

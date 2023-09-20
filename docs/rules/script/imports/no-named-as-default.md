@@ -6,22 +6,26 @@
 
 导入的模块必须已经被导出,否则在运行时会抛出异常
 
-outer.js
+### 建议
+
+检查拼写错误,然后重新导入
+
+> moduleA.js
 
 ```js
-export const name = "zmn";
+export const name = 'zmn';
 ```
 
 ### 错误示例
 
 ```js
-import { name1 } from "./outer.js";
+import { name1 } from './moduleA.js';
 ```
 
 ### 正确示例
 
 ```js
-import { name } from "./outer.js";
+import { name } from './moduleA.js';
 ```
 
 ### 参考
