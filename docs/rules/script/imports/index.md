@@ -44,8 +44,6 @@
 
 [必须导入可解析的模块](./no-unresolved.md)
 
-[禁止存在未使用的模块文件](./no-unused-modules.md)
-
 [禁止使用不必要的路径段](./no-useless-path-segments.md)
 
 [禁止使用 webpack loader 语法](./no-webpack-loader-syntax.md)

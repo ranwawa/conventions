@@ -104,36 +104,59 @@ const getUnTranslateRules = (files, effectRules) => {
     delete effectRules[file];
   });
 
-  console.log('未知的翻译文件: ', unKnownFiles);
-  console.log('未翻译的规则: ', effectRules);
+  unKnownFiles.length && console.log('未知的翻译文件: ', unKnownFiles);
+  Object.keys(effectRules).length && console.log('未翻译的规则: ', effectRules);
+
   return unKnownFiles;
 };
 
-const main = async (dirPath) => {
+const main = async (docDirPath, ruleFilePath, prefix) => {
   // const dirPath = getCurFileDirPath();
-  const files = getAllMDFiles(dirPath);
+  const files = getAllMDFiles(docDirPath);
 
-  const rules = await getEnabledRules(
-    path.resolve('./', 'packages/eslint-plugin/rules/imports/index.js')
-  );
+  const rules = await getEnabledRules(ruleFilePath);
 
-  getUnTranslateRules(
-    files.map((file) => `import/${file.replace(/\.md$/, '')}`),
+  const unKnownFiles = getUnTranslateRules(
+    files.map((file) => `${prefix}${file.replace(/\.md$/, '')}`),
     rules
   );
 
   const titleList = files
     .map((file) => {
-      const title = getMDFileTitle(path.resolve(dirPath, file));
+      const title = getMDFileTitle(path.resolve(docDirPath, file));
       return `[${title}](./${file})`;
     })
     .join('\n\n');
 
+  unKnownFiles.forEach((file) => {
+    fs.rmSync(path.resolve(docDirPath, `${file}.md`));
+  });
+
   const indexContent = `# 模块导入\n\n${titleList}`;
 
-  writeFile(path.resolve(dirPath, 'index.md'), indexContent);
+  writeFile(path.resolve(docDirPath, 'index.md'), indexContent);
 };
 
-const imports = path.resolve('./', 'docs/rules/script/imports');
+const paths = [
+  [
+    'docs/rules/script/imports',
+    'packages/eslint-plugin/rules/imports/index.js',
+    'import/'
+  ],
+  [
+    'docs/rules/script/javascript',
+    'packages/eslint-plugin/rules/javascript/index.js'
+  ]
+];
 
-main(imports);
+paths.forEach(([docDirPath, ruleFilePath, prefix = '']) => {
+  main(
+    path.resolve('./', docDirPath),
+    path.resolve('./', ruleFilePath),
+    prefix
+  );
+});
+
+// const imports = path.resolve('./', 'docs/rules/script/imports');
+
+// main(imports);
