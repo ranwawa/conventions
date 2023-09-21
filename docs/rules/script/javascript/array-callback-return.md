@@ -1,50 +1,48 @@
 # array-callback-return
 
-禁止在变量定义之前使用它们
+必须在数组方法的回调中使用return语句
 
-### 为什么?
+### 为什么
 
-在 ES6 标准之前的 JavaScript 中，某个作用域中变量和函数的声明会被提前到作用域顶部。
+如果我们在数组的过滤、映射和折叠方法的回调中忘记写return语句，多半会导致一个生产bug。
+
+会检测如下函数
+
+- [`Array.from`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.from)
+- [`Array.prototype.every`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.every)
+- [`Array.prototype.filter`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.filter)
+- [`Array.prototype.find`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.find)
+- [`Array.prototype.findIndex`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.findindex)
+- [`Array.prototype.findLast`](https://tc39.es/ecma262/#sec-array.prototype.findlast)
+- [`Array.prototype.findLastIndex`](https://tc39.es/ecma262/#sec-array.prototype.findlastindex)
+- [`Array.prototype.flatMap`](https://www.ecma-international.org/ecma-262/10.0/#sec-array.prototype.flatmap)
+- [`Array.prototype.forEach`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.foreach) (optional, based on `checkForEach` parameter)
+- [`Array.prototype.map`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.map)
+- [`Array.prototype.reduce`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduce)
+- [`Array.prototype.reduceRight`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.reduceright)
+- [`Array.prototype.some`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.some)
+- [`Array.prototype.sort`](https://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort)
+- [`Array.prototype.toSorted`](https://tc39.es/ecma262/#sec-array.prototype.tosorted)
+
+### 建议
+
+在数组方法的回调中使用return语句，或者使用.forEach方法。
 
 ### 错误示例
 
 ```js
-alert(a);
-var a = 10;
-
-f();
-function f() {}
-
-function g() {
-  return b;
-}
-var b = 1;
-
-{
-  alert(c);
-  let c = 1;
-}
+['ranwawa', 'zhangshan', 'lisi'].reduce(function (memo, item, index) {
+  memo[item] = index;
+}, {});
 ```
 
 ### 正确示例
 
 ```js
-var a;
-a = 10;
-alert(a);
-
-function f() {}
-f(1);
-
-var b = 1;
-function g() {
-  return b;
-}
-
-{
-  let c;
-  c++;
-}
+['ranwawa', 'zhangshan', 'lisi'].reduce(function (memo, item, index) {
+  memo[item] = index;
+  return memo;
+}, {});
 ```
 
 ### 参考
