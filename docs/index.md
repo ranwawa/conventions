@@ -7,43 +7,31 @@ titleTemplate: Next Generation Frontend Tooling
 hero:
   name: awawa
   text: 前端通用规范
-  tagline: awawa 是涉及前端开发的规范体系,通过自动化工具保证代码质量.
+  tagline: 集成前端开发各方面的规范体系,包含语法规范,格式化规范,分支规范,提交规范,目录规范,自述文件规范等.并通过自动化工具将规范应用到项目中.
   image:
     src: /logo-with-shadow.png
     alt: Vite
   actions:
     - theme: brand
-      text: Get Started
-      link: /guide/
+      text: 快速开始
+      link: /guide/script/quick-start
     - theme: alt
-      text: Why Vite?
-      link: /guide/why
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/vitejs/vite
-    - theme: brand
-      text: 🎉 ViteConf 23!
-      link: https://viteconf.org/23
+      text: github地址
+      link: https://github.com/ranwawa/conventions
 
 features:
   - icon: 💡
     title: 覆盖面广
-    details: On demand file serving over native ESM, no bundling required!
+    details: 支持所有主流前端框架,包含样式,格式化,语法,可访问性等各种规范
   - icon: ⚡️
     title: 开箱即用
-    details: Hot Module Replacement (HMR) that stays fast regardless of app size.
+    details: 只需要简单几步配置,即可使用所有这些规则
   - icon: 🛠️
     title: 完整翻译
-    details: Out-of-the-box support for TypeScript, JSX, CSS and more.
+    details: 规则的错误提示直接链接中文文档,方便快速理解并修复问题
   - icon: 📦
     title: 持续更新
-    details: Pre-configured Rollup build with multi-page and library mode support.
-  - icon: 🔩
-    title: Universal Plugins
-    details: Rollup-superset plugin interface shared between dev and build.
-  - icon: 🔑
-    title: Fully Typed APIs
-    details: Flexible programmatic APIs with full TypeScript typing.
+    details: 定期同步主流框架的官方插件,及时应用最新的最佳实践
 ---
 
 <!-- 是什么 -->

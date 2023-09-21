@@ -4,8 +4,8 @@
  * @Author: ranqirong 274544338@qq.com
  */
 export default {
-  title: 'awawa前端规范',
-  description: '前端规范',
+  title: 'awawa',
+  description: 'awawa前端通用规范',
   cleanUrls: true,
   base: '/conventions/',
   themeConfig: {
