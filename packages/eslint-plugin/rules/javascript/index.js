@@ -4,15 +4,15 @@ module.exports = {
   env: {
     es6: true,
     node: true,
-    jest: true,
+    jest: true
   },
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {
       generators: false,
-      objectLiteralDuplicateProperties: false,
-    },
+      objectLiteralDuplicateProperties: false
+    }
   },
   rules: {
     // 强制getter/setter成对出现在对象中
@@ -39,8 +39,8 @@ module.exports = {
     'class-methods-use-this': [
       'error',
       {
-        exceptMethods: [],
-      },
+        exceptMethods: []
+      }
     ],
 
     // 函数返回语句始终或从不指定值
@@ -133,8 +133,8 @@ module.exports = {
     'no-empty-function': [
       'error',
       {
-        allow: ['arrowFunctions', 'functions', 'methods'],
-      },
+        allow: ['arrowFunctions', 'functions', 'methods']
+      }
     ],
 
     // 禁止使用空解构模式
@@ -196,8 +196,8 @@ module.exports = {
         boolean: false,
         number: true,
         string: true,
-        allow: [],
-      },
+        allow: []
+      }
     ],
 
     // 禁止在全局作用域中声明
@@ -244,8 +244,8 @@ module.exports = {
         ignore: [],
         ignoreArrayIndexes: true,
         enforceConst: true,
-        detectObjects: false,
-      },
+        detectObjects: false
+      }
     ],
 
     // 禁止出现多个空格
@@ -254,8 +254,8 @@ module.exports = {
     'no-multi-spaces': [
       'error',
       {
-        ignoreEOLComments: false,
-      },
+        ignoreEOLComments: false
+      }
     ],
 
     // 禁止多行字符串
@@ -311,10 +311,10 @@ module.exports = {
           'res',
           'response',
           '$scope',
-          'staticContext',
+          'staticContext'
         ],
-        ignorePropertyModificationsForRegex: ['^effect[A-Z]'],
-      },
+        ignorePropertyModificationsForRegex: ['^effect[A-Z]']
+      }
     ],
 
     // 禁用**proto**
@@ -335,51 +335,51 @@ module.exports = {
       {
         object: 'arguments',
         property: 'callee',
-        message: 'arguments.callee is deprecated',
+        message: 'arguments.callee is deprecated'
       },
       {
         object: 'global',
         property: 'isFinite',
-        message: 'Please use Number.isFinite instead',
+        message: 'Please use Number.isFinite instead'
       },
       {
         object: 'self',
         property: 'isFinite',
-        message: 'Please use Number.isFinite instead',
+        message: 'Please use Number.isFinite instead'
       },
       {
         object: 'window',
         property: 'isFinite',
-        message: 'Please use Number.isFinite instead',
+        message: 'Please use Number.isFinite instead'
       },
       {
         object: 'global',
         property: 'isNaN',
-        message: 'Please use Number.isNaN instead',
+        message: 'Please use Number.isNaN instead'
       },
       {
         object: 'self',
         property: 'isNaN',
-        message: 'Please use Number.isNaN instead',
+        message: 'Please use Number.isNaN instead'
       },
       {
         object: 'window',
         property: 'isNaN',
-        message: 'Please use Number.isNaN instead',
+        message: 'Please use Number.isNaN instead'
       },
       {
         property: '__defineGetter__',
-        message: 'Please use Object.defineProperty instead.',
+        message: 'Please use Object.defineProperty instead.'
       },
       {
         property: '__defineSetter__',
-        message: 'Please use Object.defineProperty instead.',
+        message: 'Please use Object.defineProperty instead.'
       },
       {
         object: 'Math',
         property: 'pow',
-        message: 'Use the exponentiation operator (**) instead.',
-      },
+        message: 'Use the exponentiation operator (**) instead.'
+      }
     ],
 
     // 禁止在返回语句中赋值
@@ -403,8 +403,8 @@ module.exports = {
     'no-self-assign': [
       'error',
       {
-        props: true,
-      },
+        props: true
+      }
     ],
 
     // 禁止自身比较
@@ -435,8 +435,8 @@ module.exports = {
       {
         allowShortCircuit: true,
         allowTernary: true,
-        allowTaggedTemplates: false,
-      },
+        allowTaggedTemplates: false
+      }
     ],
 
     // 禁用未使用过的标签
@@ -479,7 +479,7 @@ module.exports = {
     // https://eslint.org/docs/rules/no-warning-comments
     'no-warning-comments': [
       'off',
-      { terms: ['todo', 'fixme', 'xxx'], location: 'start' },
+      { terms: ['todo', 'fixme', 'xxx'], location: 'start' }
     ],
 
     // 禁用 with 语句
@@ -508,8 +508,8 @@ module.exports = {
     'prefer-regex-literals': [
       'error',
       {
-        disallowRedundantWrapping: true,
-      },
+        disallowRedundantWrapping: true
+      }
     ],
 
     // 要求必须有基数
@@ -638,8 +638,8 @@ module.exports = {
         nestedBinaryExpressions: false,
         returnAssign: false,
         ignoreJSX: 'all',
-        enforceForArrowConditionals: false,
-      },
+        enforceForArrowConditionals: false
+      }
     ],
 
     // 禁止不必要的分号
@@ -723,8 +723,8 @@ module.exports = {
     'no-unreachable-loop': [
       'error',
       {
-        ignore: [],
-      },
+        ignore: []
+      }
     ],
 
     // 禁止在“ finally”块中使用控制流语句
@@ -742,7 +742,7 @@ module.exports = {
     // https://eslint.org/docs/rules/no-unsafe-optional-chaining
     'no-unsafe-optional-chaining': [
       'error',
-      { disallowArithmeticOperators: true },
+      { disallowArithmeticOperators: true }
     ],
 
     // 禁止使用未使用的私有类成员
@@ -781,16 +781,12 @@ module.exports = {
     // https://eslint.org/docs/rules/valid-typeof
     'valid-typeof': ['error', { requireStringLiterals: true }],
 
-    // 要求箭头函数体使用大括号
-    // enforces no braces where they can be omitted
-    // https://eslint.org/docs/rules/arrow-body-style
-    // TODO: enable requireReturnForObjectLiteral?
     'arrow-body-style': [
       'error',
       'as-needed',
       {
-        requireReturnForObjectLiteral: false,
-      },
+        requireReturnForObjectLiteral: false
+      }
     ],
 
     // 要求箭头函数的参数使用圆括号
@@ -823,8 +819,8 @@ module.exports = {
     'no-confusing-arrow': [
       'error',
       {
-        allowParens: true,
-      },
+        allowParens: true
+      }
     ],
 
     // 禁止修改 const 声明的变量
@@ -853,11 +849,8 @@ module.exports = {
     'no-restricted-exports': [
       'error',
       {
-        restrictedNamedExports: [
-          'default',
-          'then',
-        ],
-      },
+        restrictedNamedExports: ['default', 'then']
+      }
     ],
 
     // 禁止使用指定的 import 加载的模块
@@ -867,8 +860,8 @@ module.exports = {
       'off',
       {
         paths: [],
-        patterns: [],
-      },
+        patterns: []
+      }
     ],
 
     // 禁止在构造函数中，在调用 super() 之前使用 this 或 super
@@ -894,24 +887,21 @@ module.exports = {
       {
         ignoreDestructuring: false,
         ignoreImport: false,
-        ignoreExport: false,
-      },
+        ignoreExport: false
+      }
     ],
 
     // 要求使用 let 或 const 而不是 var
     // require let or const instead of var
     'no-var': 'error',
 
-    // 要求或禁止对象字面量中方法和属性使用简写语法
-    // require method and property shorthand syntax for object literals
-    // https://eslint.org/docs/rules/object-shorthand
     'object-shorthand': [
       'error',
       'always',
       {
         ignoreConstructors: false,
-        avoidQuotes: true,
-      },
+        avoidQuotes: true
+      }
     ],
 
     // 要求回调函数使用箭头函数
@@ -920,8 +910,8 @@ module.exports = {
       'error',
       {
         allowNamedFunctions: false,
-        allowUnboundThis: true,
-      },
+        allowUnboundThis: true
+      }
     ],
 
     // 要求使用 const 声明那些声明后不再被修改的变量
@@ -930,8 +920,8 @@ module.exports = {
       'error',
       {
         destructuring: 'any',
-        ignoreReadBeforeAssign: true,
-      },
+        ignoreReadBeforeAssign: true
+      }
     ],
 
     // 优先使用数组和对象解构
@@ -942,16 +932,16 @@ module.exports = {
       {
         VariableDeclarator: {
           array: false,
-          object: true,
+          object: true
         },
         AssignmentExpression: {
           array: true,
-          object: false,
-        },
+          object: false
+        }
       },
       {
-        enforceForRenamedProperties: false,
-      },
+        enforceForRenamedProperties: false
+      }
     ],
 
     // 禁用 parseInt() 和 Number.parseInt()，使用二进制，八进制和十六进制字面量
@@ -998,8 +988,8 @@ module.exports = {
         ignoreCase: false,
         ignoreDeclarationSort: false,
         ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-      },
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
+      }
     ],
 
     // 要求 symbol 描述
@@ -1045,13 +1035,13 @@ module.exports = {
       {
         name: 'isFinite',
         message:
-          'Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite',
+          'Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite'
       },
       {
         name: 'isNaN',
         message:
-          'Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan',
-      },
+          'Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan'
+      }
     ].concat(confusingBrowserGlobals),
 
     // 禁止变量声明与外层作用域的变量同名
@@ -1080,14 +1070,14 @@ module.exports = {
     // disallow declaration of variables that are not used in the code
     'no-unused-vars': [
       'error',
-      { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
+      { vars: 'all', args: 'after-used', ignoreRestSiblings: true }
     ],
 
     // 禁止在变量定义之前使用它们
     // disallow use of variables before they are defined
     'no-use-before-define': [
       'error',
-      { functions: true, classes: true, variables: true },
+      { functions: true, classes: true, variables: true }
     ],
 
     // 强制数组方法的回调函数中有 return 语句
@@ -1135,6 +1125,6 @@ module.exports = {
 
     // 禁用同步方法
     // disallow use of synchronous methods (off by default)
-    'no-sync': 'off',
-  },
+    'no-sync': 'off'
+  }
 };
