@@ -51,6 +51,9 @@ importers:
       markdown-it:
         specifier: ^13.0.1
         version: 13.0.1
+      meow:
+        specifier: ^12.1.1
+        version: 12.1.1
       vitepress:
         specifier: 1.0.0-alpha.45
         version: 1.0.0-alpha.45(@algolia/client-search@4.19.1)(@types/node@20.4.7)(@types/react@18.2.20)(react@18.2.0)(search-insights@2.8.2)
@@ -65,7 +68,7 @@ importers:
         version: 17.7.1
       conventional-changelog-conventionalcommits:
         specifier: latest
-        version: 7.0.1
+        version: 7.0.2
       git-cz:
         specifier: latest
         version: 4.9.0
@@ -2293,19 +2296,11 @@ packages:
     dependencies:
       compare-func: 2.0.0
 
-  /conventional-changelog-conventionalcommits@7.0.1:
-    resolution: {integrity: sha512-VfFJxBmi+LYXeb4pIfZGbuaFCpWZh0qXbUAKP/s6B8tigV6R4D8j5PDlTtMMWawa7+DcNySVoF7kPWz0EMYuCQ==}
-    engines: {node: '>=16'}
-    dependencies:
-      compare-func: 2.0.0
-    dev: false
-
   /conventional-changelog-conventionalcommits@7.0.2:
     resolution: {integrity: sha512-NKXYmMR/Hr1DevQegFB4MwfM5Vv0m4UIxKZTTYuD98lpTknaZlSRrDOG4X7wIXpGkfsYxZTghUN+Qq+T0YQI7w==}
     engines: {node: '>=16'}
     dependencies:
       compare-func: 2.0.0
-    dev: true
 
   /conventional-commits-parser@4.0.0:
     resolution: {integrity: sha512-WRv5j1FsVM5FISJkoYMR6tPk07fkKT0UodruX4je86V4owk451yjXAKzKAPOs9l7y59E2viHUS9eQ+dfUA9NSg==}
@@ -4524,6 +4519,11 @@ packages:
 
   /mdurl@1.0.1:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
+    dev: true
+
+  /meow@12.1.1:
+    resolution: {integrity: sha512-BhXM0Au22RwUneMPwSCnyhTOizdWoIEPU9sp0Aqa1PnDMR5Wv2FGXYDjuzJEIX+Eo2Rb8xuYe5jrnm5QowQFkw==}
+    engines: {node: '>=16.10'}
     dev: true
 
   /meow@8.1.2:

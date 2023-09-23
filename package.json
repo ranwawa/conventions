@@ -42,6 +42,7 @@
     "lint-staged": "^13.2.1",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
+    "meow": "^12.1.1",
     "vitepress": "1.0.0-alpha.45",
     "vue": "^3.2.47"
   },

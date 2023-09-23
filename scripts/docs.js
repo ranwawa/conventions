@@ -93,21 +93,25 @@ const getEnabledRules = async (rulePath) => {
   return {};
 };
 
-const getUnTranslateRules = (files, effectRules) => {
+const getUnTranslateRules = (files, rules) => {
   const unKnownFiles = [];
+  const unTranslateRules = [];
 
   files.forEach((file) => {
-    if (!effectRules[file]) {
+    if (!rules[file]) {
       unKnownFiles.push(file);
     }
-
-    delete effectRules[file];
   });
 
-  unKnownFiles.length && console.log('未知的翻译文件: ', unKnownFiles);
-  Object.keys(effectRules).length && console.log('未翻译的规则: ', effectRules);
+  const rulesKeyList = Object.keys(rules);
 
-  return unKnownFiles;
+  for (const key of rulesKeyList) {
+    if (!files.includes(key)) {
+      unTranslateRules.push(key);
+    }
+  }
+
+  return { unKnownFiles, unTranslateRules };
 };
 
 const main = async (docDirPath, ruleFilePath, prefix) => {
@@ -116,9 +120,19 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
 
   const rules = await getEnabledRules(ruleFilePath);
 
-  const unKnownFiles = getUnTranslateRules(
+  const { unTranslateRules, unKnownFiles } = getUnTranslateRules(
     files.map((file) => `${prefix}${file.replace(/\.md$/, '')}`),
     rules
+  );
+
+  unKnownFiles.length && console.log('未知的翻译文件: ', unKnownFiles);
+  unTranslateRules.forEach((rule) =>
+    console.log(
+      `未翻译的规则: node ./scripts/createDocTemplate.js -f ${path.resolve(
+        docDirPath,
+        `${rule}.md -p ${prefix}`
+      )}`
+    )
   );
 
   const titleList = files
@@ -128,9 +142,9 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
     })
     .join('\n\n');
 
-  unKnownFiles.forEach((file) => {
-    fs.rmSync(path.resolve(docDirPath, `${file}.md`));
-  });
+  // unKnownFiles.forEach((file) => {
+  //   fs.rmSync(path.resolve(docDirPath, `${file}.md`));
+  // });
 
   const indexContent = `# 模块导入\n\n${titleList}`;
 
@@ -139,13 +153,17 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
 
 const paths = [
   [
+    // 文档目录
     'docs/rules/script/imports',
+    // 规则配置目录
     'packages/eslint-plugin/rules/imports/index.js',
+    // 插件前缀
     'import/'
   ],
   [
     'docs/rules/script/javascript',
-    'packages/eslint-plugin/rules/javascript/index.js'
+    'packages/eslint-plugin/rules/javascript/index.js',
+    ''
   ]
 ];
 
