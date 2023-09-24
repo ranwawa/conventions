@@ -1,4 +1,4 @@
-# 模块导入
+# import
 
 [必须使用顶级类型导入语法导入ts类型](./consistent-type-specifier-style.md)
 

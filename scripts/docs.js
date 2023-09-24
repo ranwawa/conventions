@@ -130,7 +130,7 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
     console.log(
       `未翻译的规则: node ./scripts/createDocTemplate.js -f ${path.resolve(
         docDirPath,
-        `${rule}.md -p ${prefix}`
+        `${rule.replace(prefix, '')}.md -p ${prefix}`
       )}`
     )
   );
@@ -142,11 +142,11 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
     })
     .join('\n\n');
 
-  // unKnownFiles.forEach((file) => {
-  //   fs.rmSync(path.resolve(docDirPath, `${file}.md`));
-  // });
+  unKnownFiles.forEach((file) => {
+    fs.rmSync(path.resolve(docDirPath, `${file.replace(prefix, '')}.md`));
+  });
 
-  const indexContent = `# 模块导入\n\n${titleList}`;
+  const indexContent = `# ${prefix.replace('/', '')}\n\n${titleList}`;
 
   writeFile(path.resolve(docDirPath, 'index.md'), indexContent);
 };
@@ -164,6 +164,36 @@ const paths = [
     'docs/rules/script/javascript',
     'packages/eslint-plugin/rules/javascript/index.js',
     ''
+  ],
+  [
+    'docs/rules/script/node',
+    'packages/eslint-plugin/rules/node/_commons.js',
+    'node/'
+  ],
+  [
+    'docs/rules/script/react',
+    'packages/eslint-plugin/rules/react/index.js',
+    'react/'
+  ],
+  [
+    'docs/rules/script/react-hooks',
+    'packages/eslint-plugin/rules/react-hooks/index.js',
+    'react-hooks'
+  ],
+  [
+    'docs/rules/script/typescript',
+    'packages/eslint-plugin/rules/typescript/index.js',
+    'typescript/'
+  ],
+  [
+    'docs/rules/script/vue2',
+    'packages/eslint-plugin/rules/vue2/index.js',
+    'vue/'
+  ],
+  [
+    'docs/rules/script/vue3',
+    'packages/eslint-plugin/rules/vue3/index.js',
+    'vue/'
   ]
 ];
 
