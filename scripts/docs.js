@@ -146,7 +146,10 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
     fs.rmSync(path.resolve(docDirPath, `${file.replace(prefix, '')}.md`));
   });
 
-  const indexContent = `# ${prefix.replace('/', '')}\n\n${titleList}`;
+  const indexContent = `# ${prefix.replace('/', '') || 'javascript'}
+
+${titleList}
+`;
 
   writeFile(path.resolve(docDirPath, 'index.md'), indexContent);
 };
