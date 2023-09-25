@@ -34,28 +34,15 @@ module.exports = {
     // https://eslint.org/docs/rules/complexity
     complexity: ['off', 20],
 
-    // 类函数必须使用this,或者使用静态函数
-    // https://eslint.org/docs/rules/class-methods-use-this
     'class-methods-use-this': [
       'error',
       {
         exceptMethods: []
       }
     ],
-
-    // 函数返回语句始终或从不指定值
-    // require return statements to either always or never specify values
-    // https://eslint.org/docs/rules/consistent-return
     'consistent-return': 'error',
+    curly: ['error', 'all'],
 
-    // 控件语句使用一致的大括号样式
-    // specify curly brace conventions for all control statements
-    // https://eslint.org/docs/rules/curly
-    curly: ['error', 'multi-line'],
-
-    // switch 语句中必须定义 default 分支
-    // require default case in switch statements
-    // https://eslint.org/docs/rules/default-case
     'default-case': ['error', { commentPattern: '^no default$' }],
 
     // 强制switch语句中的默认子句位于最后

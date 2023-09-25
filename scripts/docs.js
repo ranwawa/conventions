@@ -11,6 +11,7 @@
 import fs from 'fs';
 import path from 'path';
 import url from 'url';
+import clipboardy from 'clipboardy';
 
 import markdownIt from 'markdown-it';
 
@@ -126,14 +127,6 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
   );
 
   unKnownFiles.length && console.log('未知的翻译文件: ', unKnownFiles);
-  unTranslateRules.forEach((rule) =>
-    console.log(
-      `未翻译的规则: node ./scripts/createDocTemplate.js -f ${path.resolve(
-        docDirPath,
-        `${rule.replace(prefix, '')}.md -p ${prefix}`
-      )}`
-    )
-  );
 
   const titleList = files
     .map((file) => {
@@ -152,6 +145,24 @@ ${titleList}
 `;
 
   writeFile(path.resolve(docDirPath, 'index.md'), indexContent);
+
+  const [firstUnTranslateRule] = unTranslateRules;
+
+  if (firstUnTranslateRule) {
+    const shellCommand = `npm run createDocTemplate -- -f ${path.resolve(
+      docDirPath,
+      `${firstUnTranslateRule.replace(prefix, '')}.md -p ${prefix}`
+    )}`;
+    clipboardy.writeSync(shellCommand);
+    console.log(`检测到未翻译的规则: ${firstUnTranslateRule} 请运行下面的命令创建翻译文件模板
+
+       ${shellCommand}     
+
+命令已粘贴到剪贴板,可直接粘贴使用
+       `);
+  }
+
+  return !!unTranslateRules.length;
 };
 
 const paths = [
@@ -200,13 +211,21 @@ const paths = [
   ]
 ];
 
-paths.forEach(([docDirPath, ruleFilePath, prefix = '']) => {
-  main(
-    path.resolve('./', docDirPath),
-    path.resolve('./', ruleFilePath),
-    prefix
-  );
-});
+(async () => {
+  for (let i = 0; i < paths.length; i++) {
+    const [docDirPath, ruleFilePath, prefix = ''] = paths[i];
+
+    const hasUnTranslateRules = await main(
+      path.resolve('./', docDirPath),
+      path.resolve('./', ruleFilePath),
+      prefix
+    );
+
+    if (hasUnTranslateRules) {
+      break;
+    }
+  }
+})();
 
 // const imports = path.resolve('./', 'docs/rules/script/imports');
 

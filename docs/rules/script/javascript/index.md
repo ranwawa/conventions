@@ -5,3 +5,7 @@
 [禁止使用其他块级作用域的var变量](./block-scoped-var.md)
 
 [推荐类方法使用this](./class-methods-use-this.md)
+
+[函数必须有统一的返回值](./consistent-return.md)
+
+[推荐使用花括号包裹代码块](./curly.md)
