@@ -9,3 +9,7 @@
 [函数必须有统一的返回值](./consistent-return.md)
 
 [推荐使用花括号包裹代码块](./curly.md)
+
+[推荐在switch语句中将default子句放在最后](./default-case-last.md)
+
+[推荐在switch语句中使用default分支](./default-case.md)
