@@ -60,10 +60,7 @@ module.exports = {
     // https://eslint.org/docs/rules/eqeqeq
     eqeqeq: ['error', 'always', { null: 'ignore' }],
 
-    // 相同属性的访问器函数进行分组定义
-    // Require grouped accessor pairs in object literals and classes
-    // https://eslint.org/docs/rules/grouped-accessor-pairs
-    'grouped-accessor-pairs': 'error',
+    'grouped-accessor-pairs': ['error', 'getBeforeSet'],
 
     // for in 循环要用 if 语句过滤
     // make sure for-in loops have an if statement
