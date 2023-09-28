@@ -22,4 +22,6 @@
 
 [推荐将默认参数放在参数列表的最后](./default-param-last.md)
 
+[必须在点操作符前换行](./dot-location.md)
+
 [推荐使用点表示法访问对象属性](./dot-notation.md)
