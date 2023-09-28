@@ -141,6 +141,12 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
 
   const indexContent = `# ${prefix.replace('/', '') || 'javascript'}
 
+---
+
+该文件是代码自动生成,请勿修改
+
+---
+
 ${titleList}
 `;
 

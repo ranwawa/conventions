@@ -1,5 +1,11 @@
 # import
 
+---
+
+该文件是代码自动生成,请勿修改
+
+---
+
 [必须使用顶级类型导入语法导入ts类型](./consistent-type-specifier-style.md)
 
 [禁止导出重名的模块](./export.md)

@@ -1,5 +1,11 @@
 # javascript
 
+---
+
+该文件是代码自动生成,请勿修改
+
+---
+
 [必须在数组方法的回调中使用return语句](./array-callback-return.md)
 
 [禁止使用其他块级作用域的var变量](./block-scoped-var.md)
@@ -13,3 +19,7 @@
 [推荐在switch语句中将default子句放在最后](./default-case-last.md)
 
 [推荐在switch语句中使用default分支](./default-case.md)
+
+[推荐将默认参数放在参数列表的最后](./default-param-last.md)
+
+[推荐使用点表示法访问对象属性](./dot-notation.md)

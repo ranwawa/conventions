@@ -20,13 +20,7 @@ module.exports = {
     // https://eslint.org/docs/rules/accessor-pairs
     'accessor-pairs': 'off',
 
-    // 强制数组方法的回调函数中有 return 语句
-    // https://eslint.org/docs/rules/array-callback-return
     'array-callback-return': ['error', { allowImplicit: true }],
-
-    // 禁止引用其它块级作用域声明的var变量
-    // treat var statements as if they were block scoped
-    // https://eslint.org/docs/rules/block-scoped-var
     'block-scoped-var': 'error',
 
     // 限制圈复杂度
@@ -41,23 +35,20 @@ module.exports = {
       }
     ],
     'consistent-return': 'error',
+
+    /** ----------
+     *  以prettier为准
+     *  ----------
+     */
     curly: ['error', 'all'],
+    'dot-notation': ['error', { allowKeywords: true }],
+    /** ---------- */
 
     'default-case': ['error', { commentPattern: '^no default$' }],
 
-    // 强制switch语句中的默认子句位于最后
-    // Enforce default clauses in switch statements to be last
-    // https://eslint.org/docs/rules/default-case-last
     'default-case-last': 'error',
 
-    // 强制默认参数放在最后
-    // https://eslint.org/docs/rules/default-param-last
     'default-param-last': 'error',
-
-    // 使用点表示法访问属性
-    // encourages use of dot notation whenever possible
-    // https://eslint.org/docs/rules/dot-notation
-    'dot-notation': ['error', { allowKeywords: true }],
 
     // 要求点操作符和属性放在同一行
     // enforces consistent newlines before or after dots
