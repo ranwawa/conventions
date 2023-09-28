@@ -159,13 +159,13 @@ ${titleList}
       docDirPath,
       `${firstUnTranslateRule.replace(prefix, '')}.md -p ${prefix}`
     )}`;
-    clipboardy.writeSync(shellCommand);
-    console.log(`检测到未翻译的规则: ${firstUnTranslateRule} 请运行下面的命令创建翻译文件模板
+//     clipboardy.writeSync(shellCommand);
+//     console.log(`检测到未翻译的规则: ${firstUnTranslateRule} 请运行下面的命令创建翻译文件模板
 
-       ${shellCommand}     
+//        ${shellCommand}     
 
-命令已粘贴到剪贴板,可直接粘贴使用
-       `);
+// 命令已粘贴到剪贴板,可直接粘贴使用
+//        `);
   }
 
   return !!unTranslateRules.length;
