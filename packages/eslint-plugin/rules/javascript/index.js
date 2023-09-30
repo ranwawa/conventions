@@ -62,14 +62,8 @@ module.exports = {
 
     'grouped-accessor-pairs': ['error', 'getBeforeSet'],
 
-    // for in 循环要用 if 语句过滤
-    // make sure for-in loops have an if statement
-    // https://eslint.org/docs/rules/guard-for-in
     'guard-for-in': 'error',
 
-    // 限制每个文件包含最大数量的类
-    // enforce a maximum number of classes per file
-    // https://eslint.org/docs/rules/max-classes-per-file
     'max-classes-per-file': ['error', 1],
 
     // 禁止直接使用alert
