@@ -5,7 +5,7 @@
 1. 概括规则名(必须以禁止,必须,推荐,不推荐开头.20字以内)
 2. 概述为什么会有这条规则,如果原文中没有说明,请运用你的知识进行总结(66字以内)
 3. 概述建议怎么修改(30字以内)
-4. 无论源代码中有多少个示例,翻译后的正确和错误的示例分别只保留一个
+4. 无论源代码中有多少个示例代码块,翻译后的正确和错误的示例分别只保留一个代码块,并且每一个代码块中只保留一个例子
 5. 示例中的字符串值统一使用'ranwawa','zhangshan', 'lisi', 'wangwu', 'zhaoermazi'以此类推
 6. 外部模块示例,只使用react和lodash
 7. 内部模块示例,只使用./moduleA ./moduleB以此类推
@@ -52,48 +52,72 @@
 
 ---原文开始---
 Files containing multiple classes can often result in a less navigable and poorly structured codebase. Best practice is to keep each file limited to a single responsibility.
+
 ## Rule Details
+
 This rule enforces that each file may contain only a particular number of classes and no more.
 Examples of **incorrect** code for this rule:
 ::: incorrect
+
 ```js
 /*eslint max-classes-per-file: "error"*/
 class Foo {}
 class Bar {}
 ```
+
 :::
 Examples of **correct** code for this rule:
 ::: correct
+
 ```js
 /*eslint max-classes-per-file: "error"*/
 class Foo {}
 ```
+
 :::
+
 ## Options
-This rule may be configured with either an object or a number.  If the option is an object, it may contain one or both of:
-* `ignoreExpressions`: a boolean option (defaulted to `false`) to ignore class expressions.
-* `max`: a numeric option (defaulted to 1) to specify the maximum number of classes.
-For example:
+
+This rule may be configured with either an object or a number. If the option is an object, it may contain one or both of:
+
+- `ignoreExpressions`: a boolean option (defaulted to `false`) to ignore class expressions.
+- `max`: a numeric option (defaulted to 1) to specify the maximum number of classes.
+  For example:
+
 ```json
 { "max-classes-per-file": ["error", 1] }
 ```
+
 ```json
-{ "max-classes-per-file": [ "error", { "ignoreExpressions": true, "max": 2 } ] }
+{ "max-classes-per-file": ["error", { "ignoreExpressions": true, "max": 2 }] }
 ```
+
 Examples of **correct** code for this rule with the `max` option set to `2`:
 ::: correct
+
 ```js
 /* eslint max-classes-per-file: ["error", 2] */
 class Foo {}
 class Bar {}
 ```
+
 :::
 Examples of **correct** code for this rule with the `ignoreExpressions` option set to `true`:
 ::: correct
+
 ```js
 /* eslint max-classes-per-file: ["error", { ignoreExpressions: true }] */
-class VisitorFactory { forDescriptor(descriptor) { return class { visit(node) { return `Visiting ${descriptor}.`; } }; } }
+class VisitorFactory {
+  forDescriptor(descriptor) {
+    return class {
+      visit(node) {
+        return `Visiting ${descriptor}.`;
+      }
+    };
+  }
+}
 ```
+
 :::
 ---原文结束---
 
@@ -105,28 +129,40 @@ class VisitorFactory { forDescriptor(descriptor) { return class { visit(node) { 
 你的翻译:
 
 # max-classes-per-file
+
 每个文件中只能有一个类
+
 ### 为什么
+
 包含多个类的文件通常会导致代码库的导航性和结构性较差。
+
 ### 建议
+
 多余的类单独用自己的文件存放,并且保持文件名和类名一致
+
 ### 错误示例
+
 ```js
 // index.js
 class Foo {}
 class Bar {}
 ```
+
 ### 正确示例
+
 ```js
 // foo.js
 class Foo {}
 ```
+
 ```js
 // bar.js
 class Bar {}
 ```
+
 ### 参考
+
 - [max-classes-per-file](https://eslint.org/docs/rules/max-classes-per-file)
----翻译示例结束---
+  ---翻译示例结束---
 
 如果你准备好了,请回复准备好了,我就会将需要翻译的规则发给你.

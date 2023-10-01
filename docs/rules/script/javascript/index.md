@@ -37,3 +37,7 @@
 [禁止使用alert, confirm, 和 prompt函数](./no-alert.md)
 
 [禁止使用arguments.caller和arguments.callee](./no-caller.md)
+
+[禁止在case/default子句中使用声明变量](./no-case-declarations.md)
+
+[禁止在构造函数中返回值](./no-constructor-return.md)
