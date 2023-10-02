@@ -41,3 +41,7 @@
 [禁止在case/default子句中使用声明变量](./no-case-declarations.md)
 
 [禁止在构造函数中返回值](./no-constructor-return.md)
+
+[禁止在包含 return 语句的 if 块后出现 else 块](./no-else-return.md)
+
+[禁止空函数](./no-empty-function.md)
