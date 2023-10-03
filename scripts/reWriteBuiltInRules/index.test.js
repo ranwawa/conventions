@@ -1,4 +1,9 @@
-const { rewriteBuiltInRules } = require('./rewriteRules');
+/*
+ * @Description:
+ * @Date: 2023-05-14 20:17:12
+ * @Author: ranqirong 274544338@qq.com
+ */
+const { rewriteBuiltInRules } = require('.');
 
 describe('overrideBuiltInRules', () => {
   it('如果没有重写规则,原样返回默认规则', () => {

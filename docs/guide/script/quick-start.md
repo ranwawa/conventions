@@ -9,7 +9,7 @@
 npm`7+`
 
 ```shell
-npm install --save-dev @ranwawa/eslint-plugin
+npm install --save-dev @awawa/eslint-plugin
 ```
 
 ## 初始化 eslint 配置文件
@@ -17,25 +17,25 @@ npm install --save-dev @ranwawa/eslint-plugin
 vue2
 
 ```shell
-echo '{ "extends": ["plugin:@ranwawa/eslint-plugin/vue2"] }' > .eslintrc
+echo '{ "extends": ["plugin:@awawa/eslint-plugin/vue2"] }' > .eslintrc
 ```
 
 vue3 + ts
 
 ```shell
-echo '{ "extends": ["plugin:@ranwawa/eslint-plugin/vue3"] }' > .eslintrc
+echo '{ "extends": ["plugin:@awawa/eslint-plugin/vue3"] }' > .eslintrc
 ```
 
 react + ts
 
 ```shell
-echo '{ "extends": ["plugin:@ranwawa/eslint-plugin/react"] }' > .eslintrc
+echo '{ "extends": ["plugin:@awawa/eslint-plugin/react"] }' > .eslintrc
 ```
 
 uni-app
 
 ```shell
-echo '{ "extends": ["plugin:@ranwawa/eslint-plugin/react"], "plugins": ["@ranwawa/eslint-plugin"], "env": { "@ranwawa/uni-app": true } }' > .eslintrc
+echo '{ "extends": ["plugin:@awawa/eslint-plugin/react"], "plugins": ["@awawa/eslint-plugin"], "env": { "@awawa/uni-app": true } }' > .eslintrc
 ```
 
 ## 验证 eslint 配置是否生效

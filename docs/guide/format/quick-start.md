@@ -11,13 +11,13 @@
 npm`7+`
 
 ```shell
-npm install --save-dev @ranwawa/prettier-config
+npm install --save-dev @awawa/prettier-config
 ```
 
 ## 初始化 prettier 配置文件
 
 ```shell
-echo '"@ranwawa/configurations/prettier-config"' > .prettierrc
+echo '"@awawa/configurations/prettier-config"' > .prettierrc
 ```
 
 ## 验证 prettier 配置是否生效

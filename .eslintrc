@@ -1,5 +1,5 @@
 {
-  "extends": ["plugin:@ranwawa/eslint-plugin/react"],
+  "extends": ["plugin:@awawa/eslint-plugin/react"],
   "plugins": ["eslint-plugin-markdown"],
   "env": {
     "browser": true,

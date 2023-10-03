@@ -1,4 +1,4 @@
-# @ranwawa/readmelint
+# @awawa/readmelint
 
 ## 5.1 快速开始
 

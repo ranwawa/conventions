@@ -1,4 +1,4 @@
-# @ranwawa/readmelint
+# @awawa/readmelint
 
 ## 2.1 业务简介
 

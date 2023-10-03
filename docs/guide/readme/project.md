@@ -1,4 +1,4 @@
-# @ranwawa/readmelint
+# @awawa/readmelint
 
 ## 3.1 框架简介
 

@@ -15,21 +15,15 @@ import clipboardy from 'clipboardy';
 
 import markdownIt from 'markdown-it';
 
+import { readAllMDFiles, readEnabledRules } from './utils.js';
+
 const getCurFileDirPath = (fileUrl = import.meta.url) => {
   const filePath = url.fileURLToPath(fileUrl);
   const dirPath = path.resolve(filePath, '..');
   return dirPath;
 };
 
-const getAllMDFiles = (directory) => {
-  const files = fs.readdirSync(directory);
-  const mdFiles = files.filter(
-    (file) => file.endsWith('.md') && file !== 'index.md'
-  );
-  return mdFiles;
-};
-
-const getMDFileTitle = (filePath) => {
+const getChineseTitle = (filePath) => {
   const content = fs.readFileSync(filePath, 'utf-8');
   const ast = markdownIt().parse(content);
   const englishTitleIndex = ast.findIndex(
@@ -59,41 +53,6 @@ const writeFile = (filePath, content) => {
   fs.writeFileSync(filePath, content);
 };
 
-const getEnabledRules = async (rulePath) => {
-  try {
-    const {
-      default: { rules }
-    } = await import(rulePath);
-
-    const newRules = {};
-    const enabledSign = { error: true, warn: true, 1: true, 2: true };
-
-    Object.entries(rules).forEach(([key, value]) => {
-      let isEnabled = false;
-      const type = typeof value;
-
-      switch (type) {
-        case 'string':
-        case 'number':
-          isEnabled = enabledSign[value];
-          break;
-        default:
-          isEnabled = enabledSign[value[0]];
-          break;
-      }
-
-      if (isEnabled) {
-        newRules[key] = true;
-      }
-    });
-
-    return newRules;
-  } catch (error) {
-    console.log('不存在的路径', rulePath);
-  }
-  return {};
-};
-
 const getUnTranslateRules = (files, rules) => {
   const unKnownFiles = [];
   const unTranslateRules = [];
@@ -117,9 +76,9 @@ const getUnTranslateRules = (files, rules) => {
 
 const main = async (docDirPath, ruleFilePath, prefix) => {
   // const dirPath = getCurFileDirPath();
-  const files = getAllMDFiles(docDirPath);
+  const files = readAllMDFiles(docDirPath);
 
-  const rules = await getEnabledRules(ruleFilePath);
+  const rules = await readEnabledRules(ruleFilePath);
 
   const { unTranslateRules, unKnownFiles } = getUnTranslateRules(
     files.map((file) => `${prefix}${file.replace(/\.md$/, '')}`),
@@ -130,7 +89,7 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
 
   const titleList = files
     .map((file) => {
-      const title = getMDFileTitle(path.resolve(docDirPath, file));
+      const title = getChineseTitle(path.resolve(docDirPath, file));
       return `[${title}](./${file})`;
     })
     .join('\n\n');

@@ -1,5 +1,5 @@
 {
-  "extends": ["plugin:@ranwawa/eslint-plugin/node-script"],
+  "extends": ["plugin:@awawa/eslint-plugin/node-script"],
   "env": {
     "browser": true,
     "es2021": true

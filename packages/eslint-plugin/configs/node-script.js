@@ -8,5 +8,5 @@ module.exports = {
     ].map(require.resolve),
     'plugin:eslint-plugin-prettier/recommended'
   ],
-  plugins: ['@ranwawa/eslint-plugin']
+  plugins: ['@awawa/eslint-plugin']
 };

@@ -9,13 +9,13 @@
 npm`7+`
 
 ```shell
-npm install --save-dev @ranwawa/configurations
+npm install --save-dev @awawa/configurations
 ```
 
 ## 初始化 commitlint 配置文件
 
 ```shell
-echo "module.exports = { extends: ['@ranwawa/configurations/commitlint-config'] };" > commitlint.config.js
+echo "module.exports = { extends: ['@awawa/configurations/commitlint-config'] };" > commitlint.config.js
 ```
 
 ## 验证 commitlint 配置是否生效
@@ -41,7 +41,7 @@ npx commitlint --from HEAD~1 --to HEAD --verbose
 通过 git-cz 以模板的形式进行提交,可有效提高开发效率
 
 ```shell
-echo "module.exports = require('@ranwawa/configurations/git-cz-config');" > changelog.config.js
+echo "module.exports = require('@awawa/configurations/git-cz-config');" > changelog.config.js
 ```
 
 ## 添加 git-cz 命令

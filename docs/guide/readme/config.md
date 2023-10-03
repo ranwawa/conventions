@@ -1,4 +1,4 @@
-# @ranwawa/readmelint
+# @awawa/readmelint
 
 如果默认配置无法满足实际项目需求,可自定义 readme 配置文件
 

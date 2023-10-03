@@ -45,3 +45,5 @@
 [禁止在包含 return 语句的 if 块后出现 else 块](./no-else-return.md)
 
 [禁止空函数](./no-empty-function.md)
+
+[禁止使用空的解构模式](./no-empty-pattern.md)
