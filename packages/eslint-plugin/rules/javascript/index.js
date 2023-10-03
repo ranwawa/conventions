@@ -50,14 +50,8 @@ module.exports = {
 
     'default-param-last': 'error',
 
-    // 要求点操作符和属性放在同一行
-    // enforces consistent newlines before or after dots
-    // https://eslint.org/docs/rules/dot-location
     'dot-location': ['error', 'property'],
 
-    // 使用===和!==代替==和!=操作符
-    // require the use of === and !==
-    // https://eslint.org/docs/rules/eqeqeq
     eqeqeq: ['error', 'always', { null: 'ignore' }],
 
     'grouped-accessor-pairs': ['error', 'getBeforeSet'],
@@ -65,25 +59,13 @@ module.exports = {
     'guard-for-in': 'error',
 
     'max-classes-per-file': ['error', 1],
-
-    // 禁止直接使用alert
-    // disallow the use of alert, confirm, and prompt
     // https://eslint.org/docs/rules/no-alert
     'no-alert': 'warn',
 
-    // 禁用caller或callee(no-caller)
-    // disallow use of arguments.caller or arguments.callee
-    // https://eslint.org/docs/rules/no-caller
     'no-caller': 'error',
 
-    // 禁止在case或default子句中声明词法
-    // disallow lexical declarations in case/default clauses
-    // https://eslint.org/docs/rules/no-case-declarations
     'no-case-declarations': 'error',
 
-    // 禁止从构造函数中返回值
-    // Disallow returning value in constructor
-    // https://eslint.org/docs/rules/no-constructor-return
     'no-constructor-return': 'error',
 
     // 禁止使用看起来像除法的正则表达式
@@ -91,14 +73,8 @@ module.exports = {
     // https://eslint.org/docs/rules/no-div-regex
     'no-div-regex': 'off',
 
-    // 禁止if语句中return语句后的else块
-    // disallow else after a return in an if
-    // https://eslint.org/docs/rules/no-else-return
     'no-else-return': ['error', { allowElseIf: false }],
 
-    // 不允许空函数
-    // disallow empty functions, except for standalone funcs/arrows
-    // https://eslint.org/docs/rules/no-empty-function
     'no-empty-function': [
       'error',
       {
@@ -106,24 +82,12 @@ module.exports = {
       }
     ],
 
-    // 禁止使用空解构模式
-    // disallow empty destructuring patterns
-    // https://eslint.org/docs/rules/no-empty-pattern
     'no-empty-pattern': 'error',
 
-    // 禁止与 null 进行比较
-    // disallow comparisons to null without a type-checking operator
-    // https://eslint.org/docs/rules/no-eq-null
     'no-eq-null': 'off',
 
-    // 禁用 eval()
-    // disallow use of eval()
-    // https://eslint.org/docs/rules/no-eval
     'no-eval': 'error',
 
-    // 禁止扩展本机类型
-    // disallow adding to native types
-    // https://eslint.org/docs/rules/no-extend-native
     'no-extend-native': 'error',
 
     // 禁止对.bind()的不必要调用

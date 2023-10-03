@@ -47,3 +47,5 @@
 [禁止空函数](./no-empty-function.md)
 
 [禁止使用空的解构模式](./no-empty-pattern.md)
+
+[禁止使用eval函数](./no-eval.md)
