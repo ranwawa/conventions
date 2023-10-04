@@ -45,4 +45,4 @@
 
 ### 文档示例
 
-请参考 `./docs/guide/script/imports/export.md` 文件
+请参考 `./docs/guide/script/import/export.md` 文件

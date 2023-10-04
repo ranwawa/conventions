@@ -43,7 +43,6 @@ const createCustomDocUrl = (translationDir, ruleName, domain) => {
 
   const docUrl = `${domain}/rules/${rulePath}/${ruleName}`;
 
-  console.log(4444, docUrl);
   return docUrl;
 };
 
@@ -109,8 +108,6 @@ const createNewRules = (pluginName, domain) => {
   const { translationDir } = readPluginDirs(pluginName);
   const translatedFiles = readAllMDFiles(translationDir);
 
-  console.log(11111, translationDir, TRANSLATION_DIR);
-
   translatedFiles.forEach((fileName) => {
     const ruleName = path.basename(fileName, MARKDOWN_EXT);
 
@@ -125,5 +122,6 @@ const createNewRules = (pluginName, domain) => {
   return rules;
 };
 
-const res = createNewRules('imports', 'https://ranwawa.github.io/conventions');
-console.log(123, res);
+const res = createNewRules('import', 'https://ranwawa.github.io/conventions');
+
+console.log(1234, res.order);

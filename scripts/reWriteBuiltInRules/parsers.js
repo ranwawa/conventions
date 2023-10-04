@@ -5,9 +5,10 @@
  */
 import util from '@typescript-eslint/utils';
 import { builtinRules } from 'eslint/use-at-your-own-risk';
+import { rules as importRules } from 'eslint-plugin-import';
 
 const { get } = builtinRules;
-const cache = {};
+const cache = { importRules };
 
 export const getESLintCoreRule = (ruleId) =>
   util.ESLintUtils.nullThrows(
@@ -48,7 +49,19 @@ export const readESlintCoreRule = (ruleId) => {
   }
 };
 
+const readImportRule = (ruleName) => {
+  const baseRule = cache.importRules[ruleName];
+
+  if (!baseRule) {
+    console.warn('eslint-plugin-node规则不存在,请检查: ', ruleName);
+    return null;
+  }
+
+  return baseRule;
+};
+
 export const PLUGIN_RULES = {
   eslintCore: readESlintCoreRule,
-  node: readNodeBaseRule
+  node: readNodeBaseRule,
+  import: readImportRule
 };

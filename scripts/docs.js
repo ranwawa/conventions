@@ -138,7 +138,7 @@ const paths = [
     // 文档目录
     'docs/rules/script/imports',
     // 规则配置目录
-    'packages/eslint-plugin/rules/imports/index.js',
+    'packages/eslint-plugin/rules/import/index.js',
     // 插件前缀
     'import/'
   ],

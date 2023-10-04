@@ -47,7 +47,7 @@ export default {
           items: [
             {
               text: 'imports(模块化)',
-              link: '/rules/script/imports/'
+              link: '/rules/script/import/'
             },
             {
               text: 'javascript',
