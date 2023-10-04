@@ -49,3 +49,7 @@
 [禁止使用空的解构模式](./no-empty-pattern.md)
 
 [禁止使用eval函数](./no-eval.md)
+
+[禁止扩展原生对象](./no-extend-native.md)
+
+[禁止不必要的函数绑定](./no-extra-bind.md)
