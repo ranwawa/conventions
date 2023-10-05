@@ -136,7 +136,7 @@ ${titleList}
 const paths = [
   [
     // 文档目录
-    'docs/rules/script/imports',
+    'docs/rules/script/import',
     // 规则配置目录
     'packages/eslint-plugin/rules/import/index.js',
     // 插件前缀

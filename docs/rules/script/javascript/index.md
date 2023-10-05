@@ -53,3 +53,7 @@
 [禁止扩展原生对象](./no-extend-native.md)
 
 [禁止不必要的函数绑定](./no-extra-bind.md)
+
+[禁止使用标签](./no-extra-label.md)
+
+[禁止case语句落空](./no-fallthrough.md)
