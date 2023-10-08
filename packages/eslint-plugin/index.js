@@ -16,7 +16,7 @@ const {
 const package = require('./package');
 
 const options = {
-  domain: 'https://ranwawa.github.io/conventions/rues/script/',
+  domain: 'https://ranwawa.github.io/conventions/rules/script',
   prefix: '@awawa'
 };
 
