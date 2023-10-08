@@ -136,33 +136,33 @@ const paths = [
     // 文档目录
     'docs/rules/script/import',
     // 规则配置目录
-    'packages/eslint-plugin/rules/import/index.js',
+    'packages/eslint-plugin/rules/import/originalRules.js',
     // 插件前缀
     'import/'
   ],
   [
     'docs/rules/script/javascript',
-    'packages/eslint-plugin/rules/javascript/index.js',
+    'packages/eslint-plugin/rules/javascript/originalRules.js',
     ''
   ],
   [
     'docs/rules/script/node',
-    'packages/eslint-plugin/rules/node/_commons.js',
+    'packages/eslint-plugin/rules/node/originalRules.js',
     'node/'
   ],
   [
     'docs/rules/script/react',
-    'packages/eslint-plugin/rules/react/index.js',
+    'packages/eslint-plugin/rules/react/originalRules.js',
     'react/'
   ],
   [
     'docs/rules/script/react-hooks',
-    'packages/eslint-plugin/rules/react-hooks/index.js',
+    'packages/eslint-plugin/rules/react-hooks/originalRules.js',
     'react-hooks'
   ],
   [
     'docs/rules/script/typescript',
-    'packages/eslint-plugin/rules/typescript/index.js',
+    'packages/eslint-plugin/rules/typescript/originalRules.js',
     'typescript/'
   ],
   [

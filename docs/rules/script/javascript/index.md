@@ -57,3 +57,7 @@
 [禁止使用标签](./no-extra-label.md)
 
 [禁止case语句落空](./no-fallthrough.md)
+
+[禁止省略浮点数中的0](./no-floating-decimal.md)
+
+[禁止对全局变量赋值](./no-global-assign.md)
