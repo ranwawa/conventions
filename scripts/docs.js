@@ -11,7 +11,6 @@
 import fs from 'fs';
 import path from 'path';
 import url from 'url';
-import clipboardy from 'clipboardy';
 
 import markdownIt from 'markdown-it';
 
@@ -119,7 +118,9 @@ ${titleList}
       `${firstUnTranslateRule.replace(prefix, '')}.md -p ${prefix}`
     )}`;
     try {
-      clipboardy.writeSync(shellCommand);
+      import('clipboardy').then((clipboardy) => {
+        clipboardy.writeSync(shellCommand);
+      });
     } finally {
       console.log(`检测到未翻译的规则: ${firstUnTranslateRule} 请运行下面的命令创建翻译文件模板
 
