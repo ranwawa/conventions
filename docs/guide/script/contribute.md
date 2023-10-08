@@ -4,9 +4,12 @@
 
 ### 翻译文档的流程
 
-1. 找到启用的规则
-2. 找到对应规则的英文文档
-3. 在对应目录下创建对应的中文文档
+1. 通过`npm run checkUnTranslateRules`命令检测已经启用但未翻译的规则
+   例: `packages/eslint-plugin/rules/import/originalRules.js:import/corder`
+2. 通过`createDocTemplate`在对应的文档目录下创建该规则的翻译模板
+   例: `docs/rules/script/import/order.md`
+3. 按照下面的格式进行翻译
+   建议通过`GPT.md`提示词自动翻译
 
 ### 文档格式
 
@@ -18,6 +21,10 @@
 ### 为什么?
 
 产生这个规则的原因,以及怎么解决这个问题.
+
+### 建议
+
+针对当前问题的修改建议
 
 ### 错误示例
 
@@ -46,3 +53,55 @@
 ### 文档示例
 
 请参考 `./docs/guide/script/import/export.md` 文件
+
+## 重写文档链接
+
+在`vscode`等`ide`中,点击eslint的异常信息可以查看该异常的详细文档,通过重写eslint规则的文档链接,可以将其重定向到我们自己已翻译的网站上.
+
+### 重写源规则的元数据
+
+通过`eslint-plugin/scripts/index`createTranslatedPluginRules进行修改
+
+例:
+
+```json
+{
+  "import/order": {
+    "meta": {
+      "docs": {
+        "url": "https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md"
+      }
+    }
+  }
+}
+```
+
+重写后:
+
+```json
+{
+  "@awawa/import/order": {
+    "meta": {
+      "docs": {
+        "url": "https://ranwawa.github.io/conventions/rules/script/import/order"
+      }
+    }
+  }
+}
+```
+
+### 注入自定义规则
+
+`createTranslatedPluginRules进行修改`的返回值是新的规则
+
+将新规则注入到`eslint-plugin/index.js:rules`属性中,生成新的自定义插件
+
+### 禁用源规则并启用自定义规则
+
+`createTranslatedPluginRules`同时会生成`disabledOriginalRules`和`enabledCustomRules`文件.用于禁用源规则和启用新规则
+
+在对应规则的配置文件中,引入这两个文件覆盖原始配置
+
+如:
+
+`eslint-plugin/rules/import/index.js:rules`

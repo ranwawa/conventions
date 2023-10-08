@@ -10,9 +10,7 @@ const react = require('./configs/react');
 const vue2 = require('./configs/vue2');
 const vue3 = require('./configs/vue3');
 const uniApp = require('./environments/uni-app');
-const {
-  createTranslatedPluginRules
-} = require('./scripts/reWriteTranslatedPluginRules');
+const { createTranslatedPluginRules } = require('./scripts/index');
 const package = require('./package');
 
 const options = {
