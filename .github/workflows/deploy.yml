@@ -34,7 +34,7 @@ jobs:
           cache: pnpm
 
       - name: 安装依赖
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install
 
       - name: 生成规则目录文件
         run: node scripts/docs.js
