@@ -93,10 +93,6 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
     })
     .join('\n\n');
 
-  unKnownFiles.forEach((file) => {
-    fs.rmSync(path.resolve(docDirPath, `${file.replace(prefix, '')}.md`));
-  });
-
   const indexContent = `# ${prefix.replace('/', '') || 'javascript'}
 
 ---
