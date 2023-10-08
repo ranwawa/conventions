@@ -1,10 +1,10 @@
 module.exports = {
   extends: [
     ...['../rules/javascript/index.js'].map(require.resolve),
-    'plugin:eslint-plugin-prettier/recommended',
+    'plugin:eslint-plugin-prettier/recommended'
   ],
   plugins: ['@awawa/eslint-plugin'],
   parserOptions: {
-    parser: '@typescript-eslint/parser',
-  },
+    parser: '@typescript-eslint/parser'
+  }
 };

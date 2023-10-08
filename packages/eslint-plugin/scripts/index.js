@@ -38,4 +38,4 @@ const rewriteTranslatedRules = (
   return translatedRules;
 };
 
-export default rewriteTranslatedRules;
+module.exports = { rewriteTranslatedRules };

@@ -3,14 +3,14 @@
  * @Date: 2023-07-31 22:07:20
  * @Author: ranqirong 274544338@qq.com
  */
-import util from '@typescript-eslint/utils';
-import { builtinRules } from 'eslint/use-at-your-own-risk';
-import { rules as importRules } from 'eslint-plugin-import';
+const util = require('@typescript-eslint/utils');
+const { builtinRules } = require('eslint/use-at-your-own-risk');
+const { rules: importRules } = require('eslint-plugin-import');
 
 const { get } = builtinRules;
 const cache = { importRules };
 
-export const getESLintCoreRule = (ruleId) =>
+const readESLintCoreRule = (ruleId) =>
   util.ESLintUtils.nullThrows(
     get(ruleId),
     `ESLint's core rule '${ruleId}' not found.`
@@ -20,7 +20,7 @@ export const getESLintCoreRule = (ruleId) =>
  * 获取eslint-plugin-node的规则
  * @param {string} ruleName 规则名
  */
-export const readNodeBaseRule = async (ruleName) => {
+const readNodeBaseRule = async (ruleName) => {
   if (!ruleName) {
     console.warn('请传入规则名');
     return null;
@@ -40,9 +40,9 @@ export const readNodeBaseRule = async (ruleName) => {
   return baseRule;
 };
 
-export const readESlintCoreRule = (ruleId) => {
+const readESlintCoreRule = (ruleId) => {
   try {
-    return getESLintCoreRule(ruleId);
+    return readESLintCoreRule(ruleId);
   } catch (error) {
     console.log('error: ', error);
     return null;
@@ -60,7 +60,7 @@ const readImportRule = (ruleName) => {
   return baseRule;
 };
 
-export const PLUGIN_RULES = {
+module.exports = {
   eslintCore: readESlintCoreRule,
   node: readNodeBaseRule,
   import: readImportRule
