@@ -3,7 +3,7 @@
 ## 1.1 安装依赖
 
 ```shell
-npm install --save-dev @ranwawa/readmelint
+npm install --save-dev @awawa/readmelint
 ```
 
 ## 1.2 添加 lint 命令

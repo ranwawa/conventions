@@ -3,20 +3,32 @@
  * @Date: 2023-06-09 22:00:39
  * @Author: ranqirong 274544338@qq.com
  */
+
 const nodeModule = require('./configs/node-module');
 const nodeScript = require('./configs/node-script');
 const react = require('./configs/react');
 const vue2 = require('./configs/vue2');
 const vue3 = require('./configs/vue3');
 const uniApp = require('./environments/uni-app');
+const {
+  createTranslatedPluginRules
+} = require('./scripts/reWriteTranslatedPluginRules');
 const package = require('./package');
+
+const options = {
+  domain: 'https://ranwawa.github.io/conventions/rues/script/',
+  prefix: '@awawa'
+};
 
 module.exports = {
   meta: {
     name: package.name,
     version: package.version
   },
-  rules: {},
+  rules: {
+    // 注入自定义插件(修改源插件名及文档链接)
+    ...createTranslatedPluginRules('import', options)
+  },
   configs: {
     vue2,
     vue3,

@@ -5,13 +5,15 @@
 1. 概括规则名(必须以禁止,必须,推荐,不推荐开头.20字以内)
 2. 概述为什么会有这条规则,如果原文中没有说明,请运用你的知识进行总结(66字以内)
 3. 概述建议怎么修改(30字以内)
-4. 无论源代码中有多少个示例,翻译后的正确和错误的示例分别只保留一个
-5. 示例中的字符串值统一使用'ranwawa','zhangshan', 'lisi'以此类推
-6. 外部模块示例,只使用react和lodash
-7. 内部模块示例,只使用./moduleA ./moduleB以此类推
-8. 示例中的变量名,只使用foo,bar,以此类推
-9. 示例中的数值,只使用520,1314,666,888以此类推
-10. 返回的格式必须满足下面的示例格式(返回结果请保留markdown原文,以便我复制)
+4. 无论源代码中有多少个示例代码块,翻译后的正确和错误的示例分别只保留一个代码块
+5. 如果一个代码块中包含了多个函数或者变量,那么只保留其中一个
+6. 示例中的字符串值统一使用'ranwawa','zhangshan', 'lisi', 'wangwu', 'zhaoermazi'以此类推
+7. 外部模块示例,只使用react和lodash
+8. 内部模块示例,只使用./moduleA ./moduleB以此类推
+9. 示例中的变量名,只使用foo,bar,以此类推
+10. 示例中的数值,只使用520,1314,666,888以此类推
+11. 如果源文件的规则包含配置选项进而导致无法给出明确的建议时,先问我要怎么配置,当我回得具体的配置项后,再根据配置进行翻译
+12. 返回的格式必须满足下面的示例格式(返回结果请保留markdown原文,以便我复制)
 
 ## 下面---之间的内容是示例格式
 
@@ -50,108 +52,119 @@
 下面---之间的内容是一段原文
 
 ---原文开始---
-
-# import/named
-
-💼🚫 This rule is enabled in the following configs: ❗ `errors`, ☑️ `recommended`. This rule is _disabled_ in the ⌨️ `typescript` config.
-
-<!-- end auto-generated rule header -->
-
-Verifies that all named imports are part of the set of named exports in the referenced module.
-
-For `export`, verifies that all named exports exist in the referenced module.
-
-Note: for packages, the plugin will find exported names
-from [`jsnext:main`] (deprecated) or `module`, if present in `package.json`.
-Redux's npm module includes this key, and thereby is lintable, for example.
-
-A module path that is [ignored] or not [unambiguously an ES module] will not be reported when imported. Note that type imports and exports, as used by [Flow], are always ignored.
-
-[ignored]: ../../README.md#importignore
-[unambiguously an ES module]: https://github.com/bmeck/UnambiguousJavaScriptGrammar
-[Flow]: https://flow.org/
+Files containing multiple classes can often result in a less navigable and poorly structured codebase. Best practice is to keep each file limited to a single responsibility.
 
 ## Rule Details
 
-Given:
+This rule enforces that each file may contain only a particular number of classes and no more.
+Examples of **incorrect** code for this rule:
+::: incorrect
 
 ```js
-// ./foo.js
-export const foo = "I'm so foo";
+/*eslint max-classes-per-file: "error"*/
+class Foo {}
+class Bar {}
 ```
 
-The following is considered valid:
+:::
+Examples of **correct** code for this rule:
+::: correct
 
 ```js
-// ./bar.js
-import { foo } from './foo';
-
-// ES7 proposal
-export { foo as bar } from './foo';
-
-// node_modules without jsnext:main are not analyzed by default
-// (import/ignore setting)
-import { SomeNonsenseThatDoesntExist } from 'react';
+/*eslint max-classes-per-file: "error"*/
+class Foo {}
 ```
 
-...and the following are reported:
+:::
+
+## Options
+
+This rule may be configured with either an object or a number. If the option is an object, it may contain one or both of:
+
+- `ignoreExpressions`: a boolean option (defaulted to `false`) to ignore class expressions.
+- `max`: a numeric option (defaulted to 1) to specify the maximum number of classes.
+  For example:
+
+```json
+{ "max-classes-per-file": ["error", 1] }
+```
+
+```json
+{ "max-classes-per-file": ["error", { "ignoreExpressions": true, "max": 2 }] }
+```
+
+Examples of **correct** code for this rule with the `max` option set to `2`:
+::: correct
 
 ```js
-// ./baz.js
-import { notFoo } from './foo';
-
-// ES7 proposal
-export { notFoo as defNotBar } from './foo';
-
-// will follow 'jsnext:main', if available
-import { dontCreateStore } from 'redux';
+/* eslint max-classes-per-file: ["error", 2] */
+class Foo {}
+class Bar {}
 ```
 
+:::
+Examples of **correct** code for this rule with the `ignoreExpressions` option set to `true`:
+::: correct
+
+```js
+/* eslint max-classes-per-file: ["error", { ignoreExpressions: true }] */
+class VisitorFactory {
+  forDescriptor(descriptor) {
+    return class {
+      visit(node) {
+        return `Visiting ${descriptor}.`;
+      }
+    };
+  }
+}
+```
+
+:::
 ---原文结束---
 
 下面---之间的内容是翻译示例
 
+下面2行是模拟场景,并不是你的真正的回复内容.只有当规则原文中包含配置选项时你才会提问题,等我回答之后你再开始正式的翻译
+
+你的提问: 该规则存在配置项,请描述你的配置项
+我的回复: 'max-classes-per-file': ['error', 1],
+
 ---翻译示例开始---
+# max-classes-per-file
 
-# @ranwawa/named
+每个文件中只能有一个类
 
-禁止导入不存在的模块
+### 为什么
 
-### 为什么?
-
-导入不存在的模块,会导致运行时异常.
+包含多个类的文件通常会导致代码库的导航性和结构性较差。
 
 ### 建议
 
-请删除不存在的模块导入语句.
+多余的类单独用自己的文件存放,并且保持文件名和类名一致
 
 ### 错误示例
 
-> moduleA.js
-
 ```js
-export const foo = 'ranwawa';
-export const bar = 'zhangsan';
-```
-
-> moduleB.js
-
-```js
-import { noFoo } from './moduleA.js'; // -> SyntaxError: The requested module './moduleA.js' does not provide an export named 'noFoo'
+// index.js
+class Foo {}
+class Bar {}
 ```
 
 ### 正确示例
 
-> moduleC.js
+```js
+// foo.js
+class Foo {}
+```
 
 ```js
-import { foo } from './moduleA.js';
+// bar.js
+class Bar {}
 ```
 
 ### 参考
 
-- [import/export](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md)
-
----翻译示例结束---
+- [max-classes-per-file](https://eslint.org/docs/rules/max-classes-per-file)
+  ---翻译示例结束---
 
 如果你准备好了,请回复准备好了,我就会将需要翻译的规则发给你.

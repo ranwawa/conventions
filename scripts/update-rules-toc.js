@@ -1,26 +1,31 @@
+/*
+ * @Description:
+ * @Date: 2023-02-19 17:14:41
+ * @Author: ranqirong 274544338@qq.com
+ */
 // 1. 获取目录结构
 // 2. 创建标题
 // 3. 获取文件
 // 4. 创建链接
 
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
+import path from 'path';
 
 const { statSync } = fs;
 
-const PREFIX = path.join(process.cwd(), "./docs/rules/");
+const PREFIX = path.join(process.cwd(), './docs/rules/');
 const LANGUAGE_MAP = {
-  script: "逻辑代码",
-  style: "样式代码",
-  format: "代码格式化",
+  script: '逻辑代码',
+  style: '样式代码',
+  format: '代码格式化'
 };
 
 const CATEGORY_MAP = {
-  imports: "模块化",
-  grammar: "语法",
-  methodology: "最佳实践",
-  naming: "命名风格",
-  style: "格式化",
+  import: '模块化',
+  grammar: '语法',
+  methodology: '最佳实践',
+  naming: '命名风格',
+  style: '格式化'
 };
 
 const getSubDirectories = (dirPath) => {
@@ -43,7 +48,7 @@ const updateFile = (language) => {
   const parentDir = path.join(PREFIX, language);
   const subDirectories = getSubDirectories(parentDir);
 
-  const indexMarkdownFilePath = path.join(parentDir, "index.md");
+  const indexMarkdownFilePath = path.join(parentDir, 'index.md');
 
   fs.rmSync(indexMarkdownFilePath);
   fs.appendFileSync(
@@ -52,7 +57,7 @@ const updateFile = (language) => {
   );
 
   subDirectories.forEach((category) => {
-    const alias = CATEGORY_MAP[category] ? `(${CATEGORY_MAP[category]})` : "";
+    const alias = CATEGORY_MAP[category] ? `(${CATEGORY_MAP[category]})` : '';
     fs.appendFileSync(indexMarkdownFilePath, `## ${category}${alias}\r\n\r\n`);
     const mdFiles = getFiles(path.join(parentDir, category));
 
@@ -61,7 +66,7 @@ const updateFile = (language) => {
 
       const filePath = path.join(parentDir, category, file);
       let content = fs.readFileSync(filePath, {
-        encoding: "utf-8",
+        encoding: 'utf-8'
       });
 
       // content = content
@@ -91,4 +96,4 @@ const updateFile = (language) => {
   });
 };
 
-["script", "style", "format"].forEach(updateFile);
+['script', 'style', 'format'].forEach(updateFile);

@@ -1,1 +1,1 @@
-module.exports = { extends: ['@ranwawa/configurations/commitlint-config'] };
+module.exports = { extends: ['@awawa/configurations/commitlint-config'] };

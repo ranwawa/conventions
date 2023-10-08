@@ -1,5 +1,5 @@
 {
-  "name": "@ranwawa/conventions",
+  "name": "@awawa/conventions",
   "version": "0.0.1",
   "description": "前端规范",
   "private": true,
@@ -35,8 +35,8 @@
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "latest",
-    "@ranwawa/configurations": "workspace:*",
-    "@ranwawa/eslint-plugin": "workspace:*",
+    "@awawa/configurations": "workspace:*",
+    "@awawa/eslint-plugin": "workspace:*",
     "conventional-changelog-conventionalcommits": "latest",
     "eslint-plugin-markdown": "^3.0.0",
     "git-cz": "latest",

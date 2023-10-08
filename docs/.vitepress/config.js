@@ -46,8 +46,8 @@ export default {
           text: '逻辑代码规则',
           items: [
             {
-              text: 'imports(模块化)',
-              link: '/rules/script/imports/'
+              text: 'import(模块化)',
+              link: '/rules/script/import/'
             },
             {
               text: 'javascript',

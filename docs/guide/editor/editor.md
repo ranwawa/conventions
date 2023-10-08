@@ -1,4 +1,4 @@
-# @ranwawa/editor-config
+# @awawa/editor-config
 
 ## 2.1 配合 vscode 使用
 

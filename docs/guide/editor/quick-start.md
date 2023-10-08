@@ -1,4 +1,4 @@
-# @ranwawa/editor-config
+# @awawa/editor-config
 
 统一编辑器配置,可以减少跨系统,跨编辑器引起的代码格式化冲突问题,有效提升开发体验
 
@@ -11,17 +11,17 @@
 npm
 
 ```shell
-npm install --save-dev @ranwawa/editor-config
+npm install --save-dev @awawa/editor-config
 ```
 
 yarn
 
 ```shell
-yarn add --dev @ranwawa/editor-config
+yarn add --dev @awawa/editor-config
 ```
 
 ### 1.2 初始化 editorconfig 配置文件
 
 ```bash
-cat node_modules/@ranwawa/editor-config/.editorconfig > .editorconfig
+cat node_modules/@awawa/editor-config/.editorconfig > .editorconfig
 ```
