@@ -29,4 +29,6 @@ module.exports = {
   "no-floating-decimal": "off",
   "no-global-assign": "off",
   "no-implied-eval": "off",
+  "no-iterator": "off",
+  "no-labels": "off",
 };

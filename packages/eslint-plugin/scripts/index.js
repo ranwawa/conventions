@@ -165,8 +165,6 @@ const enableCustomRules = async (
 module.exports = ${JSON.stringify(enabledRuleConfig)}
 `;
 
-  console.log(987654321, fileContent);
-
   fs.writeFileSync(
     path.resolve(ruleDir, 'enabledCustomRules.js'),
     await prettier.format(fileContent, { parser: 'babel' })
@@ -209,7 +207,7 @@ const createTranslatedPluginRules = (pluginName, { domain, prefix }) => {
     const originalRule = readOriginalRule(ruleName, pluginName);
     const newRule = generateNewRule(newMeta, originalRule);
 
-    rules[`${pluginName}/${ruleName}`] = newRule;
+    rules[readOriginalPluginRuleName(pluginName, ruleName)] = newRule;
   });
 
   enableCustomRules(ruleDir, translatedRules, pluginName, prefix);

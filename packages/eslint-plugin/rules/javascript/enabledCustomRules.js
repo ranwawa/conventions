@@ -32,4 +32,6 @@ module.exports = {
   "@awawa/no-floating-decimal": "error",
   "@awawa/no-global-assign": ["error", { exceptions: [] }],
   "@awawa/no-implied-eval": "error",
+  "@awawa/no-iterator": "error",
+  "@awawa/no-labels": ["error", { allowLoop: false, allowSwitch: false }],
 };
