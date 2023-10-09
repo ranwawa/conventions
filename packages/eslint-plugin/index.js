@@ -10,8 +10,8 @@ const react = require('./configs/react');
 const vue2 = require('./configs/vue2');
 const vue3 = require('./configs/vue3');
 const uniApp = require('./environments/uni-app');
-const { createTranslatedPluginRules } = require('./scripts/index');
 const package = require('./package');
+const { createTranslatedPluginRules } = require('./scripts/index');
 
 const options = {
   domain: 'https://ranwawa.github.io/conventions/rules/script',
@@ -25,7 +25,8 @@ module.exports = {
   },
   rules: {
     // 注入自定义插件(修改源插件名及文档链接)
-    ...createTranslatedPluginRules('import', options)
+    ...createTranslatedPluginRules('import', options),
+    ...createTranslatedPluginRules('javascript', options)
   },
   configs: {
     vue2,

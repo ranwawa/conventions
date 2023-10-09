@@ -9,7 +9,8 @@ const path = require('path');
 const lodash = require('lodash');
 const prettier = require('prettier');
 
-const importOriginalRules = require('../rules/import/originalRules');
+const importRuleConfig = require('../rules/import/originalRules');
+const eslintCoreRuleConfig = require('../rules/javascript/originalRules');
 
 const PLUGIN_RULES = require('./parsers.js');
 const { MARKDOWN_EXT, readAllMDFiles } = require('./utils.js');
@@ -18,8 +19,9 @@ const TRANSLATION_DIR = path.resolve('./docs/rules/script');
 const RULE_DIR = './packages/eslint-plugin/rules';
 const CONFIG_DIR = './packages/eslint-plugin/configs';
 
-const ORIGINAL_RULES = {
-  import: importOriginalRules
+const ORIGINAL_PLUGIN_RULE_CONFIG = {
+  import: importRuleConfig,
+  javascript: eslintCoreRuleConfig
 };
 
 /**
@@ -91,16 +93,35 @@ const readOriginalRule = (ruleName, pluginName) => {
   return originalRule;
 };
 
+const readOriginalPluginRuleName = (originalPluginName, ruleName) => {
+  // eslint内置规则在项目中是使用的javascript
+  // 内置规则实际上是没有插件前缀的
+  if (originalPluginName === 'javascript') {
+    return ruleName;
+  } else {
+    return `${originalPluginName}/${ruleName}`;
+  }
+};
+
 /**
  * 禁用已翻译的原始规则
  * @param {string} ruleDir 规则所在的目录
  * @param {string[]} translatedRules 已翻译的规则
  */
-const disableTranslatedRules = async (ruleDir, translatedRules, pluginName) => {
+const disableTranslatedRules = async (
+  ruleDir,
+  translatedRules,
+  originalPluginName
+) => {
   const disabledRules = {};
 
   translatedRules.forEach((ruleName) => {
-    disabledRules[`${pluginName}/${ruleName}`] = 'off';
+    const originalPluginRuleName = readOriginalPluginRuleName(
+      originalPluginName,
+      ruleName
+    );
+
+    disabledRules[originalPluginRuleName] = 'off';
   });
 
   const fileContent = `
@@ -123,22 +144,28 @@ module.exports = ${JSON.stringify(disabledRules)}
 const enableCustomRules = async (
   ruleDir,
   translatedRules,
-  customPluginName,
-  pluginName
+  originalPluginName,
+  customPluginName
 ) => {
-  const enabledRules = {};
-  const originalRules = ORIGINAL_RULES[pluginName];
+  const enabledRuleConfig = {};
+  const originalRuleConfig = ORIGINAL_PLUGIN_RULE_CONFIG[originalPluginName];
 
   translatedRules.forEach((ruleName) => {
-    const originalRule = originalRules[`${pluginName}/${ruleName}`];
-    enabledRules[`${customPluginName}/${pluginName}/${ruleName}`] =
+    const originalPluginRuleName = readOriginalPluginRuleName(
+      originalPluginName,
+      ruleName
+    );
+    const originalRule = originalRuleConfig[originalPluginRuleName];
+    enabledRuleConfig[`${customPluginName}/${originalPluginRuleName}`] =
       originalRule;
   });
 
   const fileContent = `
 // 文件内容由代码自动生成,请勿修改
-module.exports = ${JSON.stringify(enabledRules)}
+module.exports = ${JSON.stringify(enabledRuleConfig)}
 `;
+
+  console.log(987654321, fileContent);
 
   fs.writeFileSync(
     path.resolve(ruleDir, 'enabledCustomRules.js'),
@@ -185,16 +212,11 @@ const createTranslatedPluginRules = (pluginName, { domain, prefix }) => {
     rules[`${pluginName}/${ruleName}`] = newRule;
   });
 
-  enableCustomRules(ruleDir, translatedRules, prefix, pluginName);
+  enableCustomRules(ruleDir, translatedRules, pluginName, prefix);
   disableTranslatedRules(ruleDir, translatedRules, pluginName);
 
   return rules;
 };
-
-createTranslatedPluginRules('import', {
-  domain: 'baidu.com',
-  prefix: '@awawa'
-});
 
 module.exports = {
   createTranslatedPluginRules

@@ -4,15 +4,14 @@
  * @Author: ranqirong 274544338@qq.com
  */
 const util = require('@typescript-eslint/utils');
-const { builtinRules } = require('eslint/use-at-your-own-risk');
+const builtinRules = require('eslint/use-at-your-own-risk').builtinRules;
 const { rules: importRules } = require('eslint-plugin-import');
 
-const { get } = builtinRules;
 const cache = { importRules };
 
 const readESLintCoreRule = (ruleId) =>
   util.ESLintUtils.nullThrows(
-    get(ruleId),
+    builtinRules.get(ruleId),
     `ESLint's core rule '${ruleId}' not found.`
   );
 
@@ -62,6 +61,7 @@ const readImportRule = (ruleName) => {
 
 module.exports = {
   eslintCore: readESlintCoreRule,
+  javascript: readESlintCoreRule,
   node: readNodeBaseRule,
   import: readImportRule
 };
