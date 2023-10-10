@@ -31,4 +31,7 @@ module.exports = {
   "no-implied-eval": "off",
   "no-iterator": "off",
   "no-labels": "off",
+  "no-lone-blocks": "off",
+  "no-loop-func": "off",
+  "no-multi-spaces": "off",
 };

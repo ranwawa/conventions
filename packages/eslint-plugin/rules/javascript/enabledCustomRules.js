@@ -34,4 +34,7 @@ module.exports = {
   "@awawa/no-implied-eval": "error",
   "@awawa/no-iterator": "error",
   "@awawa/no-labels": ["error", { allowLoop: false, allowSwitch: false }],
+  "@awawa/no-lone-blocks": "error",
+  "@awawa/no-loop-func": "error",
+  "@awawa/no-multi-spaces": ["error", { ignoreEOLComments: false }],
 };

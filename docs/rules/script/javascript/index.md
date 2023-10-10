@@ -65,3 +65,9 @@
 [为什么?](./no-implied-eval.md)
 
 [禁止使用**iterator**](./no-iterator.md)
+
+[禁止使用标签语句](./no-labels.md)
+
+[禁止无用的代码块](./no-lone-blocks.md)
+
+[禁止在循环中创建函数](./no-loop-func.md)
