@@ -71,3 +71,9 @@
 [禁止无用的代码块](./no-lone-blocks.md)
 
 [禁止在循环中创建函数](./no-loop-func.md)
+
+[禁止使用多个空格](./no-multi-spaces.md)
+
+[禁止使用多行字符串](./no-multi-str.md)
+
+[禁止使用new创建对象后不赋值](./no-new.md)
