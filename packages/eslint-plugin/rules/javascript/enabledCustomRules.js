@@ -37,4 +37,8 @@ module.exports = {
   "@awawa/no-lone-blocks": "error",
   "@awawa/no-loop-func": "error",
   "@awawa/no-multi-spaces": ["error", { ignoreEOLComments: false }],
+  "@awawa/no-multi-str": "error",
+  "@awawa/no-new-func": "error",
+  "@awawa/no-new-wrappers": "error",
+  "@awawa/no-new": "error",
 };

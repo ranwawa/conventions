@@ -34,4 +34,8 @@ module.exports = {
   "no-lone-blocks": "off",
   "no-loop-func": "off",
   "no-multi-spaces": "off",
+  "no-multi-str": "off",
+  "no-new-func": "off",
+  "no-new-wrappers": "off",
+  "no-new": "off",
 };

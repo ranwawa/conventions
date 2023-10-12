@@ -76,4 +76,10 @@
 
 [禁止使用多行字符串](./no-multi-str.md)
 
+[禁止使用new Function](./no-new-func.md)
+
+[禁止使用原始包装类型](./no-new-wrappers.md)
+
 [禁止使用new创建对象后不赋值](./no-new.md)
+
+[禁止在字符串字面量中使用`\8`和`\9`转义序列](./no-nonoctal-decimal-escape.md)
