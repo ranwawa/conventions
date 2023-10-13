@@ -82,4 +82,10 @@
 
 [禁止使用new创建对象后不赋值](./no-new.md)
 
-[禁止在字符串字面量中使用`\8`和`\9`转义序列](./no-nonoctal-decimal-escape.md)
+[禁止在字符串字面量中使用转义序列](./no-nonoctal-decimal-escape.md)
+
+[为什么?](./no-octal-escape.md)
+
+[禁止使用八进制字面量](./no-octal.md)
+
+[禁止对函数参数进行重新赋值](./no-param-reassign.md)

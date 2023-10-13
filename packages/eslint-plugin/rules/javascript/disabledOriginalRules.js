@@ -38,4 +38,9 @@ module.exports = {
   "no-new-func": "off",
   "no-new-wrappers": "off",
   "no-new": "off",
+  "no-nonoctal-decimal-escape": "off",
+  "no-octal-escape": "off",
+  "no-octal": "off",
+  "no-param-reassign": "off",
+  "no-proto": "off",
 };

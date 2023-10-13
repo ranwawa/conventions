@@ -41,4 +41,28 @@ module.exports = {
   "@awawa/no-new-func": "error",
   "@awawa/no-new-wrappers": "error",
   "@awawa/no-new": "error",
+  "@awawa/no-nonoctal-decimal-escape": "error",
+  "@awawa/no-octal-escape": "error",
+  "@awawa/no-octal": "error",
+  "@awawa/no-param-reassign": [
+    "error",
+    {
+      props: true,
+      ignorePropertyModificationsFor: [
+        "acc",
+        "accumulator",
+        "e",
+        "ctx",
+        "context",
+        "req",
+        "request",
+        "res",
+        "response",
+        "$scope",
+        "staticContext",
+      ],
+      ignorePropertyModificationsForRegex: ["^effect[A-Z]"],
+    },
+  ],
+  "@awawa/no-proto": "error",
 };
