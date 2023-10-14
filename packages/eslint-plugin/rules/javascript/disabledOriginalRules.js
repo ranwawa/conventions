@@ -43,4 +43,7 @@ module.exports = {
   "no-octal": "off",
   "no-param-reassign": "off",
   "no-proto": "off",
+  "no-redeclare": "off",
+  "no-restricted-properties": "off",
+  "no-return-assign": "off",
 };

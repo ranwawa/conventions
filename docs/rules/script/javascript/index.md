@@ -89,3 +89,9 @@
 [禁止使用八进制字面量](./no-octal.md)
 
 [禁止对函数参数进行重新赋值](./no-param-reassign.md)
+
+[禁止使用__proto__属性](./no-proto.md)
+
+[禁止重复声明变量](./no-redeclare.md)
+
+[禁止使用特定的对象属性](./no-restricted-properties.md)
