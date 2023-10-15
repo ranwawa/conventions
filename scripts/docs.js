@@ -120,7 +120,7 @@ ${titleList}
       })
       .catch((err) => console.log(err));
 
-    console.log(`检测到未翻译的规则: ${firstUnTranslateRule} 请运行下面的命令创建翻译文件模板
+    console.log(`检测到未翻译的规则: ${firstUnTranslateRule}(1/${unTranslateRules.length}) 请运行下面的命令创建翻译文件模板
 
        ${shellCommand}     
 
