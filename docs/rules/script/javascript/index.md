@@ -95,3 +95,13 @@
 [禁止重复声明变量](./no-redeclare.md)
 
 [禁止使用特定的对象属性](./no-restricted-properties.md)
+
+[禁止在return语句中使用赋值语句](./no-return-assign.md)
+
+[禁止在URL中执行js代码](./no-script-url.md)
+
+[禁止自我赋值](./no-self-assign.md)
+
+[禁止自我比较](./no-self-compare.md)
+
+[禁止使用逗号操作符](./no-sequences.md)

@@ -118,4 +118,8 @@ module.exports = {
     },
   ],
   "@awawa/no-return-assign": ["error", "always"],
+  "@awawa/no-script-url": "error",
+  "@awawa/no-self-assign": ["error", { props: true }],
+  "@awawa/no-self-compare": "error",
+  "@awawa/no-sequences": "error",
 };

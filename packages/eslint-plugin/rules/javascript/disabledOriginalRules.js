@@ -46,4 +46,8 @@ module.exports = {
   "no-redeclare": "off",
   "no-restricted-properties": "off",
   "no-return-assign": "off",
+  "no-script-url": "off",
+  "no-self-assign": "off",
+  "no-self-compare": "off",
+  "no-sequences": "off",
 };

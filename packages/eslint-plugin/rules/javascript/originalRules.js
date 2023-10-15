@@ -309,7 +309,7 @@ module.exports = {
   // 禁用不必要的 return await
   // disallow redundant `return await`
   // https://eslint.org/docs/rules/no-return-await
-  'no-return-await': 'error',
+  'no-return-await': 'off',
 
   // 禁用 Script URL
   // disallow use of `javascript:` urls.
