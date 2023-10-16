@@ -105,3 +105,13 @@
 [禁止自我比较](./no-self-compare.md)
 
 [禁止使用逗号操作符](./no-sequences.md)
+
+[禁止抛出字面量错误](./no-throw-literal.md)
+
+[禁止无效表达式](./no-unused-expressions.md)
+
+[禁止使用未被引用的标签](./no-unused-labels.md)
+
+[禁止无用的catch](./no-useless-catch.md)
+
+[禁止无用的字符串拼接](./no-useless-concat.md)

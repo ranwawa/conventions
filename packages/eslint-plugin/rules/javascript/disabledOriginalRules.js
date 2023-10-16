@@ -50,4 +50,7 @@ module.exports = {
   "no-self-assign": "off",
   "no-self-compare": "off",
   "no-sequences": "off",
+  "no-throw-literal": "off",
+  "no-unused-expressions": "off",
+  "no-unused-labels": "off",
 };

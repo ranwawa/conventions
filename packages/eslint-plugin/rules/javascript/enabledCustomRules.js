@@ -122,4 +122,14 @@ module.exports = {
   "@awawa/no-self-assign": ["error", { props: true }],
   "@awawa/no-self-compare": "error",
   "@awawa/no-sequences": "error",
+  "@awawa/no-throw-literal": "error",
+  "@awawa/no-unused-expressions": [
+    "error",
+    {
+      allowShortCircuit: true,
+      allowTernary: true,
+      allowTaggedTemplates: false,
+    },
+  ],
+  "@awawa/no-unused-labels": "error",
 };
