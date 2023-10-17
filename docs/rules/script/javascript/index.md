@@ -115,3 +115,13 @@
 [禁止无用的catch](./no-useless-catch.md)
 
 [禁止无用的字符串拼接](./no-useless-concat.md)
+
+[禁止无用的转义](./no-useless-escape.md)
+
+[禁止无用的返回](./no-useless-return.md)
+
+[禁止使用void操作符](./no-void.md)
+
+[禁止使用with语句](./no-with.md)
+
+[推荐Promise的reject方法中只抛出Error对象](./prefer-promise-reject-errors.md)
