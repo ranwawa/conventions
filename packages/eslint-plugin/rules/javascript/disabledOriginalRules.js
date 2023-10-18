@@ -53,4 +53,13 @@ module.exports = {
   "no-throw-literal": "off",
   "no-unused-expressions": "off",
   "no-unused-labels": "off",
+  "no-useless-catch": "off",
+  "no-useless-concat": "off",
+  "no-useless-escape": "off",
+  "no-useless-return": "off",
+  "no-void": "off",
+  "no-with": "off",
+  "prefer-promise-reject-errors": "off",
+  "prefer-regex-literals": "off",
+  radix: "off",
 };

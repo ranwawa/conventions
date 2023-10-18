@@ -132,4 +132,16 @@ module.exports = {
     },
   ],
   "@awawa/no-unused-labels": "error",
+  "@awawa/no-useless-catch": "error",
+  "@awawa/no-useless-concat": "error",
+  "@awawa/no-useless-escape": "error",
+  "@awawa/no-useless-return": "error",
+  "@awawa/no-void": "error",
+  "@awawa/no-with": "error",
+  "@awawa/prefer-promise-reject-errors": ["error", { allowEmptyReject: true }],
+  "@awawa/prefer-regex-literals": [
+    "error",
+    { disallowRedundantWrapping: true },
+  ],
+  "@awawa/radix": "error",
 };

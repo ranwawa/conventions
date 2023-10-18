@@ -125,3 +125,13 @@
 [禁止使用with语句](./no-with.md)
 
 [推荐Promise的reject方法中只抛出Error对象](./prefer-promise-reject-errors.md)
+
+[推荐使用正则表达式字面量](./prefer-regex-literals.md)
+
+[必须在parseInt()函数中提供基数参数](./radix.md)
+
+[必须将变量声明放在作用域顶部](./vars-on-top.md)
+
+[必须将立即调用的函数表达式包裹在括号中](./wrap-iife.md)
+
+[禁止Yoda条件](./yoda.md)
