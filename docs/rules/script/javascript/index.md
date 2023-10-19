@@ -28,6 +28,10 @@
 
 [推荐使用严格等于和严格不等于操作符](./eqeqeq.md)
 
+[禁止for循环中的计数器错误方向](./for-direction.md)
+
+[必须在getter方法中返回值](./getter-return.md)
+
 [推荐将同一属性的getter和setter函数定义在一起](./grouped-accessor-pairs.md)
 
 [推荐在for-in循环中使用守卫语句](./guard-for-in.md)
@@ -36,9 +40,15 @@
 
 [禁止使用alert, confirm, 和 prompt函数](./no-alert.md)
 
+[禁止在Promise的executor函数中使用async函数](./no-async-promise-executor.md)
+
+[禁止在循环中使用await](./no-await-in-loop.md)
+
 [禁止使用arguments.caller和arguments.callee](./no-caller.md)
 
 [禁止在case/default子句中使用声明变量](./no-case-declarations.md)
+
+[禁止与-0进行比较](./no-compare-neg-zero.md)
 
 [禁止在构造函数中返回值](./no-constructor-return.md)
 
