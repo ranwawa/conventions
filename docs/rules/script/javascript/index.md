@@ -50,7 +50,15 @@
 
 [禁止与-0进行比较](./no-compare-neg-zero.md)
 
+[禁止在条件语句中使用赋值操作符](./no-cond-assign.md)
+
+[禁止在条件中使用常量表达式](./no-constant-condition.md)
+
 [禁止在构造函数中返回值](./no-constructor-return.md)
+
+[禁止在正则表达式中使用控制字符](./no-control-regex.md)
+
+[禁止使用debugger](./no-debugger.md)
 
 [禁止在包含 return 语句的 if 块后出现 else 块](./no-else-return.md)
 
