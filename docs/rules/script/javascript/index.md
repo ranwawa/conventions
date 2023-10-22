@@ -80,19 +80,29 @@
 
 [禁止使用eval函数](./no-eval.md)
 
+[禁止在catch语句中重新赋值异常参数](./no-ex-assign.md)
+
 [禁止扩展原生对象](./no-extend-native.md)
 
 [禁止不必要的函数绑定](./no-extra-bind.md)
 
+[禁止不必要的布尔类型转换](./no-extra-boolean-cast.md)
+
 [禁止使用标签](./no-extra-label.md)
+
+[禁止不必要的分号](./no-extra-semi.md)
 
 [禁止case语句落空](./no-fallthrough.md)
 
 [禁止省略浮点数中的0](./no-floating-decimal.md)
 
+[禁止重写函数声明](./no-func-assign.md)
+
 [禁止对全局变量赋值](./no-global-assign.md)
 
 [为什么?](./no-implied-eval.md)
+
+[禁止修改导入的绑定](./no-import-assign.md)
 
 [禁止使用**iterator**](./no-iterator.md)
 
