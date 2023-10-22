@@ -60,11 +60,23 @@
 
 [禁止使用debugger](./no-debugger.md)
 
+[禁止函数参数重复](./no-dupe-args.md)
+
+[禁止在同一个if-else-if链中出现重复的条件](./no-dupe-else-if.md)
+
+[禁止对象字面量中的重复键](./no-dupe-keys.md)
+
+[禁止重复的case表达式](./no-duplicate-case.md)
+
 [禁止在包含 return 语句的 if 块后出现 else 块](./no-else-return.md)
+
+[禁止在正则表达式中使用空字符类](./no-empty-character-class.md)
 
 [禁止空函数](./no-empty-function.md)
 
 [禁止使用空的解构模式](./no-empty-pattern.md)
+
+[禁止空的代码块](./no-empty.md)
 
 [禁止使用eval函数](./no-eval.md)
 
