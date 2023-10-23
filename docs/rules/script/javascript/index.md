@@ -104,6 +104,12 @@
 
 [禁止修改导入的绑定](./no-import-assign.md)
 
+[禁止在块级作用域中出现函数声明](./no-inner-declarations.md)
+
+[禁止在 `RegExp` 构造函数中出现无效的正则表达式字符串](./no-invalid-regexp.md)
+
+[禁止使用不规则的空白字符](./no-irregular-whitespace.md)
+
 [禁止使用**iterator**](./no-iterator.md)
 
 [禁止使用标签语句](./no-labels.md)
@@ -111,6 +117,8 @@
 [禁止无用的代码块](./no-lone-blocks.md)
 
 [禁止在循环中创建函数](./no-loop-func.md)
+
+[禁止使用在运行时会丢失精度的数字字面量](./no-loss-of-precision.md)
 
 [禁止使用多个空格](./no-multi-spaces.md)
 
