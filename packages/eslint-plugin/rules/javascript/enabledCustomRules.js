@@ -59,12 +59,15 @@ module.exports = {
   "@awawa/no-labels": ["error", { allowLoop: false, allowSwitch: false }],
   "@awawa/no-lone-blocks": "error",
   "@awawa/no-loop-func": "error",
+  "@awawa/no-loss-of-precision": "error",
+  "@awawa/no-misleading-character-class": "error",
   "@awawa/no-multi-spaces": ["error", { ignoreEOLComments: false }],
   "@awawa/no-multi-str": "error",
   "@awawa/no-new-func": "error",
   "@awawa/no-new-wrappers": "error",
   "@awawa/no-new": "error",
   "@awawa/no-nonoctal-decimal-escape": "error",
+  "@awawa/no-obj-calls": "error",
   "@awawa/no-octal-escape": "error",
   "@awawa/no-octal": "error",
   "@awawa/no-param-reassign": [
@@ -87,8 +90,11 @@ module.exports = {
       ignorePropertyModificationsForRegex: ["^effect[A-Z]"],
     },
   ],
+  "@awawa/no-promise-executor-return": "error",
   "@awawa/no-proto": "error",
+  "@awawa/no-prototype-builtins": "error",
   "@awawa/no-redeclare": "error",
+  "@awawa/no-regex-spaces": "error",
   "@awawa/no-restricted-properties": [
     "error",
     {
@@ -145,6 +151,7 @@ module.exports = {
   "@awawa/no-self-assign": ["error", { props: true }],
   "@awawa/no-self-compare": "error",
   "@awawa/no-sequences": "error",
+  "@awawa/no-setter-return": "error",
   "@awawa/no-throw-literal": "error",
   "@awawa/no-unused-expressions": [
     "error",

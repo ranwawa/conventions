@@ -120,6 +120,8 @@
 
 [禁止使用在运行时会丢失精度的数字字面量](./no-loss-of-precision.md)
 
+[禁止误导的字符类](./no-misleading-character-class.md)
+
 [禁止使用多个空格](./no-multi-spaces.md)
 
 [禁止使用多行字符串](./no-multi-str.md)
@@ -132,15 +134,23 @@
 
 [禁止在字符串字面量中使用转义序列](./no-nonoctal-decimal-escape.md)
 
+[禁止将全局对象作为函数调用](./no-obj-calls.md)
+
 [为什么?](./no-octal-escape.md)
 
 [禁止使用八进制字面量](./no-octal.md)
 
 [禁止对函数参数进行重新赋值](./no-param-reassign.md)
 
+[禁止在Promise执行器函数中返回值](./no-promise-executor-return.md)
+
 [禁止使用__proto__属性](./no-proto.md)
 
+[禁止直接调用Object.prototype的方法](./no-prototype-builtins.md)
+
 [禁止重复声明变量](./no-redeclare.md)
+
+[禁止在正则表达式中使用多个空格](./no-regex-spaces.md)
 
 [禁止使用特定的对象属性](./no-restricted-properties.md)
 
@@ -153,6 +163,8 @@
 [禁止自我比较](./no-self-compare.md)
 
 [禁止使用逗号操作符](./no-sequences.md)
+
+[禁止setter函数返回值](./no-setter-return.md)
 
 [禁止抛出字面量错误](./no-throw-literal.md)
 
