@@ -6,8 +6,14 @@
 import fs from 'fs';
 import path from 'path';
 
-const ENABLED_SIGN = { error: true, warn: true, 1: true, 2: true };
 export const MARKDOWN_EXT = '.md';
+export const OfficialUrlMap = {
+  import:
+    'https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/',
+  javascript: 'https://eslint.org/docs/rules/'
+};
+
+const ENABLED_SIGN = { error: true, warn: true, 1: true, 2: true };
 const IGNORE_FILE = 'index.md';
 
 /**
@@ -62,4 +68,13 @@ export const readEnabledRules = async (pluginConfigPath) => {
   });
 
   return newRules;
+};
+
+export const readReferenceDocLink = (prefix, ruleName) => {
+  let link = `${OfficialUrlMap[prefix || 'javascript']}${ruleName}`;
+  if (prefix !== '') {
+    link += '.md';
+  }
+
+  return link;
 };

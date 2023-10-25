@@ -8,11 +8,7 @@ import path from 'path';
 
 import meow from 'meow';
 
-const OfficialUrlMap = {
-  import:
-    'https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/',
-  javascript: 'https://eslint.org/docs/rules/'
-};
+import { readReferenceDocLink } from './utils.js';
 
 const flags = {
   help: {
@@ -38,12 +34,10 @@ const CreateDocTemplate = () => {
   const {
     flags: { filePath, prefix = '' }
   } = cli;
+  console.log(4444, filePath, prefix);
   const fileName = path.basename(filePath);
   const ruleName = `${prefix}${fileName.replace(/\.md$/, '')}`;
-  let link = `${OfficialUrlMap[prefix || 'javascript']}${ruleName}`;
-  if (prefix !== '') {
-    link += '.md';
-  }
+  const link = readReferenceDocLink(prefix, ruleName);
 
   const tpl = `
 # ${ruleName}
