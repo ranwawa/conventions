@@ -166,7 +166,15 @@
 
 [禁止setter函数返回值](./no-setter-return.md)
 
+[禁止使用稀疏数组](./no-sparse-arrays.md)
+
+[禁止在普通字符串中使用模板字符串的占位符](./no-template-curly-in-string.md)
+
 [禁止抛出字面量错误](./no-throw-literal.md)
+
+[禁止出现容易引起误解的多行表达式](./no-unexpected-multiline.md)
+
+[禁止出现无法执行的代码](./no-unreachable.md)
 
 [禁止无效表达式](./no-unused-expressions.md)
 

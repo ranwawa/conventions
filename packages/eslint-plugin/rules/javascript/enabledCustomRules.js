@@ -152,6 +152,7 @@ module.exports = {
   "@awawa/no-self-compare": "error",
   "@awawa/no-sequences": "error",
   "@awawa/no-setter-return": "error",
+  "@awawa/no-sparse-arrays": "error",
   "@awawa/no-throw-literal": "error",
   "@awawa/no-unused-expressions": [
     "error",

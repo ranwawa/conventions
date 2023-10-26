@@ -80,6 +80,7 @@ module.exports = {
   "no-self-compare": "off",
   "no-sequences": "off",
   "no-setter-return": "off",
+  "no-sparse-arrays": "off",
   "no-throw-literal": "off",
   "no-unused-expressions": "off",
   "no-unused-labels": "off",
