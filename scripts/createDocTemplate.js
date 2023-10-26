@@ -34,7 +34,6 @@ const CreateDocTemplate = () => {
   const {
     flags: { filePath, prefix = '' }
   } = cli;
-  console.log(4444, filePath, prefix);
   const fileName = path.basename(filePath);
   const ruleName = `${prefix}${fileName.replace(/\.md$/, '')}`;
   const link = readReferenceDocLink(prefix, ruleName);

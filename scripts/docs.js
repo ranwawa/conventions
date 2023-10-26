@@ -12,6 +12,7 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import url from 'url';
+import open from 'open';
 
 import markdownIt from 'markdown-it';
 
@@ -134,6 +135,8 @@ ${titleList}
           )}`
         );
         console.log('\n');
+
+        open(readReferenceDocLink(prefix, firstUnTranslateRule, true));
       })
       .catch((err) => console.log(err));
   }

@@ -17,6 +17,9 @@ importers:
       jest:
         specifier: ^29.5.0
         version: 29.7.0(@types/node@20.5.1)(ts-node@10.9.1)
+      open:
+        specifier: ^9.1.0
+        version: 9.1.0
       react:
         specifier: ^18.2.0
         version: 18.2.0

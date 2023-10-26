@@ -12,6 +12,11 @@ export const OfficialUrlMap = {
     'https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/',
   javascript: 'https://eslint.org/docs/rules/'
 };
+export const OfficialEditUrlMap = {
+  import:
+    'https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/',
+  javascript: 'https://github.com/eslint/eslint/edit/main/docs/src/rules/'
+};
 
 const ENABLED_SIGN = { error: true, warn: true, 1: true, 2: true };
 const IGNORE_FILE = 'index.md';
@@ -70,10 +75,19 @@ export const readEnabledRules = async (pluginConfigPath) => {
   return newRules;
 };
 
-export const readReferenceDocLink = (prefix, ruleName) => {
-  let link = `${OfficialUrlMap[prefix || 'javascript']}${ruleName}`;
-  if (prefix !== '') {
-    link += '.md';
+export const readReferenceDocLink = (prefix, ruleName, isEdit = false) => {
+  let mapObject = OfficialUrlMap;
+
+  if (isEdit) {
+    mapObject = OfficialEditUrlMap;
+  }
+
+  let link = `${mapObject[prefix || 'javascript']}${ruleName}.md`;
+
+  // 规则都是github的md文件所以需要
+  // eslint官方规则基于md创建的网页,不需要md后缀
+  if (prefix === '' && isEdit === false) {
+    link = link.replace(/\.md$/, '');
   }
 
   return link;
