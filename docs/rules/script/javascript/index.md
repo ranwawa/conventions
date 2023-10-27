@@ -174,11 +174,21 @@
 
 [禁止出现容易引起误解的多行表达式](./no-unexpected-multiline.md)
 
+[禁止出现只能循环一次的循环](./no-unreachable-loop.md)
+
 [禁止出现无法执行的代码](./no-unreachable.md)
+
+[禁止在finally代码块中使用流程控制语句](./no-unsafe-finally.md)
+
+[禁止对关系运算符的左操作数进行取反操作](./no-unsafe-negation.md)
+
+[禁止在可能导致运行时错误的位置使用可选链](./no-unsafe-optional-chaining.md)
 
 [禁止无效表达式](./no-unused-expressions.md)
 
 [禁止使用未被引用的标签](./no-unused-labels.md)
+
+[禁止无效的正则表达式反向引用](./no-useless-backreference.md)
 
 [禁止无用的catch](./no-useless-catch.md)
 

@@ -153,7 +153,17 @@ module.exports = {
   "@awawa/no-sequences": "error",
   "@awawa/no-setter-return": "error",
   "@awawa/no-sparse-arrays": "error",
+  "@awawa/no-template-curly-in-string": "error",
   "@awawa/no-throw-literal": "error",
+  "@awawa/no-unexpected-multiline": "error",
+  "@awawa/no-unreachable-loop": ["error", { ignore: [] }],
+  "@awawa/no-unreachable": "error",
+  "@awawa/no-unsafe-finally": "error",
+  "@awawa/no-unsafe-negation": "error",
+  "@awawa/no-unsafe-optional-chaining": [
+    "error",
+    { disallowArithmeticOperators: true },
+  ],
   "@awawa/no-unused-expressions": [
     "error",
     {

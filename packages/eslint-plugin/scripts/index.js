@@ -52,7 +52,7 @@ const generateNewRule = (newMetaInfo, originalRule) => {
 const createCustomDocUrl = (translationDir, ruleName, domain) => {
   const rulePath = path.relative(TRANSLATION_DIR, translationDir);
 
-  const docUrl = `${domain}/rules/${rulePath}/${ruleName}`;
+  const docUrl = `${domain}/${rulePath}/${ruleName}`;
 
   return docUrl;
 };
