@@ -8,6 +8,12 @@
 
 [必须在数组方法的回调中使用return语句](./array-callback-return.md)
 
+[为什么?](./arrow-body-style.md)
+
+[为什么?](./arrow-parens.md)
+
+[为什么?](./arrow-spacing.md)
+
 [禁止使用其他块级作用域的var变量](./block-scoped-var.md)
 
 [推荐类方法使用this](./class-methods-use-this.md)
@@ -207,6 +213,10 @@
 [推荐使用正则表达式字面量](./prefer-regex-literals.md)
 
 [必须在parseInt()函数中提供基数参数](./radix.md)
+
+[禁止与NaN进行比较](./use-isnan.md)
+
+[必须使用正确的typeof比较](./valid-typeof.md)
 
 [必须将变量声明放在作用域顶部](./vars-on-top.md)
 
