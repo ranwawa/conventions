@@ -9,6 +9,8 @@ const path = require('path');
 const lodash = require('lodash');
 const prettier = require('prettier');
 
+const importRuleJson = require('../../../docs/rules/script/import/index');
+const eslintCoreRuleJson = require('../../../docs/rules/script/javascript/index');
 const importRuleConfig = require('../rules/import/originalRules');
 const eslintCoreRuleConfig = require('../rules/javascript/originalRules');
 
@@ -18,6 +20,11 @@ const { MARKDOWN_EXT, readAllMDFiles } = require('./utils.js');
 const TRANSLATION_DIR = path.resolve('./docs/rules/script');
 const RULE_DIR = './packages/eslint-plugin/rules';
 const CONFIG_DIR = './packages/eslint-plugin/configs';
+
+const TRANSLATED_JSON = {
+  import: importRuleJson,
+  javascript: eslintCoreRuleJson
+};
 
 const ORIGINAL_PLUGIN_RULE_CONFIG = {
   import: importRuleConfig,
@@ -93,14 +100,24 @@ const readOriginalRule = (ruleName, pluginName) => {
   return originalRule;
 };
 
+const updateOriginalRuleMessages = (originalRule, chineseTitle) => {
+  const { messages } = originalRule.meta;
+
+  for (const key in messages) {
+    if (Object.hasOwnProperty.call(messages, key)) {
+      const msg = messages[key];
+      messages[key] = `${msg}\n\n${chineseTitle}\n`;
+    }
+  }
+};
+
 const readOriginalPluginRuleName = (originalPluginName, ruleName) => {
   // eslint内置规则在项目中是使用的javascript
   // 内置规则实际上是没有插件前缀的
   if (originalPluginName === 'javascript') {
     return ruleName;
-  } else {
-    return `${originalPluginName}/${ruleName}`;
   }
+  return `${originalPluginName}/${ruleName}`;
 };
 
 /**
@@ -192,6 +209,8 @@ const createTranslatedPluginRules = (pluginName, { domain, prefix }) => {
     return null;
   }
 
+  const translatedJson = TRANSLATED_JSON[pluginName];
+
   const rules = {};
 
   const { translationDir, ruleDir } = readPluginDirs(pluginName);
@@ -205,6 +224,9 @@ const createTranslatedPluginRules = (pluginName, { domain, prefix }) => {
     const docUrl = createCustomDocUrl(translationDir, ruleName, domain);
     const newMeta = createEslintRuleMetaInfo(docUrl);
     const originalRule = readOriginalRule(ruleName, pluginName);
+
+    updateOriginalRuleMessages(originalRule, translatedJson[ruleName]);
+
     const newRule = generateNewRule(newMeta, originalRule);
 
     rules[readOriginalPluginRuleName(pluginName, ruleName)] = newRule;

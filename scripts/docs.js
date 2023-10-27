@@ -52,10 +52,11 @@ const getChineseTitle = (filePath) => {
   return chineseTitleToken.content;
 };
 
-const writeFile = (filePath, content) => {
+const writeFile = (filePath, content, json) => {
   // 文件存在时直接覆盖
   // 不存在时创建一个
   fs.writeFileSync(filePath, content);
+  fs.writeFileSync(filePath.replace('.md', '.json'), JSON.stringify(json));
 };
 
 const getUnTranslateRules = (files, rules) => {
@@ -92,9 +93,13 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
 
   unKnownFiles.length && console.log('未知的翻译文件: ', unKnownFiles);
 
+  const indexJson = {};
+
   const titleList = files
     .map((file) => {
       const title = getChineseTitle(path.resolve(docDirPath, file));
+      indexJson[file.replace('.md', '')] = title;
+
       return `[${title}](./${file})`;
     })
     .join('\n\n');
@@ -110,7 +115,7 @@ const main = async (docDirPath, ruleFilePath, prefix) => {
 ${titleList}
 `;
 
-  writeFile(path.resolve(docDirPath, 'index.md'), indexContent);
+  writeFile(path.resolve(docDirPath, 'index.md'), indexContent, indexJson);
 
   const [firstUnTranslateRule] = unTranslateRules;
 
