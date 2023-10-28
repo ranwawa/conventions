@@ -125,23 +125,15 @@ ${titleList}
       `${firstUnTranslateRule.replace(prefix, '')}.md -p ${prefix}`
     )}`;
 
+    execSync(shellCommand);
+    open(readReferenceDocLink(prefix, firstUnTranslateRule, true));
+
     import('clipboardy')
       .then((clipboardy) => {
-        clipboardy.default.writeSync(shellCommand);
-        execSync(shellCommand);
-
-        console.log(
-          `检测到未翻译的规则: ${firstUnTranslateRule}(1/${unTranslateRules.length})`
-        );
-        console.log(
-          `已将官方文档链接复制到剪贴板: ${readReferenceDocLink(
-            prefix,
-            firstUnTranslateRule
-          )}`
-        );
-        console.log('\n');
-
-        open(readReferenceDocLink(prefix, firstUnTranslateRule, true));
+        const gpt = fs.readFileSync(path.resolve('GPT.md'), {
+          encoding: 'utf-8'
+        });
+        clipboardy.default.writeSync(gpt);
       })
       .catch((err) => console.log(err));
   }
