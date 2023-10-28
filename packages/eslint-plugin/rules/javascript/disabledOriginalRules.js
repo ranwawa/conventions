@@ -1,6 +1,8 @@
 // 文件内容由代码自动生成,请勿修改
 module.exports = {
   "array-callback-return": "off",
+  "arrow-body-style": "off",
+  "arrow-parens": "off",
   "block-scoped-var": "off",
   "class-methods-use-this": "off",
   "consistent-return": "off",

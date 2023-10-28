@@ -1,6 +1,12 @@
 // 文件内容由代码自动生成,请勿修改
 module.exports = {
   "@awawa/array-callback-return": ["error", { allowImplicit: true }],
+  "@awawa/arrow-body-style": [
+    "error",
+    "as-needed",
+    { requireReturnForObjectLiteral: false },
+  ],
+  "@awawa/arrow-parens": ["error", "always"],
   "@awawa/block-scoped-var": "error",
   "@awawa/class-methods-use-this": ["error", { exceptMethods: [] }],
   "@awawa/consistent-return": "error",

@@ -8,17 +8,19 @@
 
 [必须在数组方法的回调中使用return语句](./array-callback-return.md)
 
-[为什么?](./arrow-body-style.md)
+[箭头函数体风格](./arrow-body-style.md)
 
-[为什么?](./arrow-parens.md)
+[箭头函数参数必须使用括号包裹](./arrow-parens.md)
 
-[为什么?](./arrow-spacing.md)
+[箭头函数的箭头前后必须有空格](./arrow-spacing.md)
 
 [禁止使用其他块级作用域的var变量](./block-scoped-var.md)
 
 [推荐类方法使用this](./class-methods-use-this.md)
 
 [函数必须有统一的返回值](./consistent-return.md)
+
+[为什么?](./constructor-super.md)
 
 [推荐使用花括号包裹代码块](./curly.md)
 
@@ -35,6 +37,8 @@
 [推荐使用严格等于和严格不等于操作符](./eqeqeq.md)
 
 [禁止for循环中的计数器错误方向](./for-direction.md)
+
+[生成器函数的星号前必须有空格，后面不能有空格](./generator-star-spacing.md)
 
 [必须在getter方法中返回值](./getter-return.md)
 
