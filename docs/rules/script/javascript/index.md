@@ -58,9 +58,15 @@
 
 [禁止在case/default子句中使用声明变量](./no-case-declarations.md)
 
+[禁止修改类声明的变量](./no-class-assign.md)
+
 [禁止与-0进行比较](./no-compare-neg-zero.md)
 
 [禁止在条件语句中使用赋值操作符](./no-cond-assign.md)
+
+[禁止使用可能与比较运算符混淆的箭头函数](./no-confusing-arrow.md)
+
+[禁止修改const声明的变量](./no-const-assign.md)
 
 [禁止在条件中使用常量表达式](./no-constant-condition.md)
 
@@ -71,6 +77,8 @@
 [禁止使用debugger](./no-debugger.md)
 
 [禁止函数参数重复](./no-dupe-args.md)
+
+[禁止在类成员中使用重复的名称](./no-dupe-class-members.md)
 
 [禁止在同一个if-else-if链中出现重复的条件](./no-dupe-else-if.md)
 
@@ -138,6 +146,8 @@
 
 [禁止使用new Function](./no-new-func.md)
 
+[禁止使用new操作符调用Symbol](./no-new-symbol.md)
+
 [禁止使用原始包装类型](./no-new-wrappers.md)
 
 [禁止使用new创建对象后不赋值](./no-new.md)
@@ -161,6 +171,8 @@
 [禁止重复声明变量](./no-redeclare.md)
 
 [禁止在正则表达式中使用多个空格](./no-regex-spaces.md)
+
+[禁止导出指定的名称](./no-restricted-exports.md)
 
 [禁止使用特定的对象属性](./no-restricted-properties.md)
 

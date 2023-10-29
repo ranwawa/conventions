@@ -125,6 +125,8 @@ ${titleList}
       `${firstUnTranslateRule.replace(prefix, '')}.md -p ${prefix}`
     )}`;
 
+    console.log(`${prefix}还有${unTranslateRules.length}条规则未被翻译`);
+
     execSync(shellCommand);
     open(readReferenceDocLink(prefix, firstUnTranslateRule, true));
 
