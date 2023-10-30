@@ -192,6 +192,8 @@
 
 [禁止在普通字符串中使用模板字符串的占位符](./no-template-curly-in-string.md)
 
+[禁止在super()之前使用this/super](./no-this-before-super.md)
+
 [禁止抛出字面量错误](./no-throw-literal.md)
 
 [禁止出现容易引起误解的多行表达式](./no-unexpected-multiline.md)
@@ -214,21 +216,55 @@
 
 [禁止无用的catch](./no-useless-catch.md)
 
+[禁止无用的计算属性键](./no-useless-computed-key.md)
+
 [禁止无用的字符串拼接](./no-useless-concat.md)
+
+[禁止无用的构造函数](./no-useless-constructor.md)
 
 [禁止无用的转义](./no-useless-escape.md)
 
+[禁止无用的重命名](./no-useless-rename.md)
+
 [禁止无用的返回](./no-useless-return.md)
+
+[禁止使用var](./no-var.md)
 
 [禁止使用void操作符](./no-void.md)
 
 [禁止使用with语句](./no-with.md)
 
+[推荐使用对象字面量简写语法](./object-shorthand.md)
+
+[推荐使用箭头函数作为回调](./prefer-arrow-callback.md)
+
+[推荐使用const声明不会被重新赋值的变量](./prefer-const.md)
+
+[推荐使用解构](./prefer-destructuring.md)
+
+[推荐使用数字字面量](./prefer-numeric-literals.md)
+
 [推荐Promise的reject方法中只抛出Error对象](./prefer-promise-reject-errors.md)
 
 [推荐使用正则表达式字面量](./prefer-regex-literals.md)
 
+[推荐使用剩余参数](./prefer-rest-params.md)
+
+[推荐使用扩展运算符](./prefer-spread.md)
+
+[推荐使用模板字面量](./prefer-template.md)
+
 [必须在parseInt()函数中提供基数参数](./radix.md)
+
+[必须在生成器函数中使用yield关键字](./require-yield.md)
+
+[禁止在扩展运算符和它们的表达式之间添加空格](./rest-spread-spacing.md)
+
+[必须使用严格模式](./strict.md)
+
+[创建Symbol时必须添加描述](./symbol-description.md)
+
+[模板字符串中的大括号内不能有空格](./template-curly-spacing.md)
 
 [禁止与NaN进行比较](./use-isnan.md)
 
@@ -237,5 +273,7 @@
 [必须将变量声明放在作用域顶部](./vars-on-top.md)
 
 [必须将立即调用的函数表达式包裹在括号中](./wrap-iife.md)
+
+[`yield*`表达式中`*`的后面必须有空格](./yield-star-spacing.md)
 
 [禁止Yoda条件](./yoda.md)
