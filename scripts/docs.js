@@ -8,7 +8,7 @@
 // 3. 将md文件名,作为引用路径
 // 4. 生成indx.md
 // 5. 将内容插入到index.md中
-import { execSync } from 'child_process';
+import { exec, execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import url from 'url';
@@ -120,14 +120,27 @@ ${titleList}
   const [firstUnTranslateRule] = unTranslateRules;
 
   if (firstUnTranslateRule) {
-    const shellCommand = `npm run createDocTemplate -- -f ${path.resolve(
+    const filePath = path.resolve(
       docDirPath,
       `${firstUnTranslateRule.replace(prefix, '')}.md -p ${prefix}`
-    )}`;
+    );
+
+    const shellCommand = `npm run createDocTemplate -- -f ${filePath}`;
 
     console.log(`${prefix}还有${unTranslateRules.length}条规则未被翻译`);
 
     execSync(shellCommand);
+
+    exec(`code ${filePath}`, (err) => {
+      if (err) {
+        exec(`code-insiders ${filePath}`, (err2) => {
+          if (err2) {
+            console.log(`打开自动创建的翻译文件失败,请手动打开: ${filePath}`);
+          }
+        });
+      }
+    });
+
     open(readReferenceDocLink(prefix, firstUnTranslateRule, true));
 
     import('clipboardy')

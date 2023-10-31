@@ -1,15 +1,37 @@
-# 共同维护
+# 贡献代码
 
 ## 翻译文档
 
 ### 翻译文档的流程
 
-1. 通过`npm run checkUnTranslateRules`命令检测已经启用但未翻译的规则
-   例: `packages/eslint-plugin/rules/import/originalRules.js:import/corder`
-2. 通过`createDocTemplate`在对应的文档目录下创建该规则的翻译模板
-   例: `docs/rules/script/import/order.md`
-3. 按照下面的格式进行翻译
-   建议通过`GPT.md`提示词自动翻译
+#### 执行翻译检测命令
+
+通过命令检测已经启用但未翻译的规则
+
+```shell
+npm run checkUnTranslateRules
+```
+
+该命令会自动执行以下操作
+
+1. 检测当前所有已启用但未被翻译的规则
+2. 针对第1条未翻译规则,创建翻译模板文件,并在vscode中打开
+3. 在浏览器中打开第1条未翻译规则的官方文档
+4. 复制GPT翻译提示词到剪贴版
+
+#### 翻译
+
+人工核对修改GPT的翻译结果,并将其保存上一步自动创建的模板文件中
+
+#### 提交修改
+
+通过提交命令创建一个提交,注意提交类型选择`docs`
+
+```shell
+npm run commit
+```
+
+#### 创建PR
 
 ### 文档格式
 

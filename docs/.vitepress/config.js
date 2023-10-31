@@ -72,7 +72,13 @@ export default {
           ]
         }
       ]
-    }
+    },
+    socialLinks: [
+      {
+        icon: 'github',
+        link: 'https://github.com/ranwawa/conventions'
+      }
+    ]
   },
   prev: '上一页',
   next: '下一页',
