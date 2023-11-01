@@ -36,7 +36,7 @@ const readEnabledRules = async (pluginConfigPath) => {
     const res = await import(pluginConfigPath);
     rules = res.default.rules;
   } catch (error) {
-    console.log('不存在的路径', pluginConfigPath);
+    console.log('不存在的路径 ', pluginConfigPath);
     return null;
   }
 

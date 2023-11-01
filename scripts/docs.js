@@ -12,23 +12,19 @@ import { exec, execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import url from 'url';
+
+import chalk from 'chalk';
+import markdownIt from 'markdown-it';
 import open from 'open';
 
-import markdownIt from 'markdown-it';
-
+import { ESLINT_PLUGINS, PLUGINS_CONFIG } from './constants.js';
 import {
   readAllMDFiles,
   readEnabledRules,
   readReferenceDocLink
 } from './utils.js';
 
-const getCurFileDirPath = (fileUrl = import.meta.url) => {
-  const filePath = url.fileURLToPath(fileUrl);
-  const dirPath = path.resolve(filePath, '..');
-  return dirPath;
-};
-
-const getChineseTitle = (filePath) => {
+const readChineseTitle = (filePath) => {
   const content = fs.readFileSync(filePath, 'utf-8');
   const ast = markdownIt().parse(content);
   const englishTitleIndex = ast.findIndex(
@@ -59,20 +55,20 @@ const writeFile = (filePath, content, json) => {
   fs.writeFileSync(filePath.replace('.md', '.json'), JSON.stringify(json));
 };
 
-const getUnTranslateRules = (files, rules) => {
+const readUnTranslateRules = (translatedFiles, enabledRules) => {
   const unKnownFiles = [];
   const unTranslateRules = [];
 
-  files.forEach((file) => {
-    if (!rules[file]) {
+  translatedFiles.forEach((file) => {
+    if (!enabledRules[file]) {
       unKnownFiles.push(file);
     }
   });
 
-  const rulesKeyList = Object.keys(rules);
+  const rulesKeyList = Object.keys(enabledRules);
 
   for (const key of rulesKeyList) {
-    if (!files.includes(key)) {
+    if (!translatedFiles.includes(key)) {
       unTranslateRules.push(key);
     }
   }
@@ -80,144 +76,121 @@ const getUnTranslateRules = (files, rules) => {
   return { unKnownFiles, unTranslateRules };
 };
 
-const main = async (docDirPath, ruleFilePath, prefix) => {
-  // const dirPath = getCurFileDirPath();
-  const files = readAllMDFiles(docDirPath);
-
-  const rules = await readEnabledRules(ruleFilePath);
-
-  const { unTranslateRules, unKnownFiles } = getUnTranslateRules(
-    files.map((file) => `${prefix}${file.replace(/\.md$/, '')}`),
-    rules
-  );
-
-  unKnownFiles.length && console.log('未知的翻译文件: ', unKnownFiles);
-
-  const indexJson = {};
-
-  const titleList = files
-    .map((file) => {
-      const title = getChineseTitle(path.resolve(docDirPath, file));
-      indexJson[file.replace('.md', '')] = title;
-
-      return `[${title}](./${file})`;
-    })
-    .join('\n\n');
-
-  const indexContent = `# ${prefix.replace('/', '') || 'javascript'}
-
----
-
-该文件是代码自动生成,请勿修改
-
----
-
-${titleList}
-`;
-
-  writeFile(path.resolve(docDirPath, 'index.md'), indexContent, indexJson);
-
-  const [firstUnTranslateRule] = unTranslateRules;
-
-  if (firstUnTranslateRule) {
-    const filePath = path.resolve(
-      docDirPath,
-      `${firstUnTranslateRule.replace(prefix, '')}.md -p ${prefix}`
-    );
-
-    const shellCommand = `npm run createDocTemplate -- -f ${filePath}`;
-
-    console.log(`${prefix}还有${unTranslateRules.length}条规则未被翻译`);
-
-    execSync(shellCommand);
-
-    exec(`code ${filePath}`, (err) => {
-      if (err) {
-        exec(`code-insiders ${filePath}`, (err2) => {
-          if (err2) {
-            console.log(`打开自动创建的翻译文件失败,请手动打开: ${filePath}`);
-          }
-        });
-      }
-    });
-
-    open(readReferenceDocLink(prefix, firstUnTranslateRule, true));
-
-    import('clipboardy')
-      .then((clipboardy) => {
-        const gpt = fs.readFileSync(path.resolve('GPT.md'), {
-          encoding: 'utf-8'
-        });
-        clipboardy.default.writeSync(gpt);
-      })
-      .catch((err) => console.log(err));
+const readPluginPrefix = (pluginName) => {
+  if (pluginName === 'eslintCore') {
+    return '';
   }
 
-  return !!unTranslateRules.length;
+  return `${pluginName}/`;
 };
 
-const paths = [
-  [
-    // 文档目录
-    'docs/rules/script/import',
-    // 规则配置目录
-    'packages/eslint-plugin/rules/import/originalRules.js',
-    // 插件前缀
-    'import/'
-  ],
-  [
-    'docs/rules/script/javascript',
-    'packages/eslint-plugin/rules/javascript/originalRules.js',
-    ''
-  ],
-  [
-    'docs/rules/script/node',
-    'packages/eslint-plugin/rules/node/originalRules.js',
-    'node/'
-  ],
-  [
-    'docs/rules/script/react',
-    'packages/eslint-plugin/rules/react/originalRules.js',
-    'react/'
-  ],
-  [
-    'docs/rules/script/react-hooks',
-    'packages/eslint-plugin/rules/react-hooks/originalRules.js',
-    'react-hooks'
-  ],
-  [
-    'docs/rules/script/typescript',
-    'packages/eslint-plugin/rules/typescript/originalRules.js',
-    'typescript/'
-  ],
-  [
-    'docs/rules/script/vue2',
-    'packages/eslint-plugin/rules/vue2/index.js',
-    'vue/'
-  ],
-  [
-    'docs/rules/script/vue3',
-    'packages/eslint-plugin/rules/vue3/index.js',
-    'vue/'
-  ]
-];
+const readTranslatedRules = (pluginName, docDirPath) => {
+  const pluginPrefix = readPluginPrefix(pluginName);
+  const translatedFiles = readAllMDFiles(docDirPath);
+  const translatedRules = translatedFiles.map(
+    (file) => `${pluginPrefix}${file.replace(/\.md$/, '')}`
+  );
+
+  return translatedRules;
+};
+
+const main = async (docDirPath, ruleFilePath, pluginName) => {
+  const translatedRules = readTranslatedRules(pluginName, docDirPath);
+  const enabledRules = await readEnabledRules(ruleFilePath);
+
+  const { unTranslateRules, unKnownFiles } = readUnTranslateRules(
+    translatedRules,
+    enabledRules
+  );
+
+  if (unKnownFiles.length) {
+    console.log('未知的翻译文件: ', unKnownFiles);
+  }
+
+  const { length } = unTranslateRules;
+  const translatedRuleLength = length
+    ? chalk.yellow(length)
+    : chalk.gray(length);
+  const total = chalk.gray(`/${enabledRules.total}`);
+
+  console.log(`${pluginName}:`, `(${translatedRuleLength}${total})`);
+
+  //   const indexJson = {};
+
+  //   const titleList = translatedFiles
+  //     .map((file) => {
+  //       const title = readChineseTitle(path.resolve(docDirPath, file));
+  //       indexJson[file.replace('.md', '')] = title;
+
+  //       return `[${title}](./${file})`;
+  //     })
+  //     .join('\n\n');
+
+  //   const indexContent = `# ${pluginPrefix.replace('/', '') || 'javascript'}
+
+  // <!--
+
+  // 该文件是代码自动生成,请勿修改
+
+  // -->
+
+  // ${titleList}
+  // `;
+
+  //   writeFile(path.resolve(docDirPath, 'index.md'), indexContent, indexJson);
+
+  //   const [firstUnTranslateRule] = unTranslateRules;
+
+  //   if (firstUnTranslateRule) {
+  //     const filePath = path.resolve(
+  //       docDirPath,
+  //       `${firstUnTranslateRule.replace(pluginPrefix, '')}.md -p ${pluginPrefix}`
+  //     );
+
+  //     const shellCommand = `npm run createDocTemplate -- -f ${filePath}`;
+
+  //     console.log(`${pluginPrefix}还有${unTranslateRules.length}条规则未被翻译`);
+
+  //     execSync(shellCommand);
+
+  //     exec(`code ${filePath}`, (err) => {
+  //       if (err) {
+  //         exec(`code-insiders ${filePath}`, (err2) => {
+  //           if (err2) {
+  //             console.log(`打开自动创建的翻译文件失败,请手动打开: ${filePath}`);
+  //           }
+  //         });
+  //       }
+  //     });
+
+  //     open(readReferenceDocLink(pluginPrefix, firstUnTranslateRule, true));
+
+  //     import('clipboardy')
+  //       .then((clipboardy) => {
+  //         const gpt = fs.readFileSync(path.resolve('GPT.md'), {
+  //           encoding: 'utf-8'
+  //         });
+  //         clipboardy.default.writeSync(gpt);
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
+
+  //   return !!unTranslateRules.length;
+};
 
 (async () => {
-  for (let i = 0; i < paths.length; i++) {
-    const [docDirPath, ruleFilePath, prefix = ''] = paths[i];
+  const { length } = ESLINT_PLUGINS;
 
-    const hasUnTranslateRules = await main(
+  console.log(chalk.yellow('未翻译的规则'));
+  for (let i = 0; i < length; i++) {
+    const pluginName = ESLINT_PLUGINS[i];
+    const pluginConfig = PLUGINS_CONFIG[pluginName];
+    const { docDirPath, ruleFilePath } = pluginConfig;
+
+    main(
       path.resolve('./', docDirPath),
       path.resolve('./', ruleFilePath),
-      prefix
+      pluginName
     );
-
-    if (hasUnTranslateRules) {
-      break;
-    }
   }
 })();
-
-// const imports = path.resolve('./', 'docs/rules/script/imports');
-
-// main(imports);

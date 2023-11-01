@@ -6,6 +6,8 @@
 import fs from 'fs';
 import path from 'path';
 
+import chalk from 'chalk';
+
 export const MARKDOWN_EXT = '.md';
 export const OfficialUrlMap = {
   import:
@@ -47,11 +49,12 @@ export const readEnabledRules = async (pluginConfigPath) => {
     const res = await import(pluginConfigPath);
     rules = res.default;
   } catch (error) {
-    console.log('不存在的路径', pluginConfigPath);
+    console.log(chalk.red('不存在的路径: '), pluginConfigPath);
     return null;
   }
 
-  const newRules = {};
+  const enabledRules = {};
+  let total = 0;
 
   Object.entries(rules).forEach(([key, value]) => {
     let isEnabled = false;
@@ -68,11 +71,16 @@ export const readEnabledRules = async (pluginConfigPath) => {
     }
 
     if (isEnabled) {
-      newRules[key] = true;
+      enabledRules[key] = true;
+      total += 1;
     }
   });
 
-  return newRules;
+  Object.defineProperty(enabledRules, 'total', {
+    value: total,
+    enumerable: false
+  });
+  return enabledRules;
 };
 
 export const readReferenceDocLink = (prefix, ruleName, isEdit = false) => {
