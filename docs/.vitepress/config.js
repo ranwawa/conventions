@@ -11,7 +11,7 @@ export default {
   themeConfig: {
     nav: [
       { text: '工具接入', link: '/guide/script/quick-start' },
-      { text: '规范细则', link: '/rules/script/index' }
+      { text: '规范细则', link: '/rules/index' }
     ],
     sidebar: {
       '/guide/': [
@@ -43,7 +43,8 @@ export default {
       ],
       '/rules/': [
         {
-          text: '逻辑代码规则',
+          text: '逻辑代码(eslint)',
+          link: '/rules/script/index',
           items: [
             {
               text: 'import(模块化)',
@@ -66,8 +67,12 @@ export default {
               link: '/rules/script/typescript/'
             },
             {
-              text: 'vue',
-              link: '/rules/script/vue/'
+              text: 'vue2',
+              link: '/rules/script/vue2/'
+            },
+            {
+              text: 'vue3',
+              link: '/rules/script/vue3/'
             }
           ]
         }
