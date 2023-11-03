@@ -23,7 +23,7 @@ const flags = {
     type: 'string',
     shortFlag: 'f'
   },
-  prefix: {
+  pluginName: {
     type: 'string',
     shortFlag: 'p'
   }
@@ -32,11 +32,13 @@ const flags = {
 const CreateDocTemplate = () => {
   const cli = meow({ importMeta: import.meta, flags });
   const {
-    flags: { filePath, prefix = '' }
+    flags: { filePath, pluginName = '' }
   } = cli;
+
+  console.log(345, pluginName);
   const fileName = path.basename(filePath);
-  const ruleName = `${prefix}${fileName.replace(/\.md$/, '')}`;
-  const link = readReferenceDocLink(prefix, ruleName);
+  const ruleName = `${pluginName}${fileName.replace(/\.md$/, '')}`;
+  const link = readReferenceDocLink(pluginName, ruleName);
 
   const tpl = `
 # ${ruleName}

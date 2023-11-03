@@ -14,12 +14,14 @@ import path from 'path';
 import url from 'url';
 
 import chalk from 'chalk';
+import inquirer from 'inquirer';
 import markdownIt from 'markdown-it';
 import open from 'open';
 
 import { ESLINT_PLUGINS, PLUGINS_CONFIG } from './constants.js';
 import {
   readAllMDFiles,
+  readDocDirPath,
   readEnabledRules,
   readReferenceDocLink
 } from './utils.js';
@@ -94,6 +96,16 @@ const readTranslatedRules = (pluginName, docDirPath) => {
   return translatedRules;
 };
 
+const printUnTranslateRules = (unTranslateRules, enabledRules, pluginName) => {
+  const { length } = unTranslateRules;
+  const translatedRuleLength = length
+    ? chalk.yellow(length)
+    : chalk.gray(length);
+  const total = chalk.gray(`/${enabledRules.total}`);
+
+  console.log(`${pluginName}:`, `(${translatedRuleLength}${total})`);
+};
+
 const main = async (docDirPath, ruleFilePath, pluginName) => {
   const translatedRules = readTranslatedRules(pluginName, docDirPath);
   const enabledRules = await readEnabledRules(ruleFilePath);
@@ -107,13 +119,9 @@ const main = async (docDirPath, ruleFilePath, pluginName) => {
     console.log('未知的翻译文件: ', unKnownFiles);
   }
 
-  const { length } = unTranslateRules;
-  const translatedRuleLength = length
-    ? chalk.yellow(length)
-    : chalk.gray(length);
-  const total = chalk.gray(`/${enabledRules.total}`);
+  printUnTranslateRules(unTranslateRules, enabledRules, pluginName);
 
-  console.log(`${pluginName}:`, `(${translatedRuleLength}${total})`);
+  return { pluginName, unTranslateRules };
 
   //   const indexJson = {};
 
@@ -138,59 +146,104 @@ const main = async (docDirPath, ruleFilePath, pluginName) => {
   // `;
 
   //   writeFile(path.resolve(docDirPath, 'index.md'), indexContent, indexJson);
+};
 
-  //   const [firstUnTranslateRule] = unTranslateRules;
+const readPluginNameAndRuleName = (completeRuleName) => {
+  const res = completeRuleName.match(/^([^/]+)\/(.*)$/);
 
-  //   if (firstUnTranslateRule) {
-  //     const filePath = path.resolve(
-  //       docDirPath,
-  //       `${firstUnTranslateRule.replace(pluginPrefix, '')}.md -p ${pluginPrefix}`
-  //     );
+  // eslint规则没有前缀
+  if (!res) {
+    return {
+      pluginName: 'eslintCore',
+      ruleName: completeRuleName
+    };
+  }
 
-  //     const shellCommand = `npm run createDocTemplate -- -f ${filePath}`;
+  const [, pluginName, ruleName] = res;
 
-  //     console.log(`${pluginPrefix}还有${unTranslateRules.length}条规则未被翻译`);
+  return { pluginName, ruleName };
+};
 
-  //     execSync(shellCommand);
+const startingTranslate = (firstUnTranslateRule) => {
+  if (!firstUnTranslateRule) {
+    return;
+  }
 
-  //     exec(`code ${filePath}`, (err) => {
-  //       if (err) {
-  //         exec(`code-insiders ${filePath}`, (err2) => {
-  //           if (err2) {
-  //             console.log(`打开自动创建的翻译文件失败,请手动打开: ${filePath}`);
-  //           }
-  //         });
-  //       }
-  //     });
+  // 1. 创建并打开翻译模板文件
+  // 2. 打开翻译源文件
+  // 3. 复制提示词到剪贴板
 
-  //     open(readReferenceDocLink(pluginPrefix, firstUnTranslateRule, true));
+  const { pluginName, ruleName } =
+    readPluginNameAndRuleName(firstUnTranslateRule);
+  const docDirPath = readDocDirPath(pluginName);
+  const filePath = path.resolve(docDirPath, `${ruleName}.md`);
 
-  //     import('clipboardy')
-  //       .then((clipboardy) => {
-  //         const gpt = fs.readFileSync(path.resolve('GPT.md'), {
-  //           encoding: 'utf-8'
-  //         });
-  //         clipboardy.default.writeSync(gpt);
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
+  const shellCommand = `npm run createDocTemplate -- -f ${filePath} -p ${pluginName}`;
 
-  //   return !!unTranslateRules.length;
+  execSync(shellCommand);
+
+  exec(`code ${filePath}`, (err) => {
+    if (err) {
+      exec(`code-insiders ${filePath}`, (err2) => {
+        if (err2) {
+          console.log(`打开自动创建的翻译文件失败,请手动打开: ${filePath}`);
+        }
+      });
+    }
+  });
+
+  open(readReferenceDocLink(pluginName, firstUnTranslateRule, true));
+
+  import('clipboardy')
+    .then((clipboardy) => {
+      const gpt = fs.readFileSync(path.resolve('GPT.md'), {
+        encoding: 'utf-8'
+      });
+      clipboardy.default.writeSync(gpt);
+    })
+    .catch((err) => console.log(err));
 };
 
 (async () => {
   const { length } = ESLINT_PLUGINS;
+  const promiseList = [];
 
   console.log(chalk.yellow('未翻译的规则'));
+
   for (let i = 0; i < length; i++) {
     const pluginName = ESLINT_PLUGINS[i];
     const pluginConfig = PLUGINS_CONFIG[pluginName];
     const { docDirPath, ruleFilePath } = pluginConfig;
 
-    main(
-      path.resolve('./', docDirPath),
-      path.resolve('./', ruleFilePath),
-      pluginName
+    promiseList.push(
+      main(
+        path.resolve('./', docDirPath),
+        path.resolve('./', ruleFilePath),
+        pluginName
+      )
     );
   }
+
+  const promiseResList = await Promise.all(promiseList);
+
+  console.log('\n');
+
+  const { selectedPluginName } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'selectedPluginName',
+      message: '请选择你要翻译的eslint插件规则',
+      choices: promiseResList
+        .filter(({ unTranslateRules }) => unTranslateRules.length)
+        .map(({ pluginName }) => ({ name: pluginName, value: pluginName }))
+    }
+  ]);
+
+  const { unTranslateRules } = promiseResList.find(
+    (res) => res.pluginName === selectedPluginName
+  );
+
+  const [firstUnTranslateRule] = unTranslateRules;
+
+  startingTranslate(firstUnTranslateRule);
 })();

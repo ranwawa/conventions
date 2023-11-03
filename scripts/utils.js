@@ -8,20 +8,21 @@ import path from 'path';
 
 import chalk from 'chalk';
 
+import { PLUGINS_CONFIG } from './constants.js';
+
 export const MARKDOWN_EXT = '.md';
-export const OfficialUrlMap = {
-  import:
-    'https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/',
-  javascript: 'https://eslint.org/docs/rules/'
-};
-export const OfficialEditUrlMap = {
-  import:
-    'https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/',
-  javascript: 'https://github.com/eslint/eslint/edit/main/docs/src/rules/'
-};
 
 const ENABLED_SIGN = { error: true, warn: true, 1: true, 2: true };
 const IGNORE_FILE = 'index.md';
+
+export const readDocDirPath = (pluginName) =>
+  PLUGINS_CONFIG[pluginName].docDirPath;
+
+export const readOfficialUrl = (pluginName) =>
+  PLUGINS_CONFIG[pluginName].officialUrl;
+
+export const readOfficialEditUrl = (pluginName) =>
+  PLUGINS_CONFIG[pluginName].officialEditUrl;
 
 /**
  * 获取目录下所有markdown文件
@@ -83,18 +84,18 @@ export const readEnabledRules = async (pluginConfigPath) => {
   return enabledRules;
 };
 
-export const readReferenceDocLink = (prefix, ruleName, isEdit = false) => {
-  let mapObject = OfficialUrlMap;
+export const readReferenceDocLink = (pluginName, ruleName, isEdit = false) => {
+  let url = readOfficialUrl(pluginName);
 
   if (isEdit) {
-    mapObject = OfficialEditUrlMap;
+    url = readOfficialEditUrl(pluginName);
   }
 
-  let link = `${mapObject[prefix || 'javascript']}${ruleName}.md`;
+  let link = `${url}${ruleName}.md`;
 
   // 规则都是github的md文件所以需要
   // eslint官方规则基于md创建的网页,不需要md后缀
-  if (prefix === '' && isEdit === false) {
+  if (pluginName === '' && isEdit === false) {
     link = link.replace(/\.md$/, '');
   }
 
