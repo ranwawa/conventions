@@ -14,6 +14,7 @@ import path from 'path';
 
 import chalk from 'chalk';
 import inquirer from 'inquirer';
+import meow from 'meow';
 import open from 'open';
 
 import { ESLINT_PLUGINS } from './constants.js';
@@ -24,6 +25,21 @@ import {
   readReferenceDocLink,
   readTranslatedRules
 } from './utils.js';
+
+const flags = {
+  help: {
+    type: 'boolean',
+    shortFlag: 'h'
+  },
+  version: {
+    type: 'boolean',
+    shortFlag: 'v'
+  },
+  createFile: {
+    type: 'string',
+    shortFlag: 'c'
+  }
+};
 
 const readUnTranslateRules = (translatedFiles, enabledRules) => {
   const unKnownFiles = [];
@@ -130,6 +146,15 @@ const startingTranslate = (firstUnTranslateRule) => {
 
   console.log('\n');
 
+  const cli = meow({ importMeta: import.meta, flags });
+  const {
+    flags: { createFile }
+  } = cli;
+
+  if (!createFile) {
+    return;
+  }
+
   const { selectedPluginName } = await inquirer.prompt([
     {
       type: 'list',
@@ -144,7 +169,6 @@ const startingTranslate = (firstUnTranslateRule) => {
   const { unTranslateRules } = promiseResList.find(
     (res) => res.pluginName === selectedPluginName
   );
-
   const [firstUnTranslateRule] = unTranslateRules;
 
   startingTranslate(firstUnTranslateRule);
