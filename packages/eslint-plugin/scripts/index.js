@@ -3,16 +3,20 @@
  * @Date: 2023-05-10 08:49:24
  * @Author: ranwawa <ranwawa@zmn.cn>
  */
-const fs = require('fs');
 const path = require('path');
 
 const lodash = require('lodash');
-const prettier = require('prettier');
 
 const importRuleJson = require('../../../docs/rules/script/import/index');
 const eslintCoreRuleJson = require('../../../docs/rules/script/javascript/index');
 const importRuleConfig = require('../rules/import/originalRules');
 const eslintCoreRuleConfig = require('../rules/javascript/originalRules');
+const nodeRuleConfig = require('../rules/node/_commons');
+const reactRuleConfig = require('../rules/react/originalRules');
+const reactHooksRuleConfig = require('../rules/react-hooks/originalRules');
+const typescriptRuleConfig = require('../rules/typescript/originalRules');
+const vue2RuleConfig = require('../rules/vue2/originalRules');
+const vue3RuleConfig = require('../rules/vue3/originalRules');
 
 const PLUGIN_RULES = require('./parsers.js');
 const { MARKDOWN_EXT, readAllMDFiles } = require('./utils.js');
@@ -28,7 +32,13 @@ const TRANSLATED_JSON = {
 
 const ORIGINAL_PLUGIN_RULE_CONFIG = {
   import: importRuleConfig,
-  javascript: eslintCoreRuleConfig
+  eslintCore: eslintCoreRuleConfig,
+  react: reactRuleConfig,
+  'react-hooks': reactHooksRuleConfig,
+  node: nodeRuleConfig,
+  typescript: typescriptRuleConfig,
+  vue2: vue2RuleConfig,
+  vue3: vue3RuleConfig
 };
 
 /**
@@ -69,25 +79,21 @@ const createCustomDocUrl = (translationDir, ruleName, domain) => {
  * 主要是覆写原规则的文档链接
  * @param {string} docUrl 文档链接
  */
-const createEslintRuleMetaInfo = (docUrl) => {
-  return {
-    docs: {
-      url: docUrl
-    }
-  };
-};
+const createEslintRuleMetaInfo = (docUrl) => ({
+  docs: {
+    url: docUrl
+  }
+});
 
 /**
  * 获取插件名对应的翻译目录/规则目录以及配置目录
  * @param {string} pluginName 插件名
  * @returns
  */
-const readPluginDirs = (pluginName) => {
-  return {
-    translationDir: path.resolve(TRANSLATION_DIR, pluginName),
-    ruleDir: path.resolve(RULE_DIR, pluginName)
-  };
-};
+const readPluginDirs = (pluginName) => ({
+  translationDir: path.resolve(TRANSLATION_DIR, pluginName),
+  ruleDir: path.resolve(RULE_DIR, pluginName)
+});
 
 /**
  * 获取原始规则
@@ -121,74 +127,6 @@ const readOriginalPluginRuleName = (originalPluginName, ruleName) => {
 };
 
 /**
- * 禁用已翻译的原始规则
- * @param {string} ruleDir 规则所在的目录
- * @param {string[]} translatedRules 已翻译的规则
- */
-const disableTranslatedRules = async (
-  ruleDir,
-  translatedRules,
-  originalPluginName
-) => {
-  const disabledRules = {};
-
-  translatedRules.forEach((ruleName) => {
-    const originalPluginRuleName = readOriginalPluginRuleName(
-      originalPluginName,
-      ruleName
-    );
-
-    disabledRules[originalPluginRuleName] = 'off';
-  });
-
-  const fileContent = `
-// 文件内容由代码自动生成,请勿修改
-module.exports = ${JSON.stringify(disabledRules)}
-`;
-
-  fs.writeFileSync(
-    path.resolve(ruleDir, 'disabledOriginalRules.js'),
-    await prettier.format(fileContent, { parser: 'babel' })
-  );
-};
-
-/**
- * 启用自定义规则
- * @param {string} ruleDir 规则所在的目录
- * @param {string[]} translatedRules 已翻译的规则
- * @param {string} customPluginName 自定义插件前缀
- */
-const enableCustomRules = async (
-  ruleDir,
-  translatedRules,
-  originalPluginName,
-  customPluginName
-) => {
-  const enabledRuleConfig = {};
-  const originalRuleConfig = ORIGINAL_PLUGIN_RULE_CONFIG[originalPluginName];
-
-  translatedRules.forEach((ruleName) => {
-    const originalPluginRuleName = readOriginalPluginRuleName(
-      originalPluginName,
-      ruleName
-    );
-    const originalRule = originalRuleConfig[originalPluginRuleName];
-    enabledRuleConfig[`${customPluginName}/${originalPluginRuleName}`] =
-      originalRule;
-  });
-
-  const fileContent = `
-// 文件内容由代码自动生成,请勿修改
-module.exports = ${JSON.stringify(enabledRuleConfig)}
-`;
-
-  fs.writeFileSync(
-    path.resolve(ruleDir, 'enabledCustomRules.js'),
-    await prettier.format(fileContent, { parser: 'babel' })
-  );
-};
-
-/**
  * 重写所有已经翻译过的规则的文档链接,并将规则名修改成自定义插件的规则名
  * 1. 读取指定插件的所有翻译文件
  * 2. 依次调用 generateNewBuiltInRule生成新的规则元信息
@@ -213,7 +151,7 @@ const createTranslatedPluginRules = (pluginName, { domain, prefix }) => {
 
   const rules = {};
 
-  const { translationDir, ruleDir } = readPluginDirs(pluginName);
+  const { translationDir } = readPluginDirs(pluginName);
   const translatedFiles = readAllMDFiles(translationDir);
 
   const translatedRules = translatedFiles.map((fileName) =>
@@ -232,12 +170,10 @@ const createTranslatedPluginRules = (pluginName, { domain, prefix }) => {
     rules[readOriginalPluginRuleName(pluginName, ruleName)] = newRule;
   });
 
-  enableCustomRules(ruleDir, translatedRules, pluginName, prefix);
-  disableTranslatedRules(ruleDir, translatedRules, pluginName);
-
   return rules;
 };
 
 module.exports = {
-  createTranslatedPluginRules
+  createTranslatedPluginRules,
+  ORIGINAL_PLUGIN_RULE_CONFIG
 };

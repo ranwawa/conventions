@@ -1,5 +1,7 @@
 # react
-
+<!-- 
+该文件是代码自动生成,请勿修改
+-->
 [防止 void DOM 元素接收子元素](./default-props-match-prop-types.md)
 
 [每行一个 JSX 元素](./destructuring-assignment.md)

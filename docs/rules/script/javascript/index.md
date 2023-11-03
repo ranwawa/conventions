@@ -1,11 +1,7 @@
-# javascript
-
----
-
+# eslintCore
+<!-- 
 该文件是代码自动生成,请勿修改
-
----
-
+-->
 [必须在数组方法的回调中使用return语句](./array-callback-return.md)
 
 [箭头函数体风格](./arrow-body-style.md)
@@ -190,8 +186,6 @@
 
 [禁止setter函数返回值](./no-setter-return.md)
 
-[为什么?](./no-shadow.md)
-
 [禁止使用稀疏数组](./no-sparse-arrays.md)
 
 [禁止在普通字符串中使用模板字符串的占位符](./no-template-curly-in-string.md)
@@ -199,10 +193,6 @@
 [禁止在super()之前使用this/super](./no-this-before-super.md)
 
 [禁止抛出字面量错误](./no-throw-literal.md)
-
-[为什么?](./no-undef-init.md)
-
-[为什么?](./no-undef.md)
 
 [禁止出现容易引起误解的多行表达式](./no-unexpected-multiline.md)
 

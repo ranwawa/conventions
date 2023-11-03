@@ -15,7 +15,7 @@ const { createTranslatedPluginRules } = require('./scripts/index');
 
 const options = {
   domain: 'https://ranwawa.github.io/conventions/rules/script',
-  prefix: '@awawa'
+  pluginName: '@awawa'
 };
 
 module.exports = {

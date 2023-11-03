@@ -19,7 +19,7 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "checkUnTranslateRules": "node ./scripts/docs.js",
-    "createDocTemplate": "node ./scripts/createDocTemplate.js",
+    "reWriteEslintRules": "node ./scripts/reWriteEslintRules.js",
     "commit": "git add . && git-cz && git push",
     "prepare": "husky install"
   },

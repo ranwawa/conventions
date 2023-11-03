@@ -8,7 +8,7 @@ import path from 'path';
 
 import chalk from 'chalk';
 
-import { PLUGINS_CONFIG } from './constants.js';
+import ESLINT_PLUGINS, { PLUGINS_CONFIG } from './constants.js';
 
 export const MARKDOWN_EXT = '.md';
 
@@ -18,11 +18,17 @@ const IGNORE_FILE = 'index.md';
 export const readDocDirPath = (pluginName) =>
   PLUGINS_CONFIG[pluginName].docDirPath;
 
+export const readRuleDirPath = (pluginName) =>
+  PLUGINS_CONFIG[pluginName].ruleDirPath;
+
 export const readOfficialUrl = (pluginName) =>
   PLUGINS_CONFIG[pluginName].officialUrl;
 
 export const readOfficialEditUrl = (pluginName) =>
   PLUGINS_CONFIG[pluginName].officialEditUrl;
+
+const readRuleFilePath = (pluginName) =>
+  PLUGINS_CONFIG[pluginName].ruleFilePath;
 
 /**
  * 获取目录下所有markdown文件
@@ -41,16 +47,17 @@ export const readAllMDFiles = (directory) => {
 
 /**
  * 获取插件启用的规则
- * @param {object | null} pluginConfigPath
+ * @param {object | null} pluginName
  */
-export const readEnabledRules = async (pluginConfigPath) => {
+export const readEnabledRules = async (pluginName) => {
+  const ruleFilePath = path.resolve('./', readRuleFilePath(pluginName));
   let rules;
 
   try {
-    const res = await import(pluginConfigPath);
+    const res = await import(ruleFilePath);
     rules = res.default;
   } catch (error) {
-    console.log(chalk.red('不存在的路径: '), pluginConfigPath);
+    console.log(chalk.red('不存在的路径: '), ruleFilePath);
     return null;
   }
 
@@ -100,4 +107,40 @@ export const readReferenceDocLink = (pluginName, ruleName, isEdit = false) => {
   }
 
   return link;
+};
+
+const readPluginPrefix = (pluginName) => {
+  if (pluginName === 'eslintCore') {
+    return '';
+  }
+
+  return `${pluginName}/`;
+};
+
+export const readTranslatedRules = (pluginName) => {
+  const docDirPath = readDocDirPath(pluginName);
+  const pluginPrefix = readPluginPrefix(pluginName);
+  const translatedFiles = readAllMDFiles(docDirPath);
+
+  const translatedRules = translatedFiles.map(
+    (file) => `${pluginPrefix}${file.replace(/\.md$/, '')}`
+  );
+
+  return translatedRules;
+};
+
+export const readPluginNameAndRuleName = (completeRuleName) => {
+  const res = completeRuleName.match(/^([^/]+)\/(.*)$/);
+
+  // eslint规则没有前缀
+  if (!res) {
+    return {
+      pluginName: 'eslintCore',
+      ruleName: completeRuleName
+    };
+  }
+
+  const [, pluginName, ruleName] = res;
+
+  return { pluginName, ruleName };
 };

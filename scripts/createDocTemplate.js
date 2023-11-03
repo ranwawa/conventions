@@ -35,13 +35,11 @@ const CreateDocTemplate = () => {
     flags: { filePath, pluginName = '' }
   } = cli;
 
-  console.log(345, pluginName);
   const fileName = path.basename(filePath);
   const ruleName = `${pluginName}${fileName.replace(/\.md$/, '')}`;
   const link = readReferenceDocLink(pluginName, ruleName);
 
-  const tpl = `
-# ${ruleName}
+  const tpl = `# ${ruleName}
 
 ### 为什么?
 
