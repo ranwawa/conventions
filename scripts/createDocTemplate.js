@@ -36,10 +36,12 @@ const CreateDocTemplate = () => {
   } = cli;
 
   const fileName = path.basename(filePath);
-  const ruleName = `${pluginName}${fileName.replace(/\.md$/, '')}`;
-  const link = readReferenceDocLink(pluginName, ruleName);
+  const pluginPrefix = pluginName === 'eslintCore' ? '' : `${pluginName}/`;
+  const ruleName = fileName.replace(/\.md$/, '');
+  const completeRuleName = `${pluginPrefix}${ruleName}`;
+  const link = readReferenceDocLink(pluginName, completeRuleName);
 
-  const tpl = `# ${ruleName}
+  const tpl = `# ${completeRuleName}
 
 ### 为什么?
 
@@ -51,7 +53,7 @@ const CreateDocTemplate = () => {
 
 ### 参考
 
-- [${ruleName}](${link})
+- [${completeRuleName}](${link})
 `;
 
   fs.writeFileSync(filePath, tpl);

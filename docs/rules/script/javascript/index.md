@@ -38,6 +38,8 @@
 
 [必须在getter方法中返回值](./getter-return.md)
 
+[推荐在模块顶层调用require](./global-require.md)
+
 [推荐将同一属性的getter和setter函数定义在一起](./grouped-accessor-pairs.md)
 
 [推荐在for-in循环中使用守卫语句](./guard-for-in.md)
@@ -49,6 +51,8 @@
 [禁止在Promise的executor函数中使用async函数](./no-async-promise-executor.md)
 
 [禁止在循环中使用await](./no-await-in-loop.md)
+
+[禁止使用Buffer构造函数](./no-buffer-constructor.md)
 
 [禁止使用arguments.caller和arguments.callee](./no-caller.md)
 
@@ -128,6 +132,8 @@
 
 [禁止使用**iterator**](./no-iterator.md)
 
+[禁止标签与变量同名](./no-label-var.md)
+
 [禁止使用标签语句](./no-labels.md)
 
 [禁止无用的代码块](./no-lone-blocks.md)
@@ -143,6 +149,8 @@
 [禁止使用多行字符串](./no-multi-str.md)
 
 [禁止使用new Function](./no-new-func.md)
+
+[禁止使用new require](./no-new-require.md)
 
 [禁止使用new操作符调用Symbol](./no-new-symbol.md)
 
@@ -160,6 +168,8 @@
 
 [禁止对函数参数进行重新赋值](./no-param-reassign.md)
 
+[禁止在Node.js中使用字符串拼接路径](./no-path-concat.md)
+
 [禁止在Promise执行器函数中返回值](./no-promise-executor-return.md)
 
 [禁止使用__proto__属性](./no-proto.md)
@@ -171,6 +181,8 @@
 [禁止在正则表达式中使用多个空格](./no-regex-spaces.md)
 
 [禁止导出指定的名称](./no-restricted-exports.md)
+
+[禁止使用特定的全局变量](./no-restricted-globals.md)
 
 [禁止使用特定的对象属性](./no-restricted-properties.md)
 
@@ -186,6 +198,10 @@
 
 [禁止setter函数返回值](./no-setter-return.md)
 
+[禁止覆盖JavaScript中的特殊变量名](./no-shadow-restricted-names.md)
+
+[禁止变量名重复](./no-shadow.md)
+
 [禁止使用稀疏数组](./no-sparse-arrays.md)
 
 [禁止在普通字符串中使用模板字符串的占位符](./no-template-curly-in-string.md)
@@ -193,6 +209,10 @@
 [禁止在super()之前使用this/super](./no-this-before-super.md)
 
 [禁止抛出字面量错误](./no-throw-literal.md)
+
+[禁止初始化变量为undefined](./no-undef-init.md)
+
+[禁止使用未声明的变量](./no-undef.md)
 
 [禁止出现容易引起误解的多行表达式](./no-unexpected-multiline.md)
 
@@ -209,6 +229,10 @@
 [禁止无效表达式](./no-unused-expressions.md)
 
 [禁止使用未被引用的标签](./no-unused-labels.md)
+
+[禁止未使用的变量](./no-unused-vars.md)
+
+[禁止在定义之前使用变量或函数](./no-use-before-define.md)
 
 [禁止无效的正则表达式反向引用](./no-useless-backreference.md)
 
