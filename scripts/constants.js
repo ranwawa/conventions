@@ -24,9 +24,10 @@ export const PLUGINS_CONFIG = {
     docDirPath: 'docs/rules/script/jsx-a11y',
     ruleDirPath: 'packages/eslint-plugin/rules/jsx-a11y',
     ruleFilePath: 'packages/eslint-plugin/rules/jsx-a11y/originalRules.js',
-    officialUrl: 'https://github.com/evcohen/eslint-plugin-jsx-a11y/',
+    officialUrl:
+      'https://github.com/bradbirdsallCHANGED/eslint-plugin-jsx-a11y/blob/main/docs/rules/',
     officialEditUrl:
-      'https://github.com/evcohen/eslint-plugin-jsx-a11y/edit/master/docs/src/rules/'
+      'https://github.com/bradbirdsallCHANGED/eslint-plugin-jsx-a11y/edit/main/docs/rules/'
   },
   'eslint-core': {
     docDirPath: 'docs/rules/script/eslint-core',

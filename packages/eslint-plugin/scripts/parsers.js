@@ -26,7 +26,7 @@ const eslintCoreRules = new Proxy(
 module.exports = {
   'eslint-core': eslintCoreRules,
   import: importRules,
-  jsxa11y: jsxa11yRules,
+  'jsx-a11y': jsxa11yRules,
   node: nodeRules,
   reactHooks: reactHooksRules,
   react: reactRules,

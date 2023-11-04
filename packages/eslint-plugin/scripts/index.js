@@ -34,7 +34,7 @@ const RULE_DIR = './packages/eslint-plugin/rules';
 const TRANSLATED_JSON = {
   import: importTranslatedMap,
   'eslint-core': eslintCoreTranslatedMap,
-  jsxa11y: jsxa11yTranslatedMap,
+  'jsx-a11y': jsxa11yTranslatedMap,
   node: nodeTranslatedMap,
   react: reactTranslatedMap,
   reactHooks: reactHooksTranslatedMap,

@@ -118,7 +118,7 @@ const startingTranslate = (firstUnTranslateRule) => {
     }
   });
 
-  open(readReferenceDocLink(pluginName, firstUnTranslateRule, true));
+  open(readReferenceDocLink(pluginName, ruleName, true));
 
   import('clipboardy')
     .then((clipboardy) => {
