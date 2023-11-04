@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    ...['../rules/javascript/index.js'].map(require.resolve),
+    ...['../rules/eslint-core/index.js'].map(require.resolve),
     'plugin:eslint-plugin-prettier/recommended'
   ],
   plugins: ['@awawa/eslint-plugin'],

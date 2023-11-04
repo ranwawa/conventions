@@ -7,10 +7,17 @@ const path = require('path');
 
 const lodash = require('lodash');
 
-const importRuleJson = require('../../../docs/rules/script/import/index');
-const eslintCoreRuleJson = require('../../../docs/rules/script/javascript/index');
+const importTranslatedMap = require('../rules/import/translatedMap');
+const eslintCoreTranslatedMap = require('../rules/eslint-core/translatedMap');
+const jsxa11yTranslatedMap = require('../rules/jsx-a11y/translatedMap');
+const nodeTranslatedMap = require('../rules/node/translatedMap');
+const reactTranslatedMap = require('../rules/react/translatedMap');
+const reactHooksTranslatedMap = require('../rules/react-hooks/translatedMap');
+const typescriptTranslatedMap = require('../rules/typescript/translatedMap');
+const vue2TranslatedMap = require('../rules/vue2/translatedMap');
+const vue3TranslatedMap = require('../rules/vue3/translatedMap');
 const importRuleConfig = require('../rules/import/originalRules');
-const eslintCoreRuleConfig = require('../rules/javascript/originalRules');
+const eslintCoreRuleConfig = require('../rules/eslint-core/originalRules');
 const nodeRuleConfig = require('../rules/node/_commons');
 const reactRuleConfig = require('../rules/react/originalRules');
 const reactHooksRuleConfig = require('../rules/react-hooks/originalRules');
@@ -23,16 +30,22 @@ const { MARKDOWN_EXT, readAllMDFiles } = require('./utils.js');
 
 const TRANSLATION_DIR = path.resolve('./docs/rules/script');
 const RULE_DIR = './packages/eslint-plugin/rules';
-const CONFIG_DIR = './packages/eslint-plugin/configs';
 
 const TRANSLATED_JSON = {
-  import: importRuleJson,
-  javascript: eslintCoreRuleJson
+  import: importTranslatedMap,
+  'eslint-core': eslintCoreTranslatedMap,
+  jsxa11y: jsxa11yTranslatedMap,
+  node: nodeTranslatedMap,
+  react: reactTranslatedMap,
+  reactHooks: reactHooksTranslatedMap,
+  typescript: typescriptTranslatedMap,
+  vue2: vue2TranslatedMap,
+  vue3: vue3TranslatedMap
 };
 
 const ORIGINAL_PLUGIN_RULE_CONFIG = {
   import: importRuleConfig,
-  eslintCore: eslintCoreRuleConfig,
+  'eslint-core': eslintCoreRuleConfig,
   react: reactRuleConfig,
   'react-hooks': reactHooksRuleConfig,
   node: nodeRuleConfig,
@@ -101,8 +114,6 @@ const readPluginDirs = (pluginName) => ({
  * @param {string} pluginName 插件名
  */
 const readOriginalRule = (ruleName, pluginName) => {
-  const originalRule = PLUGIN_RULES[pluginName](ruleName);
-
   return originalRule;
 };
 
@@ -118,9 +129,8 @@ const updateOriginalRuleMessages = (originalRule, chineseTitle) => {
 };
 
 const readOriginalPluginRuleName = (originalPluginName, ruleName) => {
-  // eslint内置规则在项目中是使用的javascript
   // 内置规则实际上是没有插件前缀的
-  if (originalPluginName === 'javascript') {
+  if (originalPluginName === 'eslint-core') {
     return ruleName;
   }
   return `${originalPluginName}/${ruleName}`;
@@ -161,7 +171,7 @@ const createTranslatedPluginRules = (pluginName, { domain, prefix }) => {
   translatedRules.forEach((ruleName) => {
     const docUrl = createCustomDocUrl(translationDir, ruleName, domain);
     const newMeta = createEslintRuleMetaInfo(docUrl);
-    const originalRule = readOriginalRule(ruleName, pluginName);
+    const originalRule = PLUGIN_RULES[pluginName][ruleName];
 
     updateOriginalRuleMessages(originalRule, translatedJson[ruleName]);
 

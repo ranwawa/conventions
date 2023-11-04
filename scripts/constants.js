@@ -3,16 +3,7 @@
  * @Date: 2023-11-01 20:42:19
  * @Author: ranqirong 274544338@qq.com
  */
-export const ESLINT_PLUGINS = [
-  'eslintCore',
-  'import',
-  'node',
-  'react-hooks',
-  'react',
-  'typescript',
-  'vue2',
-  'vue3'
-];
+export { ESLINT_PLUGINS } from '../packages/eslint-plugin/scripts/constants.js';
 
 export const PLUGINS_CONFIG = {
   import: {
@@ -29,10 +20,18 @@ export const PLUGINS_CONFIG = {
     officialEditUrl:
       'https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/'
   },
-  eslintCore: {
-    docDirPath: 'docs/rules/script/javascript',
-    ruleDirPath: 'packages/eslint-plugin/rules/javascript',
-    ruleFilePath: 'packages/eslint-plugin/rules/javascript/originalRules.js',
+  'jsx-a11y': {
+    docDirPath: 'docs/rules/script/jsx-a11y',
+    ruleDirPath: 'packages/eslint-plugin/rules/jsx-a11y',
+    ruleFilePath: 'packages/eslint-plugin/rules/jsx-a11y/originalRules.js',
+    officialUrl: 'https://github.com/evcohen/eslint-plugin-jsx-a11y/',
+    officialEditUrl:
+      'https://github.com/evcohen/eslint-plugin-jsx-a11y/edit/master/docs/src/rules/'
+  },
+  'eslint-core': {
+    docDirPath: 'docs/rules/script/eslint-core',
+    ruleDirPath: 'packages/eslint-plugin/rules/eslint-core',
+    ruleFilePath: 'packages/eslint-plugin/rules/eslint-core/originalRules.js',
     officialUrl: 'https://eslint.org/docs/rules/',
     officialEditUrl:
       'https://github.com/eslint/eslint/edit/main/docs/src/rules/'
@@ -80,5 +79,3 @@ export const PLUGINS_CONFIG = {
     officialEditUrl: ''
   }
 };
-
-export default ESLINT_PLUGINS;

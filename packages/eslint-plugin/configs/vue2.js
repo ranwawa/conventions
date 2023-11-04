@@ -7,7 +7,7 @@ module.exports = {
   extends: [
     ...[
       '../rules/import/index.js',
-      '../rules/javascript/index.js',
+      '../rules/eslint-core/index.js',
       '../rules/typescript/index.js',
       '../rules/vue2/index.js'
     ].map(require.resolve),

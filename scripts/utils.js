@@ -8,7 +8,7 @@ import path from 'path';
 
 import chalk from 'chalk';
 
-import ESLINT_PLUGINS, { PLUGINS_CONFIG } from './constants.js';
+import { PLUGINS_CONFIG } from './constants.js';
 
 export const MARKDOWN_EXT = '.md';
 
@@ -110,7 +110,7 @@ export const readReferenceDocLink = (pluginName, ruleName, isEdit = false) => {
 };
 
 const readPluginPrefix = (pluginName) => {
-  if (pluginName === 'eslintCore') {
+  if (pluginName === 'eslint-core') {
     return '';
   }
 
@@ -135,7 +135,7 @@ export const readPluginNameAndRuleName = (completeRuleName) => {
   // eslint规则没有前缀
   if (!res) {
     return {
-      pluginName: 'eslintCore',
+      pluginName: 'eslint-core',
       ruleName: completeRuleName
     };
   }

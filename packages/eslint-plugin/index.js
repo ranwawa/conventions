@@ -12,10 +12,24 @@ const vue3 = require('./configs/vue3');
 const uniApp = require('./environments/uni-app');
 const package = require('./package');
 const { createTranslatedPluginRules } = require('./scripts/index');
-
+const { ESLINT_PLUGINS } = require('./scripts/constants');
+const { flatten } = require('lodash');
 const options = {
   domain: 'https://ranwawa.github.io/conventions/rules/script',
   pluginName: '@awawa'
+};
+
+const createAllCustomRules = () => {
+  const allCustomRules = {};
+
+  ESLINT_PLUGINS.map((pluginName) =>
+    Object.assign(
+      allCustomRules,
+      createTranslatedPluginRules(pluginName, options)
+    )
+  );
+
+  return allCustomRules;
 };
 
 module.exports = {
@@ -23,11 +37,8 @@ module.exports = {
     name: package.name,
     version: package.version
   },
-  rules: {
-    // 注入自定义插件(修改源插件名及文档链接)
-    ...createTranslatedPluginRules('import', options),
-    ...createTranslatedPluginRules('javascript', options)
-  },
+  // 注入自定义插件(修改源插件名及文档链接)
+  rules: createAllCustomRules(),
   configs: {
     vue2,
     vue3,

@@ -5,19 +5,18 @@
  */
 import fs from 'fs';
 import path from 'path';
-import url from 'url';
 
+import { ORIGINAL_PLUGIN_RULE_CONFIG } from '@awawa/eslint-plugin/scripts/index.js';
 import markdownIt from 'markdown-it';
 import prettier from 'prettier';
 
-import { ESLINT_PLUGINS, PLUGINS_CONFIG } from './constants.js';
+import { ESLINT_PLUGINS } from './constants.js';
 import {
   readDocDirPath,
   readPluginNameAndRuleName,
   readRuleDirPath,
   readTranslatedRules
 } from './utils.js';
-import { ORIGINAL_PLUGIN_RULE_CONFIG } from '../packages/eslint-plugin/scripts/index.js';
 
 /**
  * 禁用已翻译的原始规则
@@ -98,28 +97,24 @@ const readChineseTitle = (content) => {
   return chineseTitleToken.content;
 };
 
-const writeFile = (filePath, content, json) => {
-  // 文件存在时直接覆盖
-  // 不存在时创建一个
-  fs.writeFileSync(filePath, content);
-  fs.writeFileSync(filePath.replace('.md', '.json'), JSON.stringify(json));
-};
-
 const readTranslatedRuleContent = (pluginName, ruleName) => {
   const docDirPath = readDocDirPath(pluginName);
   const filePath = path.resolve(docDirPath, `${ruleName}.md`);
   return fs.readFileSync(filePath, 'utf-8');
 };
 
-const createTocContent = (pluginName, translatedRules) => {
-  const tocItems = translatedRules
-    .map((completeRuleName) => {
-      const { ruleName } = readPluginNameAndRuleName(completeRuleName);
-      const fileContent = readTranslatedRuleContent(pluginName, ruleName);
-      const title = readChineseTitle(fileContent);
+const readAllChineseTitle = (pluginName, translatedRules) =>
+  translatedRules.map((completeRuleName) => {
+    const { ruleName } = readPluginNameAndRuleName(completeRuleName);
+    const fileContent = readTranslatedRuleContent(pluginName, ruleName);
+    const title = readChineseTitle(fileContent);
 
-      return `[${title}](./${ruleName}.md)`;
-    })
+    return [ruleName, title];
+  });
+
+const createTocContent = (pluginName, translatedRules) => {
+  const tocItems = readAllChineseTitle(pluginName, translatedRules)
+    .map(([ruleName, chineseTitle]) => `[${chineseTitle}](./${ruleName}.md)`)
     .join('\n\n');
 
   const tocContent = [
@@ -149,6 +144,29 @@ const createTOCFile = (pluginName, translatedRules) => {
   fs.writeFileSync(tocFilePath, tocContent);
 };
 
+const createTranslatedMap = async (pluginName, translatedRules) => {
+  const translatedMap = {};
+
+  readAllChineseTitle(pluginName, translatedRules).forEach(
+    ([ruleName, chineseTitle]) => {
+      translatedMap[ruleName] = chineseTitle;
+    }
+  );
+
+  const ruleDirPath = readRuleDirPath(pluginName);
+  const filePath = path.resolve(ruleDirPath, 'translatedMap.js');
+
+  const strMap = JSON.stringify(translatedMap);
+  const fileContent = await prettier.format(
+    `// 文件自动生成,请勿修改\nmodule.exports=${strMap}`,
+    {
+      parser: 'babel'
+    }
+  );
+
+  fs.writeFileSync(filePath, fileContent);
+};
+
 const reWriteEslintRules = () => {
   // 1. 生成插件翻译目录
   // 2. 禁用已翻译的规则
@@ -159,6 +177,7 @@ const reWriteEslintRules = () => {
     createTOCFile(pluginName, translatedRules);
     createDisabledRulesFile(pluginName, translatedRules);
     createEnableCustomRulesFile(pluginName, translatedRules);
+    createTranslatedMap(pluginName, translatedRules);
   });
 };
 

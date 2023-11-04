@@ -52,7 +52,7 @@ export default {
             },
             {
               text: 'javascript',
-              link: '/rules/script/javascript/'
+              link: '/rules/script/eslint-core/'
             },
             {
               text: 'node',

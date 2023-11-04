@@ -1,4 +1,4 @@
-# eslintCore
+# eslint-core
 <!-- 
 该文件是代码自动生成,请勿修改
 -->
@@ -16,7 +16,7 @@
 
 [函数必须有统一的返回值](./consistent-return.md)
 
-[为什么?](./constructor-super.md)
+[构造函数必须调用super()](./constructor-super.md)
 
 [推荐使用花括号包裹代码块](./curly.md)
 
