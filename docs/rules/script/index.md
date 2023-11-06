@@ -2,16 +2,16 @@
 
 [import](./import/index.md)
 
-[javascript](./javascript/.md)
+[javascript](./eslint-core/index.md)
 
-[node](./node/.md)
+[node](./node/index.md)
 
-[react](./react/.md)
+[react](./react/index.md)
 
-[react-hooks](./react-hooks/.md)
+[react-hooks](./react-hooks/index.md)
 
-[typescript](./typescript/.md)
+[typescript](./typescript/index.md)
 
-[vue2](./vue2/.md)
+[vue2](./vue2/index.md)
 
-[vue3](./vue3/.md)
+[vue3](./vue3/index.md)
