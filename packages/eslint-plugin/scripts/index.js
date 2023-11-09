@@ -19,6 +19,7 @@ const vue3TranslatedMap = require('../rules/vue3/translatedMap');
 const importRuleConfig = require('../rules/import/originalRules');
 const eslintCoreRuleConfig = require('../rules/eslint-core/originalRules');
 const nodeRuleConfig = require('../rules/node/_commons');
+const jsxA11yRuleConfig = require('../rules/jsx-a11y/originalRules.js');
 const reactRuleConfig = require('../rules/react/originalRules');
 const reactHooksRuleConfig = require('../rules/react-hooks/originalRules');
 const typescriptRuleConfig = require('../rules/typescript/originalRules');
@@ -48,6 +49,7 @@ const ORIGINAL_PLUGIN_RULE_CONFIG = {
   'eslint-core': eslintCoreRuleConfig,
   react: reactRuleConfig,
   'react-hooks': reactHooksRuleConfig,
+  'jsx-a11y': jsxA11yRuleConfig,
   node: nodeRuleConfig,
   typescript: typescriptRuleConfig,
   vue2: vue2RuleConfig,
