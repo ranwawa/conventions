@@ -62,21 +62,16 @@ export const PLUGINS_CONFIG = {
     docDirPath: 'docs/rules/script/typescript',
     ruleDirPath: 'packages/eslint-plugin/rules/typescript',
     ruleFilePath: 'packages/eslint-plugin/rules/typescript/originalRules.js',
-    officialUrl: '',
-    officialEditUrl: ''
+    officialUrl: 'https://typescript-eslint.io/rules/no-empty-function/',
+    officialEditUrl:
+      'https://github.com/typescript-eslint/typescript-eslint/edit/main/packages/eslint-plugin/docs/rules/'
   },
-  vue2: {
+  vue: {
     docDirPath: 'docs/rules/script/vue2',
     ruleDirPath: 'packages/eslint-plugin/rules/vue2',
     ruleFilePath: 'packages/eslint-plugin/rules/vue2/originalRules.js',
-    officialUrl: '',
-    officialEditUrl: ''
-  },
-  vue3: {
-    docDirPath: 'docs/rules/script/vue3',
-    ruleDirPath: 'packages/eslint-plugin/rules/vue3',
-    ruleFilePath: 'packages/eslint-plugin/rules/vue3/originalRules.js',
-    officialUrl: '',
-    officialEditUrl: ''
+    officialUrl: 'https://eslint.vuejs.org/rules/',
+    officialEditUrl:
+      'https://github.com/vuejs/eslint-plugin-vue/edit/master/docs/rules/'
   }
 };

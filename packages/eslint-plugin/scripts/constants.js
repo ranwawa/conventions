@@ -11,8 +11,7 @@ const ESLINT_PLUGINS = [
   'react-hooks',
   'react',
   '@typescript-eslint',
-  'vue2',
-  'vue3'
+  'vue'
 ];
 
 module.exports = { ESLINT_PLUGINS };
