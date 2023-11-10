@@ -1,2 +1,24 @@
 // 文件内容由代码自动生成,请勿修改
-module.exports = {};
+module.exports = {
+  "jsx-a11y/alt-text": "off",
+  "jsx-a11y/anchor-has-content": "off",
+  "jsx-a11y/anchor-is-valid": "off",
+  "jsx-a11y/aria-activedescendant-has-tabindex": "off",
+  "jsx-a11y/aria-props": "off",
+  "jsx-a11y/aria-proptypes": "off",
+  "jsx-a11y/aria-role": "off",
+  "jsx-a11y/aria-unsupported-elements": "off",
+  "jsx-a11y/click-events-have-key-events": "off",
+  "jsx-a11y/control-has-associated-label": "off",
+  "jsx-a11y/heading-has-content": "off",
+  "jsx-a11y/html-has-lang": "off",
+  "jsx-a11y/iframe-has-title": "off",
+  "jsx-a11y/img-redundant-alt": "off",
+  "jsx-a11y/interactive-supports-focus": "off",
+  "jsx-a11y/label-has-associated-control": "off",
+  "jsx-a11y/lang": "off",
+  "jsx-a11y/media-has-caption": "off",
+  "jsx-a11y/mouse-events-have-key-events": "off",
+  "jsx-a11y/no-access-key": "off",
+  "jsx-a11y/no-autofocus": "off",
+};

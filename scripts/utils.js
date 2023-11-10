@@ -5,6 +5,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import URL from 'url';
 
 import chalk from 'chalk';
 
@@ -54,10 +55,10 @@ export const readEnabledRules = async (pluginName) => {
   let rules;
 
   try {
-    const res = await import(ruleFilePath);
+    const res = await import(URL.pathToFileURL(ruleFilePath));
     rules = res.default;
   } catch (error) {
-    console.log(chalk.red('不存在的路径: '), ruleFilePath);
+    console.log(chalk.red('不存在的路径: '), error);
     return null;
   }
 
