@@ -58,7 +58,7 @@ export const PLUGINS_CONFIG = {
     officialUrl: '',
     officialEditUrl: ''
   },
-  typescript: {
+  '@typescript-eslint': {
     docDirPath: 'docs/rules/script/typescript',
     ruleDirPath: 'packages/eslint-plugin/rules/typescript',
     ruleFilePath: 'packages/eslint-plugin/rules/typescript/originalRules.js',

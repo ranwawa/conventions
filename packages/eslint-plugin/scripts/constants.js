@@ -10,7 +10,7 @@ const ESLINT_PLUGINS = [
   'node',
   'react-hooks',
   'react',
-  'typescript',
+  '@typescript-eslint',
   'vue2',
   'vue3'
 ];
