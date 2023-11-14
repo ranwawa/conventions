@@ -2,11 +2,11 @@ module.exports = {
   // 强制在 JSX 属性中一致地使用双引号或单引号
   // https://eslint.org/docs/rules/jsx-quotes
   // prettier重写
-  'jsx-quotes': ['error', 'prefer-double'],
+  'react/jsx-quotes': ['error', 'prefer-double'],
 
   // 类的实例方法中必须使用this
   // https://eslint.org/docs/rules/jsx-quotes
-  'class-methods-use-this': [
+  'react/class-methods-use-this': [
     'error',
     {
       exceptMethods: [
