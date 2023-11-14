@@ -11,8 +11,7 @@ const { rules: nodeRules } = require('eslint-plugin-node');
 const { rules: reactHooksRules } = require('eslint-plugin-react-hooks');
 const { rules: reactRules } = require('eslint-plugin-react');
 const { rules: typescriptRules } = require('@typescript-eslint/eslint-plugin');
-const { rules: vue2Rules } = require('eslint-plugin-vue');
-const { rules: vue3Rules } = require('eslint-plugin-vue');
+const { rules: vueRules } = require('eslint-plugin-vue');
 
 const eslintCoreRules = new Proxy(
   {},
@@ -28,9 +27,8 @@ module.exports = {
   import: importRules,
   'jsx-a11y': jsxa11yRules,
   node: nodeRules,
-  reactHooks: reactHooksRules,
+  'react-hooks': reactHooksRules,
   react: reactRules,
-  typescript: typescriptRules,
-  vue2: vue2Rules,
-  vue3: vue3Rules
+  '@typescript-eslint': typescriptRules,
+  vue: vueRules
 };

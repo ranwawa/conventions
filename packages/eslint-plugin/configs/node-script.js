@@ -8,7 +8,7 @@ module.exports = {
     ...[
       '../rules/import/index.js',
       '../rules/eslint-core/index.js',
-      '../rules/typescript/index.js',
+      '../rules/@typescript-eslint/index.js',
       '../rules/node/recommended-script.js'
     ].map(require.resolve),
     'plugin:eslint-plugin-prettier/recommended'

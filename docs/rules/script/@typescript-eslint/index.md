@@ -1,4 +1,4 @@
-# vue
+# @typescript-eslint
 <!-- 
 该文件是代码自动生成,请勿修改
 -->

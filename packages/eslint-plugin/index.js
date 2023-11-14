@@ -8,7 +8,7 @@ const nodeModule = require('./configs/node-module');
 const nodeScript = require('./configs/node-script');
 const react = require('./configs/react');
 const vue2 = require('./configs/vue2');
-const vue3 = require('./configs/vue3');
+const vue = require('./configs/vue');
 const uniApp = require('./environments/uni-app');
 const package = require('./package');
 const { createTranslatedPluginRules } = require('./scripts/index');
@@ -41,7 +41,7 @@ module.exports = {
   rules: createAllCustomRules(),
   configs: {
     vue2,
-    vue3,
+    vue,
     react,
     'node-module': nodeModule,
     'node-script': nodeScript
