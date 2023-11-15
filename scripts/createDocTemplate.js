@@ -39,7 +39,7 @@ const CreateDocTemplate = () => {
   const pluginPrefix = pluginName === 'eslint-core' ? '' : `${pluginName}/`;
   const ruleName = fileName.replace(/\.md$/, '');
   const completeRuleName = `${pluginPrefix}${ruleName}`;
-  const link = readReferenceDocLink(pluginName, completeRuleName);
+  const link = readReferenceDocLink(pluginName, ruleName);
 
   const tpl = `# ${completeRuleName}
 
