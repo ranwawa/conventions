@@ -64,15 +64,15 @@ export default {
             },
             {
               text: 'typescript',
-              link: '/rules/script/typescript/'
+              link: '/rules/script//@typescript-eslint/'
+            },
+            {
+              text: 'vue',
+              link: '/rules/script/vue/'
             },
             {
               text: 'vue2',
               link: '/rules/script/vue2/'
-            },
-            {
-              text: 'vue3',
-              link: '/rules/script/vue3/'
             }
           ]
         }

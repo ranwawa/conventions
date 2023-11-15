@@ -23,7 +23,7 @@ echo '{ "extends": ["plugin:@awawa/eslint-plugin/vue2"] }' > .eslintrc
 vue3 + ts
 
 ```shell
-echo '{ "extends": ["plugin:@awawa/eslint-plugin/vue3"] }' > .eslintrc
+echo '{ "extends": ["plugin:@awawa/eslint-plugin/vue"] }' > .eslintrc
 ```
 
 react + ts
