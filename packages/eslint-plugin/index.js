@@ -7,13 +7,14 @@
 const nodeModule = require('./configs/node-module');
 const nodeScript = require('./configs/node-script');
 const react = require('./configs/react');
-const vue2 = require('./configs/vue2');
 const vue = require('./configs/vue');
+const vue2 = require('./configs/vue2');
 const uniApp = require('./environments/uni-app');
 const package = require('./package');
-const { createTranslatedPluginRules } = require('./scripts/index');
 const { ESLINT_PLUGINS } = require('./scripts/constants');
-const { flatten } = require('lodash');
+const { createTranslatedPluginRules } = require('./scripts/index');
+
+// TODO 这个应该配置文件来取,以方便第3方OEM
 const options = {
   domain: 'https://ranwawa.github.io/conventions/rules/script',
   pluginName: '@awawa'
