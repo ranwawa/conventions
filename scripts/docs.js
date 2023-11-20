@@ -169,7 +169,13 @@ const startingTranslate = (firstUnTranslateRule) => {
   const { unTranslateRules } = promiseResList.find(
     (res) => res.pluginName === selectedPluginName
   );
-  const [firstUnTranslateRule] = unTranslateRules;
+  let [firstUnTranslateRule] = unTranslateRules;
+
+  // 判断当前要翻译的规则是否有pluginName前缀，没有则加上
+  // 确保要翻译的规则会正确创建到对应的目录下
+  if (!firstUnTranslateRule.includes(`${selectedPluginName}/`)) {
+    firstUnTranslateRule = `${selectedPluginName}/${firstUnTranslateRule}`;
+  }
 
   startingTranslate(firstUnTranslateRule);
 })();
