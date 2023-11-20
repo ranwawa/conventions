@@ -46,13 +46,13 @@ const TRANSLATED_JSON = {
 };
 
 const ORIGINAL_PLUGIN_RULE_CONFIG = {
+  '@typescript-eslint': typescriptRuleConfig,
   import: importRuleConfig,
   'eslint-core': eslintCoreRuleConfig,
   react: reactRuleConfig,
   'react-hooks': reactHooksRuleConfig,
   'jsx-a11y': jsxA11yRuleConfig,
   node: nodeRuleConfig,
-  typescript: typescriptRuleConfig,
   vue2: vue2RuleConfig,
   vue: vueRuleConfig
 };
