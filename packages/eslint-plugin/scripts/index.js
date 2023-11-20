@@ -175,8 +175,6 @@ const createTranslatedPluginRules = (pluginName, { domain, prefix }) => {
     const docUrl = createCustomDocUrl(translationDir, ruleName, domain);
     const newMeta = createEslintRuleMetaInfo(docUrl);
 
-    console.log(11111, pluginName, !!PLUGIN_RULES[pluginName], ruleName);
-
     const originalRule = PLUGIN_RULES[pluginName][ruleName];
 
     updateOriginalRuleMessages(originalRule, translatedJson[ruleName]);

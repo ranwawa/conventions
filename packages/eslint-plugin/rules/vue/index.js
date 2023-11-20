@@ -11,5 +11,5 @@ module.exports = {
     es6: true
   },
   plugins: ['vue'],
-  rules: [...originalRules]
+  rules: { ...originalRules }
 };
