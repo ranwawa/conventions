@@ -59,10 +59,11 @@ export const PLUGINS_CONFIG = {
     officialEditUrl: ''
   },
   '@typescript-eslint': {
-    docDirPath: 'docs/rules/script/typescript',
-    ruleDirPath: 'packages/eslint-plugin/rules/typescript',
-    ruleFilePath: 'packages/eslint-plugin/rules/typescript/originalRules.js',
-    officialUrl: 'https://typescript-eslint.io/rules/no-empty-function/',
+    docDirPath: 'docs/rules/script//@typescript-eslint',
+    ruleDirPath: 'packages/eslint-plugin/rules//@typescript-eslint',
+    ruleFilePath:
+      'packages/eslint-plugin/rules//@typescript-eslint/originalRules.js',
+    officialUrl: 'https://typescript-eslint.io/rules/',
     officialEditUrl:
       'https://github.com/typescript-eslint/typescript-eslint/edit/main/packages/eslint-plugin/docs/rules/'
   },

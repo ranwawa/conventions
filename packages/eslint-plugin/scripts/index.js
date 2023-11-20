@@ -13,18 +13,18 @@ const jsxa11yTranslatedMap = require('../rules/jsx-a11y/translatedMap');
 const nodeTranslatedMap = require('../rules/node/translatedMap');
 const reactTranslatedMap = require('../rules/react/translatedMap');
 const reactHooksTranslatedMap = require('../rules/react-hooks/translatedMap');
-const typescriptTranslatedMap = require('../rules/typescript/translatedMap');
+const typescriptTranslatedMap = require('../rules/@typescript-eslint/translatedMap.js');
 const vue2TranslatedMap = require('../rules/vue2/translatedMap');
-const vue3TranslatedMap = require('../rules/vue3/translatedMap');
+const vueTranslatedMap = require('../rules/vue/translatedMap.js');
 const importRuleConfig = require('../rules/import/originalRules');
 const eslintCoreRuleConfig = require('../rules/eslint-core/originalRules');
 const nodeRuleConfig = require('../rules/node/_commons');
 const jsxA11yRuleConfig = require('../rules/jsx-a11y/originalRules.js');
 const reactRuleConfig = require('../rules/react/originalRules');
 const reactHooksRuleConfig = require('../rules/react-hooks/originalRules');
-const typescriptRuleConfig = require('../rules/typescript/originalRules');
+const typescriptRuleConfig = require('../rules/@typescript-eslint/originalRules.js');
 const vue2RuleConfig = require('../rules/vue2/originalRules');
-const vue3RuleConfig = require('../rules/vue3/originalRules');
+const vueRuleConfig = require('../rules/vue/originalRules.js');
 
 const PLUGIN_RULES = require('./parsers.js');
 const { MARKDOWN_EXT, readAllMDFiles } = require('./utils.js');
@@ -32,28 +32,29 @@ const { MARKDOWN_EXT, readAllMDFiles } = require('./utils.js');
 const TRANSLATION_DIR = path.resolve('./docs/rules/script');
 const RULE_DIR = './packages/eslint-plugin/rules';
 
+// TODO: 要调用reWriteEslintRules中的createTranslatedMap动态获取已经翻译的规则
+// 而不需要再通过一个文件来转存
 const TRANSLATED_JSON = {
   import: importTranslatedMap,
   'eslint-core': eslintCoreTranslatedMap,
   'jsx-a11y': jsxa11yTranslatedMap,
   node: nodeTranslatedMap,
   react: reactTranslatedMap,
-  reactHooks: reactHooksTranslatedMap,
-  typescript: typescriptTranslatedMap,
-  vue2: vue2TranslatedMap,
-  vue3: vue3TranslatedMap
+  'react-hooks': reactHooksTranslatedMap,
+  '@typescript-eslint': typescriptTranslatedMap,
+  vue: vueTranslatedMap
 };
 
 const ORIGINAL_PLUGIN_RULE_CONFIG = {
+  '@typescript-eslint': typescriptRuleConfig,
   import: importRuleConfig,
   'eslint-core': eslintCoreRuleConfig,
   react: reactRuleConfig,
   'react-hooks': reactHooksRuleConfig,
   'jsx-a11y': jsxA11yRuleConfig,
   node: nodeRuleConfig,
-  typescript: typescriptRuleConfig,
   vue2: vue2RuleConfig,
-  vue3: vue3RuleConfig
+  vue: vueRuleConfig
 };
 
 /**
@@ -173,6 +174,7 @@ const createTranslatedPluginRules = (pluginName, { domain, prefix }) => {
   translatedRules.forEach((ruleName) => {
     const docUrl = createCustomDocUrl(translationDir, ruleName, domain);
     const newMeta = createEslintRuleMetaInfo(docUrl);
+
     const originalRule = PLUGIN_RULES[pluginName][ruleName];
 
     updateOriginalRuleMessages(originalRule, translatedJson[ruleName]);

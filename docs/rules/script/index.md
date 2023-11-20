@@ -10,8 +10,8 @@
 
 [react-hooks](./react-hooks/index.md)
 
-[typescript](./typescript/index.md)
+[typescript](./@typescript-eslint/index.md)
+
+[vue](./vue/index.md)
 
 [vue2](./vue2/index.md)
-
-[vue3](./vue3/index.md)

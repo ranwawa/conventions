@@ -23,6 +23,20 @@ npm run checkUnTranslateRules
 
 人工核对修改GPT的翻译结果,并将其保存上一步自动创建的模板文件中
 
+#### 执行生成翻译目录命令
+
+通过命令将已翻译的规则,生成目录文件
+
+```shell
+npm run reWriteEslintRules
+```
+
+该命令会自动执行以下操作
+
+1. 生成插件的翻译目录
+2. 禁用插件已翻译的原始规则,比如`'import/export': 'off'`
+3. 启用自定义规则,,比如`'@awawa/import/export': 'off'`
+
 #### 提交修改
 
 通过提交命令创建一个提交,注意提交类型选择`docs`
@@ -30,8 +44,6 @@ npm run checkUnTranslateRules
 ```shell
 npm run commit
 ```
-
-#### 创建PR
 
 ### 文档格式
 
@@ -69,7 +81,6 @@ npm run commit
 4. 描述为什么时,必须包含如下内容
    - 产生这个规则的原因
    - 问题引起的后果
-   - 怎么解决这个问题
 5. 示例代码必须包含语言标识
 
 ### 文档示例
@@ -78,7 +89,9 @@ npm run commit
 
 ## 重写文档链接
 
-在`vscode`等`ide`中,点击eslint的异常信息可以查看该异常的详细文档,通过重写eslint规则的文档链接,可以将其重定向到我们自己已翻译的网站上.
+在`vscode`等`ide`中,点击eslint的异常信息可以查看该异常的详细文档通
+
+过重写eslint规则的文档链接,可以将其重定向到我们自己已翻译的网站上.
 
 ### 重写源规则的元数据
 

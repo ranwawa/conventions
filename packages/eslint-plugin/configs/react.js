@@ -9,7 +9,7 @@ module.exports = {
       '../rules/import/index.js',
       '../rules/eslint-core/index.js',
       '../rules/react/index.js',
-      '../rules/typescript/index.js',
+      '../rules/@typescript-eslint/index.js',
       '../rules/react/index.js',
       '../rules/react-hooks/index.js',
       '../rules/jsx-a11y/index.js'

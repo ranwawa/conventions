@@ -8,8 +8,8 @@ module.exports = {
     ...[
       '../rules/import/index.js',
       '../rules/eslint-core/index.js',
-      '../rules/typescript/index.js',
-      '../rules/vue3/index.js'
+      '../rules/@typescript-eslint/index.js',
+      '../rules/vue/index.js'
     ].map(require.resolve),
     'plugin:eslint-plugin-prettier/recommended'
   ],

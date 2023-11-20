@@ -22,4 +22,18 @@ module.exports = {
   "mouse-events-have-key-events": "鼠标事件必须伴随键盘事件",
   "no-access-key": "禁止在元素上使用accessKey属性",
   "no-autofocus": "禁止在元素上使用autoFocus属性",
+  "no-distracting-elements": "禁止使用分散注意力的元素",
+  "no-interactive-element-to-noninteractive-role":
+    "禁止将交互元素转换为非交互元素",
+  "no-noninteractive-element-interactions": "禁止在非交互元素上添加交互事件",
+  "no-noninteractive-element-to-interactive-role": "非交互元素不能赋予交互角色",
+  "no-noninteractive-tabindex": "禁止在非交互元素上使用tabindex",
+  "no-redundant-roles": "禁止冗余的ARIA角色",
+  "no-static-element-interactions": "禁止在静态HTML元素上添加交互事件",
+  "role-has-required-aria-props":
+    "具有ARIA角色的元素必须具有该角色的所有必需属性",
+  "role-supports-aria-props":
+    "必须确保定义了显式或隐式角色的元素只包含该角色支持的`aria-*`属性",
+  scope: "`scope`属性只能用在`<th>`元素上",
+  "tabindex-no-positive": "禁止使用正数的tabIndex属性值",
 };

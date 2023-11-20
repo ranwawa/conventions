@@ -77,4 +77,73 @@ module.exports = {
   "@awawa/jsx-a11y/mouse-events-have-key-events": "warn",
   "@awawa/jsx-a11y/no-access-key": "warn",
   "@awawa/jsx-a11y/no-autofocus": ["warn", { ignoreNonDOM: true }],
+  "@awawa/jsx-a11y/no-distracting-elements": [
+    "warn",
+    { elements: ["marquee", "blink"] },
+  ],
+  "@awawa/jsx-a11y/no-interactive-element-to-noninteractive-role": [
+    "warn",
+    { tr: ["none", "presentation"] },
+  ],
+  "@awawa/jsx-a11y/no-noninteractive-element-interactions": [
+    "warn",
+    {
+      handlers: [
+        "onClick",
+        "onMouseDown",
+        "onMouseUp",
+        "onKeyPress",
+        "onKeyDown",
+        "onKeyUp",
+      ],
+    },
+  ],
+  "@awawa/jsx-a11y/no-noninteractive-element-to-interactive-role": [
+    "warn",
+    {
+      ul: [
+        "listbox",
+        "menu",
+        "menubar",
+        "radiogroup",
+        "tablist",
+        "tree",
+        "treegrid",
+      ],
+      ol: [
+        "listbox",
+        "menu",
+        "menubar",
+        "radiogroup",
+        "tablist",
+        "tree",
+        "treegrid",
+      ],
+      li: ["menuitem", "option", "row", "tab", "treeitem"],
+      table: ["grid"],
+      td: ["gridcell"],
+    },
+  ],
+  "@awawa/jsx-a11y/no-noninteractive-tabindex": [
+    "warn",
+    { tags: [], roles: ["tabpanel"] },
+  ],
+  "@awawa/jsx-a11y/no-redundant-roles": "warn",
+  "@awawa/jsx-a11y/no-static-element-interactions": [
+    "warn",
+    {
+      handlers: [
+        "onClick",
+        "onMouseDown",
+        "onMouseUp",
+        "onKeyPress",
+        "onKeyDown",
+        "onKeyUp",
+      ],
+    },
+  ],
+  "@awawa/jsx-a11y/role-has-required-aria-props": "warn",
+  "@awawa/jsx-a11y/role-supports-aria-props": "warn",
+  "@awawa/jsx-a11y/scope": "warn",
+  "@awawa/jsx-a11y/tabindex-no-positive": "warn",
 };

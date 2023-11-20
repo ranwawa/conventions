@@ -108,8 +108,10 @@ export const readReferenceDocLink = (pluginName, ruleName, isEdit = false) => {
   let link = `${url}${ruleName}.md`;
 
   // 规则都是github的md文件所以需要
-  // eslint官方规则基于md创建的网页,不需要md后缀
-  if (pluginName === '' && isEdit === false) {
+  // eslint官方规则/ts规则/vue规则基于md创建的网页,不需要md后缀
+  const notInGitHubPage = ['eslint-core', '@typescript-eslint', 'vue'];
+
+  if (notInGitHubPage.includes(pluginName) && isEdit === false) {
     link = link.replace(/\.md$/, '');
   }
 

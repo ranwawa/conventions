@@ -17,11 +17,11 @@
 │   ├── node-module.js
 │   ├── node-script.js
 │   ├── react.js
-│   ├── vue2.js
-│   └── vue3.js
+│   ├── vue.js
+│   └── vue2.js
 ├── environments          # 环境变量目录
 │   ├── uni-app.json      # uni-app相关的环境变量
-│   └── vue3.js
+│   └── vue.js
 ├── index.js              # 项目入口文件
 └── rules                 # 规则目录
     ├── imports           # import相关规则
@@ -30,8 +30,8 @@
     ├── node
     ├── react
     ├── typescript
-    ├── vue2
-    └── vue3
+    ├── vue
+    └── vue2
 ```
 
 ### 项目入口文件
