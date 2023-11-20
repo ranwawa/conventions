@@ -90,7 +90,7 @@ const main = async (pluginName) => {
   return { pluginName, unTranslateRules };
 };
 
-const startingTranslate = (firstUnTranslateRule) => {
+const startingTranslate = (firstUnTranslateRule, pluginName) => {
   if (!firstUnTranslateRule) {
     return;
   }
@@ -99,8 +99,7 @@ const startingTranslate = (firstUnTranslateRule) => {
   // 2. 打开翻译源文件
   // 3. 复制提示词到剪贴板
 
-  const { pluginName, ruleName } =
-    readPluginNameAndRuleName(firstUnTranslateRule);
+  const { ruleName } = readPluginNameAndRuleName(firstUnTranslateRule);
   const docDirPath = readDocDirPath(pluginName);
   const filePath = path.resolve(docDirPath, `${ruleName}.md`);
 
@@ -171,5 +170,5 @@ const startingTranslate = (firstUnTranslateRule) => {
   );
   const [firstUnTranslateRule] = unTranslateRules;
 
-  startingTranslate(firstUnTranslateRule);
+  startingTranslate(firstUnTranslateRule, selectedPluginName);
 })();
