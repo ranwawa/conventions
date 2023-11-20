@@ -80,13 +80,7 @@ export const readEnabledRules = async (pluginName) => {
     }
 
     if (isEnabled) {
-      let prefix = '';
-      // 处理插件前缀，修复自动创建翻译md文件找不到对应的plugin文件夹
-      // 从而创建到eslint-core文件夹下的问题
-      if (pluginName !== 'eslint-core' && !key.includes(pluginName)) {
-        prefix = `${pluginName}/`;
-      }
-      enabledRules[`${prefix}${key}`] = true;
+      enabledRules[key] = true;
       total += 1;
     }
   });
