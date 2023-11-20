@@ -90,7 +90,7 @@ const main = async (pluginName) => {
   return { pluginName, unTranslateRules };
 };
 
-const startingTranslate = (firstUnTranslateRule) => {
+const startingTranslate = (firstUnTranslateRule, pluginName) => {
   if (!firstUnTranslateRule) {
     return;
   }
@@ -99,8 +99,7 @@ const startingTranslate = (firstUnTranslateRule) => {
   // 2. 打开翻译源文件
   // 3. 复制提示词到剪贴板
 
-  const { pluginName, ruleName } =
-    readPluginNameAndRuleName(firstUnTranslateRule);
+  const { ruleName } = readPluginNameAndRuleName(firstUnTranslateRule);
   const docDirPath = readDocDirPath(pluginName);
   const filePath = path.resolve(docDirPath, `${ruleName}.md`);
 
@@ -169,13 +168,7 @@ const startingTranslate = (firstUnTranslateRule) => {
   const { unTranslateRules } = promiseResList.find(
     (res) => res.pluginName === selectedPluginName
   );
-  let [firstUnTranslateRule] = unTranslateRules;
+  const [firstUnTranslateRule] = unTranslateRules;
 
-  // 判断当前要翻译的规则是否有pluginName前缀，没有则加上
-  // 确保要翻译的规则会正确创建到对应的目录下
-  if (!firstUnTranslateRule.includes(`${selectedPluginName}/`)) {
-    firstUnTranslateRule = `${selectedPluginName}/${firstUnTranslateRule}`;
-  }
-
-  startingTranslate(firstUnTranslateRule);
+  startingTranslate(firstUnTranslateRule, selectedPluginName);
 })();
