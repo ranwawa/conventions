@@ -14,4 +14,8 @@ const ESLINT_PLUGINS = [
   'vue'
 ];
 
-module.exports = { ESLINT_PLUGINS };
+const WHITE_LIST = {
+  react: { 'jsx-quotes': true, 'class-methods-use-this': true }
+};
+
+module.exports = { ESLINT_PLUGINS, WHITE_LIST };

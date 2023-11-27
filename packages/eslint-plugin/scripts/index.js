@@ -7,27 +7,27 @@ const path = require('path');
 
 const lodash = require('lodash');
 
-const importTranslatedMap = require('../rules/import/translatedMap');
-const eslintCoreTranslatedMap = require('../rules/eslint-core/translatedMap');
-const jsxa11yTranslatedMap = require('../rules/jsx-a11y/translatedMap');
-const nodeTranslatedMap = require('../rules/node/translatedMap');
-const reactTranslatedMap = require('../rules/react/translatedMap');
-const reactHooksTranslatedMap = require('../rules/react-hooks/translatedMap');
-const typescriptTranslatedMap = require('../rules/@typescript-eslint/translatedMap.js');
-const vue2TranslatedMap = require('../rules/vue2/translatedMap');
-const vueTranslatedMap = require('../rules/vue/translatedMap.js');
-const importRuleConfig = require('../rules/import/originalRules');
+const typescriptRuleConfig = require('../rules/@typescript-eslint/originalRules');
+const typescriptTranslatedMap = require('../rules/@typescript-eslint/translatedMap');
 const eslintCoreRuleConfig = require('../rules/eslint-core/originalRules');
+const eslintCoreTranslatedMap = require('../rules/eslint-core/translatedMap');
+const importRuleConfig = require('../rules/import/originalRules');
+const importTranslatedMap = require('../rules/import/translatedMap');
+const jsxA11yRuleConfig = require('../rules/jsx-a11y/originalRules');
+const jsxa11yTranslatedMap = require('../rules/jsx-a11y/translatedMap');
 const nodeRuleConfig = require('../rules/node/_commons');
-const jsxA11yRuleConfig = require('../rules/jsx-a11y/originalRules.js');
+const nodeTranslatedMap = require('../rules/node/translatedMap');
 const reactRuleConfig = require('../rules/react/originalRules');
+const reactTranslatedMap = require('../rules/react/translatedMap');
 const reactHooksRuleConfig = require('../rules/react-hooks/originalRules');
-const typescriptRuleConfig = require('../rules/@typescript-eslint/originalRules.js');
+const reactHooksTranslatedMap = require('../rules/react-hooks/translatedMap');
+const vueRuleConfig = require('../rules/vue/originalRules');
+const vueTranslatedMap = require('../rules/vue/translatedMap');
 const vue2RuleConfig = require('../rules/vue2/originalRules');
-const vueRuleConfig = require('../rules/vue/originalRules.js');
 
-const PLUGIN_RULES = require('./parsers.js');
-const { MARKDOWN_EXT, readAllMDFiles } = require('./utils.js');
+const { WHITE_LIST } = require('./constants');
+const PLUGIN_RULES = require('./parsers');
+const { MARKDOWN_EXT, readAllMDFiles } = require('./utils');
 
 const TRANSLATION_DIR = path.resolve('./docs/rules/script');
 const RULE_DIR = './packages/eslint-plugin/rules';
@@ -111,15 +111,6 @@ const readPluginDirs = (pluginName) => ({
   ruleDir: path.resolve(RULE_DIR, pluginName)
 });
 
-/**
- * 获取原始规则
- * @param {string} ruleName 规则名
- * @param {string} pluginName 插件名
- */
-const readOriginalRule = (ruleName, pluginName) => {
-  return originalRule;
-};
-
 const updateOriginalRuleMessages = (originalRule, chineseTitle) => {
   const { messages } = originalRule.meta;
 
@@ -177,6 +168,12 @@ const createTranslatedPluginRules = (pluginName, { domain, prefix }) => {
 
     const originalRule = PLUGIN_RULES[pluginName][ruleName];
 
+    if (WHITE_LIST[pluginName]?.[ruleName]) {
+      console.log(
+        `${pluginName}下的规则${ruleName}在白名单内,不需要创建新的自定义规则`
+      );
+      return;
+    }
     updateOriginalRuleMessages(originalRule, translatedJson[ruleName]);
 
     const newRule = generateNewRule(newMeta, originalRule);
