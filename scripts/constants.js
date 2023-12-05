@@ -59,7 +59,7 @@ export const PLUGINS_CONFIG = {
     officialEditUrl: ''
   },
   '@typescript-eslint': {
-    docDirPath: 'docs/rules/script//@typescript-eslint',
+    docDirPath: 'docs/rules/script/@typescript-eslint',
     ruleDirPath: 'packages/eslint-plugin/rules//@typescript-eslint',
     ruleFilePath:
       'packages/eslint-plugin/rules//@typescript-eslint/originalRules.js',
@@ -68,9 +68,9 @@ export const PLUGINS_CONFIG = {
       'https://github.com/typescript-eslint/typescript-eslint/edit/main/packages/eslint-plugin/docs/rules/'
   },
   vue: {
-    docDirPath: 'docs/rules/script/vue2',
-    ruleDirPath: 'packages/eslint-plugin/rules/vue2',
-    ruleFilePath: 'packages/eslint-plugin/rules/vue2/originalRules.js',
+    docDirPath: 'docs/rules/script/vue',
+    ruleDirPath: 'packages/eslint-plugin/rules/vue',
+    ruleFilePath: 'packages/eslint-plugin/rules/vue/originalRules.js',
     officialUrl: 'https://eslint.vuejs.org/rules/',
     officialEditUrl:
       'https://github.com/vuejs/eslint-plugin-vue/edit/master/docs/rules/'

@@ -14,12 +14,6 @@ npm install --save-dev @awawa/eslint-plugin
 
 ## 初始化 eslint 配置文件
 
-vue2
-
-```shell
-echo '{ "extends": ["plugin:@awawa/eslint-plugin/vue2"] }' > .eslintrc
-```
-
 vue3 + ts
 
 ```shell

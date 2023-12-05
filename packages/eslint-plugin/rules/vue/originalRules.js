@@ -266,7 +266,7 @@ module.exports = {
   'vue/html-indent': 'warn',
   'vue/html-quotes': 'warn',
   'vue/html-self-closing': 'warn',
-  'vue/max-attributes-per-line': 'warn',
+  'vue/max-attributes-per-line': 'off',
   'vue/multiline-html-element-content-newline': 'warn',
   'vue/mustache-interpolation-spacing': 'warn',
   'vue/no-multi-spaces': 'warn',

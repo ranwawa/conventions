@@ -69,10 +69,6 @@ export default {
             {
               text: 'vue',
               link: '/rules/script/vue/'
-            },
-            {
-              text: 'vue2',
-              link: '/rules/script/vue2/'
             }
           ]
         }

@@ -23,7 +23,6 @@ const reactHooksRuleConfig = require('../rules/react-hooks/originalRules');
 const reactHooksTranslatedMap = require('../rules/react-hooks/translatedMap');
 const vueRuleConfig = require('../rules/vue/originalRules');
 const vueTranslatedMap = require('../rules/vue/translatedMap');
-const vue2RuleConfig = require('../rules/vue2/originalRules');
 
 const { WHITE_LIST } = require('./constants');
 const PLUGIN_RULES = require('./parsers');
@@ -53,7 +52,6 @@ const ORIGINAL_PLUGIN_RULE_CONFIG = {
   'react-hooks': reactHooksRuleConfig,
   'jsx-a11y': jsxA11yRuleConfig,
   node: nodeRuleConfig,
-  vue2: vue2RuleConfig,
   vue: vueRuleConfig
 };
 

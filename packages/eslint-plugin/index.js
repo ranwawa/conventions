@@ -8,7 +8,6 @@ const nodeModule = require('./configs/node-module');
 const nodeScript = require('./configs/node-script');
 const react = require('./configs/react');
 const vue = require('./configs/vue');
-const vue2 = require('./configs/vue2');
 const uniApp = require('./environments/uni-app');
 const package = require('./package');
 const { ESLINT_PLUGINS } = require('./scripts/constants');
@@ -41,7 +40,6 @@ module.exports = {
   // 注入自定义插件(修改源插件名及文档链接)
   rules: createAllCustomRules(),
   configs: {
-    vue2,
     vue,
     react,
     'node-module': nodeModule,

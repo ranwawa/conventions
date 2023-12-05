@@ -17,8 +17,7 @@
 │   ├── node-module.js
 │   ├── node-script.js
 │   ├── react.js
-│   ├── vue.js
-│   └── vue2.js
+│   └── vue.js
 ├── environments          # 环境变量目录
 │   ├── uni-app.json      # uni-app相关的环境变量
 │   └── vue.js
@@ -30,8 +29,7 @@
     ├── node
     ├── react
     ├── typescript
-    ├── vue
-    └── vue2
+    └── vue
 ```
 
 ### 项目入口文件

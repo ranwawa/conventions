@@ -13,5 +13,3 @@
 [typescript](./@typescript-eslint/index.md)
 
 [vue](./vue/index.md)
-
-[vue2](./vue2/index.md)
