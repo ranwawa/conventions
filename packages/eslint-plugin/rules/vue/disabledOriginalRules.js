@@ -12,4 +12,13 @@ module.exports = {
   "vue/no-deprecated-dollar-listeners-api": "off",
   "vue/no-deprecated-dollar-scopedslots-api": "off",
   "vue/no-deprecated-events-api": "off",
+  "vue/no-deprecated-filter": "off",
+  "vue/no-deprecated-functional-template": "off",
+  "vue/no-deprecated-html-element-is": "off",
+  "vue/no-deprecated-inline-template": "off",
+  "vue/no-deprecated-props-default-this": "off",
+  "vue/no-deprecated-router-link-tag-prop": "off",
+  "vue/no-deprecated-scope-attribute": "off",
+  "vue/no-deprecated-slot-attribute": "off",
+  "vue/no-deprecated-slot-scope-attribute": "off",
 };

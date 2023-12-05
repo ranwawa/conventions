@@ -25,3 +25,21 @@
 [禁止使用已废弃的`$scopedSlots` (在Vue.js 3.0.0+中)](./no-deprecated-dollar-scopedslots-api.md)
 
 [禁止使用已废弃的事件API](./no-deprecated-events-api.md)
+
+[禁止使用已废弃的`functional`模板](./no-deprecated-filter.md)
+
+[为什么?](./no-deprecated-functional-template.md)
+
+[禁止在HTML元素上使用已废弃的`is`属性](./no-deprecated-html-element-is.md)
+
+[禁止使用已废弃的`inline-template`属性](./no-deprecated-inline-template.md)
+
+[禁止在props默认函数中使用已弃用的`this`](./no-deprecated-props-default-this.md)
+
+[禁止在`RouterLink`上使用已弃用的`tag`属性](./no-deprecated-router-link-tag-prop.md)
+
+[禁止使用已废弃的`slot`属性](./no-deprecated-scope-attribute.md)
+
+[为什么?](./no-deprecated-slot-attribute.md)
+
+[禁止使用已废弃的`slot-scope`属性](./no-deprecated-slot-scope-attribute.md)
