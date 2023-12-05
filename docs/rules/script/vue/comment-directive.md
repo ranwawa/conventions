@@ -12,14 +12,12 @@
 
 ### 错误示例
 
-<eslint-code-block :rules="{'vue/comment-directive': ['error'], 'vue/max-attributes-per-line': ['error']}">
 ```vue
 <template>
   <!-- eslint-disable-next-line vue/max-attributes-per-line -->
   <div a="1" />
 </template>
 ```
-</eslint-code-block>
 
 ### 正确示例
 
