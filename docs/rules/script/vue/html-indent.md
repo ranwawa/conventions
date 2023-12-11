@@ -1,4 +1,4 @@
-# vue/html-indent
+ # vue/html-indent
 
 模板中的缩进必须是2个空格
 
@@ -14,7 +14,9 @@
 
 ```vue
 <template>
-  <div class="foo">Hello.</div>
+ <div class="foo">
+   Hello.
+    </div>
 </template>
 ```
 
@@ -22,7 +24,9 @@
 
 ```vue
 <template>
-  <div class="foo">Hello.</div>
+  <div class="foo">
+    Hello.
+  </div>
 </template>
 ```
 
