@@ -3,12 +3,17 @@
  * @Date: 2023-05-14 20:17:12
  * @Author: ranqirong 274544338@qq.com
  */
-export default {
+import { defineConfig } from 'vitepress';
+
+export default defineConfig({
   title: 'awawa',
   description: 'awawa前端通用规范',
+  logo: '/img/logo.jpg',
   cleanUrls: true,
   base: '/conventions/',
+  head: [['link', { rel: 'icon', type: 'image/jpeg', href: '/img/logo.jpg' }]],
   themeConfig: {
+    logo: { src: '/img/logo.jpg', width: 24, height: 24 },
     nav: [
       { text: '工具接入', link: '/guide/script/quick-start' },
       { text: '规范细则', link: '/rules/index' }
@@ -84,4 +89,4 @@ export default {
   prev: '上一页',
   next: '下一页',
   lastUpdated: true
-};
+});
