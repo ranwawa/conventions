@@ -5,3 +5,7 @@ first-attribute-linebreak.md
 html-closing-bracket-newline.md
 html-closing-bracket-spacing.md
 docs/rules/script/vue/html-indent.md
+docs/rules/script/vue/multiline-html-element-content-newline.md
+docs/rules/script/vue/mustache-interpolation-spacing.md
+docs/rules/script/vue/no-multi-spaces.md
+docs/rules/script/vue/no-spaces-around-equal-signs-in-attribute.md
