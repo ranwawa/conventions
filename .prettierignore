@@ -9,3 +9,4 @@ docs/rules/script/vue/multiline-html-element-content-newline.md
 docs/rules/script/vue/mustache-interpolation-spacing.md
 docs/rules/script/vue/no-multi-spaces.md
 docs/rules/script/vue/no-spaces-around-equal-signs-in-attribute.md
+docs/rules/script/vue/singleline-html-element-content-newline.md
