@@ -10,6 +10,7 @@ import URL from 'url';
 import chalk from 'chalk';
 
 import { PLUGINS_CONFIG } from './constants.js';
+import { WHITE_LIST } from '@awawa/eslint-plugin/scripts/constants.js';
 
 export const MARKDOWN_EXT = '.md';
 
@@ -79,7 +80,7 @@ export const readEnabledRules = async (pluginName) => {
         break;
     }
 
-    if (isEnabled) {
+    if (isEnabled && !WHITE_LIST[pluginName]?.[key]) {
       enabledRules[key] = true;
       total += 1;
     }
