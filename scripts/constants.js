@@ -48,8 +48,10 @@ export const PLUGINS_CONFIG = {
     docDirPath: 'docs/rules/script/react',
     ruleDirPath: 'packages/eslint-plugin/rules/react',
     ruleFilePath: 'packages/eslint-plugin/rules/react/originalRules.js',
-    officialUrl: '',
-    officialEditUrl: ''
+    officialUrl:
+      'https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/',
+    officialEditUrl:
+      'https://github.com/jsx-eslint/eslint-plugin-react/edit/master/docs/rules/'
   },
   'react-hooks': {
     docDirPath: 'docs/rules/script/react-hooks',

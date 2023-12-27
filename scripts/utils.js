@@ -96,6 +96,10 @@ export const readEnabledRules = async (pluginName) => {
 export const readReferenceDocLink = (pluginName, ruleName, isEdit = false) => {
   let url = readOfficialUrl(pluginName);
 
+  if (!url) {
+    console.log(chalk.red('当前插件未配置官方文档链接: '), pluginName);
+  }
+
   if (isEdit) {
     url = readOfficialEditUrl(pluginName);
   }
