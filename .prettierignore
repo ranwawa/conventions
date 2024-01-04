@@ -10,3 +10,8 @@ docs/rules/script/vue/mustache-interpolation-spacing.md
 docs/rules/script/vue/no-multi-spaces.md
 docs/rules/script/vue/no-spaces-around-equal-signs-in-attribute.md
 docs/rules/script/vue/singleline-html-element-content-newline.md
+docs/rules/script/react/jsx-closing-bracket-location.md
+docs/rules/script/react/jsx-closing-tag-location.md
+docs/rules/script/react/jsx-curly-spacing.md
+docs/rules/script/react/jsx-indent-props.md
+docs/rules/script/react/jsx-max-props-per-line.md

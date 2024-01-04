@@ -94,7 +94,7 @@ module.exports = {
     'error',
     {
       ignoreRefs: true,
-      allowArrowFunctions: true,
+      allowArrowFunctions: false,
       allowFunctions: false,
       allowBind: false,
       ignoreDOMComponents: true

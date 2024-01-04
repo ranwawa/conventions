@@ -1,7 +1,7 @@
 // 文件自动生成,请勿修改
 module.exports = {
   "array-callback-return": "必须在数组方法的回调中使用return语句",
-  "arrow-body-style": "箭头函数体风格",
+  "arrow-body-style": "禁止使用花括号和return",
   "arrow-parens": "箭头函数参数必须使用括号包裹",
   "arrow-spacing": "箭头函数的箭头前后必须有空格",
   "block-scoped-var": "禁止使用其他块级作用域的var变量",

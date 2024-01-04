@@ -1,6 +1,6 @@
 # arrow-body-style
 
-箭头函数体风格
+禁止使用花括号和return
 
 ### 为什么
 

@@ -4,7 +4,7 @@
 -->
 [必须在数组方法的回调中使用return语句](./array-callback-return.md)
 
-[箭头函数体风格](./arrow-body-style.md)
+[禁止使用花括号和return](./arrow-body-style.md)
 
 [箭头函数参数必须使用括号包裹](./arrow-parens.md)
 
