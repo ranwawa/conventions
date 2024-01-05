@@ -35,4 +35,17 @@ module.exports = {
   "@awawa/react/jsx-no-undef": "error",
   "@awawa/react/jsx-pascal-case": ["error", { allowAllCaps: true, ignore: [] }],
   "@awawa/react/jsx-uses-react": ["error"],
+  "@awawa/react/jsx-uses-vars": "error",
+  "@awawa/react/no-danger": "warn",
+  "@awawa/react/no-deprecated": ["error"],
+  "@awawa/react/no-did-update-set-state": "error",
+  "@awawa/react/no-is-mounted": "error",
+  "@awawa/react/no-string-refs": "error",
+  "@awawa/react/no-unknown-property": "error",
+  "@awawa/react/no-will-update-set-state": "error",
+  "@awawa/react/prefer-es6-class": ["error", "always"],
+  "@awawa/react/prefer-stateless-function": [
+    "error",
+    { ignorePureComponents: true },
+  ],
 };

@@ -25,3 +25,23 @@
 [必须使用驼峰命名自定义组件](./jsx-pascal-case.md)
 
 [禁止错误地将React标记为未使用](./jsx-uses-react.md)
+
+[禁止未使用的变量](./jsx-uses-vars.md)
+
+[禁止使用危险的JSX属性](./no-danger.md)
+
+[禁止使用已废弃的方法](./no-deprecated.md)
+
+[禁止在componentDidUpdate中使用setState](./no-did-update-set-state.md)
+
+[禁止使用isMounted](./no-is-mounted.md)
+
+[禁止使用字符串引用](./no-string-refs.md)
+
+[禁止使用未知的DOM属性](./no-unknown-property.md)
+
+[禁止在componentWillUpdate中使用setState](./no-will-update-set-state.md)
+
+[推荐使用ES6类来创建React组件](./prefer-es6-class.md)
+
+[推荐使用纯函数组件](./prefer-stateless-function.md)
