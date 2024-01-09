@@ -21,7 +21,7 @@
 import React from 'react';
 
 export default class Hello extends React.Component {
-  // render应该放在最后
+  // render没有放在最后
   render() {
     return <div>{this.hello} ranwawa</div>;
   }

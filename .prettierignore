@@ -15,3 +15,7 @@ docs/rules/script/react/jsx-closing-tag-location.md
 docs/rules/script/react/jsx-curly-spacing.md
 docs/rules/script/react/jsx-indent-props.md
 docs/rules/script/react/jsx-max-props-per-line.md
+docs/rules/script/react/jsx-wrap-multilines.md
+docs/rules/script/react/jsx-first-prop-new-line.md
+docs/rules/script/react/jsx-equals-spacing.md
+docs/rules/script/react/jsx-indent.md

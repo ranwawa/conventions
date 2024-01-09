@@ -12,13 +12,21 @@
 
 [禁止在JSX属性和表达式的花括号内使用空格](./jsx-curly-spacing.md)
 
+[JSX属性中的等号两侧必须没有空格](./jsx-equals-spacing.md)
+
+[必须把第一个属性在新行](./jsx-first-prop-new-line.md)
+
 [必须使用2个空格缩进JSX中的属性](./jsx-indent-props.md)
+
+[必须使用2个空格进行JSX缩进](./jsx-indent.md)
 
 [多行属性每行最多只能有一个属性](./jsx-max-props-per-line.md)
 
 [禁止在JSX属性中使用.bind()或箭头函数](./jsx-no-bind.md)
 
 [禁止在JSX中使用重复的属性](./jsx-no-duplicate-props.md)
+
+[禁止在没有rel="noreferrer"的情况下使用target="\_blank"属性](./jsx-no-target-blank.md)
 
 [禁止在JSX中使用未声明的组件](./jsx-no-undef.md)
 
@@ -27,6 +35,8 @@
 [禁止错误地将React标记为未使用](./jsx-uses-react.md)
 
 [禁止未使用的变量](./jsx-uses-vars.md)
+
+[必须在多行JSX周围添加括号](./jsx-wrap-multilines.md)
 
 [禁止使用危险的JSX属性](./no-danger.md)
 
@@ -45,3 +55,13 @@
 [推荐使用ES6类来创建React组件](./prefer-es6-class.md)
 
 [推荐使用纯函数组件](./prefer-stateless-function.md)
+
+[禁止出现未定义过类型的属性](./prop-types.md)
+
+[必须引入React](./react-in-jsx-scope.md)
+
+[必须在render函数中返回值](./require-render-return.md)
+
+[必须使用自闭合标签](./self-closing-comp.md)
+
+[强制组件方法顺序](./sort-comp.md)
