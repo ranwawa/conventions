@@ -17,6 +17,10 @@ module.exports = {
     { allowMultiline: true },
   ],
   "@awawa/react/jsx-equals-spacing": ["error", "never"],
+  "@awawa/react/jsx-filename-extension": [
+    "error",
+    { extensions: [".jsx", ".tsx"] },
+  ],
   "@awawa/react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
   "@awawa/react/jsx-indent-props": ["error", 2],
   "@awawa/react/jsx-indent": ["error", 2],
@@ -34,6 +38,7 @@ module.exports = {
       ignoreDOMComponents: true,
     },
   ],
+  "@awawa/react/jsx-no-comment-textnodes": "error",
   "@awawa/react/jsx-no-duplicate-props": ["error", { ignoreCase: true }],
   "@awawa/react/jsx-no-target-blank": [
     "error",
@@ -41,6 +46,15 @@ module.exports = {
   ],
   "@awawa/react/jsx-no-undef": "error",
   "@awawa/react/jsx-pascal-case": ["error", { allowAllCaps: true, ignore: [] }],
+  "@awawa/react/jsx-tag-spacing": [
+    "error",
+    {
+      closingSlash: "never",
+      beforeSelfClosing: "always",
+      afterOpening: "never",
+      beforeClosing: "never",
+    },
+  ],
   "@awawa/react/jsx-uses-react": ["error"],
   "@awawa/react/jsx-uses-vars": "error",
   "@awawa/react/jsx-wrap-multilines": [
@@ -55,12 +69,21 @@ module.exports = {
       prop: "parens-new-line",
     },
   ],
+  "@awawa/react/no-children-prop": "error",
+  "@awawa/react/no-danger-with-children": "error",
   "@awawa/react/no-danger": "warn",
   "@awawa/react/no-deprecated": ["error"],
   "@awawa/react/no-did-update-set-state": "error",
+  "@awawa/react/no-find-dom-node": "error",
   "@awawa/react/no-is-mounted": "error",
+  "@awawa/react/no-render-return-value": "error",
   "@awawa/react/no-string-refs": "error",
+  "@awawa/react/no-unescaped-entities": "error",
   "@awawa/react/no-unknown-property": "error",
+  "@awawa/react/no-unused-prop-types": [
+    "error",
+    { customValidators: [], skipShapeProps: true },
+  ],
   "@awawa/react/no-will-update-set-state": "error",
   "@awawa/react/prefer-es6-class": ["error", "always"],
   "@awawa/react/prefer-stateless-function": [
@@ -123,4 +146,5 @@ module.exports = {
       },
     },
   ],
+  "@awawa/react/style-prop-object": "error",
 };
